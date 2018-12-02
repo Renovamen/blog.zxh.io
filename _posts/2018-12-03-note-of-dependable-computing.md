@@ -61,7 +61,7 @@ tags:
 
 对偶函数：$g^ \sharp(x_1, x_2, x_3)=(x_1+x_2+x_3’)(x_1’+x_2’+x_3)$
 
-<img src="../img/in-post/2018-12-03/7/1.png" width="400"/>
+<img src="/img/in-post/2018-12-03/7/1.png" width="400"/>
 
 原函数的输入： $ (x_1, x_2, x_3)=(1, 1, 1) $
 
@@ -85,7 +85,7 @@ $∴ g^\sharp=g’ $
 
 ### 7.4.1 重复计算检测瞬时故障
 
-<img src="../img/in-post/2018-12-03/7/2.png" width="500"/>
+<img src="/img/in-post/2018-12-03/7/2.png" width="500"/>
 
 相同的计算重复进行两次或多次，并比较计算结果以检测是否有差错。若检测到差错，则可再计算一次，以消除瞬时故障的影响，达到恢复的目的
 
@@ -123,7 +123,7 @@ $∴ g^\sharp=g’ $
 - 右移第二次计算的结果一位
 - 比较：结果的第i位与第i-1位出现不一致
 
-<img src="../img/in-post/2018-12-03/7/3.png" width="250"/>
+<img src="/img/in-post/2018-12-03/7/3.png" width="250"/>
 
 
 
@@ -139,7 +139,7 @@ $∴ g^\sharp=g’ $
 
 结构：
 
-<img src="../img/in-post/2018-12-03/7/4.png" width="600"/>
+<img src="/img/in-post/2018-12-03/7/4.png" width="600"/>
 
 
 
@@ -179,7 +179,7 @@ $∴ g^\sharp=g’ $
 
 结构：
 
-<img src="../img/in-post/2018-12-03/7/5.png" width="600"/>
+<img src="/img/in-post/2018-12-03/7/5.png" width="600"/>
 
 
 
@@ -203,7 +203,7 @@ $∴ g^\sharp=g’ $
 
 双模比较重算全加器结构：
 
-<img src="../img/in-post/2018-12-03/7/6.png" width="600"/>
+<img src="/img/in-post/2018-12-03/7/6.png" width="600"/>
 
 
 
@@ -215,7 +215,7 @@ $∴ g^\sharp=g’ $
 
 
 
-<img src="../img/in-post/2018-12-03/7/7.png" width="450"/>
+<img src="/img/in-post/2018-12-03/7/7.png" width="450"/>
 
 
 
@@ -223,7 +223,7 @@ $∴ g^\sharp=g’ $
 
 相关错误的概率随着时间差d的增加而减少
 
-<img src="../img/in-post/2018-12-03/7/8.png" width="350"/>
+<img src="/img/in-post/2018-12-03/7/8.png" width="350"/>
 
 
 
