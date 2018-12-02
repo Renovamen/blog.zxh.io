@@ -46,7 +46,7 @@ tags:
 
 2. 在`_layouts/post.html`的`Post Header`中添加(去掉'/')：
 
-   ```
+   ```html
    /{/% include mathjax.html %/}/
    ```
 
