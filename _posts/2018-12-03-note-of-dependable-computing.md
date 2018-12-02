@@ -4,6 +4,7 @@ title: "笔记 | 容错与安全计算"
 subtitle: 'Note of Dependable Computing'
 author: "Renovamen"
 header-style: text
+mathjax: true
 tags:
   - Note
   - 可信计算
