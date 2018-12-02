@@ -44,23 +44,18 @@ tags:
    {% endif %}
    ```
 
-&nbsp;
 2. 在`_layouts/post.html`的`Post Header`中添加：
 
-   ```
-   # {% include mathjax.html %}
-   ```
 
 
-&nbsp
 3. 在想要启用Mathjax的文章的[Front Matter](https://jekyllrb.com/docs/front-matter)中添加：
 
    ```
       mathjax: true
    ```
-
-
-
+   
+   
+   &nbsp;
    栗子：
 
    本文的Front Matter长这样：
