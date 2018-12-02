@@ -5,7 +5,6 @@ subtitle: 'Enable MathJax in GitHub Pages '
 author: "Renovamen"
 header-style: text
 mathjax: true
-comments: true
 tags:
   - 摸爬滚打
 ---
@@ -45,7 +44,7 @@ tags:
    {% endif %}
    ```
 
-
+&nbsp;
 2. 在`_layouts/post.html`的`Post Header`中添加：
 
    ```html
@@ -53,7 +52,7 @@ tags:
    ```
 
 
-
+&nbsp
 3. 在想要启用Mathjax的文章的[Front Matter](https://jekyllrb.com/docs/front-matter)中添加：
 
    ```
@@ -73,13 +72,9 @@ tags:
    author: "Renovamen"
    header-style: text
    mathjax: true
-   comments: true
    tags:
      - 摸爬滚打
    ```
-
-   PS. 可以用同样的方法启用[Disqus](https://disqus.com/)（评论区）
-
 
 
 然后理论上就可以在文章中显示Markdown数学公式了。
@@ -91,4 +86,3 @@ tags:
 薛定谔方程：$i \hbar \frac{\epsilon}{\epsilon t} \psi(r, t)= \hat{H} \psi(r, t)$
 
 傅里叶变换：$\hat{f}(\xi):=\int_{-\infty}^{\infty}f(x)e^{-2 \pi  ix \xi}dx$
-
