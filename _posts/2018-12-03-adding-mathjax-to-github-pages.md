@@ -47,8 +47,8 @@ tags:
 &nbsp;
 2. 在`_layouts/post.html`的`Post Header`中添加：
 
-   ```html
-   {% include mathjax.html %}
+   ```
+   # {% include mathjax.html %}
    ```
 
 
