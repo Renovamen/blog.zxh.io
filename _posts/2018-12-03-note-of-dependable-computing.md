@@ -5,7 +5,7 @@ subtitle: 'Note of Dependable Computing'
 author: "Renovamen"
 header-style: text
 mathjax: true
-header-img: "img/in-post/2018-12-03/header.jpg"
+header-img: "img/in-post/2018-12-03/header.JPG"
 tags:
   - Note
   - 可信计算
