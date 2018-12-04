@@ -3,7 +3,7 @@ layout: post
 title: "翻译 |  IGN：Underworld Ascendant Review"
 subtitle: 'Translation of Underworld Ascendant Review'
 author: "Renovamen"
-header-img: "img/in-post/2018-12-05/Underworld-Ascendant.JPG"
+header-img: "img/in-post/2018-12-05/Underworld-Ascendant.jpg"
 tags:
   - 摸鱼
 ---
@@ -63,4 +63,4 @@ Bug和奇怪的AI几乎完全无视隐身机制。 有时敌人毫无理由的�
 
 在评论区看到了很多对于《Fallout 76》评分的讨论，所以决定下一篇就翻它的评测了（5分）...
 
-<div align="center"><img src="img/in-post/2018-12-05/underworld-ascendant-comment.png" width="700" /></div>
+<div align="center"><img src="/img/in-post/2018-12-05/underworld-ascendant-comment.png" width="700" /></div>
