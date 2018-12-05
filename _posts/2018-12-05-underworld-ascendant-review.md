@@ -12,6 +12,8 @@ tags:
 
 继续发展我“翻译IGN上的低分评测（5分及以下）”的爱好......
 这是一篇IGN对开发商 OtherSide Entertainment 开发的由众筹支持的动作RPG独立游戏《Underworld Ascendant》的评测，评分为三分，[Steam](https://store.steampowered.com/app/692840/Underworld_Ascendant/)上总体评测为多半差评。
+
+&nbsp;
 <a href="https://www.ign.com/articles/2018/11/29/underworld-ascendant-review"><i class="fa fa-link"></i> 原文链接</a>
 
 ------------
@@ -21,8 +23,6 @@ tags:
 ......然后摔倒在地上——因为形状随意变化的冥河深渊(Stygian Abyss)消失了。Underworld的主角，Ascendant，朝着一张张排好序的地图坠落，然后被强制退出。同时，由于*Underworld Ascendant*荒谬的存档机制，我失去了所有的进度，整整一夜的精心探索、战斗和隐身都被我无法控制的东西搞得一团糟。
 
 重复上述经历无数次，就组成了*Underworld Ascendant* 的整个体验。
-
-<div align="center" ><iframe src="http://widgets.ign.com/video/embed/content.html?url=https://www.ign.com/videos/2018/11/05/underworld-ascendant-launch-trailer" width="668" height="393" scrolling="no" frameborder="0" allowfullscreen></iframe></div>
 
 就像练习误导艺术的魔术师一样，RPG游戏有很多种方式通过优秀的故事情节和清晰的带入感来摆脱它的缺陷。 Bethesda的《上古卷轴》系列（*Elder Scrolls*）和《辐射》系列（*Fallout*）也许就是典型代表。 然而，*Underworld Ascendant*甚至都没有创造出这种错觉，而是只提供了一个老套简单的剧情：天选者需要打开一些盒子来应对想要毁灭或统治世界的古老邪恶力量的威胁。 它以一种既不有趣也不新颖的方式来让玩家探索这种相当滑稽的情节 —— 我从未真正关心到底发生了什么，同时也从未感觉到任何悬念或压力。 *Underworld*会告诉你世界末日的倒计时在渐渐归零，但是我在花了痛苦的大概二十个小时后它依然没降到零。
 
