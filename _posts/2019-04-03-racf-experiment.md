@@ -19,7 +19,7 @@ tags:
 
 ### 1. 组的结构
 
-<img src="/img/in-post/2019-04-03/racf-2.1.png">
+<img src="/img/in-post/2019-04-03/racf-2.1.png" />
 
 
 
@@ -120,7 +120,7 @@ SEARCH CLASS(GROUP) MASK(DIV16)
 
 ## 用户管理
 
-<img src="/img/in-post/2019-04-03/racf-3.1.png">
+<img src="/img/in-post/2019-04-03/racf-3.1.png" />
 
 ### 1. 新建用户
 
@@ -267,7 +267,7 @@ LG FUN16TST
 
 
 
-<img src="/img/in-post/2019-04-03/racf-4.1.png">
+<img src="/img/in-post/2019-04-03/racf-4.1.png" />
 
 
 
@@ -587,7 +587,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 组结构：
 
-<img src="/img/in-post/2019-04-03/racf-7.1.png">
+<img src="/img/in-post/2019-04-03/racf-7.1.png" />
 
 
 
