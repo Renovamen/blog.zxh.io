@@ -3,7 +3,7 @@ layout: post
 title: "RACF实验"
 subtitle: 'RACF Experiment'
 author: "Renovamen"
-header-img: "img/in-post/2019-04-03/RACF.jpg"
+header-img: "img/in-post/2019-04-03/RACF.png"
 tags:
   - 主机
 ---
