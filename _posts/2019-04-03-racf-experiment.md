@@ -4,6 +4,7 @@ title: "RACF实验"
 subtitle: 'RACF Experiment'
 author: "Renovamen"
 header-img: "img/in-post/2019-04-03/RACF.png"
+mathjax: true
 tags:
   - 主机
 ---
@@ -18,7 +19,7 @@ tags:
 
 ### 1. 组的结构
 
-<img src="/img/in-post/2019-04-03/racf-2.1.png"></img>
+<img src="/img/in-post/2019-04-03/racf-2.1.png">
 
 
 
@@ -119,7 +120,7 @@ SEARCH CLASS(GROUP) MASK(DIV16)
 
 ## 用户管理
 
-<img src="/img/in-post/2019-04-03/racf-3.1.png"></img>
+<img src="/img/in-post/2019-04-03/racf-3.1.png">
 
 ### 1. 新建用户
 
@@ -266,7 +267,7 @@ LG FUN16TST
 
 
 
-<img src="/img/in-post/2019-04-03/racf-4.1.png"></img>
+<img src="/img/in-post/2019-04-03/racf-4.1.png">
 
 
 
@@ -457,24 +458,24 @@ LISTDSD DATASET('RES16PRD.**') ALL
 ```
                             Allocate New Data Set
 Data Set Name  . . . : RESxxPRD.DATA
-Management class . . .								(Blank for default management class)
-Storage class  . . . .								(Blank for default storage class)
- Volume serial . . . . 								(Blank for system default volume) **
- Device type . . . . .								(Generic unit or device address) **
-Data class . . . . . .								(Blank for default data class)
- Space units . . . . . TRKS						(BLKS, TRKS, CYLS, KB, MB, BYTES or RECORDS)
- Average record unit									(M, K, or U)
- Primary quantity  . . 1 							(In above units)
- Secondary quantity    1 							(In above units)
- Directory blocks  . .								(Zero for sequential data set) *
+Management class . . .        (Blank for default management class)
+Storage class  . . . .        (Blank for default storage class)
+ Volume serial . . . .        (Blank for system default volume) **
+ Device type . . . . .        (Generic unit or device address) **
+Data class . . . . . .        (Blank for default data class)
+ Space units . . . . . TRKS   (BLKS, TRKS, CYLS, KB, MB, BYTES or RECORDS)
+ Average record unit          (M, K, or U)
+ Primary quantity  . . 1      (In above units)
+ Secondary quantity    1      (In above units)
+ Directory blocks  . .        (Zero for sequential data set) *
  Record format . . . . FB
  Record length . . . . 80 
  Blocksize   . . . . . 
- Data set name type :									(LIBRARY, HFS, PDS, or blank)  *
- 																			(YY/MM/DD, YYYY/MM/DD
- Expiration date . . .								 YY.DDD, YYYY.DDD in Julian form
-Enter "/" to select option						 DDDD for retention period in days
-	 Allocate Multiple Volumes					 or blank)
+ Data set name type :         (LIBRARY, HFS, PDS, or blank)  *
+                              (YY/MM/DD, YYYY/MM/DD
+ Expiration date . . .         YY.DDD, YYYY.DDD in Julian form
+Enter "/" to select option     DDDD for retention period in days
+   Allocate Multiple Volumes   or blank)
 
 ( * Specifying LIBRARY may override zero directory block)
 
@@ -586,7 +587,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 组结构：
 
-<img src="/img/in-post/2019-04-03/racf-7.1.png"></img>
+<img src="/img/in-post/2019-04-03/racf-7.1.png">
 
 
 
