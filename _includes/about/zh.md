@@ -5,4 +5,4 @@
 较常出没的一些形态：
 <img src="/img/about-god.png"/>
 
-主题用的[Hux Blog](https://huangxuan.me/)，[Github地址](https://github.com/Huxpro/huxpro.github.io)。
+主题用的 [Hux Blog](https://huangxuan.me/)，[Github地址](https://github.com/Huxpro/huxpro.github.io)。
