@@ -3,8 +3,9 @@ layout: post
 title: "RACF实验"
 subtitle: 'RACF Experiment'
 author: "Renovamen"
-header-img: "img/in-post/2019-04-03/RACF.jpg"
+header-style: text
 mathjax: true
+catalog: true
 tags:
   - 主机
 ---
@@ -15,19 +16,19 @@ tags:
 
 
 
-## 创建组
+### 创建组
 
-### 1. 组的结构
+#### 1. 组的结构
 
 <img src="/img/in-post/2019-04-03/racf-2.1.png" />
 
 
 
-### 2. 登陆TSO
+#### 2. 登陆TSO
 
-以RACFLAB组管理员身份登陆TSO：
+以 RACFLAB 组管理员身份登陆TSO：
 
-1. 以ST016用户身份登录TSO，进ISPF；
+1. 以 ST016 用户身份登录 TSO，进 ISPF；
 
 2. "P" $\rightarrow$ "6"（或直接"P.6"）
 
@@ -39,7 +40,7 @@ tags:
 
    
 
-### 3. 在RACFLAB下定义子组
+#### 3. 在 RACFLAB 下定义子组
 
 利用 RACF 命令定义以下子组：
 
@@ -73,7 +74,7 @@ LG DIV16RES
 
 
 
-### 4. 在DIV16FUN下定义子组（功能组）
+#### 4. 在 DIV16FUN 下定义子组（功能组）
 
 利用 RACF 命令定义以下子组：
 
@@ -83,15 +84,15 @@ LG DIV16RES
   ADDGROUP FUN16PRD OWNER(DIV16FUN) SUPGROUP(DIV16FUN)
   ```
 
-- 定义 FUNxxTST 功能组，该组将用于对测试系统数据集（Test Data Sets）的访问进行集中授权（即如果该组对测试系统数据集有访问权限，该组的成员将自动继承这一权限），RACF 命令：
+- 定义 FUN16TST 功能组，该组将用于对测试系统数据集（Test Data Sets）的访问进行集中授权（即如果该组对测试系统数据集有访问权限，该组的成员将自动继承这一权限），RACF 命令：
 
   ```
-  ADDGROUP FUN16PTST OWNER(DIV16FUN) SUPGROUP(DIV16FUN)
+  ADDGROUP FUN16TST OWNER(DIV16FUN) SUPGROUP(DIV16FUN)
   ```
 
 
 
-### 5. 在DIV16RES下定义子组（资源组）
+#### 5. 在 DIV16RES 下定义子组（资源组）
 利用 RACF 命令定义以下子组（RACF 中数据集 Profile 的 HLQ 必须是 RACF 系统中的一个用户或者组，这里为即将要保护的数据集 RES16PRD.* 和 RES16TST 定义 2 个子组）：
 
 - 定义 RES16PRD 资源组，该组将用于保护生产系统的数据集。RACF 命令：
@@ -108,7 +109,7 @@ LG DIV16RES
 
 
 
-### 6. 查找组Profile 
+#### 6. 查找组 Profile 
 
 ```
 SEARCH CLASS(GROUP) MASK(DIV16)
@@ -117,12 +118,12 @@ SEARCH CLASS(GROUP) MASK(DIV16)
  
 
 
-
-## 用户管理
+&nbsp;
+### 用户管理
 
 <img src="/img/in-post/2019-04-03/racf-3.1.png" />
 
-### 1. 新建用户
+#### 1. 新建用户
 
 1. 在不太了解用户需要什么权限的情况下，一般只给出最低权限，利用 RACF 命令完成以下设置：
    1. 指定用户的默认组为 DIV16ADM 
@@ -166,19 +167,19 @@ SEARCH CLASS(GROUP) MASK(DIV16)
 
    在 OPTION3.4 中 DSN Level 输入 TSO1601 回车，看是否显示其 "ALIAS"，如果出现类似下面的结果则表明 ALIAS 创建成功：
 
-   ```
-   DSLIST - Data Sets Matching TSO1601                                 Row 1 of 3
+   ```powershell
+   DSLIST - Data Sets Matching TSO1601                        Row 1 of 3
    
-   Command - Enter "/" to select action                  Message           Volume
-   -------------------------------------------------------------------------------
-   TSO1601                                                        *ALIAS
-   ***************************** End of Data Set list ****************************
+   Command - Enter "/" to select action           Message         Volume
+   ----------------------------------------------------------------------
+   TSO1601                                                  *ALIAS
+   ************************* End of Data Set list ***********************
    ```
 
    
 
 
-### 2. 重置用户密码
+#### 2. 重置用户密码
 
 当用户忘记密码的时后需要管理员 ST016 为该用户重新指定一个初始密码。
 
@@ -190,7 +191,7 @@ ALU TSO1601 PASSWORD(PASS)
 
 
 
-### 3. Revoke 用户
+#### 3. Revoke 用户
 
 当用户帐号暂时不用的时候，安全起见应该将该帐号挂起（Revoke）。
 场景：Arthur Fielding（TSO1604）将会出差一段时间，在这段时间应将该用户的帐号挂起：
@@ -201,7 +202,7 @@ ALU TSO1601 REVOKE
 
 
 
-### 4. Resume 用户
+#### 4. Resume 用户
 
 当挂起的用户帐号需要重新启用的时候，应该及时地将帐号 Resume。
 场景：Arthur Fielding（TSO1604）出差回来，希望能够继续使用以前的帐号：
@@ -212,7 +213,7 @@ ALU TSO1601 RESUME
 
 
 
-### 5. Search 查找
+#### 5. Search 查找
 
 使用 Search 命令查找以上新建的用户 Profile
 
@@ -222,7 +223,7 @@ SEARCH CLASS(USER) MASK(TSO1601)
 
 
 
-### 6. 将用户关联到组
+#### 6. 将用户关联到组
 
 RACF 中给用户访问资源权限的最佳方法是将用户关联到可以访问这些资源的组中，这些组称为功能组（Functional Group）。
 
@@ -240,7 +241,7 @@ RACF 中给用户访问资源权限的最佳方法是将用户关联到可以访
 
 
 
-### 7. 验证用户是否关联到组
+#### 7. 验证用户是否关联到组
 
 ```
 LU TSO1604
@@ -252,8 +253,8 @@ LG FUN16TST
 
 
 
-
-## 分散式 **RACF** 安全管理
+&nbsp;
+### 分散式 RACF 安全管理
 
 **目的：**实现 RACF 中的管理权限下放（Delegation）
 
@@ -271,7 +272,7 @@ LG FUN16TST
 
 
 
-### 1. 用户身份定位
+#### 1. 用户身份定位
 
 - TSO1601（Janet Smith）：该管理员将对 DIV16ADM 组用户的安全进行管理，包括为用户重置密码，挂起和启用用户：
 
@@ -295,7 +296,7 @@ LG FUN16TST
 
 
 
-### 2. 测试
+#### 2. 测试
 
 测试步骤1的功能是否实现：
 
@@ -322,8 +323,8 @@ LG FUN16TST
 
 
 
-
-## 数据集保护I
+&nbsp;
+### 数据集保护 I
 
 **目的：**实现对用户数据集和组数据集的保护。
 
@@ -333,7 +334,7 @@ LG FUN16TST
 
 
 
-### 1. 保护数据集
+#### 1. 保护数据集
 
 保护以下用户的数据集，保护准则：只有用户本身可以访问自己的数据集，其他人都不能访问。（用户的数据集是指以用户名为 HLQ 的所有数据集）
 
@@ -349,7 +350,7 @@ LG FUN16TST
 
 以 TSO1601 身份登陆 TSO 然后执行 RACF 命令：
 
-```
+```python
 ADDSD 'TSO1601.**' UACC(NONE) 
 ADDSD 'TSO1602.**' UACC(NONE) 
 ADDSD 'TSO1603.**' UACC(NONE) 
@@ -359,11 +360,11 @@ ADDSD 'TSO1605.**' UACC(NONE)
 
 
 
-### 2. 查看PROFILE
+#### 2. 查看PROFILE
 
 查看步骤1创建的用户数据集PROFILE：
 
-```
+```python
 LISTDSD DA('TSO1601.**') ALL
 LISTDSD DA('TSO1602.**') ALL
 LISTDSD DA('TSO1603.**') ALL
@@ -373,7 +374,7 @@ LISTDSD DA('TSO1605.**') ALL
 
 
 
-### 3.  定义RPOFILE + 赋ALTER权
+#### 3.  定义RPOFILE + 赋ALTER权
 
 定义RES16TST组数据集的RPOFILE。在前面的实验中，TSO1603 被指定为 RES16PRD 和 RES16TST 的 Create 用户，以拥有对这 2 个组的数据集的保护权限。
 
@@ -385,7 +386,7 @@ LISTDSD DA('TSO1605.**') ALL
 
    - No other users or groups should have access (Hint: UACC) 
 
-   ```
+   ```python
    ADDSD 'RES16TST.**' AUDIT(FAILURES) OWNER(TSO1603) UACC(NONE)
    ```
 
@@ -393,7 +394,7 @@ LISTDSD DA('TSO1605.**') ALL
 
    修改上面定义的 `RES16TST.**` PORFILE的访问列表，给FUN16TST组赋予ALTER访问权限：
 
-   ```
+   ```python
    PERMIT 'RES16TST.**' ID(FUN16TST) ACCESS(ALTER)
    ```
 
@@ -409,7 +410,7 @@ LISTDSD DA('TSO1605.**') ALL
 
    - No other users or groups should have access (UACC) 
 
-   ```
+   ```python
    ADDSD 'RES16PRD.**' AUDIT(FAILURES SUCCESS(UPDATE)) OWNER(TSO1603) UACC(NONE)
    ```
 
@@ -417,26 +418,26 @@ LISTDSD DA('TSO1605.**') ALL
 
    修改上面定义的 `RESxxPRD.**` PORFILE的访问列表，给FUN16PRD组赋予ALTER访问权限：
 
-   ```
+   ```python
    PERMIT 'RES16PRD.**' ID(FUN16PRD) ACCESS(ALTER)
    ```
 
 
 
-### 4. 验证
+#### 4. 验证
 
-确定组数据集PROFIEL是否创建并按照预定的要求保护成功
+确定组数据集 PROFIEL 是否创建并按照预定的要求保护成功
 
-```
+```python
 LISTDSD DATASET('RES16TST.**') ALL
 LISTDSD DATASET('RES16PRD.**') ALL
 ```
 
 
 
-### 5. 创建组数据集
+#### 5. 创建组数据集
 
-以ST016用户登陆TSO，创建RES16TST和RES16PRD组数据集：
+以 ST016 用户登陆 TSO，创建 RES16TST 和 RES16PRD 组数据集：
 
 1. 创建 ALIAS：RES16TST 和 RES16PRD
 
@@ -451,12 +452,12 @@ LISTDSD DATASET('RES16PRD.**') ALL
 
 
 
-以TSO1603登陆TSO并创建组数据集：
+以 TSO1603 登陆 TSO 并创建组数据集：
 
 创建一个顺序数据集 RES16PRD.DATA (RECFM=FB, LRECL=80) 和 RES16TST.DATA (RECFM=FB, LRECL=80) 
 
-```
-                            Allocate New Data Set
+```powershell
+                        Allocate New Data Set
 Data Set Name  . . . : RESxxPRD.DATA
 Management class . . .        (Blank for default management class)
 Storage class  . . . .        (Blank for default storage class)
@@ -484,7 +485,7 @@ Enter "/" to select option     DDDD for retention period in days
 
 
 
-### 10. 验证
+#### 10. 验证
 
 - 验证 TSO1604 访问 RES16PRD 组数据集：成功访问；
 
@@ -495,7 +496,7 @@ Enter "/" to select option     DDDD for retention period in days
 
   保留 TSO1601 登陆的 Session，再打开一个新的 Session，以 TSO1603 登陆 TSO，修改 `RESxxPRD.**` Profile，给 TSO1601 赋 ALTER 权：
 
-  ```
+  ```python
   PERMIT 'RES16PRD.**' ID(TSO1601) ACCESS(ALTER) 
   ```
 
@@ -506,8 +507,8 @@ Enter "/" to select option     DDDD for retention period in days
 
 
 
-
-## 数据集保护II
+&nbsp;
+### 数据集保护 II
 
 目的：实现对用户数据集和组数据集的保护
 
@@ -515,21 +516,21 @@ Enter "/" to select option     DDDD for retention period in days
 
 
 
-### 1. 创建全匹配PROFILE
+#### 1. 创建全匹配 PROFILE
 
-为RES16PRD.DATA创建全匹配PROFILE。以 TSO1603 登陆（RES16PRD 组 CREATE 特权人员，即数据管理人员），为 `RES16PRD.DATA` 创建一个全匹配的 PROFILE 进行保护：
+为 RES16PRD.DATA 创建全匹配 PROFILE。以 TSO1603 登陆（RES16PRD 组 CREATE 特权人员，即数据管理人员），为 `RES16PRD.DATA` 创建一个全匹配的 PROFILE 进行保护：
 
-```
+```python
 ADDSD 'RES16PRD.DATA' UACC(READ)
 ```
 
 
 
-### 2. 打开Warning状态
+#### 2. 打开 Warning 状态
 
 以 TSO1603 登陆，把 `RES16TST.**` PROFILE 的 Warning 状态打开：
 
-```
+```python
 ALTDSD 'RES16TST.**' WARNING
 ```
 
@@ -537,11 +538,11 @@ ALTDSD 'RES16TST.**' WARNING
 
 
 
-### 3. 关闭Warning状态
+#### 3. 关闭 Warning 状态
 
 以 TSO1603 登陆，把 `RES16TST.**` PROFILE 的 Warning 状态关闭：
 
-```
+```python
 ALTDSD 'RES16TST.**' NOWARNING
 ```
 
@@ -549,11 +550,11 @@ ALTDSD 'RES16TST.**' NOWARNING
 
 
 
-### 4. UPDATE权限
+#### 4. UPDATE 权限
 
-TSO1603登陆。假设 `RES16PRD.NEWAPPL.FINANCE.DATA` 和 `RES16PRD.NEWAPPL.HR.DATA` 是一个新应用系统的 2 个数据集，FUN16TST 组需要对这 2 个数据集有 UPDATE 权限，而不能对其他应用系统的数据集有操作权限。注意，FUN16PRD 组仍然需要对所有的 RES16PRD 数据集保留原有的操作权限。
+TSO1603 登陆。假设 `RES16PRD.NEWAPPL.FINANCE.DATA` 和 `RES16PRD.NEWAPPL.HR.DATA` 是一个新应用系统的 2 个数据集，FUN16TST 组需要对这 2 个数据集有 UPDATE 权限，而不能对其他应用系统的数据集有操作权限。注意，FUN16PRD 组仍然需要对所有的 RES16PRD 数据集保留原有的操作权限。
 
-```
+```python
 ADDSD 'RES16PRD.NEWAPPL.**' UACC(NONE) FROM('RES16PRD.**')
 PERMIT 'RES16PRD.NEWAPPL.**' ID(FUN16TST) ACC(UPDATE)
 ```
@@ -562,24 +563,24 @@ PERMIT 'RES16PRD.NEWAPPL.**' ID(FUN16TST) ACC(UPDATE)
 
 检测哪一个 PROFILE 在保护 `RES16PRD.NEWAPPL.FINANCE.DATA` 和 `RES16PRD.NEWAPPL.HR.DATA`：
 
-```
+```python
 LISTDSD DATASET('RES16PRD.NEWAPPL.FINANCE.DATA') GEN
 LISTDSD DATASET('RES16PRD.NEWAPPL.HR.DATA') GEN
 ```
 
 
 
-检测一个Generic PROFILE `RES16PRD.**` 保护了那些数据集：
+检测一个 Generic PROFILE `RES16PRD.**` 保护了那些数据集：
 
-```
+```python
 LISTDSD DATASET('RES16PRD.**') DSNS
 ```
 
 
 
 
-
-## 保护 **TSO** 资源
+&nbsp;
+### 保护 TSO 资源
 
 目的：授权用户登录 TSO
 
@@ -591,7 +592,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 
 
-### 1. 创建组结构
+#### 1. 创建组结构
 
 1. 在 DIV16FUN 下创建子组 FUN16AP
 
@@ -613,7 +614,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 
 
-### 2. 新增用户
+#### 2. 新增用户
 
 新增 AP 和 SP 用户，这些用户需要访问TSO
 
@@ -659,7 +660,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 
 
-### 3. 创建登陆过程
+#### 3. 创建登陆过程
 
 为 TSO 用户创建一个新的登陆过程 PROC#Sxx 和 PROC#Axx。打开文件 VENDOR.PROCLIB ，在 Command 中输入：
 
@@ -672,7 +673,7 @@ S PROC#A16;COPY IKJDB2
 
 
 
-### 4. 保护登录过程
+#### 4. 保护登录过程
 
 保护 PROC#Sxx 登陆过程（TSOPROC类）。
 
@@ -709,7 +710,7 @@ S PROC#A16;COPY IKJDB2
 
 
 
-### 5. 保护 ACCTNUM
+#### 5. 保护 ACCTNUM
 
 创建两个 TSO 账户（ACCTNUM），并创建一个通用资源 RPOFILE 保护该 ACCTNUM。
 
@@ -744,7 +745,7 @@ S PROC#A16;COPY IKJDB2
 
 
 
-### 6. 保护TSOAUTH
+#### 6. 保护 TSOAUTH
 TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括：ACCT，JCL，MOUNT， OPER，RECOVER 等。系统已经定义了一个 JCL PROFILE 用于保护 TSO 的 JCL 权限，该权限允许通过 TSO 向 JES 提交 JCL 批量作业。
 
 1. （不做）为 SP 和 AP 用户赋权访问 JCL 权限：
@@ -763,11 +764,11 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 
 
-### 7. 保护用户数据集 
+#### 7. 保护用户数据集 
 
 1. 保护 TSO1607 的用户数据集 
 
-   ```
+   ```python
    ADDSD 'TSO1607.**' UACC(NONE)
    ```
 
@@ -775,19 +776,19 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 2. 保护 TSO1608 的用户数据集 
 
-   ```
+   ```python
    ADDSD 'TSO1608.**' UACC(NONE)
    ```
 
 
 
-### 8. 创建 ALIAS
+#### 8. 创建 ALIAS
 
 为 TSOxx07 和 TSOxx08 创建 ALIAS（普通用户不能修改 Master Catalog，所以为了让用户可以创建自己的编目数据集，必须为用户创建 ALIAS，ALIAS 指向 User Catalog）。
 
 1. 为 TSOxx07 创建别名
 
-   ```
+   ```python
    DEFINE ALIAS(NAME(TSO1607) RELATE('CATALOG.UCAT.STGRP'))
    ```
 
@@ -795,24 +796,24 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 2. 为 TSOxx08 创建别名
 
-   ```
+   ```python
    DEFINE ALIAS(NAME(TSO1608) RELATE('CATALOG.UCAT.STGRP'))
    ```
 
 
-
-## 使用 **JCL** 执行 **RACF** 命令
+&nbsp;
+### 使用 JCL 执行 RACF 命令
 
 编写 JCL 作业，然后 SUBMIT：
 
-```
+```python
 000001 //ST016R1 JOB CLASS=A,MSGLEVEL=(1,1),MSGCLASS=H,
 000002 // NOTIFY=ST016
 000003 //SEND EXEC PGM=IKJEFT01
 000004 //SYSPRINT DD DUMMY
 000005 //SYSTSPRT DD SYSOUT=*
 000006 //SYSTSIN DD *
-000007 SEARCH CLASS(GROUP) MASK(DIV16)      
+000007 SEARCH CLASS(GROUP) MASK(DIV16)
 000008 SEARCH CLASS(GROUP) MASK(FUN16)
 000009 SEARCH CLASS(GROUP) MASK(RES16)
 000010 SEARCH CLASS(USER) MASK(TSO16)
