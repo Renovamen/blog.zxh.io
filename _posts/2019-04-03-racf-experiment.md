@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "RACF实验"
+title: "RACF 实验"
 subtitle: 'RACF Experiment'
 author: "Renovamen"
 header-style: text

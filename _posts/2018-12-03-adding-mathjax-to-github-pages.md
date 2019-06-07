@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "在Github Pages中使用Mathjax渲染数学公式"
+title: "在 Github Pages 中使用 Mathjax 渲染数学公式"
 subtitle: 'Enable MathJax in GitHub Pages '
 author: "Renovamen"
 header-style: text

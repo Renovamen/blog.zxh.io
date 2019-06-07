@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "P 值"
-subtitle: 'Something about p-value'
+title: "p-value"
 author: "Renovamen"
 header-style: text
 mathjax: true
