@@ -103,7 +103,7 @@ $$
 
     令 $Ax=b$ 成立的所有解：
     <center>
-    $
+    $$
     \Big\lbrace
     \begin{eqnarray}
       A &amp; x_p &amp; = &amp; b \\
@@ -113,7 +113,7 @@ $$
       \underrightarrow{两式相加}
     \quad
     A(x_p+x_n)=b
-    $
+    $$
     </center>
 
     即 $Ax=b$ 的解集为其特解加上零空间。对本例有：
