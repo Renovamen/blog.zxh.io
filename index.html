@@ -4,6 +4,9 @@ description: "图灵测试满分的人工智能"
 ---
 
 {% for post in paginator.posts %}
+{% if post.hide %}
+<!----------- 不显示 ----------->
+{% else %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
@@ -27,6 +30,7 @@ description: "图灵测试满分的人工智能"
     </p>
 </div>
 <hr>
+{% endif %}
 {% endfor %}
 
 <!-- Pager -->

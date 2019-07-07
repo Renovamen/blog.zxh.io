@@ -1,0 +1,54 @@
+---
+title: List
+layout: default
+description: "图灵测试满分的人工智能"
+header-img: "img/tag-bg.jpg"
+catalog: true
+---
+
+<!-- Page Header -->
+{% include intro-header.html type='page' short=true %}
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                {% capture list %}{% include list/list.md %}{% endcapture %}
+                {{ list | markdownify }}
+
+                <hr style="visibility: hidden;">
+            </div>  
+
+    <!-- Side Catalog Container -->
+        {% if page.catalog %}
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        {% endif %}
+
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+{% if page.mathjax %}
+    {% include mathjax_support.html %}
+{% endif %}
