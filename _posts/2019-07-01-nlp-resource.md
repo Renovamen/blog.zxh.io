@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "NLP 学习资源清单"
+title: "NLP 资源清单"
 subtitle: "How to give up NLP"
 author: "Renovamen"
 header-style: text
