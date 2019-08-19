@@ -8,7 +8,7 @@ Forked from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io
 
 Some customization:
 
-- Indentation of the heading 2 to heading 4 in Markdown;
+- Indentation of heading 2 to heading 4 in catalog;
 
 - Hide posts from home page:
 
