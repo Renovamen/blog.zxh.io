@@ -5,6 +5,7 @@ subtitle: "How to give up NLP"
 author: "Renovamen"
 header-style: text
 catalog: true
+hide: true
 tags:
   - 自然语言处理
 ---
