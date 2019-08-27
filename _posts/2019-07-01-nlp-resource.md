@@ -7,7 +7,7 @@ header-style: text
 catalog: true
 hide: true
 tags:
-  - 自然语言处理
+  - NLP
 ---
 
 ### NLP

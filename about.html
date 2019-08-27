@@ -1,28 +1,180 @@
 ---
-layout: page
-title: "About"
-description: "黑暗中仅有的光芒"
-header-img: "img/about-bg.png"
-multilingual: true
+layout: default
+title: About
+header-style: text
 ---
 
-<!-- Language Selector -->
-<select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
-    <option value="0" selected> 中文 Chinese </option>
-    <option value="1"> 英文 English </option>
-</select>
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Fonts and icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+        <!-- CSS -->
+        <link href="css/about.css" rel="stylesheet"/>
+    </head>
 
-<!-- Chinese Version -->
-<div class="zh post-container">
-    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
-    {{ about_zh | markdownify }}
-</div>
+    <body class="profile-page">
+        <div class="page-header">
+            <div class="container">
+                <div class="content-info">
+                    <div class = "photo-container">
+                        <img src = "../img/about/avatar.jpg">
+                    </div>
+                    <h3 class="about-title">Zou Xiaohan</h3>
+                    <p class="category">Renovamen</p>
+                    <div class="content">
+                        <div class="social-description">
+                            <a href="https://github.com/Renovamen" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+                            <p>Github</p>
+                        </div>
+                        <div class="social-description">
+                            <a href="http://renovamen.ink" target="_blank"><i class="fa fa-share-alt fa-2x"></i></a>
+                            <p>Blog</p>
+                        </div>
+                        <div class="social-description">
+                            <a href="https://www.facebook.com/renovamen.zou" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+                            <p>Facebook</p>
+                        </div>
+                        <div class="social-description">
+                            <a href = mailto:renovamenzxh@gmail.com><i class="fa fa-envelope-o fa-2x"></i></a>
+                            <p>Email</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-about">
+                    <h3 class="about-title">Biography</h3>
+                    <h5 class="description">Hi! I am <s>a dragon lost in human world</s> a senior 
+                        student at <a href="http://sse.tongji.edu.cn/" target="_blank">School 
+                        of Software Engineering</a>, <a href="https://www.tongji.edu.cn/" target="_blank">
+                        Tongji University</a>. I do not like parrots <s>and coding</s>.</h5>
+                    
+                    <div class="personal-information">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5 interests">
+                                <div class="item">
+                                    <p class="title">Interests</p>
+                                    <ul>
+                                        <li><p class="int-description">Natural Language Processing</p></li>
+                                        <li><p class="int-description"><s>Sleeping and eating</s></p></li>
+                                        <li><p class="int-description"><s>The world without parrots and coding</s></p></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 education">
+                                <div class="item">
+                                    <p class="title"> Education</p>
+                                    <ul>
+                                        <li>
+                                            <p class="edu-description">B.Eng in Software Engineering, 2020</p>
+                                            <p class="edu-school">Tongji University</p>
+                                        </li>
+                                        <li>
+                                            <p class="edu-description">Wizard, Gryffindor, 2016</p>
+                                            <p class="edu-school">Hogwarts School of Witchcraft and Wizardry</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "section work-experience">
+            <h3 class="about-title">Researches and Projects</h3>
+            <div class="item w-experience-content">
+                <div class="logo">
+                    <img class="company-logo" src="../img/about/research/wolf.jpg">
+                </div>
+                <div class="work-content">
+                    <p class="create-time">2019.3 - 2019.6</p>
+                    <p class="job">Waiting for completed</p>
+                    <ul>
+                        <li>Balabala;</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class = "section publication">
+            <h3 class="about-title">Publications</h3>
+            <div class="post-container">
+                {% capture about_paper %}{% include about/paper.md %}{% endcapture %}
+                {{ about_paper | markdownify }}
+            </div>
+        </div>
+    
+        <div class = "section work-experience">
+            <h3 class="about-title">Experience</h3>
+            <div class="item w-experience-content">
+                <div class="logo">
+                    <img class="company-logo" src="../img/about/experience/salted-fish.jpeg">
+                </div>
+                <div class="work-content">
+                    <p class="create-time">2019.9 - Present</p>
+                    <p class="job">Waiting for completed</p>
+                    <ul>
+                        <li>Balabala;</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class = "section award">
+            <h3 class="about-title">Awards</h3>
+            <p class="award-title">Waiting for completed - Balabala | 2019</p>
+        </div>
+        <div class="border"></div>
+
+
+
+        <div class = "section publication">
+            <h3 class="about-title">Miscellaneous</h3>
+            <div class="post-container">
+                {% capture about_miscellaneous %}{% include about/miscellaneous.md %}{% endcapture %}
+                {{ about_miscellaneous | markdownify }}
+            </div>
+        </div>
+        
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
 
 <!-- English Version -->
-<div class="en post-container">
+<!-- <div class="en post-container">
     {% capture about_en %}{% include about/en.md %}{% endcapture %}
     {{ about_en | markdownify }}
-</div>
+</div> -->
+
+<!-- Chinese Version -->
+<!-- <div class="zh post-container">
+    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
+    {{ about_zh | markdownify }}
+</div> -->
+
+
+
+
+
+
+
+
 
 
 {% if site.disqus_username %}
@@ -37,7 +189,7 @@ multilingual: true
 <!-- disqus 评论框 end -->
 
 <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-
+<!-- 
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "{{site.disqus_username}}";
@@ -49,7 +201,7 @@ multilingual: true
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-</script>
+</script> -->
 
 <!-- disqus 公共JS代码 end -->
 {% endif %}

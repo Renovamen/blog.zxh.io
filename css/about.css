@@ -1,0 +1,373 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*  ------------------- Fonts style ------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+small {
+    font-size: 60%;
+}
+
+h1, .h1 {
+    font-size: 3.5em;
+    line-height: 1.15;
+    margin-bottom: 30px;
+}
+
+h1 small, .h1 small {
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: .8;
+}
+
+h2, .h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+h3, .h3 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    line-height: 1.4em;
+}
+
+h4, .h4 {
+    font-size: 1.714em;
+    line-height: 1.45em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h5, .h5 {
+    font-size: 1.57em;
+    line-height: 1.4em;
+    margin-bottom: 15px;
+}
+
+h6, .h6 {
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+p {
+    line-height: 1.61em;
+}
+
+.description p, p.description {
+    font-size: 1.14em;
+}
+
+.about-title {
+    font-weight: 600;
+    color: black;
+}
+
+.about-title + .category {
+    margin-top: -25px;
+}
+
+.description {
+    color: rgb(75, 73, 73);
+    font-weight: 300;
+}
+
+.category {
+    font-weight: 700;
+    color: #8a8a8a;
+}
+
+/*  --------------------------------------------------------- */
+
+body {
+    color: #2c2c2c;
+    font-size: 14px;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*  ------------------- Header Page style ------------------- */
+
+img {
+    max-width: 100%;
+    border-radius: 1px;
+}
+
+.profile-page {
+    margin-top: 150px;
+    min-height: 550px;
+}
+
+.page-header {
+    height: 550px;
+}
+
+.profile-page .photo-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.5);
+}
+
+.profile-page .content-info {
+    float: left;
+    width: 30%;
+}
+
+.profile-page .content-about {
+    float: left;
+    width: 65%;
+}
+
+.profile-page .about-title {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.profile-page .content-about .about-title{
+    margin-top: 0;
+}
+
+.profile-page .description, .profile-page .category {
+    text-align: center;
+}
+
+.profile-page h5.description {
+    max-width: 700px;
+    margin: 20px auto 75px;
+}
+
+.profile-page h5.description a {
+    color: #235680;
+    text-decoration: none;
+}
+
+.profile-page h5.description a:hover {
+    color: #b34a61;
+}
+
+.profile-page .content {
+    margin: 0 auto;
+}
+
+.profile-page .content .social-description {
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    margin: 55px 0 0px;
+    color: #235680;
+}
+
+.profile-page .content .social-description .fa {
+    color: #235680;
+}
+
+.profile-page .content .social-description .fa:hover {
+    color: #b34a61;
+}
+
+/*  ------------------- Personal Information style ------------------- */
+
+.section {
+    padding: 50px 0;
+    position: relative;
+    background: #FFFFFF;
+}
+
+.personal-information{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.col-6, .col-9 {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+}
+
+.col-6-asb {
+    width: 49.5%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.col-6 {
+    width: 43.5%;
+}
+
+.col-9 {
+    width: 70%;
+}
+
+.courses .item, .skill .item {
+    padding-left: 20px;
+}
+
+.item ul {
+    padding-left: 15px;
+}
+
+.item .title {
+    margin: 15px 0; 
+    font-weight: bold;
+    font-size: 20px;
+    color: #022643;
+    letter-spacing: 1.14px;
+}
+
+.item p, .item li, .item lable {
+    font-size: 14px;
+    color: #022643;
+    line-height: 24px;
+}
+
+.item lable {
+    font-family: Courier;
+    background: #E4EEF6;
+    padding: 3px;
+    margin-right: 8px;
+    letter-spacing: 0;
+    line-height: 28px;
+    border-radius: 2px;
+    vertical-align: top;
+}
+
+.interests .int-description {
+    font-size: 16px;
+}
+
+.education .edu-description {
+    font-size: 18px;
+}
+
+.education .edu-school{
+    font-size: 14px;
+    margin-top: -30px;
+    color: #474646;
+}
+
+.phone, .email{
+    margin-top: 10px; 
+}
+
+/*  ------------------- Experience style ------------------- */
+.work-experience {
+    width: 85%;
+    margin: 0 auto;
+    position:relative;
+}
+
+.w-experience-content {
+    border-bottom: 1px solid #D6DCE1;
+    padding: 30px 0;  
+}
+.w-experience-content:last-child {
+    border-bottom: none;
+}
+.w-experience-content .logo {
+    width: 30%;
+}
+.w-experience-content .work-content {
+    width: 69%;
+}
+.w-experience-content .logo, .w-experience-content .work-content {
+    display: inline-block;
+    vertical-align: top;
+}
+.company-logo {
+    margin: 20px 0 0 20px;
+    max-width: 250px;
+}
+.work-content p.create-time {
+    font-size: 14px;
+    color: #022643;
+    letter-spacing: 1px;
+}
+.work-content p.job {
+    font-weight: bold;
+    font-size: 16px;
+    color: #022643;
+    letter-spacing: 1.14px;
+    margin-bottom: 10px; 
+}
+
+/*  ------------------- Publication style ------------------- */
+.post-container {
+    margin: 0 auto;
+    width: 65%;
+    font-size: 18px;
+}
+
+
+
+/*  ------------------- Award style ------------------- */
+
+.award {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center
+}
+
+.award p.award-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #022643;
+    letter-spacing: 1.14px;
+    margin-bottom: 10px; 
+}
+
+/*  ------------------- Border style ------------------- */
+.border {
+    border-bottom: 1px solid #D6DCE1;
+    width: 100%;
+    margin-top: 100px;
+}
+
+/*  ----------------#3b323c--- Footer style ------------------- */
+
+.footer {
+    margin-top: 70px;
+    background: rgb(79, 100, 155);
+}
+
+.footer .container {
+    padding: 25px 0 25px;
+    text-align: center;
+}
+
+.footer li {
+    display: inline-block;
+    background: #ffffff;
+    color: rgb(79, 100, 155);
+    width: 51px;
+    height: 51px ;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.footer li:hover {
+    background: rgb(79, 100, 155);
+}
+
+.footer li:hover a {
+    color: #fff;
+}
+
+.footer li a {
+    color: rgb(79, 100, 155);
+    width: 51px;
+    height: 51px;
+}
+
+.footer li a i {
+    line-height: 52px;
+}

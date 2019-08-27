@@ -106,10 +106,10 @@ $$
     <center>
     $$
     \Big\lbrace
-    \begin{eqnarray}
+    \begin{eqnarray*} % 公式标号：eqnarray
       A &amp; x_p &amp; = &amp; b \\
       A &amp; x_n &amp; = &amp; 0 \\
-    \end{eqnarray}
+    \end{eqnarray*}
     \quad
       \underrightarrow{两式相加}
     \quad
