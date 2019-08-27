@@ -1,6 +1,7 @@
 ---
 title: Portfolio
 layout: default
+header-style: text
 ---
 
 <!DOCTYPE html>
@@ -9,82 +10,202 @@ layout: default
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>God of Universe - Timeline</title>
-		<link rel="stylesheet" type="text/css" href="css/timeline.css" />
-		<script src="js/modernizr.custom.js"></script>
+
+		<!-- Fonts and icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+		
+		<!-- Styles -->
+		<link rel="stylesheet" href="css/portfolio.css">
+	  
 	</head>
-	<body>
-		<div class="container" style="margin:0;padding:0;width:100%;">
-			<header>
-				<img width="175" height="175" style="border-radius:50%;" src="../img/avatar.jpeg">
-				<h3>God of Universe</h3>
-			</header>
-			<div class="main">
-				<ul class="cbp_tmtimeline">
-					<li>
-						<div class="cbp_tmlabel">
-							<h2 id="boxoffice">Galaxy Voyager</h2>
-							<time>2019</time>
-							<img src="images/galaxy-voyager.jpg">
-							<ul>
-								<li>
-									It is not easy to be a voyager, but we still want to leave...
-								</li>
-								<li class="skill">
-									<span><b>JS</b></span>
-									<span class="link"><a target="_blank" href="https://renovamen.github.io/Galaxy-Voyager/">Try it</a></span>
-								</li>
-							</ul>
+
+<body class="">
+
+<div class="main container" id="top">
+
+    <main id="portfolio">
+      	<div class="container">
+        	<div class="row">
+          		<div class="col-md-12">
+
+					<h2 class="section-title text-center">Portfolio</h2>
+					<p class="section-subtitle text-center">The first roll of a salted fish.</p>
+					
+					<div class="break"></div>
+	
+					<div class="content-wrap">
+						<div class="content">
+							<div class="row">
+								<div class="col-md-7">
+									<h3 class="title">Speech Emotion Recognition | 2019</h3>
+									<h4 class="description">Research at School of Software Engineering, Tongji University.</h4>
+									<p class="excerpt">Speech emotion recognition using LSTM, SVM and MLP.</p>
+								</div>
+								
+								<div class="col-md-5">
+									<a href="https://github.com/Renovamen/Speech-Emotion-Recognition" target="_blank">
+										<button class="btn btn-default">
+											<i class="fa fa-github fa-lg"></i> Code, Model & Dataset
+										</button>
+									</a>
+									<a href="https://github.com/Zhaofan-Su/SpeechEmotionRecognition-papers-codes/tree/master/codes/PCA-SVM-KNN" target="_blank">
+										<button class="btn btn-default">
+											<i class="fa fa-flask fa-lg"></i> Partner
+										</button>
+									</a>
+									<div class="tags">
+										<span>Python</span>
+										<span>Speech Emotion</span>
+										<span>ML</span>
+										<span>DL</span>
+										<span>SVM</span>
+										<span>MLP</span>
+										<span>LSTM</span>
+									</div>	
+								</div>	
+							</div>
 						</div>
-					</li>
-					<li>
-						<div class="cbp_tmlabel">
-							<h2 id="boxoffice">Just OI & ACM</h2>
-							<time>2019</time>
-							<img src="images/work-oi-acm.jpg">
-							<ul>
-								<li>Solutions for OI & ACM Problems.</li>
-								<li class="skill">
-									<span><b>C++</b></span>
-									<span class="link"><a target="_blank" href="https://renovamen.github.io/Just-OI-ACM/">Try it</a></span>
-								</li>
-							</ul>
+					</div>
+
+					<div class="content-wrap">
+						<div class="content">
+							<div class="row">
+								<div class="col-md-7">
+									<h3 class="title">Just OI & ACM | 2019</h3>
+									<h4 class="description">退役蒟蒻的人生回顾</h4>
+									<p class="excerpt">Solutions for OI & ACM problems | OI & ACM.</p>
+								</div>
+								
+								<div class="col-md-5">
+									<a href="https://github.com/Renovamen/Just-OI-ACM" target="_blank">
+										<button class="btn btn-default">
+											<i class="fa fa-github fa-lg"></i> Github
+										</button>
+									</a>
+									<a href="https://renovamen.ink/Just-OI-ACM/" target="_blank">
+										<button class="btn btn-default">
+											<i class="fa fa-globe fa-lg"></i> Website
+										</button>
+									</a>
+									<div class="tags">
+										<span>C++</span>
+										<span>Algorithm</span>
+										<span>Data Structure</span>
+										<span>OI</span>
+										<span>ACM</span>
+										<span>Algorithm Contest</span>
+									</div>	
+								</div>	
+							</div>
 						</div>
-					</li>
-					<li>
-						<div class="cbp_tmlabel">
-							<h2 id="boxoffice">The Legend of Zelda: Breath of the Wild</h2>
-							<time>2077</time>
-							<img src="images/work-zelda.jpg">
-							<ul>
-								<li>
-									A web page of The Legend of Zelda: Breath of the Wild.
-								</li>
-								<li class="skill">
-									<span><b>JS</b></span>
-									<span class="link"><a target="_blank" href="https://renovamen.github.io/Legend-of-Zeld/index.html">Try it</a></span>
-								</li>
-							</ul>
+					</div>
+
+					<div class="content-wrap">
+						<div class="content">
+							<div class="row">
+								<div class="col-md-7">
+									<h3 class="title">StockBot | 2018</h3>
+									<h4 class="description">Advised by <a href="http://www.mit.edu/~f_zhang/" target="_blank">Ph.D Zhang Fan</a> at IBM & MIT.</h4>
+									<p class="excerpt">A chatbot based on Rasa NLU aims to provide stock and weather information implemented by Python.</p>
+								</div>
+								
+								<div class="col-md-5">
+									<a href="https://github.com/Renovamen/StockBot" target="_blank">
+										<button class="btn btn-default">
+											<i class="fa fa-github fa-lg"></i> Code & Intro
+										</button>
+									</a>
+									<a href="https://www.youtube.com/watch?v=PnmfahdQ7PI" target="_blank">
+										<button class="btn btn-default">
+											<i class="fa fa-play-circle fa-lg"></i> Demo Video
+										</button>
+									</a>
+									<div class="tags">
+										<span>Python</span>
+										<span>NLP</span>
+										<span>Chatbot</span>
+										<span>Question Answering</span>
+										<span>Rasa NLU</span>
+										<span>spaCy</span>
+									</div>	
+								</div>	
+							</div>
 						</div>
-					</li>
-					<li>
-						<div class="cbp_tmlabel">
-							<h2 id="boxoffice">Magic Resume</h2>
-							<time>2019</time>
-							<img src="images/work-resume.jpg">
-							<ul>
-								<li>
-									A resume of a student studying in Hogwarts School of Witchcraft and Wizardry.
-								</li>
-								<li class="skill">
-									<span><b>CSS</b></span>
-									<span class="link"><a target="_blank" href="https://renovamen.github.io/Magic-Resume/index.html">Try it</a></span>
-								</li>
-							</ul>
+					</div>
+
+					<div class="content-wrap">
+						<div class="content">
+							<div class="row">
+								<div class="col-md-7">
+									<h3 class="title">pc-alg | 2018</h3>
+									<h4 class="description">Research at School of Software Engineering, Tongji University.</h4>
+									<p class="excerpt">Python implemention of PC algorithm (an algorithm for structure learning of Bayesian Networks).</p>
+								</div>
+								
+								<div class="col-md-5">
+									<a href="https://github.com/Renovamen/pcalg-py" target="_blank">
+										<button class="btn btn-default">
+											<i class="fa fa-github fa-lg"></i> Code & Relevant Papers
+										</button>
+									</a>
+									<div class="tags">
+										<span>Python</span>
+										<span>Bayesian Networks</span>
+										<span>Structure Learning</span>
+										<span>Reasoning Algorithm</span>
+									</div>	
+								</div>	
+							</div>
 						</div>
-					</li>
-				</ul>
+					</div>
+
+
+					<h2 class="section-title text-center">Course Projects</h2>
+					<p class="section-subtitle text-center">The second roll of a salted fish.</p>
+					
+					<div class="break"></div>
+
+					<div class="content-wrap">
+						<div class="content">
+							<div class="row">
+								<div class="col-md-7">
+									<h3 class="title">Galaxy Voyager | 2019</h3>
+									<h4 class="description">Spring 2019 Web System and Technology - Final Project</h4>
+									<p class="excerpt">It is not easy to be a voyager, but we still want to leave...</p>
+								</div>
+								
+								<div class="col-md-5">
+									<a href="https://github.com/Renovamen/Galaxy-Voyager" target="_blank">
+										<button class="btn btn-default">
+											<i class="fa fa-github fa-lg"></i> Code & Intro
+										</button>
+									</a>
+									<a href="https://renovamen.github.io/Galaxy-Voyager/" target="_blank">
+										<button class="btn btn-default">
+											<i class="fa fa-gamepad fa-lg"></i> Play
+										</button>
+									</a>
+									<div class="tags">
+										<span>JS</span>
+										<span>Game</span>
+										<span>Decibel</span>
+										<span>VR</span>
+									</div>	
+								</div>	
+							</div>
+						</div>
+					</div>
+
+
+
+
+				</div>
 			</div>
 		</div>
-	</body>
+	</main>
+</div><!-- .main.container -->
+</body>
+
 </html>
+

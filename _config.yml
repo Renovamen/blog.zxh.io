@@ -13,13 +13,13 @@ future: true
 
 # SNS settings
 RSS: false
+github_username:    Renovamen
 #weibo_username:     
 #zhihu_username:     
-github_username:    Renovamen
 #twitter_username:   
-#facebook_username:  
+facebook_username:  renovamen.zou
 #linkedin_username:  firstname-lastname-idxxxx
-
+email_address: renovamenzxh@gmail.com
 
 
 # Build settings

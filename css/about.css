@@ -65,7 +65,7 @@ p {
 
 .about-title {
     font-weight: 600;
-    color: black;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 .about-title + .category {
@@ -117,16 +117,6 @@ img {
     box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.5);
 }
 
-.profile-page .content-info {
-    float: left;
-    width: 30%;
-}
-
-.profile-page .content-about {
-    float: left;
-    width: 65%;
-}
-
 .profile-page .about-title {
     text-align: center;
     margin-top: 30px;
@@ -134,6 +124,12 @@ img {
 
 .profile-page .content-about .about-title{
     margin-top: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-page .content-about .about-title{
+        margin-top: 30px;
+    }
 }
 
 .profile-page .description, .profile-page .category {
@@ -164,6 +160,12 @@ img {
     text-align: center;
     margin: 55px 0 0px;
     color: #235680;
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-page .content .social-description {
+        margin: 0 0 0px;
+    }
 }
 
 .profile-page .content .social-description .fa {
@@ -245,6 +247,12 @@ img {
     font-size: 16px;
 }
 
+@media only screen and (max-width: 768px) {
+    .education {
+        margin-top: 50px;
+    }
+}
+
 .education .edu-description {
     font-size: 18px;
 }
@@ -273,16 +281,7 @@ img {
 .w-experience-content:last-child {
     border-bottom: none;
 }
-.w-experience-content .logo {
-    width: 30%;
-}
-.w-experience-content .work-content {
-    width: 69%;
-}
-.w-experience-content .logo, .w-experience-content .work-content {
-    display: inline-block;
-    vertical-align: top;
-}
+
 .company-logo {
     margin: 20px 0 0 20px;
     max-width: 250px;
@@ -300,6 +299,14 @@ img {
     margin-bottom: 10px; 
 }
 
+@media only screen and (max-width: 768px) {
+    .profile-page .work-experience .about-title, 
+    .profile-page .publication .about-title, 
+    .profile-page .award .about-title {
+        margin-top: -20px;
+    }
+}
+
 /*  ------------------- Publication style ------------------- */
 .post-container {
     margin: 0 auto;
@@ -307,6 +314,11 @@ img {
     font-size: 18px;
 }
 
+@media only screen and (max-width: 768px) {
+    .post-container {
+        width: 85%;
+    }
+}
 
 
 /*  ------------------- Award style ------------------- */
@@ -332,6 +344,11 @@ img {
     margin-top: 100px;
 }
 
+@media only screen and (max-width: 768px) {
+    .border {
+        display: none;
+    }
+}
 /*  ----------------#3b323c--- Footer style ------------------- */
 
 .footer {
