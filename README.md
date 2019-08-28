@@ -1,12 +1,12 @@
 # Just a Blog
 
-Forked from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io)
+My blog. A Jekyll theme modified from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io).
 
 [View this blog](https://renovamen.ink/)
 
 &nbsp;
 
-## Customization
+## New Features
 
 ### Page
 
@@ -32,13 +32,13 @@ links: [
 
 &nbsp;
 
-#### About Page & Portfolio page
+#### About Page & Portfolio Page
 
 New about page and portfolio page, responsive and more beautiful.
 
 &nbsp;
 
-### Other Change
+### Other Changes
 
 - Indentation of heading 2 to heading 4 in catalog;
 
