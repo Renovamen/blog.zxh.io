@@ -73,13 +73,12 @@ p {
 }
 
 .description {
-    color: rgb(75, 73, 73);
     font-weight: 300;
 }
 
 .category {
     font-weight: 700;
-    color: #8a8a8a;
+    color: #797878;
 }
 
 /*  --------------------------------------------------------- */
@@ -142,12 +141,13 @@ img {
 }
 
 .profile-page h5.description a {
-    color: #235680;
+    color: #377bb5;
     text-decoration: none;
 }
 
 .profile-page h5.description a:hover {
-    color: #b34a61;
+    color: #13859f;
+    border-bottom: 1px solid;
 }
 
 .profile-page .content {
@@ -159,7 +159,8 @@ img {
     width: 24%;
     text-align: center;
     margin: 55px 0 0px;
-    color: #235680;
+    color: #377bb5;
+    font-size: 16px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -169,11 +170,11 @@ img {
 }
 
 .profile-page .content .social-description .fa {
-    color: #235680;
+    color: #377bb5;
 }
 
 .profile-page .content .social-description .fa:hover {
-    color: #b34a61;
+    color: #c26a7b;
 }
 
 /*  ------------------- Personal Information style ------------------- */
@@ -222,13 +223,11 @@ img {
     margin: 15px 0; 
     font-weight: bold;
     font-size: 20px;
-    color: #022643;
     letter-spacing: 1.14px;
 }
 
 .item p, .item li, .item lable {
     font-size: 14px;
-    color: #022643;
     line-height: 24px;
 }
 
@@ -258,9 +257,9 @@ img {
 }
 
 .education .edu-school{
-    font-size: 14px;
+    font-size: 15px;
     margin-top: -30px;
-    color: #474646;
+    color: #797878;
 }
 
 .phone, .email{
@@ -272,6 +271,12 @@ img {
     width: 85%;
     margin: 0 auto;
     position:relative;
+}
+
+@media only screen and (max-width: 768px) {
+    .work-experience {
+        width: 80%;
+    }
 }
 
 .w-experience-content {
@@ -288,16 +293,19 @@ img {
 }
 .work-content p.create-time {
     font-size: 14px;
-    color: #022643;
     letter-spacing: 1px;
 }
 .work-content p.job {
     font-weight: bold;
     font-size: 16px;
-    color: #022643;
     letter-spacing: 1.14px;
+    margin-top: -30px; 
     margin-bottom: 10px; 
 }
+.work-content li {
+    font-size: 14px;
+}
+
 
 @media only screen and (max-width: 768px) {
     .profile-page .work-experience .about-title, 
@@ -332,7 +340,6 @@ img {
 .award p.award-title {
     font-weight: bold;
     font-size: 16px;
-    color: #022643;
     letter-spacing: 1.14px;
     margin-bottom: 10px; 
 }
@@ -348,43 +355,4 @@ img {
     .border {
         display: none;
     }
-}
-/*  ----------------#3b323c--- Footer style ------------------- */
-
-.footer {
-    margin-top: 70px;
-    background: rgb(79, 100, 155);
-}
-
-.footer .container {
-    padding: 25px 0 25px;
-    text-align: center;
-}
-
-.footer li {
-    display: inline-block;
-    background: #ffffff;
-    color: rgb(79, 100, 155);
-    width: 51px;
-    height: 51px ;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-
-.footer li:hover {
-    background: rgb(79, 100, 155);
-}
-
-.footer li:hover a {
-    color: #fff;
-}
-
-.footer li a {
-    color: rgb(79, 100, 155);
-    width: 51px;
-    height: 51px;
-}
-
-.footer li a i {
-    line-height: 52px;
 }

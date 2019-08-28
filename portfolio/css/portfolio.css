@@ -1,4 +1,5 @@
 body {
+    color: #2c2c2c;
     font-size: 16px;
     font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
     -moz-osx-font-smoothing: grayscale;
@@ -107,7 +108,7 @@ body {
 }
 
 .content-wrap .content h4.description a {
-    color: #5c5b5b;
+    color: #8a8a8a;
 }
 
 .content-wrap .content h4.description a:hover {
