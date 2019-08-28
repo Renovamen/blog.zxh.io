@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 /*  ------------------- Fonts style ------------------- */
@@ -89,6 +88,7 @@ body {
     font-size: 14px;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 /*  ------------------- Header Page style ------------------- */
@@ -142,13 +142,11 @@ img {
 }
 
 .profile-page h5.description a {
-    color: #377bb5;
     text-decoration: none;
 }
 
 .profile-page h5.description a:hover {
-    color: #13859f;
-    border-bottom: 1px solid;
+    color: #377bb5;
 }
 
 .profile-page .content {
@@ -209,6 +207,10 @@ img {
 .item p, .item li, .item lable {
     font-size: 14px;
     line-height: 24px;
+}
+
+.interests .item li {
+    margin-bottom: -20px;
 }
 
 .item lable {

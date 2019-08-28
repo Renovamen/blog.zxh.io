@@ -100,10 +100,59 @@ page-mathjax: false
 
 
 
-# Friends
+# Friends (side bar)
 friends: [
     {
         title: "A dragon lost in human world",
         href: "http://allspark.ink"
     }
+]
+
+# Links
+links: [
+  {
+    link-title: "Why I lost in human world",
+    link-list: [
+      {
+        sitename: "Cool Dragon",
+        href: "https://renovamen.github.io/",
+        img: "img/dragon.jpeg",
+        linkdes: "The coolest dragon in the world",
+      }
+    ],
+  },
+  {
+    link-title: "What are these",
+    link-list: [
+      {
+        sitename: "nazo",
+        href: "https://nazo.io/",
+        img: "img/nazo.jpg",
+        linkdes: "???",
+      },
+    ],
+  },
+  {
+    link-title: "It is time to catch fish",
+    link-list: [
+      {
+        sitename: "IGN",
+        href: "http://www.ign.com/?ccpref=US",
+        img: "img/ign.jpg",
+        linkdes: "Practice English",
+      },
+      {
+        sitename: "GAMECORES",
+        href: "https://www.gcores.com",
+        img: "img/gamecores.jpeg",
+        linkdes: "All-embracing",
+      },
+      {
+        sitename: "VGTIME",
+        href: "http://www.vgtime.com",
+        img: "img/vgtime.jpeg",
+        linkdes: "Game info",
+      },
+    ],
+  }
 ]

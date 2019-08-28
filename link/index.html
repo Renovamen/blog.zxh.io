@@ -1,0 +1,49 @@
+---
+layout: default
+title: Links
+header-style: text
+---
+
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Fonts and icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+		
+		<!-- Styles -->
+        <link rel='stylesheet' href="css/link.css"/>
+    </head>
+
+    
+    <body>
+        <div class="site-content container">
+            <h2 class="title text-center">Links</h2>
+            <p class="subtitle text-center">When you are looking at the stars, please put the brightest star shining night sky as my soul.</p>
+            <div class="break"></div>
+            
+            <div class="links">
+                {% if site.links %}
+                    {% for section in site.links %}
+                        <h3 class="link-title">{{section.link-title}}</h3>
+                        <ul>
+                            {% for link in section.link-list %}
+                                <li>
+                                    <a href="{{link.href}}" target="_blank">
+                                        <img src="{{link.img}}">
+                                        <span class="sitename">{{link.sitename}}</span>
+                                        <div class="linkdes">{{link.linkdes}}</div>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

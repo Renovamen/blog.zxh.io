@@ -6,13 +6,17 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, h4, h5, h6, .btn {
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+
 #portfolio .container {
     margin-top: 10em
 }
 
 @media only screen and (max-width: 768px) {
     #portfolio .container {
-        margin-top: 5em
+        margin-top: 7em
     }
 }
 
@@ -30,7 +34,6 @@ body {
     position: relative;
     margin: 0 auto;
     margin-bottom: 1em;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 .section-title:after {
@@ -82,7 +85,6 @@ body {
 .content-wrap .content h3.title,
 .content-wrap .content h4.description  {
     position: relative;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 .content-wrap .content h4.description {
@@ -112,7 +114,7 @@ body {
 }
 
 .content-wrap .content h4.description a:hover {
-    color: #2c2c2c;
+    color: #377bb5;
 }
 
 .content-wrap .content .excerpt {
@@ -183,6 +185,5 @@ body {
 .btn, .btn-default {
     border-radius: 10px;
     padding: 0.3em 1.3em;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
     text-transform: capitalize;
 }
