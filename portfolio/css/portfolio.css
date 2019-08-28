@@ -145,6 +145,10 @@ body {
     border-radius: 10px;
 }
 
+.content-wrap a {
+    text-decoration: none;
+}
+
 .site-footer {
     font-size: 14px;
     margin-top: 2em;

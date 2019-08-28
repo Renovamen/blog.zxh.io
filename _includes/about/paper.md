@@ -2,7 +2,6 @@
 
    [[cite](){:target="_blank"}] [[bib](){:target="_blank"}] [[outline](){:target="_blank"}]
 
-   
 
 2. [**Paper 2: Waiting for completex.**](){:target="_blank"} *Bala, Bala and Bala, Bala.* Journal of Bala 2019.
 

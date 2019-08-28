@@ -53,6 +53,27 @@ header-style: text
                         of Software Engineering</a>, <a href="https://www.tongji.edu.cn/" target="_blank">
                         Tongji University</a>. I do not like parrots.</h5>
                     
+                    <div class="link-btn">
+                        <a href="#publication">
+                            <button class="btn btn-default">Publications</button>
+                        </a>
+                        <a href="#experience">
+                            <button class="btn btn-default">Experience</button>
+                        </a>
+                        <a href="http://renovamen.ink/portfolio/">
+                            <button class="btn btn-default">Projects</button>
+                        </a>
+                        <a href="#award">
+                            <button class="btn btn-default">Awards</button>
+                        </a>
+                        <a href="http://renovamen.ink">
+                            <button class="btn btn-default">Posts</button>
+                        </a>
+                        <a href="#misc">
+                            <button class="btn btn-default">Misc.</button>
+                        </a>
+                    </div>
+
                     <div class="personal-information">
                         <div class="row">
                             <div class="col-md-1"></div>
@@ -89,23 +110,7 @@ header-style: text
         </div>
         <div class="border"></div>
 
-        <div class = "section work-experience">
-            <h3 class="about-title">Researches and Projects</h3>
-            <div class="item w-experience-content row">
-                <div class="col-md-4 logo">
-                    <img class="company-logo" src="../img/about/research/wolf.jpg">
-                </div>
-                <div class="col-md-8 work-content">
-                    <p class="create-time">2019.3 - 2019.6</p>
-                    <p class="job">Waiting for completed</p>
-                    <ul>
-                        <li>Balabala;</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class = "section publication">
+        <div class="section publication" id="publication">
             <h3 class="about-title">Publications</h3>
             <div class="post-container">
                 {% capture about_paper %}{% include about/paper.md %}{% endcapture %}
@@ -113,7 +118,7 @@ header-style: text
             </div>
         </div>
     
-        <div class = "section work-experience">
+        <div class = "section work-experience" id="experience">
             <h3 class="about-title">Experience</h3>
             <div class="item w-experience-content row">
                 <div class="col-md-4 logo">
@@ -129,7 +134,7 @@ header-style: text
             </div>
         </div>
 
-        <div class = "section award">
+        <div class = "section award" id="award">
             <h3 class="about-title">Awards</h3>
             <p class="award-title">Waiting for completed - Balabala | 2019</p>
         </div>
@@ -137,7 +142,7 @@ header-style: text
 
 
 
-        <div class = "section publication">
+        <div class = "section publication" id="misc">
             <h3 class="about-title">Miscellaneous</h3>
             <div class="post-container">
                 {% capture about_miscellaneous %}{% include about/miscellaneous.md %}{% endcapture %}

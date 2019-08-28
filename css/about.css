@@ -1,12 +1,14 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 /*  ------------------- Fonts style ------------------- */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .btn {
     font-weight: 400;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 small {
@@ -44,7 +46,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-    font-size: 1.57em;
+    font-size: 1.5em;
     line-height: 1.4em;
     margin-bottom: 15px;
 }
@@ -65,7 +67,6 @@ p {
 
 .about-title {
     font-weight: 600;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 .about-title + .category {
@@ -86,7 +87,6 @@ p {
 body {
     color: #2c2c2c;
     font-size: 14px;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
@@ -138,6 +138,7 @@ img {
 .profile-page h5.description {
     max-width: 700px;
     margin: 20px auto 75px;
+    font-weight: 400;
 }
 
 .profile-page h5.description a {
@@ -188,27 +189,6 @@ img {
 .personal-information{
     margin: 0 auto;
     width: 100%;
-}
-
-.col-6, .col-9 {
-    display: inline-block;
-    vertical-align: top;
-    margin: 0;
-    padding: 0;
-}
-
-.col-6-asb {
-    width: 49.5%;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.col-6 {
-    width: 43.5%;
-}
-
-.col-9 {
-    width: 70%;
 }
 
 .courses .item, .skill .item {
@@ -264,6 +244,31 @@ img {
 
 .phone, .email{
     margin-top: 10px; 
+}
+
+/*  ------------------- Link Button style ------------------- */
+.link-btn {
+    margin-top: -50px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.link-btn a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .link-btn {
+        display: none;
+    }
+}
+
+.link-btn .btn, .btn-default {
+    border-radius: 10px;
+    padding: 0.3em 1.3em;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 12px;
 }
 
 /*  ------------------- Experience style ------------------- */
