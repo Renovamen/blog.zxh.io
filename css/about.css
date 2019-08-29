@@ -162,9 +162,20 @@ img {
     font-size: 16px;
 }
 
+.profile-page .content-about .phone-cv {
+    display: none;
+}
+
 @media only screen and (max-width: 768px) {
     .profile-page .content .social-description {
         margin: 0 0 0px;
+    }
+    .profile-page h5.phone-cv a {
+        color: #377bb5;
+    }
+    .profile-page .content-about .phone-cv {
+        display: block;
+        margin-top: -3em;
     }
 }
 
