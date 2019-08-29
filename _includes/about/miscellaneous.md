@@ -1,4 +1,4 @@
-- [This blog](https://github.com/Renovamen/renovamen.github.io){:target="_blank"} is powered by [Github Pages](https://pages.github.com/){:target="_blank"} and modified from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io){:target="_blank"}. 
+- [This blog](https://github.com/Renovamen/renovamen.github.io){:target="_blank"} is modified from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io){:target="_blank"} and powered by [Jekyll](https://jekyllrb.com/){:target="_blank"} & [Github Pages](https://pages.github.com/){:target="_blank"}. 
 
 - Waiting for a chance to eat the parrot in my home.
 

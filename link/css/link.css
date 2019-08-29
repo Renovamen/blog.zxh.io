@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 98px;
     float: left;
     border: 1px solid #ececec;
-    padding: 10px 30px;
+    padding: 10px 30px 10px 20px;
     margin: 4px 4px;
     position: relative;
     overflow: hidden;
@@ -125,7 +125,6 @@ span.sitename {
     -o-text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: 600;
-    margin-left: -10px;
 }
 
 .linkdes {
@@ -138,7 +137,6 @@ span.sitename {
     line-height: 15px;
     -webkit-transition: all .5s;
     transition: all .5s;
-    margin-left: -10px;
 }
 
 .link-title {
@@ -194,5 +192,8 @@ span.linkss-title {
 @media (max-width:860px) {
     .links ul li {
         width: 48.6%
+    }
+    .links ul li:before {
+        display: none
     }
 }

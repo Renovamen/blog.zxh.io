@@ -8,11 +8,11 @@ My blog. A Jekyll theme modified from [Huxpro/huxpro.github.io](https://github.c
 
 ## New Features
 
-### Page
+### Pages
 
 #### Links Page
 
-Add beautiful and responsive links page. You can easily add links to it by modifying `_config.yml`, for example:
+Add a beautiful and responsive links page. You can easily add links to it by modifying `_config.yml`, for example:
 
 ```yaml
 links: [
@@ -46,7 +46,7 @@ New about page and portfolio page, responsive and more beautiful.
 
   Add `hide: true` to the front-matter of the post you want to hide.
 
-- Email address is supported in SNS settings now, you modify it in `_config.yml`, for example:
+- Email address is supported in SNS settings now, you can modify it in `_config.yml`, for example:
 
   ```yaml
   email_address: renovamenzxh@gmail.com
