@@ -16,6 +16,7 @@ header-style: text
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
         <!-- CSS -->
         <link href="../css/about.css" rel="stylesheet"/>
+    
     </head>
 
     <body class="profile-page">
@@ -57,12 +58,12 @@ header-style: text
                     </h5>
 
                     <div class="link-btn">
-                        <a href="#publication">
+                        <a href="#publication" class="topLink">
                             <button class="btn btn-default">Publications</button>
                         </a>
-                        <!-- <a href="#experience">
+                        <a href="#experience">
                             <button class="btn btn-default">Experience</button>
-                        </a>-->
+                        </a>
                         <a href="http://renovamen.ink/portfolio/"> 
                             <button class="btn btn-default">Projects</button>
                         </a>
@@ -140,11 +141,55 @@ header-style: text
                 </div>
             </div>
         </div>
+        -->
 
+        <!-- Experience Section -->
+        {% if site.experience %}
+        <div class="section work-experience" id="experience" >
+            <h3 class="about-title">Experience</h3>
+            <div class="row">
+                <div class="col-lg-64 col-lg-offset-0">
+
+                    <ul class="timeline">
+                        {% for exp in site.experience %}
+                        {% if exp.if-left %}
+                        <li class="">
+                        {% else %}
+                        <li class="timeline-inverted">
+                        {% endif %}
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="{{exp.img}}">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <p class="time">{{exp.time}}</p>
+                                    <p class="job">{{exp.job}}</p>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="job-description">{{exp.description}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="../img/about/avatar.jpg">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+
+        <!--
         <div class = "section award" id="award">
             <h3 class="about-title">Awards</h3>
             <p class="award-title">Waiting for completed - Balabala | 2019</p>
         </div> -->
+
         <div class="border"></div> 
 
         <div class = "section publication" id="misc">
@@ -154,17 +199,17 @@ header-style: text
                 {{ about_miscellaneous | markdownify }}
             </div>
         </div>
-        
+
+        <script src="../js/scrollreveal.min.js"></script>
+        <script>
+            window.sr = ScrollReveal();
+            sr.reveal('.timeline-panel');
+            sr.reveal('.timeline-image');
+        </script>
 
     </body>
 
 </html>
-
-
-
-
-
-
 
 
 <!-- English Version -->
@@ -178,14 +223,6 @@ header-style: text
     {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
     {{ about_zh | markdownify }}
 </div> -->
-
-
-
-
-
-
-
-
 
 
 {% if site.disqus_username %}

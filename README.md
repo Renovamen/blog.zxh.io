@@ -32,9 +32,29 @@ links: [
 
 &nbsp;
 
-#### About Page & Portfolio Page
+#### About Page
 
-New about page and portfolio page, responsive and more beautiful.
+New about page page, responsive and more beautiful. 
+
+Experience information can be modified in `_config.yml`, for example:
+
+```yaml
+experience: [
+  {
+    img: "../img/avatar.jpeg",
+    time: "2019.9 - Present",
+    job: "Company",
+    description: "Code all days.",
+    if-left: true, # whether you want to show the text on the left
+  },
+]
+```
+
+&nbsp;
+
+#### Portfolio Page
+
+New portfolio page, responsive and more beautiful.
 
 &nbsp;
 
