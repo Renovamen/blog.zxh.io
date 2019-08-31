@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="{{ "/css/search.css" | prepend: site.baseurl }}">
+
+<div id="search" class="search-page">
+    <div class="close-search">
+        <i class="fa fa-close fa-3x"></i>
+    </div>
+    
+    <h2 class="search-title text-center">Search</h2>
+	<p class="search-subtitle text-center">
+        <!-- 一言 -->
+        <script type="text/javascript" src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script>
+        <span id="lwlhitokoto"><script>lwlhitokoto()</script></span>
+    </p>
+
+    <div class="search-form"> 
+        <div class="input"> 
+            <input id="search-input" type="text" class="search-field" placeholder="Search...">
+        </div>
+        <ul id="search-results" class="search-results"></ul>
+    </div>
+
+</div>
+
+<!-- jekyll-search.js -->
+<script src="{{ "/js/simple-jekyll-search.min.js" | prepend: site.baseurl }}"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: 'No Result.',
+        limit: 20,
+        fuzzy: false
+    })
+</script>

@@ -30,6 +30,12 @@
                     </li>
                     {% endif %}
                     {% endfor %}
+
+                    <li>
+                        <a id="search-btn" href="#search">
+                            SEARCH <i class="fa fa-search fa-lg"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -37,6 +43,7 @@
     </div>
     <!-- /.container -->
 </nav>
+
 <script>
     // Drop Bootstarp low-performance Navbar
     // Use customize navbar with high-quality material design animation
@@ -88,4 +95,16 @@
         if(e.target.className == 'icon-bar') return;
         __HuxNav__.close();
     })
+</script>
+
+<!-- Search Page Animate-->
+<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/animatedModal.js" | prepend: site.baseurl }}"></script>
+
+<link rel="stylesheet" href="{{ "/css/animate.min.css" | prepend: site.baseurl }}">
+
+{% include search.html %}
+
+<script>
+    $("#search-btn").animatedModal();
 </script>
