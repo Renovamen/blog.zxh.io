@@ -16,6 +16,7 @@ header-style: text
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
         <!-- CSS -->
         <link href="../css/about.css" rel="stylesheet"/>
+       
     
     </head>
 
@@ -58,10 +59,10 @@ header-style: text
                     </h5>
 
                     <div class="link-btn">
-                        <a href="#publication" class="topLink">
+                        <a href="#publication" class="topLink" data-scroll>
                             <button class="btn btn-default">Publications</button>
                         </a>
-                        <a href="#experience">
+                        <a href="#experience" data-scroll>
                             <button class="btn btn-default">Experience</button>
                         </a>
                         <a href="http://renovamen.ink/portfolio/"> 
@@ -76,7 +77,7 @@ header-style: text
                         <a href="../files/cv.pdf" target="_blank">
                             <button class="btn btn-default">CV</button>
                         </a>
-                        <a href="#misc">
+                        <a href="#misc" data-scroll>
                             <button class="btn btn-default">Misc.</button>
                         </a>
                     </div>
@@ -115,6 +116,10 @@ header-style: text
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="down">
+            <a href="#publication" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
         </div>
         <div class="border"></div>
 
@@ -200,11 +205,18 @@ header-style: text
             </div>
         </div>
 
+        <script src="../js/sweet-scroll.min.js"></script>
         <script src="../js/scrollreveal.min.js"></script>
         <script>
+            // 时间轴上浮效果
             window.sr = ScrollReveal();
             sr.reveal('.timeline-panel');
             sr.reveal('.timeline-image');
+
+            // 页面滚动
+            document.addEventListener("DOMContentLoaded", function() {
+                new SweetScroll({});
+            }, !1);
         </script>
 
     </body>
