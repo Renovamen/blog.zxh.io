@@ -84,6 +84,7 @@
 @media only screen and (max-width: 768px) {
     .search-page .search-form .search-field {
         width: 80%;
+        margin-top: 50px;
     }
 
     .search-page .search-results {

@@ -71,3 +71,4 @@ New portfolio page, responsive and more beautiful.
   ```yaml
   email_address: renovamenzxh@gmail.com
   ```
+- Search (based on [simple-jekyll-search.js](https://github.com/christian-fei/Simple-Jekyll-Search)).
