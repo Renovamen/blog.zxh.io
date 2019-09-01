@@ -117,8 +117,8 @@ img {
     min-height: 550px;
 }
 
-.page-header {
-    height: 550px;
+.profile-page .about-header {
+    min-height: 550px;
 }
 
 .profile-page .photo-container {
@@ -661,7 +661,7 @@ img {
 .border {
     border-bottom: 1px solid #D6DCE1;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 @media only screen and (max-width: 768px) {
