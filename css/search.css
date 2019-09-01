@@ -77,6 +77,10 @@
         font-size: 18px;
     }
 
+    .search-page .search-results a:hover {
+        font-weight: 400;
+    }
+
     .search-page .search-results .result-subtitle {
         font-size: 14px;
         color: #797878;
