@@ -87,3 +87,27 @@
         color: #797878;
     }
 }
+
+.search-page .img-left {
+    position: absolute;
+    width: 150px;
+    bottom: 30px;
+    left: 30px;
+}
+
+.search-page .img-right {
+    position: absolute;
+    width: 150px;
+    bottom: 30px;
+    right: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .search-page .img-left {
+        display: none;
+    }
+    
+    .search-page .img-right {
+        display: none;
+    }
+}

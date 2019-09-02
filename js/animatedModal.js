@@ -33,9 +33,6 @@
             afterOpen: function () { },
             beforeClose: function () { },
             afterClose: function () { }
-
-
-
         }, options);
 
         var closeBt = $('.close-' + settings.modalTarget);

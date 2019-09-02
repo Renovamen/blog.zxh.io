@@ -163,7 +163,7 @@ experience: [
     img: "../img/avatar.jpeg",
     time: "2019.9 - Present",
     job: "Bala",
-    description: "Waitting for completed...",
+    description: "Waitting to be completed...",
     if-left: true,
   },
 ]
