@@ -73,4 +73,11 @@ New portfolio page, responsive and more beautiful.
   ```
 - Search (based on [simple-jekyll-search.js](https://github.com/christian-fei/Simple-Jekyll-Search));
 
-- Go to top (refer to [mashirozx/Sakura](https://github.com/mashirozx/Sakura)).
+- Go to top (refer to [mashirozx/Sakura](https://github.com/mashirozx/Sakura));
+
+- Add fonts of pages to navigation bar by modifying the front-matter:
+
+  ```yaml
+  title: List
+  font: fa-list-ul
+  ```

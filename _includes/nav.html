@@ -21,18 +21,27 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{ site.baseurl }}/">Home</a>
+                        <a href="{{ site.baseurl }}/">
+                            <i class="fa fa-fort-awesome fa-lg"></i> Home
+                        </a>
                     </li>
                     {% for page in site.pages %}
                     {% if page.title and page.hide-in-nav != true %}
                     <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                        <a href="{{ page.url | prepend: site.baseurl }}">
+                            {% if page.font %}
+                            <i class="fa {{page.font}} fa-lg"></i>
+                            {% endif %}
+                            {{ page.title }}
+                        </a>
                     </li>
                     {% endif %}
                     {% endfor %}
 
                     <li>
-                        <a id="search-btn" href="#search">SEARCH</a>
+                        <a id="search-btn" href="#search">
+                            <i class="fa fa-search fa-lg"></i> SEARCH
+                        </a>
                     </li>
                 </ul>
             </div>
