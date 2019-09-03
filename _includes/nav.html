@@ -95,14 +95,76 @@
     })
 </script>
 
-<!-- Search Page Animate-->
+<!-- Search Page Animate -->
 <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
 <script src="{{ "/js/animatedModal.js" | prepend: site.baseurl }}"></script>
-
 <link rel="stylesheet" href="{{ "/css/animate.min.css" | prepend: site.baseurl }}">
 
 {% include search.html %}
 
 <script>
     $("#search-btn").animatedModal();
+</script>
+
+
+<!-- Go to Top -->
+<link rel="stylesheet" href="{{ "/css/cd-top.css" | prepend: site.baseurl }}">
+<a class="cd-top animated "></a>
+<button onclick="topFunction()" id="moblieGoTop" title="Go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+
+<script>
+    var offset = 100,
+        offset_opacity = 1200,
+        scroll_top_duration = 700,
+        $back_to_top = $('.cd-top');
+   
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > offset) {
+            $back_to_top.addClass('cd-is-visible');
+            $(".changeSkin-gear").css("bottom", "0");
+            if ($(window).height() > 950) {
+                $(".cd-top.cd-is-visible").css("top", "0");
+            } 
+            else {
+                $(".cd-top.cd-is-visible").css("top", ($(window).height() - 950) + "px");
+            }
+        } 
+        else {
+            $(".changeSkin-gear").css("bottom", "-999px");
+            $(".cd-top.cd-is-visible").css("top", "-900px");
+            $back_to_top.removeClass('cd-is-visible cd-fade-out');
+        }
+        if ($(this).scrollTop() > offset_opacity) {
+            $back_to_top.addClass('cd-fade-out');
+        }
+    });
+
+    // smooth scroll to top
+    $back_to_top.on('click', function (event) {
+        event.preventDefault();
+        $('body,html').animate({
+            scrollTop: 0,
+        }, scroll_top_duration);
+    });
+
+    // mobile
+    if (document.body.clientWidth <= 860) {
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("moblieGoTop").style.display = "block";
+            } 
+            else {
+                document.getElementById("moblieGoTop").style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    }
 </script>
