@@ -60,7 +60,7 @@ New portfolio page, responsive and more beautiful.
 
 ### Other Changes
 
-- Indentation of heading 2 to heading 4 in catalog;
+- More beautiful catalog (based on [tocbot.js](https://github.com/tscanlin/tocbot));
 
 - Hide posts from home page: 
 

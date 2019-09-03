@@ -122,6 +122,43 @@
 
 <!-- Side Catalog -->
 {% if page.catalog %}
+<!-- tocbot: https://github.com/tscanlin/tocbot -->
+<script src="{{ " /js/tocbot.min.js " | prepend: site.baseurl }}"></script>
+<link rel="stylesheet" href="{{ " /css/tocbot.css " | prepend: site.baseurl }}">
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+
+        // interop with multilangual 
+        if ('{{ page.multilingual }}' == 'true') {
+            _containerSelector = 'div.post-container.active'
+        } else {
+            _containerSelector = 'div.post-container'
+        }
+        
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: selector,
+            // Where to grab the headings to build the table of contents.
+            contentSelector: _containerSelector,
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h2, h3, h4, h5, h6',
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+</script>
+
+<!-- Old Catalog -->
+<!-- 
 <script type="text/javascript">
     function generateCatalog (selector) {
 
@@ -178,7 +215,7 @@
             padding: 80
         });
     });
-</script>
+</script> -->
 {% endif %}
 
 

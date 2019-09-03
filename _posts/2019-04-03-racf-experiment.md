@@ -16,15 +16,15 @@ tags:
 
 
 
-### 创建组
+### 1. 创建组
 
-#### 1. 组的结构
+#### 1.1 组的结构
 
 ![](/img/in-post/2019-04-03/racf-2.1.png)
 
 
 
-#### 2. 登陆TSO
+#### 1.2 登陆TSO
 
 以 RACFLAB 组管理员身份登陆TSO：
 
@@ -40,7 +40,7 @@ tags:
 
    
 
-#### 3. 在 RACFLAB 下定义子组
+#### 1.3 在 RACFLAB 下定义子组
 
 利用 RACF 命令定义以下子组：
 
@@ -74,7 +74,7 @@ LG DIV16RES
 
 
 
-#### 4. 在 DIV16FUN 下定义子组（功能组）
+#### 1.4 在 DIV16FUN 下定义子组（功能组）
 
 利用 RACF 命令定义以下子组：
 
@@ -92,7 +92,7 @@ LG DIV16RES
 
 
 
-#### 5. 在 DIV16RES 下定义子组（资源组）
+#### 1.5 在 DIV16RES 下定义子组（资源组）
 利用 RACF 命令定义以下子组（RACF 中数据集 Profile 的 HLQ 必须是 RACF 系统中的一个用户或者组，这里为即将要保护的数据集 RES16PRD.* 和 RES16TST 定义 2 个子组）：
 
 - 定义 RES16PRD 资源组，该组将用于保护生产系统的数据集。RACF 命令：
@@ -109,7 +109,7 @@ LG DIV16RES
 
 
 
-#### 6. 查找组 Profile 
+#### 1.6 查找组 Profile 
 
 ```
 SEARCH CLASS(GROUP) MASK(DIV16)
@@ -119,11 +119,11 @@ SEARCH CLASS(GROUP) MASK(DIV16)
 
 
 &nbsp;
-### 用户管理
+### 2. 用户管理
 
 ![](/img/in-post/2019-04-03/racf-3.1.png)
 
-#### 1. 新建用户
+#### 2.1 新建用户
 
 1. 在不太了解用户需要什么权限的情况下，一般只给出最低权限，利用 RACF 命令完成以下设置：
    1. 指定用户的默认组为 DIV16ADM 
@@ -179,7 +179,7 @@ SEARCH CLASS(GROUP) MASK(DIV16)
    
 
 
-#### 2. 重置用户密码
+#### 2.2 重置用户密码
 
 当用户忘记密码的时后需要管理员 ST016 为该用户重新指定一个初始密码。
 
@@ -191,7 +191,7 @@ ALU TSO1601 PASSWORD(PASS)
 
 
 
-#### 3. Revoke 用户
+#### 2.3 Revoke 用户
 
 当用户帐号暂时不用的时候，安全起见应该将该帐号挂起（Revoke）。
 场景：Arthur Fielding（TSO1604）将会出差一段时间，在这段时间应将该用户的帐号挂起：
@@ -202,7 +202,7 @@ ALU TSO1601 REVOKE
 
 
 
-#### 4. Resume 用户
+#### 2.4 Resume 用户
 
 当挂起的用户帐号需要重新启用的时候，应该及时地将帐号 Resume。
 场景：Arthur Fielding（TSO1604）出差回来，希望能够继续使用以前的帐号：
@@ -213,7 +213,7 @@ ALU TSO1601 RESUME
 
 
 
-#### 5. Search 查找
+#### 2.5 Search 查找
 
 使用 Search 命令查找以上新建的用户 Profile
 
@@ -223,7 +223,7 @@ SEARCH CLASS(USER) MASK(TSO1601)
 
 
 
-#### 6. 将用户关联到组
+#### 2.6 将用户关联到组
 
 RACF 中给用户访问资源权限的最佳方法是将用户关联到可以访问这些资源的组中，这些组称为功能组（Functional Group）。
 
@@ -241,7 +241,7 @@ RACF 中给用户访问资源权限的最佳方法是将用户关联到可以访
 
 
 
-#### 7. 验证用户是否关联到组
+#### 2.7 验证用户是否关联到组
 
 ```
 LU TSO1604
@@ -254,7 +254,7 @@ LG FUN16TST
 
 
 &nbsp;
-### 分散式 RACF 安全管理
+### 3. 分散式 RACF 安全管理
 
 **目的：**实现 RACF 中的管理权限下放（Delegation）
 
@@ -268,11 +268,11 @@ LG FUN16TST
 
 
 
-![](/img/in-post/2019-04-03/racf-4.1.png")
+![](/img/in-post/2019-04-03/racf-4.1.png)
 
 
 
-#### 1. 用户身份定位
+#### 3.1 用户身份定位
 
 - TSO1601（Janet Smith）：该管理员将对 DIV16ADM 组用户的安全进行管理，包括为用户重置密码，挂起和启用用户：
 
@@ -296,7 +296,7 @@ LG FUN16TST
 
 
 
-#### 2. 测试
+#### 3.2 测试
 
 测试步骤1的功能是否实现：
 
@@ -324,7 +324,7 @@ LG FUN16TST
 
 
 &nbsp;
-### 数据集保护 I
+### 4. 数据集保护 I
 
 **目的：**实现对用户数据集和组数据集的保护。
 
@@ -334,7 +334,7 @@ LG FUN16TST
 
 
 
-#### 1. 保护数据集
+#### 4.1 保护数据集
 
 保护以下用户的数据集，保护准则：只有用户本身可以访问自己的数据集，其他人都不能访问。（用户的数据集是指以用户名为 HLQ 的所有数据集）
 
@@ -360,7 +360,7 @@ ADDSD 'TSO1605.**' UACC(NONE)
 
 
 
-#### 2. 查看PROFILE
+#### 4.2 查看PROFILE
 
 查看步骤1创建的用户数据集PROFILE：
 
@@ -374,7 +374,7 @@ LISTDSD DA('TSO1605.**') ALL
 
 
 
-#### 3.  定义RPOFILE + 赋ALTER权
+#### 4.3  定义RPOFILE + 赋ALTER权
 
 定义RES16TST组数据集的RPOFILE。在前面的实验中，TSO1603 被指定为 RES16PRD 和 RES16TST 的 Create 用户，以拥有对这 2 个组的数据集的保护权限。
 
@@ -424,7 +424,7 @@ LISTDSD DA('TSO1605.**') ALL
 
 
 
-#### 4. 验证
+#### 4.4 验证
 
 确定组数据集 PROFIEL 是否创建并按照预定的要求保护成功
 
@@ -435,7 +435,7 @@ LISTDSD DATASET('RES16PRD.**') ALL
 
 
 
-#### 5. 创建组数据集
+#### 4.5 创建组数据集
 
 以 ST016 用户登陆 TSO，创建 RES16TST 和 RES16PRD 组数据集：
 
@@ -485,7 +485,7 @@ Enter "/" to select option     DDDD for retention period in days
 
 
 
-#### 10. 验证
+#### 4.6 验证
 
 - 验证 TSO1604 访问 RES16PRD 组数据集：成功访问；
 
@@ -508,7 +508,7 @@ Enter "/" to select option     DDDD for retention period in days
 
 
 &nbsp;
-### 数据集保护 II
+### 5. 数据集保护 II
 
 目的：实现对用户数据集和组数据集的保护
 
@@ -516,7 +516,7 @@ Enter "/" to select option     DDDD for retention period in days
 
 
 
-#### 1. 创建全匹配 PROFILE
+#### 5.1 创建全匹配 PROFILE
 
 为 RES16PRD.DATA 创建全匹配 PROFILE。以 TSO1603 登陆（RES16PRD 组 CREATE 特权人员，即数据管理人员），为 `RES16PRD.DATA` 创建一个全匹配的 PROFILE 进行保护：
 
@@ -526,7 +526,7 @@ ADDSD 'RES16PRD.DATA' UACC(READ)
 
 
 
-#### 2. 打开 Warning 状态
+#### 5.2 打开 Warning 状态
 
 以 TSO1603 登陆，把 `RES16TST.**` PROFILE 的 Warning 状态打开：
 
@@ -538,7 +538,7 @@ ALTDSD 'RES16TST.**' WARNING
 
 
 
-#### 3. 关闭 Warning 状态
+#### 5.3 关闭 Warning 状态
 
 以 TSO1603 登陆，把 `RES16TST.**` PROFILE 的 Warning 状态关闭：
 
@@ -550,7 +550,7 @@ ALTDSD 'RES16TST.**' NOWARNING
 
 
 
-#### 4. UPDATE 权限
+#### 5.4 UPDATE 权限
 
 TSO1603 登陆。假设 `RES16PRD.NEWAPPL.FINANCE.DATA` 和 `RES16PRD.NEWAPPL.HR.DATA` 是一个新应用系统的 2 个数据集，FUN16TST 组需要对这 2 个数据集有 UPDATE 权限，而不能对其他应用系统的数据集有操作权限。注意，FUN16PRD 组仍然需要对所有的 RES16PRD 数据集保留原有的操作权限。
 
@@ -580,7 +580,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 
 &nbsp;
-### 保护 TSO 资源
+### 6. 保护 TSO 资源
 
 目的：授权用户登录 TSO
 
@@ -592,7 +592,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 
 
-#### 1. 创建组结构
+#### 6.1 创建组结构
 
 1. 在 DIV16FUN 下创建子组 FUN16AP
 
@@ -614,7 +614,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 
 
-#### 2. 新增用户
+#### 6.2 新增用户
 
 新增 AP 和 SP 用户，这些用户需要访问TSO
 
@@ -660,7 +660,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 
 
-#### 3. 创建登陆过程
+#### 6.3 创建登陆过程
 
 为 TSO 用户创建一个新的登陆过程 PROC#Sxx 和 PROC#Axx。打开文件 VENDOR.PROCLIB ，在 Command 中输入：
 
@@ -673,7 +673,7 @@ S PROC#A16;COPY IKJDB2
 
 
 
-#### 4. 保护登录过程
+#### 6.4 保护登录过程
 
 保护 PROC#Sxx 登陆过程（TSOPROC类）。
 
@@ -710,7 +710,7 @@ S PROC#A16;COPY IKJDB2
 
 
 
-#### 5. 保护 ACCTNUM
+#### 6.5 保护 ACCTNUM
 
 创建两个 TSO 账户（ACCTNUM），并创建一个通用资源 RPOFILE 保护该 ACCTNUM。
 
@@ -745,7 +745,7 @@ S PROC#A16;COPY IKJDB2
 
 
 
-#### 6. 保护 TSOAUTH
+#### 6.6 保护 TSOAUTH
 TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括：ACCT，JCL，MOUNT， OPER，RECOVER 等。系统已经定义了一个 JCL PROFILE 用于保护 TSO 的 JCL 权限，该权限允许通过 TSO 向 JES 提交 JCL 批量作业。
 
 1. （不做）为 SP 和 AP 用户赋权访问 JCL 权限：
@@ -764,7 +764,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 
 
-#### 7. 保护用户数据集 
+#### 6.7 保护用户数据集 
 
 1. 保护 TSO1607 的用户数据集 
 
@@ -782,7 +782,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 
 
-#### 8. 创建 ALIAS
+#### 6.8 创建 ALIAS
 
 为 TSOxx07 和 TSOxx08 创建 ALIAS（普通用户不能修改 Master Catalog，所以为了让用户可以创建自己的编目数据集，必须为用户创建 ALIAS，ALIAS 指向 User Catalog）。
 
@@ -802,7 +802,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 
 &nbsp;
-### 使用 JCL 执行 RACF 命令
+### 7. 使用 JCL 执行 RACF 命令
 
 编写 JCL 作业，然后 SUBMIT：
 
