@@ -270,3 +270,51 @@
     _render();
 </script>
 {% endif %}
+
+<!-- Change Theme -->
+<link rel="stylesheet" href="{{ " /css/theme-tool.css " | prepend: site.baseurl }}">
+
+<div class="changeTheme no-select">
+    <div class="keys">
+        <span id="open-skinMenu">
+            <i class="fa fa-cog fa-lg"></i> THEME
+        </span>
+    </div>
+</div>
+<div class="theme-menu no-select">
+    <div class="theme-controls row-container">
+        <ul class="menu-list">
+            <li id="white" class="white">
+                <i class="fa fa-sun-o"></i>
+            </li><!-- Default -->
+            <li id="dark" class="dark">
+                <i class="fa fa-moon-o"></i>
+            </li><!-- Night -->
+        </ul>
+    </div>
+</div>
+<!-- Night Mode -->
+<canvas id="night-mode-cover"></canvas>
+
+<script>
+$(document).ready(function () {
+    $(".theme-menu #white").click(function () {
+        $("#night-mode-cover").css("visibility", "hidden");
+        closeSkinMenu();
+    });
+    $(".theme-menu #dark").click(function () {
+        $("#night-mode-cover").css("visibility", "visible");
+        closeSkinMenu();
+    });
+
+    function closeSkinMenu() {
+        $(".theme-menu").removeClass('show');
+        setTimeout(function () {
+            $(".changeTheme").css("visibility", "visible");
+        }, 300);
+    }
+    $(".changeTheme").click(function () {
+        $(".theme-menu").toggleClass('show');
+    })
+});
+</script>

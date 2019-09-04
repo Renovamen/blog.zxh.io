@@ -130,7 +130,7 @@
     $(window).scroll(function () {
         if ($(this).scrollTop() > offset) {
             $back_to_top.addClass('cd-is-visible');
-            $(".changeSkin-gear").css("bottom", "0");
+            $(".changeTheme").css("bottom", "0");
             if ($(window).height() > 950) {
                 $(".cd-top.cd-is-visible").css("top", "0");
             } 
@@ -139,7 +139,7 @@
             }
         } 
         else {
-            $(".changeSkin-gear").css("bottom", "-999px");
+            $(".changeTheme").css("bottom", "-999px");
             $(".cd-top.cd-is-visible").css("top", "-900px");
             $back_to_top.removeClass('cd-is-visible cd-fade-out');
         }

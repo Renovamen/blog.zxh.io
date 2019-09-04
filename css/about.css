@@ -13,11 +13,7 @@ h5,
 h6,
 .btn {
     font-weight: 400;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-}
-
-small {
-    font-size: 60%;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
 
 h1,
@@ -27,16 +23,9 @@ h1,
     margin-bottom: 30px;
 }
 
-h1 small,
-.h1 small {
-    font-weight: 700;
-    text-transform: uppercase;
-    opacity: .8;
-}
-
 h2,
 .h2 {
-    font-size: 2.5em;
+    font-size: 2.2em;
     margin-bottom: 30px;
 }
 
@@ -57,7 +46,7 @@ h4,
 
 h5,
 .h5 {
-    font-size: 1.5em;
+    font-size: 1.32em;
     line-height: 1.4em;
     margin-bottom: 15px;
 }
@@ -99,10 +88,9 @@ p.description {
 
 body {
     color: #2c2c2c;
-    font-size: 14px;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
 
 /*  ------------------- Header Page style ------------------- */

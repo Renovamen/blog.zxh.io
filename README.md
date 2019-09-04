@@ -1,6 +1,6 @@
 # Just a Blog
 
-My blog. A Jekyll theme modified from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io).
+My blog. A Jekyll theme modified from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io). Some styles refer to [mashirozx/Sakura](https://github.com/mashirozx/Sakura).
 
 [View this blog](https://renovamen.ink/)
 
@@ -12,7 +12,7 @@ My blog. A Jekyll theme modified from [Huxpro/huxpro.github.io](https://github.c
 
 #### Links Page
 
-Add a beautiful and responsive links page (refer to [mashirozx/Sakura](https://github.com/mashirozx/Sakura)). You can easily add links to it by modifying `_config.yml`, for example:
+Add a beautiful and responsive links page. You can easily add links to it by modifying `_config.yml`, for example:
 
 ```yaml
 links: [
@@ -73,7 +73,7 @@ New portfolio page, responsive and more beautiful.
   ```
 - Search (based on [simple-jekyll-search.js](https://github.com/christian-fei/Simple-Jekyll-Search));
 
-- Go to top (refer to [mashirozx/Sakura](https://github.com/mashirozx/Sakura));
+- Go to top;
 
 - Add fonts of pages to navigation bar by modifying the front-matter:
 
@@ -81,3 +81,5 @@ New portfolio page, responsive and more beautiful.
   title: List
   font: fa-list-ul
   ```
+
+- Change theme (default mode & night mode).
