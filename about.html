@@ -17,7 +17,7 @@ header-style: text
     </head>
 
     <body class="profile-page">
-        <div class="container about-header">
+        <div class="container about-header" id="about-header">
             <div class="row">
                 <div class="content-info col-md-4">
                     <div class = "photo-container">
@@ -221,8 +221,12 @@ header-style: text
             document.addEventListener("DOMContentLoaded", function() {
                 new SweetScroll({});
             }, !1);
+            
+            // about-header 高度适配
+            var aboutHeader = document.getElementById("about-header");
+            if(document.documentElement.clientWidth > 1024)
+                aboutHeader.style.minHeight = document.documentElement.clientHeight + "px";
         </script>
-
     </body>
 
 </html>

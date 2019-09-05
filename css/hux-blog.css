@@ -688,7 +688,7 @@ samp {
   position: absolute;
   padding-top: 1px;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 991px) {
   /**
 	 * Layout
 	 * Since V1.6 we use absolute positioning to prevent to expand container-fluid
@@ -794,7 +794,7 @@ samp {
 .navbar-custom .nav li a:active {
   background: rgba(0, 0, 0, 0.12);
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   .navbar-custom {
     background: transparent;
     border-bottom: 1px solid transparent;
