@@ -4,6 +4,7 @@ title: "翻译 |  IGN：Underworld Ascendant Review"
 subtitle: 'Translation of Underworld Ascendant Review'
 author: "Renovamen"
 header-img: "img/in-post/2018-12-05/Underworld-Ascendant.jpg"
+header-mask: 0.3
 tags:
   - 摸鱼
 ---
