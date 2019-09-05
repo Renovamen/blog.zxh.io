@@ -127,9 +127,21 @@ img {
     margin-top: 0;
 }
 
+.profile-page .content-about .phone-cv {
+    display: none;
+}
+
 @media only screen and (max-width: 768px) {
     .profile-page .content-about .about-title {
         margin-top: 30px;
+    }
+    .profile-page .content-about h5.phone-cv a {
+        color: #377bb5;
+    }
+
+    .profile-page .content-about .phone-cv {
+        display: block;
+        margin-top: -3em;
     }
 }
 
@@ -161,35 +173,21 @@ img {
     width: 24%;
     text-align: center;
     margin: 55px 0 0px;
-    color: #377bb5;
-    font-size: 16px;
 }
 
-.profile-page .content-about .phone-cv {
-    display: none;
+.profile-page .content .social-description > a {
+    text-decoration: none;
+    color: #377bb5;
+}
+
+.profile-page .content .social-description > a:hover {
+    color: #c26a7b;
 }
 
 @media only screen and (max-width: 768px) {
     .profile-page .content .social-description {
         margin: 0 0 0px;
     }
-
-    .profile-page h5.phone-cv a {
-        color: #377bb5;
-    }
-
-    .profile-page .content-about .phone-cv {
-        display: block;
-        margin-top: -3em;
-    }
-}
-
-.profile-page .content .social-description .fa {
-    color: #377bb5;
-}
-
-.profile-page .content .social-description .fa:hover {
-    color: #c26a7b;
 }
 
 /*  ------------------- Personal Information style ------------------- */

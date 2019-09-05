@@ -21,16 +21,16 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{ site.baseurl }}/">
-                            <i class="fa fa-fort-awesome fa-lg"></i> Home
+                        <a href="{{ site.baseurl }}/" class="faa-parent animated-hover">
+                            <i class="fa fa-fort-awesome fa-lg faa-wrench"></i> Home
                         </a>
                     </li>
                     {% for page in site.pages %}
                     {% if page.title and page.hide-in-nav != true %}
                     <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">
+                        <a href="{{ page.url | prepend: site.baseurl }}" class="faa-parent animated-hover">
                             {% if page.font %}
-                            <i class="fa {{page.font}} fa-lg"></i>
+                            <i class="fa {{page.font}} fa-lg faa-wrench"></i>
                             {% endif %}
                             {{ page.title }}
                         </a>
@@ -39,8 +39,8 @@
                     {% endfor %}
 
                     <li>
-                        <a id="search-btn" href="#search">
-                            <i class="fa fa-search fa-lg"></i> SEARCH
+                        <a id="search-btn" href="#search" class="faa-parent animated-hover">
+                            <i class="fa fa-search fa-lg faa-wrench"></i> SEARCH
                         </a>
                     </li>
                 </ul>

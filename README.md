@@ -21,7 +21,7 @@ links: [
     link-list: [
       {
         sitename: "Cool Dragon",
-        href: "https://renovamen.github.io/",
+        href: "http://allspark.ink/",
         img: "img/dragon.jpeg",
         linkdes: "The coolest dragon in the world",
       }
@@ -41,7 +41,7 @@ Experience information can be modified in `_config.yml`, for example:
 ```yaml
 experience: [
   {
-    img: "../img/avatar.jpeg",
+    img: "../img/experience/cat.jpeg",
     time: "2019.9 - Present",
     job: "Company",
     description: "Code all days.",

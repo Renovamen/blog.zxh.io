@@ -2,7 +2,7 @@
     "name": "renovamen-blog",
     "title": "Renovamen Blog",
     "version": "1.7.0",
-    "homepage": "http://renovamen.github.io",
+    "homepage": "https://renovamen.github.io",
     "repository": {
         "type": "git",
         "url": "https://github.com/Renovamen/renovamen.github.io"

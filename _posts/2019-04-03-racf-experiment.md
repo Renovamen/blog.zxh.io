@@ -24,7 +24,7 @@ tags:
 
 
 
-#### 1.2 登陆TSO
+#### 1.2 登陆 TSO
 
 以 RACFLAB 组管理员身份登陆TSO：
 
@@ -360,7 +360,7 @@ ADDSD 'TSO1605.**' UACC(NONE)
 
 
 
-#### 4.2 查看PROFILE
+#### 4.2 查看 PROFILE
 
 查看步骤1创建的用户数据集PROFILE：
 
@@ -374,7 +374,7 @@ LISTDSD DA('TSO1605.**') ALL
 
 
 
-#### 4.3  定义RPOFILE + 赋ALTER权
+#### 4.3  定义 RPOFILE + 赋 ALTER 权
 
 定义RES16TST组数据集的RPOFILE。在前面的实验中，TSO1603 被指定为 RES16PRD 和 RES16TST 的 Create 用户，以拥有对这 2 个组的数据集的保护权限。
 

@@ -42,22 +42,31 @@
 .search-page .search-results a {
     text-decoration: none;
     display: block;
-    padding: 2rem 0 0.5rem 0;
     padding-left: 15px;
-    color: #000;
-    font-size: 20px;
+    padding-right: 15px;
     border-bottom: 1px solid #bdbbbb;
 }
 
-.search-page .search-results a:hover {
-    color: #377bb5;
-    font-weight: bold;
-    border-bottom: 1px solid #b3b3b3
+.search-page .search-results .result-item > a {
+    color: #404040;
 }
-
-.search-page .search-results .result-subtitle {
-    font-size: 16px;
-    color: #797878;
+.search-page .search-results .result-item > a:hover,
+.search-page .search-results .result-item > a:focus {
+    text-decoration: none;
+    color: #0085a1;
+}
+.search-page .search-results .result-item > a > .result-title {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+.search-page .search-results .result-item > a > .result-subtitle {
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 300;
+    margin-bottom: 12px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -72,19 +81,6 @@
     .search-page .search-results {
         padding: 20px 20px 20px 20px;
         height: 450px;
-    }
-
-    .search-page .search-results a {
-        font-size: 18px;
-    }
-
-    .search-page .search-results a:hover {
-        font-weight: 400;
-    }
-
-    .search-page .search-results .result-subtitle {
-        font-size: 14px;
-        color: #797878;
     }
 }
 
