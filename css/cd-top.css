@@ -50,7 +50,7 @@
     }
 }
 
-#moblieGoTop {
+#mobileGoTop {
     display: none;
     position: fixed;
     bottom: 10px;
@@ -68,7 +68,7 @@
     transition: box-shadow .2s ease
 }
 
-#moblieGoTop:hover {
+#mobileGoTop:hover {
     background-color: #fff;
     opacity: .8
 }
