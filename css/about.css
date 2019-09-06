@@ -106,7 +106,7 @@ img {
 }
 
 .profile-page .about-header {
-    min-height: 600px;
+    min-height: 670px;
     margin-bottom: -150px;
 }
 
@@ -280,7 +280,7 @@ img {
     color: #797878;
     text-align: center;
     position: absolute;
-    bottom: 50px;
+    top: 635px;
     width: 100%;
     display: block;
     font-size: 30px;

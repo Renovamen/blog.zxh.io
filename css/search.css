@@ -3,6 +3,7 @@
     margin-right: 0;
     padding: 20px;
     color: #bdbbbb;
+    font-size: 30px;
 }
 
 .search-page .close-search:hover {
@@ -69,7 +70,7 @@
     margin-bottom: 12px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
     .search-page .search-form .search-field {
         width: 80%;
         margin-top: 50px;

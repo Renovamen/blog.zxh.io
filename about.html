@@ -223,8 +223,8 @@ header-style: text
             }, !1);
             
             // about-header 高度适配
-            if(document.body.clientWidth > 1200) {
-                console.log(document.body.clientWidth)
+            if(document.body.clientWidth > 1200 && $(window).height() <= 800) {
+                //console.log(document.body.clientWidth)
                 $('.about-header').css({
                     'height': $(window).height() + "px"
                 });
