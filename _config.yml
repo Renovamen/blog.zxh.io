@@ -11,6 +11,11 @@ baseurl: ""                             # for example, '/blog' if your blog host
 # Publish posts or collection documents with a future date.
 future: true
 
+collections:
+  experience:
+    name: experience
+    output: true
+
 # SNS settings
 RSS: false
 github_username:    Renovamen
@@ -155,15 +160,4 @@ links: [
       },
     ],
   }
-]
-
-# Experience
-experience: [
-  {
-    img: "../img/experience/cat.jpeg",
-    time: "2019.9 - Present",
-    job: "Bala",
-    description: "Waitting to be completed...",
-    if-left: true,
-  },
 ]

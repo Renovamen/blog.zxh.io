@@ -36,18 +36,16 @@ links: [
 
 New about page page, responsive and more beautiful. 
 
-Experience information can be modified in `_config.yml`, for example:
+Experience information can be added by creating Markdown files in `/_experience`, an example of the file's front-matter is:
 
 ```yaml
-experience: [
-  {
-    img: "../img/experience/cat.jpeg",
-    time: "2019.9 - Present",
-    job: "Company",
-    description: "Code all days.",
-    if-left: true, # whether you want to show the text on the left
-  },
-]
+---
+img: "../../img/experience/cat.jpeg"
+time: "2019.9 - Present"
+job: "Bala"
+description: "Waitting to be completed..."
+if-left: true
+---
 ```
 
 &nbsp;

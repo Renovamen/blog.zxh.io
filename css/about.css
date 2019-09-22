@@ -171,6 +171,10 @@ img {
     color: #377bb5;
 }
 
+.profile-page .content-about .biography {
+    font-size: 18px;
+}
+
 .profile-page .content {
     margin: 0 auto;
 }

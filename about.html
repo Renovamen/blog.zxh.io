@@ -54,10 +54,10 @@ header-style: text
                 </div>
                 <div class="content-about col-md-8">
                     <h2 class="about-title">Biography</h2>
-                    <h5 class="description">Hi! I am <s>a dragon lost in human world</s> a senior 
-                        student at <a href="http://sse.tongji.edu.cn/" target="_blank">School 
-                        of Software Engineering</a>, <a href="https://www.tongji.edu.cn/" target="_blank">
-                        Tongji University</a>. I do not like parrots.</h5>
+                    <h5 class="description biography">
+                        {% capture about_bio %}{% include about/biography.md %}{% endcapture %}
+                        {{ about_bio | markdownify }}
+                    </h5>
                     <h5 class="description phone-cv">
                         <a href="../files/cv.pdf" target="_blank">[My CV]</a>
                     </h5>
@@ -82,7 +82,7 @@ header-style: text
                             <button class="btn btn-default">CV</button>
                         </a>
                         <a href="#misc" data-scroll>
-                            <button class="btn btn-default">Misc.</button>
+                            <button class="btn btn-default">Misc</button>
                         </a>
                     </div>
 
