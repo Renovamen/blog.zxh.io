@@ -26,28 +26,34 @@ header-style: text
                     <h3 class="about-title">Zou Xiaohan</h3>
                     <p class="category">Renovamen</p>
                     <div class="content">
+                        {% if site.github_username %}
                         <div class="social-description">
-                            <a href="https://github.com/Renovamen" target="_blank" class="faa-parent animated-hover">
+                            <a href="https://github.com/{{ site.github_username }}" target="_blank" class="faa-parent animated-hover">
                                 <i class="fa fa-github fa-2x faa-vertical"></i>
                                 <p class="font-name">Github</p>
                             </a>
                         </div>
+                        {% endif %}
+                        {% if site.facebook_username %}
                         <div class="social-description">
-                            <a href="http://renovamen.ink" target="_blank" class="faa-parent animated-hover">
-                                <i class="fa fa-share-alt fa-2x faa-vertical"></i>
-                                <p>Blog</p>
-                            </a>
-                        </div>
-                        <div class="social-description">
-                            <a href="https://www.facebook.com/renovamen.zou" target="_blank" class="faa-parent animated-hover">
+                            <a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank" class="faa-parent animated-hover">
                                 <i class="fa fa-facebook-square fa-2x faa-vertical"></i>
                                 <p>Facebook</p>
                             </a>
                         </div>
+                        {% endif %}
+                        {% if site.email_address %}
                         <div class="social-description">
-                            <a href = mailto:renovamenzxh@gmail.com class="faa-parent animated-hover">
+                            <a href = "mailto:{{ site.email_address }}" class="faa-parent animated-hover">
                                 <i class="fa fa-envelope-o fa-2x faa-vertical"></i>
                                 <p>Email</p>
+                            </a>
+                        </div>
+                        {% endif %}
+                        <div class="social-description">
+                            <a href="{{site.url}}" target="_blank" class="faa-parent animated-hover">
+                                <i class="fa fa-share-alt fa-2x faa-vertical"></i>
+                                <p>Blog</p>
                             </a>
                         </div>
                     </div>
@@ -69,13 +75,13 @@ header-style: text
                         <a href="#experience" data-scroll>
                             <button class="btn btn-default">Experience</button>
                         </a>
-                        <a href="http://renovamen.ink/portfolio/"> 
+                        <a href="{{site.url}}/portfolio/"> 
                             <button class="btn btn-default">Projects</button>
                         </a>
                         <!-- <a href="#award">
                             <button class="btn btn-default">Awards</button>
                         </a> -->
-                        <a href="http://renovamen.ink">
+                        <a href="{{site.url}}">
                             <button class="btn btn-default">Posts</button>
                         </a>
                         <a href="../files/cv.pdf" target="_blank">
@@ -231,48 +237,4 @@ header-style: text
             }
         </script>
     </body>
-
 </html>
-
-
-<!-- English Version -->
-<!-- <div class="en post-container">
-    {% capture about_en %}{% include about/en.md %}{% endcapture %}
-    {{ about_en | markdownify }}
-</div> -->
-
-<!-- Chinese Version -->
-<!-- <div class="zh post-container">
-    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
-    {{ about_zh | markdownify }}
-</div> -->
-
-
-{% if site.disqus_username %}
-<!-- disqus 评论框 start -->
-<!--
-<div class="comment">
-    <div id="disqus_thread" class="disqus-thread">
-
-    </div>
-</div>
--->
-<!-- disqus 评论框 end -->
-
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<!-- 
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "{{site.disqus_username}}";
-    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
-    var disqus_url = "{{site.url}}{{page.url}}";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script> -->
-
-<!-- disqus 公共JS代码 end -->
-{% endif %}

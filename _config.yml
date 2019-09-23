@@ -7,6 +7,7 @@ description: "Renovamen (Zou Xiaohan)"
 keyword: ""
 url: "https://renovamen.ink"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+repo: renovamen.github.io
 
 # Publish posts or collection documents with a future date.
 future: true
@@ -64,11 +65,10 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: renovamen
-
-# Netease settings
-netease_comment: false
-
+# disqus_username: renovamen
+# Gitalk settings
+gitalk_clientID: '1c5d300bbdfa8c9184a8'
+gitalk_clientSecret: '5065181ec07771b93a5f7b2e0def566607fe045a'
 
 
 # Analytics settings

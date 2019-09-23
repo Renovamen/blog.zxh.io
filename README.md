@@ -36,6 +36,8 @@ links: [
 
 New about page page, responsive and more beautiful. 
 
+Biography can be modified in `_includes/about/biography.md`.
+
 Experience information can be added by creating Markdown files in `/_experience`, an example of the file's front-matter is:
 
 ```yaml
@@ -53,6 +55,20 @@ if-left: true
 #### Portfolio Page
 
 New portfolio page, responsive and more beautiful.
+
+&nbsp;
+
+### Gitalk
+
+[Gitalk](https://github.com/gitalk/gitalk) is supported as third party discussion system now.
+
+You have to register a [Github Application](https://github.com/settings/applications/new) and put your Client ID and Client Secret here in `_config.yml`:
+
+```yaml
+# Gitalk settings
+gitalk_clientID: your_client_id
+gitalk_clientSecret: your_client_secret
+```
 
 &nbsp;
 

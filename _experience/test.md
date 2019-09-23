@@ -1,5 +1,5 @@
 ---
-img: "../../img/experience/cat.jpeg"
+img: "../../img/about/experience/cat.jpeg"
 time: "2019.9 - Present"
 job: "Bala"
 description: "Waitting to be completed..."

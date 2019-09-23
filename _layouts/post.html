@@ -51,22 +51,24 @@ layout: default
                 </ul>
                 <hr style="visibility: hidden;">
 
+                <!-- 评论框 Start -->
                 {% if site.disqus_username %}
-                <!-- disqus 评论框 start -->
+                <!-- disqus -->
                 <div class="comment">
                     <div id="disqus_thread" class="disqus-thread"></div>
                 </div>
-                <!-- disqus 评论框 end -->
                 {% endif %}
 
-                {% if site.netease_comment %}
-                <!-- 网易云跟帖 评论框 start -->
-                <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-                <!-- 网易云跟帖 评论框 end -->
+                {% if site.gitalk_clientID and site.gitalk_clientSecret %}
+                <!-- Gitalk -->
+                <div class="comment">
+                    <div id="gitalk-container"></div>
+                </div>
                 {% endif %}
+                <!-- 评论框 end -->
             </div>  
 
-    <!-- Side Catalog Container -->
+        <!-- Side Catalog Container -->
         {% if page.catalog %}
             <div class="
                 col-lg-2 col-lg-offset-0
@@ -92,23 +94,6 @@ layout: default
   {% include mathjax_support.html %}
 {% endif %}
 
-{% if site.netease_comment %}
-<!-- 网易云跟帖JS代码 start -->
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-<script>
-  var cloudTieConfig = {
-    url: document.location.href, 
-    sourceId: "",
-    productKey: "de25fc98a6fe48b3bc8a7ae765da99a0",
-    target: "cloud-tie-wrapper"
-  };
-  var yunManualLoad = true;
-  Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
-</script>
-<!-- 网易云跟帖JS代码 end -->
-{% endif %}
-
-
 {% if site.disqus_username %}
 <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -126,6 +111,25 @@ layout: default
 <!-- disqus 公共JS代码 end -->
 {% endif %}
 
+{% if site.gitalk_clientID and site.gitalk_clientSecret %}
+<!-- Gitalk 样式及JS代码 start -->
+<link rel="stylesheet" href="{{ "/css/gitalk.css" | prepend: site.baseurl }}">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="{{ "/js/md5.js " | prepend: site.baseurl }}"></script> 
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '{{ site.gittalk_clientID }}',
+        clientSecret: '{{ site.gittalk_clientSecret }}',
+        repo: '{{ site.repo }}',
+        owner: '{{ site.github_username }}',
+        admin: ['{{ site.github_username }}'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+</script> 
+<!-- Gitalk 样式及JS代码 end -->
+{% endif %}
 
 {% if site.anchorjs %}
 <!-- async load function -->
