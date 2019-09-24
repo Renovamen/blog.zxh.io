@@ -68,7 +68,7 @@ kramdown:
 # disqus_username: renovamen
 # Gitalk settings
 gitalk_clientID: '1c5d300bbdfa8c9184a8'
-gitalk_clientSecret: '5065181ec07771b93a5f7b2e0def566607fe045a'
+gitalk_clientSecret: '652051e01ab21c5d7df8705db4f8e23bbcef5c05'
 
 
 # Analytics settings
