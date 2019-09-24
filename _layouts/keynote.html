@@ -50,7 +50,7 @@ layout: default
                 </div>
                 {% endif %}
 
-                {% if site.gitalk_clientID and site.gitalk_clientSecret %}
+                {% if site.gitalk.clientID and site.gitalk.clientSecret %}
                 <!-- Gitalk -->
                 <div class="comment">
                     <div id="gitalk-container"></div>
@@ -116,18 +116,18 @@ layout: default
 <!-- disqus 公共JS代码 end -->
 {% endif %}
 
-{% if site.gitalk_clientID and site.gitalk_clientSecret %}
+{% if site.gitalk.clientID and site.gitalk.clientSecret %}
 <!-- Gitalk 样式及JS代码 start -->
 <link rel="stylesheet" href="{{ "/css/gitalk.css" | prepend: site.baseurl }}">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="{{ "/js/md5.js " | prepend: site.baseurl }}"></script> 
 <script type="text/javascript">
     var gitalk = new Gitalk({
-        clientID: '{{ site.gittalk_clientID }}',
-        clientSecret: '{{ site.gittalk_clientSecret }}',
-        repo: '{{ site.repo }}',
-        owner: '{{ site.github_username }}',
-        admin: ['{{ site.github_username }}'],
+        clientID: '{{ site.gitalk.clientID }}',
+        clientSecret: '{{ site.gitalk.clientSecret }}',
+        repo: '{{ site.gitalk.repo }}',
+        owner: '{{ site.gitalk.owner }}',
+        admin: ['{{ site.github_username }}', '{{ site.gitalk.owner }}'],
         id: md5(location.pathname),
         distractionFreeMode: false
     });
