@@ -24,6 +24,7 @@ header-img: [
     mask: "rgba(19, 75, 50, .4)",
   },
 ]
+simpleurl: "renovamen.ink"
 
 
 # Publish posts or collection documents with a future date.

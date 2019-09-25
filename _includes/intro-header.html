@@ -155,19 +155,17 @@ function changeImage(n) {
 
     introHeader = document.getElementById("intro-header");
     curImgURL = getComputedStyle(introHeader, null).backgroundImage;
-    console.log(curImgURL)
 
     for(i=0; i<len; i++) {
-        iURL = '"' + '{{site.url}}' + headerImgList[i].url + '"'
-        console.log('url(' + iURL + ')')
+        iURL = simpleurl + '/' + headerImgList[i].url
+        console.log(curImgURL, iURL)
 
-        if(curImgURL == 'url(' + iURL + ')') {
+        if(curImgURL.indexOf(iURL) != -1) {
             newImg = headerImgList[(i + n + len) % len]
-            newImgURL = '"' + '{{site.url}}' + newImg.url + '"'
-            $(".intro-header").css("background-image", 'url(' + newImgURL + ')');
+            $(".intro-header").css("background-image", 'url("' + newImg.url + '")');
             
             if(newImg.mask) $(".header-mask").css("background", newImg.mask);
-            else $(".header-mask").css("background", "rgb(0,0,0,0)");
+            else $(".header-mask").css("background", "rgb(0, 0, 0, 0)");
         }
     }
 }
