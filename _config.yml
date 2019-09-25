@@ -1,12 +1,30 @@
 # Site settings
 title: "Renovamen"
 SEOTitle: Renovamen (Zou Xiaohan)
-header-img: img/home.jpg
 email: renovamenzxh@gmail.com
 description: "Renovamen (Zou Xiaohan)"
 keyword: ""
 url: "https://renovamen.ink"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+header-img: [
+  {
+    url: img/home-bg/1.jpg,
+    mask: "rgba(40, 57, 101, .6)",
+  },
+  {
+    url: img/home-bg/2.jpg,
+    mask: "rgba(31, 64, 87, .4)",
+  },
+  {
+    url: img/home-bg/3.jpg,
+    mask: "rgba(68, 74, 83, .4)",
+  },
+  {
+    url: img/home-bg/4.jpg,
+    mask: "rgba(19, 75, 50, .4)",
+  },
+]
+
 
 # Publish posts or collection documents with a future date.
 future: true
@@ -123,7 +141,7 @@ links: [
       {
         sitename: "Cool Dragon",
         href: "http://allspark.ink/",
-        img: "img/dragon.jpeg",
+        img: "img/dragon.jpg",
         linkdes: "The coolest dragon in the world",
       }
     ],

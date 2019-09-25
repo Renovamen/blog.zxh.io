@@ -3,23 +3,47 @@
     @param {boolean} short
 {% endcomment %}
 
-{% if include.type == 'post' %}
-<style type="text/css">
-    header.intro-header{
-        position: relative;
-        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');
-        background: {{ page.header-bg-css }};
-    }
+{% if include.type == 'post' or include.type == 'page' %}
+    {% if page.homepage != true %}
+    <style type="text/css">
+        header.intro-header{
+            position: relative;
+            background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');
+            background: {{ page.header-bg-css }};
+        }
 
-    {% if page.header-mask %}
-    header.intro-header .header-mask{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background: rgba(0,0,0, {{ page.header-mask }});
-    }
+        {% if page.header-mask %}
+        header.intro-header .header-mask{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: {{ page.header-mask }};
+        }
+        {% endif %}
+    </style>
+    
+    {% else %}
+    <style type="text/css">
+        header.intro-header{
+            position: relative;
+            background-image: url('{{ site.baseurl }}/{{ site.header-img[0].url }}');
+            background: {{ page.header-bg-css }};
+        }
+
+        {% if site.header-img[0].mask %}
+        header.intro-header .header-mask{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: {{ site.header-img[0].mask }};
+        }
+        {% endif %}
+    </style>
     {% endif %}
-</style>
+{% endif %}
+
+
+{% if include.type == 'post' %}
 {% if page.header-style == 'text' %}
 <header class="intro-header style-text" >
 {% else %}
@@ -50,6 +74,7 @@
     </div>
 </header>
 {% endif %}
+
 
 {% if include.type == 'keynote' %}
 <style type="text/css">
@@ -90,21 +115,60 @@
 </header>
 {% endif %}
 
+
 {% if include.type == 'page' %}
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        {% if include.short %}
-        <div class="site-heading" id="tag-heading">
-        {% else %}
-        <div class="site-heading">
-        {% endif %}
-          <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-          <span class="subheading">{{ page.description }}</span>
+<header class="intro-header" id="intro-header">
+    <div class="header-mask" id="header-mask"></div>
+
+    {% if page.homepage == true %}
+    <a class="prev" onclick="changeImage(-1)">
+        <i class="fa fa-angle-left fa-lg"></i>
+    </a>
+    <a class="next" onclick="changeImage(1)">
+        <i class="fa fa-angle-right fa-lg"></i>
+    </a>
+    {% endif %}
+
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% if include.short %}
+            <div class="site-heading" id="tag-heading">
+            {% else %}
+            <div class="site-heading">
+            {% endif %}
+            <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+            <span class="subheading">{{ page.description }}</span>
+            </div>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
 </header>
 {% endif %}
+
+<script>
+function changeImage(n) {
+
+    headerImgList = '[{{site.header-img}}]'.replace(/=>/g,":").replace(/}{/g,"},{");
+    headerImgList = $.parseJSON(headerImgList);
+    len = headerImgList.length
+
+    introHeader = document.getElementById("intro-header");
+    curImgURL = getComputedStyle(introHeader, null).backgroundImage;
+    console.log(curImgURL)
+
+    for(i=0; i<len; i++) {
+        iURL = '"' + '{{site.url}}' + headerImgList[i].url + '"'
+        console.log('url(' + iURL + ')')
+
+        if(curImgURL == 'url(' + iURL + ')') {
+            newImg = headerImgList[(i + n + len) % len]
+            newImgURL = '"' + '{{site.url}}' + newImg.url + '"'
+            $(".intro-header").css("background-image", 'url(' + newImgURL + ')');
+            
+            if(newImg.mask) $(".header-mask").css("background", newImg.mask);
+            else $(".header-mask").css("background", "rgb(0,0,0,0)");
+        }
+    }
+}
+</script>
