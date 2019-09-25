@@ -161,7 +161,7 @@ function changeImage(n) {
         
         if(curImgURL.indexOf(iURL) != -1) {
             newImg = headerImgList[(i + n + len) % len]
-            $(".intro-header").css("background-image", 'url("' + newImg.url + '")');
+            $(".intro-header").css("background-image", 'url("{{ site.baseurl }}/' + newImg.url + '")');
             
             if(newImg.mask) $(".header-mask").css("background", newImg.mask);
             else $(".header-mask").css("background", "rgb(0, 0, 0, 0)");
