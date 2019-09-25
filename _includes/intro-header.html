@@ -157,9 +157,8 @@ function changeImage(n) {
     curImgURL = getComputedStyle(introHeader, null).backgroundImage;
 
     for(i=0; i<len; i++) {
-        iURL = simpleurl + '/' + headerImgList[i].url
-        console.log(curImgURL, iURL)
-
+        iURL = '{{site.simpleurl}}' + '/' + headerImgList[i].url
+        
         if(curImgURL.indexOf(iURL) != -1) {
             newImg = headerImgList[(i + n + len) % len]
             $(".intro-header").css("background-image", 'url("' + newImg.url + '")');
