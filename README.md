@@ -79,7 +79,7 @@ gitalk:
 
 Switching the header image of homepage is supported now. You can add the images which you want to show on your homepage to `_config.yml`, for example:
 
-```json
+```yaml
 header-img: [
   {
     url: img/home-bg/1.jpg,
