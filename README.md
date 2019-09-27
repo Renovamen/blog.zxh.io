@@ -102,11 +102,6 @@ header-img: [
 
   Add `hide: true` to the front-matter of the post you want to hide;
 
-- Email address is supported in SNS settings now, you can modify it in `_config.yml`, for example:
-
-  ```yaml
-  email_address: renovamenzxh@gmail.com
-  ```
 - Search (based on [simple-jekyll-search.js](https://github.com/christian-fei/Simple-Jekyll-Search));
 
 - Go to top;
@@ -118,4 +113,4 @@ header-img: [
   font: fa-list-ul
   ```
 
-- Change theme (default mode & night mode).
+- Switch theme (default mode & night mode);

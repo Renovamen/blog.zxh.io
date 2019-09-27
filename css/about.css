@@ -119,10 +119,33 @@ img {
 .profile-page .photo-container {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
     margin: 0 auto;
-    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+.profile-page .photo-container img {
+    border-radius: 100%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    opacity: 1;
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transition: all ease 1s;
+    -webkit-transition: all ease 1s;
+    -moz-transition: all ease 1s;
+    -o-transition: all ease 1s;
+}
+
+.profile-page .photo-container img:hover {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg)
 }
 
 .profile-page .about-title {
