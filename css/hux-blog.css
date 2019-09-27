@@ -1122,7 +1122,7 @@ samp {
 .intro-header .img-next .fa {
   font-size: 30px;
 }
-@media only screen and (max-width: 767px) {
+/* @media only screen and (max-width: 767px) {
   .intro-header .img-prev, 
   .intro-header .img-next {
     top: 105px;
@@ -1132,7 +1132,7 @@ samp {
   .intro-header .img-next .fa {
     font-size: 20px;
   }
-}
+} */
 .intro-header .img-prev {
   left: 0
 }
@@ -1145,12 +1145,12 @@ samp {
   color: #fff;
   background-color: rgba(0, 0, 0, .6)
 }
-/* @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .intro-header .img-prev,
   .intro-header .img-next {
     display: none
   }
-} */
+}
 /* Button End: Change header image of homepage */
 
 .post-preview > a {
