@@ -127,6 +127,12 @@
     <a class="img-next" onclick="changeImage(1)">
         <i class="fa fa-angle-right"></i>
     </a>
+
+    <div class="headertop-down faa-float animated"> 
+        <a href="#container" data-scroll>
+            <i class="fa fa-chevron-down" ></i>
+        </a>
+    </div>
     {% endif %}
 
     <div class="container">
@@ -138,6 +144,8 @@
                         <img src="{{site.baseurl}}/img/header-avatar.jpeg">
                     </a>
                 </div>
+
+                <!-- 手机端隐藏 -->
                 <div class="header-info-back">
                     <div class="site-heading">
                         <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
@@ -145,6 +153,7 @@
                     </div>
                 </div>
 
+                <!-- 只在手机端显示 -->
                 <div class="site-heading phone-site-heading">
                     <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
                     <span class="subheading">{{ page.description }}</span>
@@ -169,9 +178,15 @@
 
 
 {% if page.homepage %}
+<script src="../js/sweet-scroll.min.js"></script>
+
 <script>
-// 首页图片高度适配
-if(document.body.clientWidth > 1200) {
+// 页面平滑滚动
+document.addEventListener("DOMContentLoaded", function() {
+    new SweetScroll({});
+}, !1);
+
+function headerResize() {
     //console.log(document.body.clientWidth)
     $('.intro-header').css({
         'height': $(window).height() + "px"
@@ -184,21 +199,30 @@ if(document.body.clientWidth > 1200) {
     $('.img-next').css({
         'top': $(window).height() / 2 - 30 + "px"
     });
-    
-    $('.site-heading').css({
-        'padding-top': "0px",
-        'padding-bottom': "0px",
-    });
-
-    $('.site-heading h1').css({
-        'font-size': "25px",
-        'font-family': "Montserrat",
-    });
 
     $('.header-avatar').css({
         'display': 'block',
         'padding-top': $(window).height() / 2 - 140 + "px"
     });
+
+    $('.site-heading h1').css({
+        'font-size': '25px',
+        'font-family': 'Montserrat',
+    });
+
+    window.resizeFlag= null;
+    $(window).resize(function () {
+        //直接 resize 性能爆炸，改成延时
+        if(resizeFlag = null){
+            clearTimeout(resizeFlag);
+        }
+        resizeFlag = setTimeout(function(){ headerResize();}, 1000);
+    })
+}
+
+// 首页图片高度适配
+if(document.body.clientWidth > 1024) {
+    headerResize();
 }
 </script>
 {% endif %}

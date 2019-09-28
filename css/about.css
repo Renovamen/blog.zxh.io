@@ -126,7 +126,7 @@ img {
 
 .profile-page .photo-container img {
     border-radius: 100%;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 0 10px rgba(179, 179, 179, 0.6);
     padding: 5px;
     opacity: 1;
     transform: rotate(0);
@@ -307,7 +307,7 @@ img {
     color: #797878;
     text-align: center;
     position: absolute;
-    top: 655px;
+    top: 635px;
     width: 100%;
     display: block;
     font-size: 30px;
@@ -320,61 +320,9 @@ img {
     }
 }
 
-.down .icon {
-    position: absolute;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 100px;
-    fill: #fff;
-    -webkit-animation: pulse 1.3s infinite;
-    animation: pulse 1.3s infinite
-}
-
 .down .icon:active,
 .down .icon:hover {
     color: #377bb5
-}
-
-@-webkit-keyframes pulse {
-
-    0%,
-    to {
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-        filter: alpha(opacity=40);
-        opacity: .4;
-        top: 5px;
-    }
-
-    50% {
-        -ms-filter: none;
-        -webkit-filter: none;
-        filter: none;
-        opacity: 1;
-        top: -5px;
-    }
-}
-
-@keyframes pulse {
-
-    0%,
-    to {
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-        filter: alpha(opacity=40);
-        opacity: .4;
-        top: 5px;
-    }
-
-    50% {
-        -ms-filter: none;
-        -webkit-filter: none;
-        filter: none;
-        opacity: 1;
-        top: -5px;
-    }
 }
 
 /*  ------------------- Link Button style ------------------- */

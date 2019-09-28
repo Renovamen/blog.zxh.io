@@ -128,8 +128,8 @@ header-style: text
             </div>
         </div>
 
-        <div class="down">
-            <a href="#publication" data-scroll><i class="icon fa fa-chevron-down"></i></a>
+        <div class="down faa-float animated">
+            <a href="#publication" data-scroll><i class="fa fa-chevron-down"></i></a>
         </div>
         <div class="border"></div>
 
@@ -223,17 +223,30 @@ header-style: text
             sr.reveal('.timeline-panel');
             sr.reveal('.timeline-image');
 
-            // 页面滚动
+            // 页面平滑滚动
             document.addEventListener("DOMContentLoaded", function() {
                 new SweetScroll({});
             }, !1);
-            
-            // about-header 高度适配
-            if(document.body.clientWidth > 1200 && $(window).height() <= 800) {
+
+            function headerResize() {
                 //console.log(document.body.clientWidth)
                 $('.about-header').css({
                     'height': $(window).height() + "px"
                 });
+
+                window.resizeFlag= null;
+                $(window).resize(function () {
+                    //直接 resize 性能爆炸，改成延时
+                    if(resizeFlag = null){
+                        clearTimeout(resizeFlag);
+                    }
+                    resizeFlag = setTimeout(function(){ headerResize();}, 1000);
+                })
+            }
+            
+            // about-header 高度适配
+            if(document.body.clientWidth > 1200 && $(window).height() <= 800) {
+                headerResize();
             }
         </script>
     </body>

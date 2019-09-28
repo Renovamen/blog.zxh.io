@@ -1092,15 +1092,20 @@ samp {
   white-space: nowrap;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1024px) {
   .intro-header .header-info-back {
     display: none
   }
 }
 
-@media only screen and (min-width: 1201px) {
+@media only screen and (min-width: 1025px) {
   .intro-header .phone-site-heading {
     display: none
+  }
+
+  .intro-header .site-heading {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -1152,6 +1157,29 @@ samp {
   }
 }
 /* Button End: Change header image of homepage */
+
+.intro-header .headertop-down {
+  position: absolute;
+  bottom: 20px;
+  left: 48.8%;
+  cursor: pointer;
+}
+
+@media (max-width:1024px) {
+  .intro-header .headertop-down {
+      display: none
+  }
+}
+
+.intro-header .headertop-down i {
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.intro-header .headertop-down i:active,
+.intro-header .headertop-down i:hover {
+  color: #a7a7a7
+}
 
 .post-preview > a {
   color: #404040;
