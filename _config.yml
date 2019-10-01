@@ -17,7 +17,7 @@ header-img: [
   },
   {
     url: img/home-bg/3.jpg,
-    mask: "rgba(68, 74, 83, .2)",
+    mask: "rgba(68, 74, 83, .1)",
   },
   {
     url: img/home-bg/4.jpg,
