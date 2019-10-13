@@ -210,6 +210,11 @@ function headerResize() {
         'font-family': 'Montserrat',
     });
 
+    $('.site-heading .subheading').css({
+        'font-size': '18px',
+        'font-family': 'Noto Serif JP',
+    });
+
     window.resizeFlag= null;
     $(window).resize(function () {
         //直接 resize 性能爆炸，改成延时

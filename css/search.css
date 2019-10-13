@@ -1,9 +1,10 @@
 .search-page .close-search {
     float: right;
-    margin-right: 0;
-    padding: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 35px;
     color: #bdbbbb;
-    font-size: 30px;
+    transition: .3s ease;
 }
 
 .search-page .close-search:hover {

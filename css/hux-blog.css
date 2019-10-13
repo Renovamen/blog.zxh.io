@@ -1174,11 +1174,12 @@ samp {
 .intro-header .headertop-down i {
   font-size: 28px;
   color: #ffffff;
+  transition: .4s ease;
 }
 
 .intro-header .headertop-down i:active,
 .intro-header .headertop-down i:hover {
-  color: #a7a7a7
+  color: #a7a7a7;
 }
 
 .post-preview > a {
@@ -1271,6 +1272,7 @@ footer .copyright {
   font-size: 14px;
   text-align: center;
   margin-bottom: 0;
+  font-family: "Noto Serif JP"
 }
 footer .copyright a {
   color: #337ab7;

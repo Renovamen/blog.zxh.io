@@ -310,8 +310,7 @@ img {
     top: 635px;
     width: 100%;
     display: block;
-    font-size: 30px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -320,8 +319,13 @@ img {
     }
 }
 
-.down .icon:active,
-.down .icon:hover {
+.down i {
+    font-size: 28px;
+    transition: .4s ease;
+}
+
+.down i:active,
+.down i:hover {
     color: #377bb5
 }
 
