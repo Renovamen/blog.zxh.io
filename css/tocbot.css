@@ -42,7 +42,7 @@ a.toc-link {
 }
 
 a.is-active-link {
-    color: #0085a1 !important;
+    color: #377bb5 !important;
 }
 
 .toc-link::before {
@@ -57,7 +57,7 @@ a.is-active-link {
 }
 
 .is-active-link::before {
-    background-color: #0085a1;
+    background-color: #377bb5;
 }
 
 /* Catalog, modified from hux */
@@ -100,11 +100,11 @@ a.is-active-link {
     text-indent: 0;
 }
 .side-catalog .catalog-body li {
-    position: relative;
+    /* position: relative; */
     list-style: none;
 }
 .side-catalog .catalog-body li a {
-    padding-left: 10px;
+    padding-left: 3px;
     max-width: 180px;
     display: inline-block;
     vertical-align: middle;

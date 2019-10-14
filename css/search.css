@@ -55,7 +55,7 @@
 .search-page .search-results .result-item > a:hover,
 .search-page .search-results .result-item > a:focus {
     text-decoration: none;
-    color: #0085a1;
+    color: #377bb5;
 }
 .search-page .search-results .result-item > a > .result-title {
     font-size: 18px;

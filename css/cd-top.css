@@ -2,7 +2,7 @@
 
 .cd-top {
     position: fixed;
-    right: 25px;
+    right: 10px;
     top: -900px;
     z-index: 2;
     width: 70px;

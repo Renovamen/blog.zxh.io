@@ -58,9 +58,11 @@ New portfolio page, responsive and more beautiful.
 
 &nbsp;
 
-### Gitalk
+### Comment
 
-[Gitalk](https://github.com/gitalk/gitalk) is supported as third party discussion system now.
+[Gitalk](https://github.com/gitalk/gitalk) and [Valine](https://github.com/xCss/Valine) are supported as third party discussion systems now.
+
+#### Gitalk
 
 You have to register a [Github Application](https://github.com/settings/applications/new) and get your Client ID and Client Secret, then modify `_config.yml`:
 
@@ -71,6 +73,19 @@ gitalk:
   clientSecret: your_client_secret
   repo: your_repo
   owner: owner_of_your_repo
+```
+
+&nbsp;
+
+#### Valine
+
+Create a new application in [Leancloud](https://leancloud.cn/) and get APP ID and APP Key, then modify `_config.yml`:
+
+```yaml
+# Valine settings
+valine:
+	appID: your_app_id
+	appKey: your_app_key
 ```
 
 &nbsp;

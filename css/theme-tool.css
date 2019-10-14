@@ -14,12 +14,12 @@
 .theme-menu {
     position: fixed;
     bottom: 50px;
-    left: 10px;
+    left: 7px;
     height: auto;
-    width: 120px;
+    width: 50px;
     border-radius: 5px;
     background-color: #fff;
-    box-shadow: 0 1px 40px -8px rgba(0, 0, 0, .5);
+    box-shadow: 0 1px 40px -8px rgba(0, 0, 0, .3);
     z-index: 0;
     transform: scaleX(0);
     transition-duration: .3s, .3s
@@ -73,15 +73,18 @@
     /* display: none; */
     position: fixed;
     bottom: -999px;
-    left: 10px;
+    left: 12px;
     width: auto;
     height: auto;
     z-index: 0;
     white-space: nowrap;
     padding: 10px 10px;
     cursor: pointer;
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
-    border-radius: 10px 10px 0 0
+    font-family: "Montserrat";
+}
+
+.changeTheme:hover {
+    color: #377bb5;
 }
 
 @media (max-width:768px) {
@@ -94,8 +97,4 @@
     .changeTheme i {
         font-size: 20px
     }
-}
-
-.changeTheme span:before {
-    content: ""
 }

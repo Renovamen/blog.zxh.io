@@ -65,6 +65,13 @@ layout: default
                     <div id="gitalk-container"></div>
                 </div>
                 {% endif %}
+
+                {% if site.valine.appID and site.valine.appKey %}
+                <!-- Valine -->
+                <div class="comment">
+                    <div id="valine-container"></div>
+                </div>
+                {% endif %}
                 <!-- 评论框 end -->
             </div>  
 
@@ -129,6 +136,19 @@ layout: default
     gitalk.render('gitalk-container');
 </script>
 <!-- Gitalk 样式及JS代码 end -->
+{% endif %}
+
+{% if site.valine.appID and site.valine.appKey %}
+<!-- Valine JS代码 start -->
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#valine-container',
+        appId: '{{site.valine.appID}}',
+        appKey: '{{site.valine.appKey}}'
+    })
+</script>
+<!-- Valine JS代码 end -->
 {% endif %}
 
 {% if site.anchorjs %}
