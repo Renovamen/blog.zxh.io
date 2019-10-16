@@ -1,0 +1,96 @@
+body {
+	background-color: rgb(12, 16, 27);
+	margin: 0;
+	font-family: "Audiowide", Helvetica, sans-serif;
+	overflow: hidden;
+}
+
+h1 {
+	font-family: "Audiowide";
+	position: absolute;
+	top: 43%;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #fff;
+	letter-spacing: 4px;
+	font-size: 30px;
+	transition: 2s;
+    -moz-transition: 2s;
+    -webkit-transition: 2s;
+    -o-transition: 2s;
+}
+
+#menu {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+.element {
+	width: 120px;
+	height: 160px;
+	box-shadow: 0px 0px 12px rgba(0, 119, 255, 0.5);
+	border: 1px solid rgba(158, 203, 255,0.25);
+	border-radius: 5px;
+	text-align: center;
+	cursor: default;
+}
+
+.element:hover {
+	box-shadow: 0px 0px 12px rgba(0, 119, 255,0.75);
+	border: 1px solid rgba(158, 203, 255,0.75);
+}
+
+.element .number {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 12px;
+	color: rgba(158, 203, 255,0.75);
+}
+
+.element .sentence {
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	right: 0px;
+	font-size: 25px;
+	font-weight: bold;
+	line-height: 30px;
+	color: rgba(255,255,255,0.75);
+	text-shadow: 0 0 10px rgba(0, 119, 255,0.95);
+}
+
+button {
+	color: rgba(158, 203, 255,0.85);
+	background: transparent;
+	border: 1px solid rgba(158, 203, 255,0.85);
+	margin-right: 10px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 15px;
+	outline: none;
+}
+button:hover {
+	background-color: rgba(158, 203, 255,0.85);
+	color: #fff;
+}
+button:active {
+	color: #000000;
+	background-color: rgba(158, 203, 255,0.85);
+}
+
+.back {
+	position: absolute;
+	color: #fff;
+	font-size: 25px;
+	top: 15px;
+	left: 15px;
+	color: rgb(255, 255, 255, 0.6);
+	transition: .3s ease;
+	z-index: 10;
+}
+.back:hover {
+	color: #fff;
+}

@@ -6,11 +6,15 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
 
-    {% include nav.html %}
+    {% if page.title != 'Dark Universe' %}
+        {% include nav.html %}
+    {% endif %}
 
     {{ content }}
 
-    {% include footer.html %}
+    {% if page.title != 'Dark Universe' %}
+        {% include footer.html %}
+    {% endif %}
 
 <!-- Migrate from head to bottom, no longer block render and still work -->
 

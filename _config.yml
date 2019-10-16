@@ -152,6 +152,12 @@ links: [
         href: "http://allspark.ink/",
         img: "img/dragon.jpg",
         linkdes: "The coolest dragon in the world",
+      },
+      {
+        sitename: "Dark Universe",
+        href: "/dark-universe",
+        img: "img/dark.jpg",
+        linkdes: "What a dark universe",
       }
     ],
   },
