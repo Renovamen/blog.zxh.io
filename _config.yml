@@ -153,12 +153,6 @@ links: [
         img: "img/dragon.jpg",
         linkdes: "The coolest dragon in the world",
       },
-      {
-        sitename: "Dark Universe",
-        href: "http://renovamen.gitee.io/dark-universe/",
-        img: "img/dark.jpg",
-        linkdes: "What a dark universe",
-      }
     ],
   },
   {
