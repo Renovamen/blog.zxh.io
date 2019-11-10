@@ -11,8 +11,277 @@ tags:
 ---
 
 
-在 <a href="https://github.com/zlotus/notes-linear-algebra" target="_blank"><i class="fa fa-link"></i> notes-linear-algebra</a> 的基础上进行了完善。
+## 1. 矩阵乘法
+### 1.1 向量 $\times$ 向量
 
+1. 有向量 $x,y \in R^n$，$x^Ty$ 被称为**向量内积（Inner Product）**或**点积（Dot Product）**，结果为一个实数。 
+
+    $$
+    x^Ty \in R^n = 
+
+    \left[
+      \begin{matrix}
+        x_1 & x_2 & ... & x_n \\
+      \end{matrix}
+    \right]
+
+    \left[
+      \begin{matrix}
+        y_1  \\
+        y_2  \\
+        \vdots  \\
+        y_n  \\
+      \end{matrix}
+    \right]
+
+    = \sum_{i=1}^n x_i y_i
+    $$
+
+    注：$x^Ty = y^Tx$ 始终成立。
+
+2. 有向量 $x \in R^n, y \in R^m$，$xy^T \in R^{m \times n}$ 被称为**向量外积（Outer Product）**，当 $(xy^T)_{ij} = x_i y_i$ 时，结果为一个矩阵。
+
+    $$
+    xy^T \in R^{m \times n} = 
+
+    \left[
+      \begin{matrix}
+        x_1  \\
+        x_2  \\
+        ...  \\
+        x_m  \\
+      \end{matrix}
+    \right]
+
+    \left[
+      \begin{matrix}
+        y_1 & y_2 & ... & y_n \\
+      \end{matrix}
+    \right]
+
+    = 
+    
+    \left[
+      \begin{matrix}
+        x_1y_1 & x_1y_2 & \cdots & x_1y_n \\
+        x_2y_1 & x_2y_2 & \cdots & x_2y_n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        x_ny_1 & x_ny_2 & \cdots & x_ny_n \\
+      \end{matrix}
+    \right]
+    $$
+
+### 1.2 矩阵 $\times$ 向量
+
+有矩阵 $A \in R^{m \times n}$，向量 $x \in R^n$，它们的积是一个向量 $Ax \in R^m$。有两种看待矩阵与向量的乘法的角度：
+
+1. 行列内积
+
+    如果按行写 $A$，可以把 $Ax$ 表示为：
+
+    $$
+    y = Ax = 
+
+    \left[
+      \begin{matrix}
+        - & a_1^T  & - \\
+        - & a_2^T  & - \\
+          & \vdots & \\
+        - & a_m^T  & - \\
+      \end{matrix}
+    \right]x = 
+
+    \left[
+      \begin{matrix}
+        a_1^Tx \\
+        a_2^Tx \\
+        \vdots \\
+        a_m^Tx \\
+      \end{matrix}
+    \right]
+    $$
+
+    可以看出 $y$ 的第 $i$ 行是 $A$ 的第 $i$ 行和 $x$ 的内积，即 $y_i = a_i^T x$。
+
+2. 整列相乘
+
+    把 $A$ 按列表示：
+
+    $$
+    y = Ax = 
+
+    \left[
+      \begin{matrix}
+          | &   | &        &   | \\
+        a^1 & a^2 & \cdots & a^n \\
+          | &   | &        &   | \\
+      \end{matrix}
+    \right]
+
+    \left[
+      \begin{matrix}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_n \\
+      \end{matrix}
+    \right] = 
+
+    [ a^1 ] x_1 + [ a^2 ] x_2 + \cdots + [ a^n ] x_n
+    $$
+
+    可以看到，$y$ 是 $A$ 的列的线性组合，其中线性组合的系数由 $x$ 的元素给出。
+  
+也可以在左侧乘以行向量，写为 $y^T = x^T A$，其中 $ A \in R^{m \times n}, x \in R^m, y \in R^n$。依然有两种角度：
+
+1. 把 $A$ 按列表示：
+
+    $$
+    y^T = x^T A = 
+
+    x^T
+
+    \left[
+      \begin{matrix}
+          | &   | &        &   | \\
+        a^1 & a^2 & \cdots & a^n \\
+          | &   | &        &   | \\
+      \end{matrix}
+    \right]
+    
+    =
+
+    \left[
+      \begin{matrix}
+        x^T a^1 & x^T a^2 & \cdots & x^T a^n \\
+      \end{matrix}
+    \right]
+    $$
+
+    可以看出 $y^T$ 的第 $i$ 个元素为 $x$ 和 $A$ 的第 $i$ 列的内积。
+
+2. 整行相乘
+
+    把 $A$ 按行表示：
+
+    $$
+    y^T = x^T A = 
+
+    \left[
+      \begin{matrix}
+        x_1 & x_2 & \cdots & x_n \\
+      \end{matrix}
+    \right]
+
+    \left[
+      \begin{matrix}
+        - a_1^T - \\
+        - a_2^T - \\
+          \vdots \\
+        - a_m^T - \\
+      \end{matrix}
+    \right]
+    
+    = x_1 [- a_1^T -] + x_2 [- a_2^T -] + \cdots + x_n [- a_n^T -]
+    $$
+
+    可以看出 $y^T$ 是 $A$ 的行的线性组合，其中线性组合的系数由 $x$ 的元素给出。
+
+### 1.3 矩阵 $\times$ 矩阵
+
+两个矩阵相乘，其中 $A \in R^{m \times n}, B \in R^{n \times p}$（$A$ 的总行数必须与 $B$ 的总列数相等），则：
+
+$$ C = AB \in R^{m \times p} $$
+
+其中，$ C_{ij} = row_i \times column_j = \sum_{k=1}^n A_{ik}B_{kj} $
+
+1. 行列内积
+
+    
+
+
+&nbsp;
+## 2. 矩阵消元
+### 2.1 消元法
+
+三元方程组 
+$
+\\begin{cases}
+  x& + 2y& + z& = 2
+  \\\\3x& + 8y& + z& = 12
+  \\\\&4y& + z& = 2
+\\end{cases}
+$
+对应的矩阵形式 $Ax=b$ 为 
+$
+\\begin{bmatrix}
+  1 & 2 & 1
+  \\\\3 & 8 & 1
+  \\\\0 & 4 & 1
+\\end{bmatrix}\\begin{bmatrix}
+  x
+  \\\\y
+  \\\\z
+\\end{bmatrix}=\\begin{bmatrix}
+  2
+  \\\\12
+  \\\\2
+\\end{bmatrix}
+$
+。
+
+**消元**（$[A \| b]$ 为方程组的**增广矩阵**形式）：
+
+$$
+[A | b] = 
+
+\left[
+  \begin{array}{c c c |c}
+    \underline{1} & 2 & 1 & 2 \\
+    3             & 8 & 1 & 12 \\
+    0             & 4 & 1 & 2 \\
+  \end{array}
+\right]
+\underrightarrow{r2-3r1}
+
+\left[
+  \begin{array}{c c c |c}
+    \underline{1} & 2             & 1  & 2 \\
+    0             & \underline{2} & -2 & 6 \\
+    0             & 4             & 1  & 2 \\
+  \end{array}
+\right]
+
+\underrightarrow{r3-2r2}
+\left[
+  \begin{array}{c c c |c}
+    \underline{1} & 2             & 1             & 2 \\
+    0             & \underline{2} & -2            & 6 \\
+    0             & 0             & \underline{5} & -10 \\
+  \end{array}
+\right]
+$$
+
+下划线的元素为**主元**，主元不能为零。如果在消元时遇到主元位置为零，则需要看它的后面的行对应位置是否为 0，如果不为 0，就交换这两行，将非零数视为主元。
+
+消元失效：如果它后面所有行的对应位置都为 0，则该矩阵**不可逆**，消元法求出的解不唯一。（如：把第三个方程 $z$ 前的系数成 −4，会导致第二步消元时最后一行全部为零，则第三个主元就不存在了，消元就不能继续进行了。）
+
+消元后方程组变为 
+$
+\\begin{cases}
+   x  & +2y & +z  & =2
+  \\\\&  2y & -2z & =6
+  \\\\&     &  5z & =-10
+\\end{cases}
+$
+
+从第三个方程求出 $z=-2$，代入第二个方程求出 $y=1$，再代入第一个方程求出 $x=2$。
+
+### 2.1 消元矩阵
+
+
+
+&nbsp;
 ## 8. 求解 $Ax=b$：可解性和解的结构
 ### 8.1 $Ax=b$ 的解
 
@@ -23,9 +292,9 @@ $$
 A=
 \left[
   \begin{matrix}
-    1 &amp; 2 &amp; 2 &amp; 2\\
-    2 &amp; 4 &amp; 6 &amp; 8\\
-    3 &amp; 6 &amp; 8 &amp; 10
+    1 & 2 & 2 & 2\\
+    2 & 4 & 6 & 8\\
+    3 & 6 & 8 & 10
   \end{matrix}
 \right]
 $$
@@ -39,17 +308,17 @@ $ [A | b]$：
 $$
 \left[
 \begin{array}{c c c c|c}
-1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1 \\
-2 &amp; 4 &amp; 6 &amp; 8 &amp; b_2 \\
-3 &amp; 6 &amp; 8 &amp; 10 &amp; b_3 \\
+1 & 2 & 2 & 2 & b_1 \\
+2 & 4 & 6 & 8 & b_2 \\
+3 & 6 & 8 & 10 & b_3 \\
 \end{array}
 \right]
 \underrightarrow{消元}
 \left[
 \begin{array}{c c c c|c}
-1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1 \\
-0 &amp; 0 &amp; 2 &amp; 4 &amp; b_2-2b_1 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; b_3-b_2-b_1 \\
+1 & 2 & 2 & 2 & b_1 \\
+0 & 0 & 2 & 4 & b_2-2b_1 \\
+0 & 0 & 0 & 0 & b_3-b_2-b_1 \\
 \end{array}
 \right]
 $$
@@ -66,30 +335,23 @@ $$
 #### 8.1.2 $Ax=b$ 的解结构
 1. 特解
 
-    解法：令所有自由变量取 0，则有：
-    <center>
+    解法：令所有自由变量取 0，则有
     $$
     \Big\lbrace
     \begin{eqnarray*}
-      x_1 &amp; + &amp; 2x_3 &amp; = &amp; 1 \\
-      &amp; &amp; 2x_3 &amp; = &amp; 3 \\
+      x_1 & + & 2x_3 & = & 1 \\
+      & & 2x_3 & = & 3 \\
     \end{eqnarray*}
-    $$
-    </center>
-
-    解得：
-    <center>
+    $$，解得
     $$
     \Big\lbrace
     \begin{eqnarray*}
-      x_1 &amp; = &amp; -2 \\
-      x_3 &amp; = &amp; \frac{3}{2} \\
+      x_1 & = & -2 \\
+      x_3 & = & \frac{3}{2} \\
     \end{eqnarray*}
     $$
-    </center>
    
     代入 $Ax=b$ 求得特解： 
-    <center>
     $$
     x_p=
     \begin{bmatrix}-2 \\ 
@@ -98,24 +360,21 @@ $$
       0
     \end{bmatrix}
     $$
-    </center>
 
 2. 通解
 
     令 $Ax=b$ 成立的所有解：
-    <center>
     $$
     \Big\lbrace
     \begin{eqnarray*} % 公式标号：eqnarray
-      A &amp; x_p &amp; = &amp; b \\
-      A &amp; x_n &amp; = &amp; 0 \\
+      A & x_p & = & b \\
+      A & x_n & = & 0 \\
     \end{eqnarray*}
     \quad
-      \underrightarrow{两式相加}
+      \rightarrow{}
     \quad
     A(x_p+x_n)=b
     $$
-    </center>
 
     即 $Ax=b$ 的解集为其特解加上零空间。对本例有：
     <center>
@@ -159,18 +418,18 @@ $$
 $$
 A=
 \begin{bmatrix}
-  1 &amp; 3 \\
-  2 &amp; 1 \\
-  6 &amp; 1 \\
-  5 &amp; 1 \\
+  1 & 3 \\
+  2 & 1 \\
+  6 & 1 \\
+  5 & 1 \\
 \end{bmatrix}
 ，
 R=
 \begin{bmatrix}
-  1 &amp; 0 \\
-  0 &amp; 1 \\
-  0 &amp; 0 \\
-  0 &amp; 0 \\
+  1 & 0 \\
+  0 & 1 \\
+  0 & 0 \\
+  0 & 0 \\
 \end{bmatrix}
 $$
 </center>
@@ -189,15 +448,15 @@ $rank(A)=2$，要使 $Ax=b, b \neq 0$ 有非零解，$b$ 必须取 $A$ 中各列
 $
 A=
 \begin{bmatrix}
-  1 &amp; 2 &amp; 6 &amp; 5 \\
-  3 &amp; 1 &amp; 1 &amp; 1 \\
+  1 & 2 & 6 & 5 \\
+  3 & 1 & 1 & 1 \\
 \end{bmatrix}
 $，
 $
 R=
 \begin{bmatrix}
-  1 &amp; 0 &amp; - &amp; - \\
-  0 &amp; 1 &amp; - &amp; - \\
+  1 & 0 & - & - \\
+  0 & 1 & - & - \\
 \end{bmatrix}
 $
 </center>
@@ -215,8 +474,8 @@ $rank(A)=2$，$\forall b \in R^m$ 都有 $x \neq 0$ 的解，因为此时A的列
 $
 A=
 \begin{bmatrix}
-  1 &amp; 2 \\
-  3 &amp; 4 \\
+  1 & 2 \\
+  3 & 4 \\
 \end{bmatrix}
 $
 </center>
@@ -228,9 +487,9 @@ $
 $
 \begin{array}
   {c|c|c|c}
-  r=m=n&amp;r=n\lt m&amp;r=m\lt n&amp;r\lt m,r\lt n\\
-  R=I&amp;R=\begin{bmatrix}I\\0\end{bmatrix}&amp;R=\begin{bmatrix}I&amp;F\end{bmatrix}&amp;R=\begin{bmatrix}I&amp;F\\0&amp;0\end{bmatrix}\\
-  1\ solution&amp;0\ or\ 1\ solution&amp;\infty\ solution&amp;0\ or\ \infty\ solution\
+  r=m=n&r=n\lt m&r=m\lt n&r\lt m,r\lt n\\
+  R=I&R=\begin{bmatrix}I\\0\end{bmatrix}&R=\begin{bmatrix}I&F\end{bmatrix}&R=\begin{bmatrix}I&F\\0&0\end{bmatrix}\\
+  1\ solution&0\ or\ 1\ solution&\infty\ solution&0\ or\ \infty\ solution\
 \end{array}
 $
 </center>
@@ -260,9 +519,9 @@ $v_1,\ v_2,\ \cdots,\ v_n$ 是 $m\times n$ 矩阵 $A$ 的列向量：
 $
 A=
 \begin{bmatrix}
-  1 &amp; 2 &amp; 3 &amp; 1 \\
-  1 &amp; 1 &amp; 2 &amp; 1 \\
-  1 &amp; 2 &amp; 3 &amp; 1 \\
+  1 & 2 & 3 & 1 \\
+  1 & 1 & 2 & 1 \\
+  1 & 2 & 3 & 1 \\
 \end{bmatrix}
 $
 </center>
@@ -292,3 +551,13 @@ $
 根据前几讲，我们知道特解的个数就是自由变量的个数，所以 $n-rank(A)=2=$自由变量存在的列数$=$零空间维数
 
 可以得到：列空间维数 $dim C(A)=rank(A)$，零空间维数 $dim N(A)=n-rank(A)$。
+
+## 参考
+
+1. [MIT - 18.06 Linear Algebra](http://open.163.com/special/opencourse/daishu.html){:target="_blank"}
+
+2. [Stanford - CS229 Machine Learning (Linear Algebra)](http://cs229.stanford.edu/summer2019/cs229-linalg.pdf){:target="_blank"}
+
+3. [Github - zlotus/notes-linear-algebra](https://github.com/zlotus/notes-linear-algebra){:target="_blank"}
+
+4. [Github - apachecn/18.06-linalg-notes](https://github.com/apachecn/18.06-linalg-notes){:target="_blank"}

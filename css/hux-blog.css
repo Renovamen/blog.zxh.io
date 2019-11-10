@@ -1273,7 +1273,7 @@ footer .copyright {
   font-size: 14px;
   text-align: center;
   margin-bottom: 0;
-  font-family: "Noto Serif JP"
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
 footer .copyright a {
   color: #337ab7;

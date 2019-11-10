@@ -155,7 +155,7 @@ links: [
       },
       {
         sitename: "Dark Universe",
-        href: "/dark-universe",
+        href: "http://renovamen.gitee.io/dark-universe/",
         img: "img/dark.jpg",
         linkdes: "What a dark universe",
       }
