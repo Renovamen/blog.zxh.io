@@ -145,17 +145,6 @@ friends: [
 # Links
 links: [
   {
-    link-title: "Why I lost in human world",
-    link-list: [
-      {
-        sitename: "Cool Dragon",
-        href: "http://allspark.ink/",
-        img: "img/dragon.jpg",
-        linkdes: "The coolest dragon in the world",
-      },
-    ],
-  },
-  {
     link-title: "What are these",
     link-list: [
       {
