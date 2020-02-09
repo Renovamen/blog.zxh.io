@@ -1,8 +1,8 @@
 # Site settings
 title: "Renovamen"
-SEOTitle: Renovamen (Zou Xiaohan)
+SEOTitle: Xiaohan Zou
 email: renovamenzxh@gmail.com
-description: "Renovamen (Zou Xiaohan)"
+description: "Xiaohan Zou's blog"
 keyword: ""
 url: "https://renovamen.ink"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -24,7 +24,6 @@ header-img: [
     mask: "rgba(19, 75, 50, .2)",
   },
 ]
-simpleurl: "renovamen.ink"
 
 
 # Publish posts or collection documents with a future date.
@@ -32,7 +31,6 @@ future: true
 
 collections:
   experience:
-    name: experience
     output: true
 
 # SNS settings
@@ -135,12 +133,7 @@ page-mathjax: false
 
 
 # Friends (side bar)
-friends: [
-    {
-        title: "A dragon lost in human world",
-        href: "http://allspark.ink"
-    }
-]
+friends: []
 
 # Links
 links: [

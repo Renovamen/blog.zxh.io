@@ -23,36 +23,36 @@ header-style: text
                     <div class = "photo-container">
                         <img src = "{{site.sidebar-avatar}}">
                     </div>
-                    <h3 class="about-title">Zou Xiaohan</h3>
+                    <h3 class="about-title">Xiaohan Zou</h3>
                     <p class="category">Renovamen</p>
                     <div class="content">
                         {% if site.github_username %}
-                        <div class="social-description">
-                            <a href="https://github.com/{{ site.github_username }}" target="_blank" class="faa-parent animated-hover">
-                                <i class="fa fa-github fa-2x faa-vertical"></i>
+                        <div class="social-link">
+                            <a href="https://github.com/{{ site.github_username }}" target="_blank">
+                                <i class="fa fa-github fa-2x"></i>
                                 <p class="font-name">Github</p>
                             </a>
                         </div>
                         {% endif %}
                         {% if site.facebook_username %}
-                        <div class="social-description">
-                            <a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank" class="faa-parent animated-hover">
-                                <i class="fa fa-facebook-square fa-2x faa-vertical"></i>
+                        <div class="social-link">
+                            <a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank">
+                                <i class="fa fa-facebook-square fa-2x"></i>
                                 <p>Facebook</p>
                             </a>
                         </div>
                         {% endif %}
                         {% if site.email_address %}
-                        <div class="social-description">
-                            <a href = "mailto:{{ site.email_address }}" class="faa-parent animated-hover">
-                                <i class="fa fa-envelope-o fa-2x faa-vertical"></i>
+                        <div class="social-link">
+                            <a href = "mailto:{{ site.email_address }}">
+                                <i class="fa fa-envelope-o fa-2x"></i>
                                 <p>Email</p>
                             </a>
                         </div>
                         {% endif %}
-                        <div class="social-description">
-                            <a href="{{site.url}}" target="_blank" class="faa-parent animated-hover">
-                                <i class="fa fa-share-alt fa-2x faa-vertical"></i>
+                        <div class="social-link">
+                            <a href="{{site.url}}" target="_blank">
+                                <i class="fa fa-share-alt fa-2x"></i>
                                 <p>Blog</p>
                             </a>
                         </div>
@@ -64,10 +64,7 @@ header-style: text
                         {% capture about_bio %}{% include about/biography.md %}{% endcapture %}
                         {{ about_bio | markdownify }}
                     </h5>
-                    <h5 class="description phone-cv">
-                        <a href="../files/cv.pdf" target="_blank">[My CV]</a>
-                    </h5>
-
+                    <!-- 
                     <div class="link-btn">
                         <a href="#publication" class="topLink" data-scroll>
                             <button class="btn btn-default">Publications</button>
@@ -78,19 +75,16 @@ header-style: text
                         <a href="{{site.url}}/portfolio/"> 
                             <button class="btn btn-default">Projects</button>
                         </a>
-                        <!-- <a href="#award">
+                        <a href="#award">
                             <button class="btn btn-default">Awards</button>
-                        </a> -->
+                        </a>
                         <a href="{{site.url}}">
                             <button class="btn btn-default">Posts</button>
-                        </a>
-                        <a href="../files/cv.pdf" target="_blank">
-                            <button class="btn btn-default">CV</button>
                         </a>
                         <a href="#misc" data-scroll>
                             <button class="btn btn-default">Misc</button>
                         </a>
-                    </div>
+                    </div> -->
 
                     <div class="personal-information">
                         <div class="row">
@@ -129,37 +123,20 @@ header-style: text
         </div>
 
         <div class="down faa-float animated">
-            <a href="#publication" data-scroll><i class="fa fa-chevron-down"></i></a>
+            <a href="#misc" data-scroll><i class="fa fa-chevron-down"></i></a>
         </div>
         <div class="border"></div>
-
+<!-- 
         <div class="section publication" id="publication">
             <h3 class="about-title">Publications</h3>
             <div class="post-container">
                 {% capture about_paper %}{% include about/paper.md %}{% endcapture %}
                 {{ about_paper | markdownify }}
             </div>
-        </div>
-    
-        <!-- <div class = "section work-experience" id="experience">
-            <h3 class="about-title">Experience</h3>
-            <div class="item w-experience-content row">
-                <div class="col-md-4 logo">
-                    <img class="company-logo" src="../img/about/experience/salted-fish.jpeg">
-                </div>
-                <div class="col-md-8 work-content">
-                    <p class="create-time">2019.9 - Present</p>
-                    <p class="job">Waiting for completed</p>
-                    <ul>
-                        <li>Balabala;</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        -->
+        </div> -->
 
         <!-- Experience Section -->
-        {% if site.experience %}
+        <!-- {% if site.experience %}
         <div class="section work-experience" id="experience" >
             <h3 class="about-title">Experience</h3>
             <div class="row">
@@ -196,7 +173,7 @@ header-style: text
                 </div>
             </div>
         </div>
-        {% endif %}
+        {% endif %} -->
 
 
         <!--
@@ -205,7 +182,7 @@ header-style: text
             <p class="award-title">Waiting for completed - Balabala | 2019</p>
         </div> -->
 
-        <div class="border"></div> 
+        <!-- <div class="border"></div>  -->
 
         <div class = "section publication" id="misc">
             <h3 class="about-title">Miscellaneous</h3>

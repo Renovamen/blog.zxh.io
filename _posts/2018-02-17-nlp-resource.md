@@ -1,11 +1,10 @@
 ---
 layout: post
-title: "NLP 资源清单"
+title: "NLP 不入门直接放弃"
 subtitle: "How to give up NLP"
 author: "Renovamen"
 header-style: text
 catalog: true
-hide: true
 tags:
   - NLP
 ---

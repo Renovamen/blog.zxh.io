@@ -202,24 +202,24 @@ img {
     margin: 0 auto;
 }
 
-.profile-page .content .social-description {
+.profile-page .content .social-link {
     display: inline-block;
     width: 23%;
     text-align: center;
     margin: 55px 0 0px;
 }
 
-.profile-page .content .social-description > a {
+.profile-page .content .social-link > a {
     text-decoration: none;
     color: #377bb5;
 }
 
-.profile-page .content .social-description > a:hover {
-    color: #c26a7b;
+.profile-page .content .social-link > a:hover .fa {
+    transform: scale(1.3);
 }
 
 @media only screen and (max-width: 768px) {
-    .profile-page .content .social-description {
+    .profile-page .content .social-link {
         margin: 0 0 0px;
     }
 }

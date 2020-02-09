@@ -1,3 +1,4 @@
+
 .search-page .close-search {
     float: right;
     margin-right: 20px;
@@ -33,11 +34,11 @@
 }
 
 .search-page .search-results {
-    padding: 30px 280px 20px 280px;
+    padding: 30px 22% 20px 22%;
     margin: 0;
     list-style-type: none;
     width: 100%;
-    height: 500px;
+    height: 70%;
     overflow: auto;
 }
 
@@ -81,8 +82,7 @@
     }
 
     .search-page .search-results {
-        padding: 20px 20px 20px 20px;
-        height: 450px;
+        padding: 20px 5% 20px 5%;
     }
 }
 
@@ -91,10 +91,6 @@
     width: 180px;
     bottom: 30px;
     right: 30px;
-}
-
-.search-page .img-right:hover {
-    cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {

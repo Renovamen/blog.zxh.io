@@ -1,6 +1,6 @@
 # Just a Blog
 
-My blog. A Jekyll theme modified from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io). Some styles refer to [mashirozx/Sakura](https://github.com/mashirozx/Sakura).
+My blog. A Jekyll theme adapted from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io) & [mashirozx/Sakura](https://github.com/mashirozx/Sakura).
 
 [View this blog](https://renovamen.ink/)
 
@@ -10,7 +10,7 @@ My blog. A Jekyll theme modified from [Huxpro/huxpro.github.io](https://github.c
 
 ### Pages
 
-#### Links Page
+#### Links
 
 Add a beautiful and responsive links page. You can easily add links to it by modifying `_config.yml`, for example:
 
@@ -32,9 +32,9 @@ links: [
 
 &nbsp;
 
-#### About Page
+#### About
 
-New about page page, responsive and more beautiful. 
+Responsive and more beautiful. 
 
 Biography can be modified in `_includes/about/biography.md`.
 
@@ -52,9 +52,9 @@ if-left: true
 
 &nbsp;
 
-#### Portfolio Page
+#### Portfolio
 
-New portfolio page, responsive and more beautiful.
+Responsive and more beautiful.
 
 &nbsp;
 
@@ -84,8 +84,8 @@ Create a new application in [Leancloud](https://leancloud.cn/) and get APP ID an
 ```yaml
 # Valine settings
 valine:
-	appID: your_app_id
-	appKey: your_app_key
+  appID: your_app_id
+  appKey: your_app_key
 ```
 
 &nbsp;
@@ -109,23 +109,14 @@ header-img: [
 
 &nbsp;
 
-### Other Changes
+### Other Features
 
-- More beautiful catalog (based on [tocbot.js](https://github.com/tscanlin/tocbot));
+- Better catalog (based on [tocbot.js](https://github.com/tscanlin/tocbot));
+
+- Search (based on [simple-jekyll-search.js](https://github.com/christian-fei/Simple-Jekyll-Search));
 
 - Hide posts from home page: 
 
   Add `hide: true` to the front-matter of the post you want to hide;
 
-- Search (based on [simple-jekyll-search.js](https://github.com/christian-fei/Simple-Jekyll-Search));
-
 - Go to top;
-
-- Add fonts of pages to navigation bar by modifying the front-matter:
-
-  ```yaml
-  title: List
-  font: fa-list-ul
-  ```
-
-- Switch theme (default mode & night mode);

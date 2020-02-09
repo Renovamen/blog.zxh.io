@@ -8,14 +8,12 @@
 
     <div class="search-form">
         <div class="input">
-            <input id="search-input" type="text" class="search-field" placeholder="Search...">
+            <input id="search-input" type="text" class="search-field" placeholder="Search..." onkeypress="checkDark()">
         </div>
         <ul id="search-results" class="search-results"></ul>
     </div>
 
-    <a href="http://renovamen.gitee.io/dark-universe/">
-        <img class="img-right" src="/img/search-right.gif"/>
-    </a>
+    <img class="img-right" src="/img/search-right.gif"/>
 </div>
 
 
@@ -37,4 +35,10 @@
     $('.search-results').css({
         'height': $(window).height() - 200 + "px"
     });
+
+    function checkDark() {
+        if (event.keyCode == 13 && $('#search-input').val() == "cd dark universe") {
+            window.location.href = "http://renovamen.gitee.io/dark-universe/";
+        }
+    }
 </script>

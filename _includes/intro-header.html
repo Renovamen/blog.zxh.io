@@ -231,7 +231,7 @@ if(document.body.clientWidth > 1024) {
 
 <script>
 function changeImage(n) {
-
+    
     headerImgList = '[{{site.header-img}}]'.replace(/=>/g,":").replace(/}{/g,"},{");
     headerImgList = $.parseJSON(headerImgList);
     len = headerImgList.length
@@ -240,9 +240,7 @@ function changeImage(n) {
     curImgURL = getComputedStyle(introHeader, null).backgroundImage;
 
     for(i=0; i<len; i++) {
-        iURL = '{{site.simpleurl}}' + '/' + headerImgList[i].url
-
-        if(curImgURL.indexOf(iURL) != -1) {
+        if(curImgURL.indexOf(headerImgList[i].url) != -1) {
             newImg = headerImgList[(i + n + len) % len]
             $(".intro-header").css("background-image", 'url("{{ site.baseurl }}/' + newImg.url + '")');
             
