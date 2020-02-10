@@ -131,6 +131,11 @@ service-worker: true
 page-mathjax: false
 
 
+# Exclude files
+exclude:
+  - README.md
+  - /docs
+
 
 # Friends (side bar)
 friends: []

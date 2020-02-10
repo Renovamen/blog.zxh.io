@@ -12,14 +12,14 @@
 </footer>
 
 <!-- jQuery -->
-<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/library/jquery.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
-<script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/library/bootstrap.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/renovamen-blog.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Service Worker -->
 {% if site.service-worker %}
@@ -63,7 +63,7 @@
 {% if page.title == 'Archive' %}
 <!-- jquery.tagcloud.js -->
 <script>
-    async('{{ "/js/jquery.tagcloud.js" | prepend: site.baseurl }}',function(){
+    async('{{ "/js/library/jquery.tagcloud.js" | prepend: site.baseurl }}',function(){
         $.fn.tagcloud.defaults = {
             //size: {start: 1, end: 1, unit: 'em'},
             color: {start: '#bbbbee', end: '#2f93b4'},
@@ -123,8 +123,8 @@
 <!-- Side Catalog -->
 {% if page.catalog %}
 <!-- tocbot: https://github.com/tscanlin/tocbot -->
-<script src="{{ " /js/tocbot.min.js " | prepend: site.baseurl }}"></script>
-<link rel="stylesheet" href="{{ " /css/tocbot.css " | prepend: site.baseurl }}">
+<script src="{{ " /js/library/tocbot.min.js " | prepend: site.baseurl }}"></script>
+<link rel="stylesheet" href="{{ " /css/library/tocbot.css " | prepend: site.baseurl }}">
 
 <script type="text/javascript">
     function generateCatalog (selector) {
@@ -200,7 +200,7 @@
      * Doc: https://github.com/davist11/jQuery-One-Page-Nav
      * Fork by Hux to support padding
      */
-    async("{{ '/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
+    async("{{ '/js/library/jquery.nav.js' | prepend: site.baseurl }}", function () {
         $('.catalog-body').onePageNav({
             currentClass: "active",
             changeHash: !1,
@@ -272,8 +272,7 @@
 {% endif %}
 
 <!-- Change Theme -->
-<!-- <link rel="stylesheet" href="{{ " /css/theme-tool.css " | prepend: site.baseurl }}">
-
+<!-- 
 <div class="changeTheme no-select">
     <div class="keys">
         <span id="open-themeMenu">

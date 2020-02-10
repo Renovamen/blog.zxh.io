@@ -15,15 +15,15 @@ const CACHE = CACHE_NAMESPACE + 'precache-then-runtime';
 const PRECACHE_LIST = [
   "./",
   "./offline.html",
-  "./js/jquery.min.js",
-  "./js/bootstrap.min.js",
-  "./js/hux-blog.min.js",
+  "./js/library/jquery.min.js",
+  "./js/library/bootstrap.min.js",
+  "./js/renovamen-blog.min.js",
   "./js/snackbar.js",
   "./img/avatar.png",
   "./img/home-bg/1.jpg",
   "./img/404-bg.jpg",
-  "./css/hux-blog.css",
-  "./css/bootstrap.css"
+  "./css/renovamen-blog.min.css",
+  "./css/library/bootstrap.css"
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3",
   // "//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"

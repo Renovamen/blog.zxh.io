@@ -3,7 +3,10 @@
 @import "sidebar.less";
 @import "side-catalog.less";
 @import "snackbar.less";
-@import "highlight.less";
+@import "highlight/default"; // "default", "night", "night-eighties", "night-blue", "night-bright"
+@import "cd-top.less";
+@import "search.less";
+// @import "theme-tool.less";
 
 // Global Components
 
@@ -240,7 +243,7 @@ samp {
 // Navigation
 
 // materialize, mobile only
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 991px) {
   /**
 	 * Layout
 	 * Since V1.6 we use absolute positioning to prevent to expand container-fluid
@@ -353,7 +356,7 @@ samp {
       }
     }
   }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 992px) {
     body {
       font-size: 20px;
     }
@@ -592,6 +595,120 @@ samp {
       }
     }
   }
+  // Avatar on home page
+  .header-avatar {
+    text-align: center;
+    display: none;
+    img {
+      width: 130px;
+      height: 130px;
+      cursor: auto;
+      border-radius: 100%;
+      box-shadow: inset 0 0 10px #000;
+      padding: 5px;
+      opacity: 1;
+      transform: rotate(0);
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -o-transform: rotate(0);
+      -ms-transform: rotate(0);
+      transition: all ease 1s;
+      -webkit-transition: all ease 1s;
+      -moz-transition: all ease 1s;
+      -o-transition: all ease 1s;
+      &:hover {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg)
+      }
+    }
+  }
+  // Background of info on home page (hide on phone)
+  .header-info-back {
+    width: 63%;
+    margin: auto;
+    font-size: 16px;
+    color: #eaeadf;
+    background: rgba(0, 0, 0, .5);
+    padding: 15px;
+    margin-top: 22px;
+    letter-spacing: 0;
+    line-height: 30px;
+    border-radius: 10px;
+    box-sizing: initial;
+    white-space: nowrap;
+    @media only screen and (max-width: 1024px) {
+      & {
+        display: none
+      }
+    }
+  }
+  // Info on home page (shows on phone only)
+  @media only screen and (min-width: 1025px) {
+    .phone-site-heading {
+      display: none
+    }
+    .site-heading {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  // Button on homepage: Change header image
+  .img-prev, 
+  .img-next {
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    top: 180px;
+    width: auto;
+    padding: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: .6s ease;
+    border-radius: 0 3px 3px 0;
+    background-color: rgba(0, 0, 0, .3);
+    .fa {
+      font-size: 30px;
+    }
+    &:hover {
+      color: #fff;
+      background-color: rgba(0, 0, 0, .6);
+    }
+    @media only screen and (max-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+  }
+  .img-prev {
+    left: 0;
+  }
+  .img-next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  // Down arrow on home page
+  .headertop-down {
+    position: absolute;
+    bottom: 20px;
+    left: 48.8%;
+    cursor: pointer;
+    @media (max-width:1024px) {
+      & {
+          display: none
+      }
+    }
+    i {
+      font-size: 28px;
+      color: #ffffff;
+      transition: .4s ease;
+      &:active,
+      &:hover {
+        color: #a7a7a7;
+      }
+    }
+  }
 }
 
 // Post Preview Pages (Home Page)
@@ -685,7 +802,7 @@ samp {
 
 footer {
   font-size: 20px;
-  padding: 50px 0 65px;
+  padding: 50px 0 35px;
   .list-inline {
     margin: 0;
     padding: 0;
@@ -929,14 +1046,14 @@ img::-moz-selection {
     &:hover,
     &:active,
     &.focus {
-      background-color: #0085a1 !important;
+      background-color: #377bb5 !important;
     }
     &.focus{
       box-shadow: rgba(0,0,0,.117647) 0 1px 6px, rgba(0,0,0,.239216) 0 1px 4px;
     }
     &.tag-button--all {
       font-weight: 700;
-      color: #0085a1!important;
+      color: #377bb5!important;
       &:hover, &:active, &.focus{
         background-color: #e4e4e4 !important;
       }
@@ -964,7 +1081,7 @@ img::-moz-selection {
   }
 }
 .listing-seperator {
-  color: #0085a1;
+  color: #377bb5;
   font-size: 21px !important;
   &::before {
     margin-right: 5px;

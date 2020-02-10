@@ -25,7 +25,8 @@
                             <i class="fa fa-fort-awesome fa-lg faa-wrench"></i> Home
                         </a>
                     </li>
-                    {% for page in site.pages %}
+                    {% assign _page_list = site.pages | sort: 'nav_pos' %}
+                    {% for page in _page_list | sort%}
                     {% if page.title and page.hide-in-nav != true %}
                     <li>
                         <a href="{{ page.url | prepend: site.baseurl }}" class="faa-parent animated-hover">
@@ -105,9 +106,9 @@
 </script>
 
 <!-- Search Page Animate -->
-<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
-<script src="{{ "/js/animatedModal.js" | prepend: site.baseurl }}"></script>
-<link rel="stylesheet" href="{{ "/css/animate.min.css" | prepend: site.baseurl }}">
+<script src="{{ "/js/library/jquery.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/library/animatedModal.js" | prepend: site.baseurl }}"></script>
+<link rel="stylesheet" href="{{ "/css/library/animate.min.css" | prepend: site.baseurl }}">
 
 {% include search.html %}
 
@@ -117,7 +118,6 @@
 
 
 <!-- Go to Top -->
-<link rel="stylesheet" href="{{ "/css/cd-top.css" | prepend: site.baseurl }}">
 <a class="to-top cd-top animated"></a>
 <button class="to-top mobileGoTop animated" id="mobileGoTop" title="Go to top">
     <i class="fa fa-chevron-up" aria-hidden="true"></i>

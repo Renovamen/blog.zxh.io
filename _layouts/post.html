@@ -120,9 +120,9 @@ layout: default
 
 {% if site.gitalk.clientID and site.gitalk.clientSecret %}
 <!-- Gitalk 样式及JS代码 start -->
-<link rel="stylesheet" href="{{ "/css/gitalk.css" | prepend: site.baseurl }}">
+<link rel="stylesheet" href="{{ "/css/library/gitalk.css" | prepend: site.baseurl }}">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="{{ "/js/md5.js " | prepend: site.baseurl }}"></script> 
+<script src="{{ "/js/library/md5.js " | prepend: site.baseurl }}"></script> 
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: '{{ site.gitalk.clientID }}',

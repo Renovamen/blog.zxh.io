@@ -90,7 +90,7 @@ valine:
 
 &nbsp;
 
-### Switch Header Image
+### Header Image Switcher
 
 Switching the header image of homepage is supported now. You can add the images which you want to show on your homepage to `_config.yml`, for example:
 
@@ -106,6 +106,25 @@ header-img: [
   }
 ]
 ```
+
+&nbsp;
+
+### Highlight Theme
+
+Use [Tomorrow](https://github.com/chriskempson/tomorrow-theme) as the highlight theme.
+
+| `default` | `night` | `night-bright` | `night-eighties` | `night-blue` |
+| :--: | :--: | :--: | :--: | :--: |
+| ![highlight-default](docs/highlight-default.png) | ![highlight-night](docs/highlight-night.png) | ![highlight-night-bright](docs/highlight-night-bright.png) | ![highlight-night-eighties](docs/highlight-night-eighties.png) | ![highlight-night-blue](docs/highlight-night-blue.png) |
+
+To change the highlight theme, you should specify the theme in `less/renovamen-blog.less`:
+
+```less
+// "default", "night", "night-eighties", "night-blue", "night-bright"
+@import "highlight/default";
+```
+
+and then run `grunt` to rebuild the blog.
 
 &nbsp;
 
