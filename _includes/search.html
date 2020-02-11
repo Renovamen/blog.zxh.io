@@ -1,15 +1,12 @@
 <div id="search" class="search-page">
 
     <i class="close-search fa fa-close fa-lg"></i>
-    
     <p class="search-title text-center"></p>
 
-    <div class="search-form">
-        <div class="input">
-            <input id="search-input" type="text" class="search-field" placeholder="Search..." onkeypress="checkDark()">
-        </div>
-        <ul id="search-results" class="search-results"></ul>
+    <div class="input">
+        <input id="search-input" type="text" class="search-field" placeholder="Just search ..." onkeypress="checkDark()">
     </div>
+    <div id="search-results" class="search-results"></div>
 
     <img class="search-img-right" src="/img/search-right.gif"/>
 </div>
@@ -24,7 +21,7 @@
         resultsContainer: document.getElementById('search-results'),
         json: '/search.json',
         searchResultTemplate: '<li class="result-item item"><a href="{url}" title="{desc}"><div class="result-title">{title}</div><div class="result-subtitle">{subtitle}</div></a></li>',
-        noResultsText: 'No Results',
+        noResultsText: '<li class="result-item item"><div class="result-title">No Results</div></li>',
         limit: 20,
         fuzzy: false
     })

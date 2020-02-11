@@ -1,13 +1,9 @@
-body {
-    color: #2c2c2c;
-    font-family: "Montserrat";
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat";
 }
 
 .site-content {
+    font-family: "Montserrat";
     width: 61%;
     margin-top: 10em;
     margin-bottom: 5em;

@@ -6,226 +6,217 @@ header-style: text
 nav_pos: 1
 ---
 
-<!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!-- CSS -->
-        <link href="css/about.css" rel="stylesheet"/>
-    </head>
+<!-- CSS -->
+<link href="css/about.css" rel="stylesheet"/>
 
-    <body class="profile-page">
-        <div class="container about-header">
-            <div class="row">
-                <div class="content-info col-md-4">
-                    <div class = "photo-container">
-                        <img src = "{{site.sidebar-avatar}}">
+<div class="profile-page">
+    <div class="container about-header">
+        <div class="row">
+            <div class="content-info col-md-4">
+                <div class = "photo-container">
+                    <img src = "{{site.sidebar-avatar}}">
+                </div>
+                <h3 class="about-title">Xiaohan Zou</h3>
+                <p class="category">Renovamen</p>
+                <div class="content">
+                    {% if site.github_username %}
+                    <div class="social-link">
+                        <a href="https://github.com/{{ site.github_username }}" target="_blank">
+                            <i class="fa fa-github fa-2x"></i>
+                            <p class="font-name">Github</p>
+                        </a>
                     </div>
-                    <h3 class="about-title">Xiaohan Zou</h3>
-                    <p class="category">Renovamen</p>
-                    <div class="content">
-                        {% if site.github_username %}
-                        <div class="social-link">
-                            <a href="https://github.com/{{ site.github_username }}" target="_blank">
-                                <i class="fa fa-github fa-2x"></i>
-                                <p class="font-name">Github</p>
-                            </a>
-                        </div>
-                        {% endif %}
-                        {% if site.facebook_username %}
-                        <div class="social-link">
-                            <a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank">
-                                <i class="fa fa-facebook-square fa-2x"></i>
-                                <p>Facebook</p>
-                            </a>
-                        </div>
-                        {% endif %}
-                        {% if site.email_address %}
-                        <div class="social-link">
-                            <a href = "mailto:{{ site.email_address }}">
-                                <i class="fa fa-envelope-o fa-2x"></i>
-                                <p>Email</p>
-                            </a>
-                        </div>
-                        {% endif %}
-                        <div class="social-link">
-                            <a href="{{site.url}}" target="_blank">
-                                <i class="fa fa-share-alt fa-2x"></i>
-                                <p>Blog</p>
-                            </a>
-                        </div>
+                    {% endif %}
+                    {% if site.facebook_username %}
+                    <div class="social-link">
+                        <a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank">
+                            <i class="fa fa-facebook-square fa-2x"></i>
+                            <p>Facebook</p>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if site.email_address %}
+                    <div class="social-link">
+                        <a href = "mailto:{{ site.email_address }}">
+                            <i class="fa fa-envelope-o fa-2x"></i>
+                            <p>Email</p>
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="social-link">
+                        <a href="{{site.url}}" target="_blank">
+                            <i class="fa fa-share-alt fa-2x"></i>
+                            <p>Blog</p>
+                        </a>
                     </div>
                 </div>
-                <div class="content-about col-md-8">
-                    <h2 class="about-title">Biography</h2>
-                    <h5 class="description biography">
-                        {% capture about_bio %}{% include about/biography.md %}{% endcapture %}
-                        {{ about_bio | markdownify }}
-                    </h5>
-                    <!-- 
-                    <div class="link-btn">
-                        <a href="#publication" class="topLink" data-scroll>
-                            <button class="btn btn-default">Publications</button>
-                        </a>
-                        <a href="#experience" data-scroll>
-                            <button class="btn btn-default">Experience</button>
-                        </a>
-                        <a href="{{site.url}}/portfolio/"> 
-                            <button class="btn btn-default">Projects</button>
-                        </a>
-                        <a href="#award">
-                            <button class="btn btn-default">Awards</button>
-                        </a>
-                        <a href="{{site.url}}">
-                            <button class="btn btn-default">Posts</button>
-                        </a>
-                        <a href="#misc" data-scroll>
-                            <button class="btn btn-default">Misc</button>
-                        </a>
-                    </div> -->
+            </div>
+            <div class="content-about col-md-8">
+                <h2 class="about-title">Biography</h2>
+                <h5 class="description biography">
+                    {% capture about_bio %}{% include about/biography.md %}{% endcapture %}
+                    {{ about_bio | markdownify }}
+                </h5>
+                <!-- 
+                <div class="link-btn">
+                    <a href="#publication" class="topLink" data-scroll>
+                        <button class="btn btn-default">Publications</button>
+                    </a>
+                    <a href="#experience" data-scroll>
+                        <button class="btn btn-default">Experience</button>
+                    </a>
+                    <a href="{{site.url}}/portfolio/"> 
+                        <button class="btn btn-default">Projects</button>
+                    </a>
+                    <a href="#award">
+                        <button class="btn btn-default">Awards</button>
+                    </a>
+                    <a href="{{site.url}}">
+                        <button class="btn btn-default">Posts</button>
+                    </a>
+                    <a href="#misc" data-scroll>
+                        <button class="btn btn-default">Misc</button>
+                    </a>
+                </div> -->
 
-                    <div class="personal-information">
-                        <div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-5 interests">
-                                <div class="item">
-                                    <p class="title">Interests</p>
-                                    <ul>
-                                        <li><p class="int-description">Natural Language Processing</p></li>
-                                        <li><p class="int-description">Knowledge Representation & Reasoning</p></li>
-                                        <li><p class="int-description"><s>Sleeping and eating</s></p></li>
-                                        <li><p class="int-description"><s>The world without parrots</s></p></li>
-                                    </ul>
-                                </div>
+                <div class="personal-information">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5 interests">
+                            <div class="item">
+                                <p class="title">Interests</p>
+                                <ul>
+                                    <li><p class="int-description">Natural Language Processing</p></li>
+                                    <li><p class="int-description">Knowledge Representation & Reasoning</p></li>
+                                    <li><p class="int-description"><s>Sleeping and eating</s></p></li>
+                                    <li><p class="int-description"><s>The world without parrots</s></p></li>
+                                </ul>
                             </div>
-                            
-                            <div class="col-md-6 education">
-                                <div class="item">
-                                    <p class="title"> Education</p>
-                                    <ul>
-                                        <li>
-                                            <p class="edu-description">B.Eng in Software Engineering, 2020</p>
-                                            <p class="edu-school">Tongji University</p>
-                                        </li>
-                                        <li>
-                                            <p class="edu-description">Wizard, Gryffindor, 2016</p>
-                                            <p class="edu-school">Hogwarts School of Witchcraft and Wizardry</p>
-                                        </li>
-                                    </ul>
-                                </div>
+                        </div>
+                        
+                        <div class="col-md-6 education">
+                            <div class="item">
+                                <p class="title"> Education</p>
+                                <ul>
+                                    <li>
+                                        <p class="edu-description">B.Eng in Software Engineering, 2020</p>
+                                        <p class="edu-school">Tongji University</p>
+                                    </li>
+                                    <li>
+                                        <p class="edu-description">Wizard, Gryffindor, 2016</p>
+                                        <p class="edu-school">Hogwarts School of Witchcraft and Wizardry</p>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="down faa-float animated">
-            <a href="#misc" data-scroll><i class="fa fa-chevron-down"></i></a>
-        </div>
-        <div class="border"></div>
+    <div class="down faa-float animated">
+        <a href="#misc" data-scroll><i class="fa fa-chevron-down"></i></a>
+    </div>
+    <div class="border"></div>
 <!-- 
-        <div class="section publication" id="publication">
-            <h3 class="about-title">Publications</h3>
-            <div class="post-container">
-                {% capture about_paper %}{% include about/paper.md %}{% endcapture %}
-                {{ about_paper | markdownify }}
-            </div>
-        </div> -->
+    <div class="section publication" id="publication">
+        <h3 class="about-title">Publications</h3>
+        <div class="post-container">
+            {% capture about_paper %}{% include about/paper.md %}{% endcapture %}
+            {{ about_paper | markdownify }}
+        </div>
+    </div> -->
 
-        <!-- Experience Section -->
-        <!-- {% if site.experience %}
-        <div class="section work-experience" id="experience" >
-            <h3 class="about-title">Experience</h3>
-            <div class="row">
-                <div class="col-lg-64 col-lg-offset-0">
+    <!-- Experience Section -->
+    <!-- {% if site.experience %}
+    <div class="section work-experience" id="experience" >
+        <h3 class="about-title">Experience</h3>
+        <div class="row">
+            <div class="col-lg-64 col-lg-offset-0">
 
-                    <ul class="timeline">
-                        {% for exp in site.experience %}
-                        {% if exp.if-left %}
-                        <li class="">
-                        {% else %}
-                        <li class="timeline-inverted">
-                        {% endif %}
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{{exp.img}}">
+                <ul class="timeline">
+                    {% for exp in site.experience %}
+                    {% if exp.if-left %}
+                    <li class="">
+                    {% else %}
+                    <li class="timeline-inverted">
+                    {% endif %}
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="{{exp.img}}">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <p class="time">{{exp.time}}</p>
+                                <p class="job">{{exp.job}}</p>
                             </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <p class="time">{{exp.time}}</p>
-                                    <p class="job">{{exp.job}}</p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="job-description">{{exp.description}}</p>
-                                </div>
+                            <div class="timeline-body">
+                                <p class="job-description">{{exp.description}}</p>
                             </div>
-                        </li>
-                        {% endfor %}
+                        </div>
+                    </li>
+                    {% endfor %}
 
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{{site.sidebar-avatar}}">
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="{{site.sidebar-avatar}}">
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-        {% endif %} -->
+    </div>
+    {% endif %} -->
 
 
-        <!--
-        <div class = "section award" id="award">
-            <h3 class="about-title">Awards</h3>
-            <p class="award-title">Waiting for completed - Balabala | 2019</p>
-        </div> -->
+    <!--
+    <div class = "section award" id="award">
+        <h3 class="about-title">Awards</h3>
+        <p class="award-title">Waiting for completed - Balabala | 2019</p>
+    </div> -->
 
-        <!-- <div class="border"></div>  -->
+    <!-- <div class="border"></div>  -->
 
-        <div class = "section publication" id="misc">
-            <h3 class="about-title">Miscellaneous</h3>
-            <div class="post-container">
-                {% capture about_miscellaneous %}{% include about/miscellaneous.md %}{% endcapture %}
-                {{ about_miscellaneous | markdownify }}
-            </div>
+    <div class = "section publication" id="misc">
+        <h3 class="about-title">Miscellaneous</h3>
+        <div class="post-container">
+            {% capture about_miscellaneous %}{% include about/miscellaneous.md %}{% endcapture %}
+            {{ about_miscellaneous | markdownify }}
         </div>
+    </div>
+</div>
 
-        <script src="../js/library/sweet-scroll.min.js"></script>
-        <script src="../js/library/scrollreveal.min.js"></script>
-        <script>
-            // 时间轴上浮效果
-            window.sr = ScrollReveal();
-            sr.reveal('.timeline-panel');
-            sr.reveal('.timeline-image');
+<script src="../js/library/sweet-scroll.min.js"></script>
+<script src="../js/library/scrollreveal.min.js"></script>
+<script>
+    // 时间轴上浮效果
+    window.sr = ScrollReveal();
+    sr.reveal('.timeline-panel');
+    sr.reveal('.timeline-image');
 
-            // 页面平滑滚动
-            document.addEventListener("DOMContentLoaded", function() {
-                new SweetScroll({});
-            }, !1);
+    // 页面平滑滚动
+    document.addEventListener("DOMContentLoaded", function() {
+        new SweetScroll({});
+    }, !1);
 
-            function headerResize() {
-                //console.log(document.body.clientWidth)
-                $('.about-header').css({
-                    'height': $(window).height() + "px"
-                });
+    function headerResize() {
+        //console.log(document.body.clientWidth)
+        $('.about-header').css({
+            'height': $(window).height() + "px"
+        });
 
-                window.resizeFlag= null;
-                $(window).resize(function () {
-                    //直接 resize 性能爆炸，改成延时
-                    if(resizeFlag = null){
-                        clearTimeout(resizeFlag);
-                    }
-                    resizeFlag = setTimeout(function(){ headerResize();}, 1000);
-                })
+        window.resizeFlag= null;
+        $(window).resize(function () {
+            //直接 resize 性能爆炸，改成延时
+            if(resizeFlag = null){
+                clearTimeout(resizeFlag);
             }
-            
-            // about-header 高度适配
-            if(document.body.clientWidth > 1200 && $(window).height() <= 800) {
-                headerResize();
-            }
-        </script>
-    </body>
-</html>
+            resizeFlag = setTimeout(function(){ headerResize();}, 1000);
+        })
+    }
+    
+    // about-header 高度适配
+    if(document.body.clientWidth > 1200 && $(window).height() <= 800) {
+        headerResize();
+    }
+</script>

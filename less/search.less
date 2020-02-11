@@ -1,5 +1,6 @@
-// Search Page
 .search-page {
+    font-family: "Montserrat";
+
     .close-search {
         float: right;
         margin-right: 20px;
@@ -16,68 +17,60 @@
         margin-bottom: 1em;
         font-weight: bold;
     }
-    .search-form {
-        .input {
-            text-align: center;
-        }
-        .search-field {
-            margin-top: 10px;
-            width: 50%;
-            height: 55px;
-            padding-left: 22px;
-            border: 2px solid #bdbbbb;
-            border-radius: 25px;
-            outline: none;
-            font-size: 21px;
+    .input {
+        text-align: center;
+    }
+    .search-field {
+        margin-top: 10px;
+        width: 50%;
+        border: none;
+        outline: none;
+        font-size: 28px;
+        font-weight: bold;
+        @media only screen and (max-width: 1024px) {
+            & {
+                width: 80%;
+            }
         }
     }
     .search-results {
-        padding: 30px 22% 20px 22%;
-        margin: 0;
+        margin-top: 20px;
         list-style-type: none;
-        width: 100%;
         height: 70%;
         overflow: auto;
-        a {
-            text-decoration: none;
-            display: block;
-            padding-left: 15px;
-            padding-right: 15px;
-            border-bottom: 1px solid #bdbbbb;
-        }
-        .result-item > a {
-            color: #404040;
-            &:hover,
-            &:focus {
+        .result-item {
+            width: 50%;
+            margin: 0 auto;
+            a {
                 text-decoration: none;
-                color: #377bb5;
+                display: block;
             }
-            > .result-title {
-                font-size: 18px;
+            > a {
+                color: #404040;
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                    color: #377bb5;
+                }
+            }
+            .result-title {
+                font-size: 20px;
                 line-height: 1.3;
                 margin-top: 20px;
                 margin-bottom: 8px;
+                font-weight: bold;
             }
-            > .result-subtitle {
-                font-size: 14px;
+            .result-subtitle {
+                font-size: 16px;
                 line-height: 1.3;
                 margin: 0;
-                font-weight: 300;
                 margin-bottom: 12px;
             }
-        }
-    }
-    @media only screen and (max-width: 1024px) {
-        .search-form .search-field {
-            width: 80%;
-            margin-top: 50px;
-            height: 40px;
-            font-size: 18px;
-            padding-left: 16px;
-        }
-    
-        .search-results {
-            padding: 20px 5% 20px 5%;
+            @media only screen and (max-width: 1024px) {
+                & {
+                    width: 80%;
+                }
+            }
         }
     }
     .search-img-right {

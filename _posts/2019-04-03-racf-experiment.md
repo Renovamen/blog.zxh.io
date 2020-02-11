@@ -34,7 +34,7 @@ tags:
 
 3. 使用 `LU` RACF 命令查看 ST016 的属性
 
-   ```python
+   ```
    LU ST016
    ```
 
@@ -46,19 +46,19 @@ tags:
 
 - 定义 DIV16ADM 用户管理组（相当于公司人事部门），RACF 命令：
 
-  ```python
+  ```
   ADDGROUP DIV16ADM OWNER(RACFLAB) SUPGROUP(RACFLAB)
   ```
 
 - 定义 DIV16FUN 功能组（相当于公司各职能部门），后继实验将在该组下定义各个子功能组，RACF 命令：
 
-  ```python
+  ```
   ADDGROUP DIV16FUN OWNER(RACFLAB) SUPGROUP(RACFLAB)
   ```
 
 - 定义 DIV16RES 资源组（为有机组织和保护系统资源—包括数据集 / CICS 交易 / 系统和用户程序等资源—而设立的组），后继实验将在该组下定义各个子资源组，RACF 命令：
 
-  ```python
+  ```
   ADDGROUP DIV16RES OWNER(RACFLAB) SUPGROUP(RACFLAB)
   ```
 
@@ -66,7 +66,7 @@ tags:
 
 利用 RACF 命令查看新建的组进行验证：
 
-```python
+```
 LG DIV16ADM
 LG DIV16FUN
 LG DIV16RES
@@ -80,13 +80,13 @@ LG DIV16RES
 
 - 定义 FUN16PRD 功能组，该组将用于对生产系统数据集（Production Data Sets）的访问进行集中授权（即如果该组对生产系统数据集有访问权限，该组的成员将自动继承这一权限），RACF 命令：
 
-  ```python
+  ```
   ADDGROUP FUN16PRD OWNER(DIV16FUN) SUPGROUP(DIV16FUN)
   ```
 
 - 定义 FUN16TST 功能组，该组将用于对测试系统数据集（Test Data Sets）的访问进行集中授权（即如果该组对测试系统数据集有访问权限，该组的成员将自动继承这一权限），RACF 命令：
 
-  ```python
+  ```
   ADDGROUP FUN16TST OWNER(DIV16FUN) SUPGROUP(DIV16FUN)
   ```
 
@@ -97,13 +97,13 @@ LG DIV16RES
 
 - 定义 RES16PRD 资源组，该组将用于保护生产系统的数据集。RACF 命令：
 
-  ```python
+  ```
   ADDGROUP RES16PRD OWNER(DIV16RES) SUPGROUP(DIV16RES)
   ```
 
 - 定义 RES16TST 资源组，该组将用于保护测试系统的数据集。RACF 命令：
 
-  ```python
+  ```
   ADDGROUP RES16TST OWNER(DIV16RES) SUPGROUP(DIV16RES)
   ```
 
@@ -111,7 +111,7 @@ LG DIV16RES
 
 #### 1.6 查找组 Profile 
 
-```python
+```
 SEARCH CLASS(GROUP) MASK(DIV16)
 ```
 
@@ -136,44 +136,44 @@ SEARCH CLASS(GROUP) MASK(DIV16)
       4. TSO1604  for user Arthur Fielding 
       5. TSO1605  for user Susan Johnson
 
-   ```python
+   ```
    ADDUSER TSO1601 OWNER(DIV16ADM) DFLTGRP(DIV16ADM) PASSWORD(PASS)
    # 以此类推
    ```
 
 2. 查看用户是否建立成功
 
-   ```python
+   ```
    LU TSO1601
    ```
 
    查看用户的 TSO 段是否有内容
 
-   ```python
+   ```
    LU TSO1601 TSO
    ```
 
 3. 如果用户 Profile 没有指定 TSO 段的内容，用户将无法顺利登陆 TSO 系统，需要为用户指定 TSO 段信息
 
-   ```python
+   ```
    ALU TSO1601 TSO(PROC(IKJDB2) ACCTNUM(#ACCT) SIZE(4096))
    ```
 
 4. 用户登陆 TSO 之后，如果要进入 ISPF 面板系统，首次进入 ISPF 系统时系统会自动为用户建立几个编目的数据集，通常普通用户的文件无法在主机系统主目录（Master Catalog）中进行编目，所以，要实现为新用户创建好用户目录（User Catalog）和别名（Alias）。
 
-   ```python
+   ```
    DEFINE ALIAS(NAME(TSO1601) RELATE('CATALOG.UCAT.STGRP'))
    ```
 
    在 OPTION3.4 中 DSN Level 输入 TSO1601 回车，看是否显示其 "ALIAS"，如果出现类似下面的结果则表明 ALIAS 创建成功：
 
    ```powershell
-   DSLIST - Data Sets Matching TSO1601                        Row 1 of 3
+   DSLIST - Data Sets Matching TSO1601                       Row 1 of 3
    
-   Command - Enter "/" to select action           Message         Volume
-   ----------------------------------------------------------------------
-   TSO1601                                                  *ALIAS
-   ************************* End of Data Set list ***********************
+   Command - Enter "/" to select action           Message        Volume
+   ---------------------------------------------------------------------
+   TSO1601                                                 *ALIAS
+   ************************ End of Data Set list ***********************
    ```
 
    
@@ -185,7 +185,7 @@ SEARCH CLASS(GROUP) MASK(DIV16)
 
 场景：Janet Smith（TSO1601）遗忘了密码：
 
-```python
+```
 ALU TSO1601 PASSWORD(PASS)
 ```
 
@@ -196,7 +196,7 @@ ALU TSO1601 PASSWORD(PASS)
 当用户帐号暂时不用的时候，安全起见应该将该帐号挂起（Revoke）。
 场景：Arthur Fielding（TSO1604）将会出差一段时间，在这段时间应将该用户的帐号挂起：
 
-```python
+```
 ALU TSO1601 REVOKE
 ```
 
@@ -207,7 +207,7 @@ ALU TSO1601 REVOKE
 当挂起的用户帐号需要重新启用的时候，应该及时地将帐号 Resume。
 场景：Arthur Fielding（TSO1604）出差回来，希望能够继续使用以前的帐号：
 
-```python
+```
 ALU TSO1601 RESUME
 ```
 
@@ -217,7 +217,7 @@ ALU TSO1601 RESUME
 
 使用 Search 命令查找以上新建的用户 Profile
 
-```python
+```
 SEARCH CLASS(USER) MASK(TSO1601)
 ```
 
@@ -229,13 +229,13 @@ RACF 中给用户访问资源权限的最佳方法是将用户关联到可以访
 
 - 将用户 Arthur Fielding（TSO1604）连接到组 FUN16PRD，实现其对生产数据集的访问：
 
-  ```python
+  ```
   CONNECT TSO1604 GROUP(FUN16PRD)
   ```
 
 - 将用户 Susan Johnson（TSOxx05）连接到组 FUN16TST，实现其对测试数据集的访问：
 
-  ```python
+  ```
   CONNECT TSO1605 GROUP(FUN16TST)
   ```
 
@@ -243,7 +243,7 @@ RACF 中给用户访问资源权限的最佳方法是将用户关联到可以访
 
 #### 2.7 验证用户是否关联到组
 
-```python
+```
 LU TSO1604
 LU TSO1605
 LG FUN16PRD
@@ -276,20 +276,20 @@ LG FUN16TST
 
 - TSO1601（Janet Smith）：该管理员将对 DIV16ADM 组用户的安全进行管理，包括为用户重置密码，挂起和启用用户：
 
-  ```python
+  ```
   CONNECT TSO1601 GROUP(DIV16ADM) SPECIAL
   ```
 
 - TSO1602（Robert Anderson）：该管理员可以将用户关联到 DIV16FUN 组下的子功能组中，以实现用户对特定数据的访问权限：
 
-  ```python
+  ```
   CONNECT TSO1602 GROUP(FUN16PRD) AUTHORITY(CONNECT)
   CONNECT TSO1602 GROUP(FUN16TST) AUTHORITY(CONNECT)
   ```
 
 - TSO1603（Leslie Brown）：该管理员可以为 RES16PRD 和 RES16TST 组数据集创建数据集 PROFILE，以控制用户对组数据集的访问：
 
-  ```python
+  ```
   CONNECT TSO1603 GROUP(RES16PRD) AUTHORITY(CREATE)
   CONNECT TSO1603 GROUP(RES16TST) AUTHORITY(CREATE)
   ```
@@ -302,20 +302,20 @@ LG FUN16TST
 
 1. 以 TSO1601 身份登陆 TSO，尝试修改用户密码等
 
-   ```python
+   ```
    ALU TSO1602 PASSWORD(PASS)
    ```
 
 2. 以 TSO1602 身份登陆 TSO，将 TSO1601 用户关联到 FUN16PRD 和 FUN16TST：
 
-   ```python
+   ```
    CONNECT TSO1601 GROUP(FUN16PRD) 
    CONNECT TSO1601 GROUP(FUN16TST)
    ```
 
 3. 以 TSOxx02 身份登陆 TSO，将 TSO1601 从 FUN16PRD 和 FUN16TST 组中移走： 
 
-   ```python
+   ```
    REMOVE TSO1601 GROUP(FUN16PRD)
    REMOVE TSO1601 GROUP(FUN16TST)
    ```
@@ -350,7 +350,7 @@ LG FUN16TST
 
 以 TSO1601 身份登陆 TSO 然后执行 RACF 命令：
 
-```python
+```
 ADDSD 'TSO1601.**' UACC(NONE) 
 ADDSD 'TSO1602.**' UACC(NONE) 
 ADDSD 'TSO1603.**' UACC(NONE) 
@@ -364,7 +364,7 @@ ADDSD 'TSO1605.**' UACC(NONE)
 
 查看步骤1创建的用户数据集PROFILE：
 
-```python
+```
 LISTDSD DA('TSO1601.**') ALL
 LISTDSD DA('TSO1602.**') ALL
 LISTDSD DA('TSO1603.**') ALL
@@ -386,7 +386,7 @@ LISTDSD DA('TSO1605.**') ALL
 
    - No other users or groups should have access (Hint: UACC) 
 
-   ```python
+   ```
    ADDSD 'RES16TST.**' AUDIT(FAILURES) OWNER(TSO1603) UACC(NONE)
    ```
 
@@ -394,7 +394,7 @@ LISTDSD DA('TSO1605.**') ALL
 
    修改上面定义的 `RES16TST.**` PORFILE的访问列表，给FUN16TST组赋予ALTER访问权限：
 
-   ```python
+   ```
    PERMIT 'RES16TST.**' ID(FUN16TST) ACCESS(ALTER)
    ```
 
@@ -410,7 +410,7 @@ LISTDSD DA('TSO1605.**') ALL
 
    - No other users or groups should have access (UACC) 
 
-   ```python
+   ```
    ADDSD 'RES16PRD.**' AUDIT(FAILURES SUCCESS(UPDATE)) OWNER(TSO1603) UACC(NONE)
    ```
 
@@ -418,7 +418,7 @@ LISTDSD DA('TSO1605.**') ALL
 
    修改上面定义的 `RESxxPRD.**` PORFILE的访问列表，给FUN16PRD组赋予ALTER访问权限：
 
-   ```python
+   ```
    PERMIT 'RES16PRD.**' ID(FUN16PRD) ACCESS(ALTER)
    ```
 
@@ -428,7 +428,7 @@ LISTDSD DA('TSO1605.**') ALL
 
 确定组数据集 PROFIEL 是否创建并按照预定的要求保护成功
 
-```python
+```
 LISTDSD DATASET('RES16TST.**') ALL
 LISTDSD DATASET('RES16PRD.**') ALL
 ```
@@ -441,7 +441,7 @@ LISTDSD DATASET('RES16PRD.**') ALL
 
 1. 创建 ALIAS：RES16TST 和 RES16PRD
 
-   ```python
+   ```
    DEFINE ALIAS(NAME(RES16TST) RELATE(CATALOG.UCAT.STGRP))
    DEFINE ALIAS(NAME(RES16PRD) RELATE(CATALOG.UCAT.STGRP))
    ```
@@ -459,24 +459,24 @@ LISTDSD DATASET('RES16PRD.**') ALL
 ```powershell
                         Allocate New Data Set
 Data Set Name  . . . : RESxxPRD.DATA
-Management class . . .        (Blank for default management class)
-Storage class  . . . .        (Blank for default storage class)
- Volume serial . . . .        (Blank for system default volume) **
- Device type . . . . .        (Generic unit or device address) **
-Data class . . . . . .        (Blank for default data class)
- Space units . . . . . TRKS   (BLKS, TRKS, CYLS, KB, MB, BYTES or RECORDS)
- Average record unit          (M, K, or U)
- Primary quantity  . . 1      (In above units)
- Secondary quantity    1      (In above units)
- Directory blocks  . .        (Zero for sequential data set) *
+Management class . . .       (Blank for default management class)
+Storage class  . . . .       (Blank for default storage class)
+ Volume serial . . . .       (Blank for system default volume) **
+ Device type . . . . .       (Generic unit or device address) **
+Data class . . . . . .       (Blank for default data class)
+ Space units . . . . . TRKS  (BLKS, TRKS, CYLS, KB, MB, BYTES or RECORDS)
+ Average record unit         (M, K, or U)
+ Primary quantity  . . 1     (In above units)
+ Secondary quantity    1     (In above units)
+ Directory blocks  . .       (Zero for sequential data set) *
  Record format . . . . FB
  Record length . . . . 80 
  Blocksize   . . . . . 
- Data set name type :         (LIBRARY, HFS, PDS, or blank)  *
-                              (YY/MM/DD, YYYY/MM/DD
- Expiration date . . .         YY.DDD, YYYY.DDD in Julian form
-Enter "/" to select option     DDDD for retention period in days
-   Allocate Multiple Volumes   or blank)
+ Data set name type :        (LIBRARY, HFS, PDS, or blank)  *
+                             (YY/MM/DD, YYYY/MM/DD
+ Expiration date . . .        YY.DDD, YYYY.DDD in Julian form
+Enter "/" to select option    DDDD for retention period in days
+   Allocate Multiple Volumes  or blank)
 
 ( * Specifying LIBRARY may override zero directory block)
 
@@ -496,7 +496,7 @@ Enter "/" to select option     DDDD for retention period in days
 
   保留 TSO1601 登陆的 Session，再打开一个新的 Session，以 TSO1603 登陆 TSO，修改 `RESxxPRD.**` Profile，给 TSO1601 赋 ALTER 权：
 
-  ```python
+  ```
   PERMIT 'RES16PRD.**' ID(TSO1601) ACCESS(ALTER) 
   ```
 
@@ -520,7 +520,7 @@ Enter "/" to select option     DDDD for retention period in days
 
 为 RES16PRD.DATA 创建全匹配 PROFILE。以 TSO1603 登陆（RES16PRD 组 CREATE 特权人员，即数据管理人员），为 `RES16PRD.DATA` 创建一个全匹配的 PROFILE 进行保护：
 
-```python
+```
 ADDSD 'RES16PRD.DATA' UACC(READ)
 ```
 
@@ -530,7 +530,7 @@ ADDSD 'RES16PRD.DATA' UACC(READ)
 
 以 TSO1603 登陆，把 `RES16TST.**` PROFILE 的 Warning 状态打开：
 
-```python
+```
 ALTDSD 'RES16TST.**' WARNING
 ```
 
@@ -542,7 +542,7 @@ ALTDSD 'RES16TST.**' WARNING
 
 以 TSO1603 登陆，把 `RES16TST.**` PROFILE 的 Warning 状态关闭：
 
-```python
+```
 ALTDSD 'RES16TST.**' NOWARNING
 ```
 
@@ -554,7 +554,7 @@ ALTDSD 'RES16TST.**' NOWARNING
 
 TSO1603 登陆。假设 `RES16PRD.NEWAPPL.FINANCE.DATA` 和 `RES16PRD.NEWAPPL.HR.DATA` 是一个新应用系统的 2 个数据集，FUN16TST 组需要对这 2 个数据集有 UPDATE 权限，而不能对其他应用系统的数据集有操作权限。注意，FUN16PRD 组仍然需要对所有的 RES16PRD 数据集保留原有的操作权限。
 
-```python
+```
 ADDSD 'RES16PRD.NEWAPPL.**' UACC(NONE) FROM('RES16PRD.**')
 PERMIT 'RES16PRD.NEWAPPL.**' ID(FUN16TST) ACC(UPDATE)
 ```
@@ -563,7 +563,7 @@ PERMIT 'RES16PRD.NEWAPPL.**' ID(FUN16TST) ACC(UPDATE)
 
 检测哪一个 PROFILE 在保护 `RES16PRD.NEWAPPL.FINANCE.DATA` 和 `RES16PRD.NEWAPPL.HR.DATA`：
 
-```python
+```
 LISTDSD DATASET('RES16PRD.NEWAPPL.FINANCE.DATA') GEN
 LISTDSD DATASET('RES16PRD.NEWAPPL.HR.DATA') GEN
 ```
@@ -572,7 +572,7 @@ LISTDSD DATASET('RES16PRD.NEWAPPL.HR.DATA') GEN
 
 检测一个 Generic PROFILE `RES16PRD.**` 保护了那些数据集：
 
-```python
+```
 LISTDSD DATASET('RES16PRD.**') DSNS
 ```
 
@@ -596,19 +596,19 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 1. 在 DIV16FUN 下创建子组 FUN16AP
 
-   ```python
+   ```
    ADDGROUP FUN16AP OWNER(DIV16FUN) SUPGROUP(DIV16FUN)
    ```
 
 2. 在 DIV16FUN 下创建子组 FUN16SP
 
-   ```python
+   ```
    ADDGROUP FUN16SP OWNER(DIV16FUN) SUPGROUP(DIV16FUN)
    ```
 
 3. 在 DIV16RES 下创建子组 RES16TSO，用以管理 TSO 资源授权
 
-   ```python
+   ```
    ADDGROUP RES16TSO OWNER(DIV16RES) SUPGROUP(DIV16RES)
    ```
 
@@ -628,7 +628,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
      2. 登陆过程使用 PROC#Sxx 
      3. Region 大小为 4096 
 
-   ```python
+   ```
    ADDUSER TSO1607 OWNER(DIV16ADM) NAME('SYSTEM PROGRAMMER') DFLTGRP(DIV16ADM) PASSWORD(123456)
    
    ALU TSO1607 TSO(PROC(IKJDB2) ACCTNUM(#ACCT) SIZE(4096) COMMAN(ISPF))
@@ -648,7 +648,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
      2. 登陆过程使用 PROC#Axx 
      3. Region 大小为 4096 
 
-   ```python
+   ```
    ADDUSER TSO1608 OWNER(DIV16ADM) NAME('SYSTEM PROGRAMMER') DFLTGRP(DIV16ADM) PASSWORD(123456)
    
    ALU TSO1608 TSO(PROC(IKJDB2) ACCTNUM(#ACCT) SIZE(4096) COMMAN(ISPF))
@@ -664,7 +664,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 为 TSO 用户创建一个新的登陆过程 PROC#Sxx 和 PROC#Axx。打开文件 VENDOR.PROCLIB ，在 Command 中输入：
 
-```python
+```
 S PROC#S16;COPY IKJDB2
 S PROC#A16;COPY IKJDB2
 ```
@@ -681,7 +681,7 @@ S PROC#A16;COPY IKJDB2
 
    授权规则：PROC#Sxx 只有 SP 才能使用（READ 权限），其他人不可以使用；PROC#Axx 只有 AP 才能使用（READ 权限），其他人不可以使用。
 
-   ```python
+   ```
    RDEFINE TSOPROC PROC#S16 OWNER(DIV16FUN) UACC(NONE)
    PE PROC#S16 CLASS(TSOPROC) ID(FUN16SP) AC(READ)
    
@@ -693,7 +693,7 @@ S PROC#A16;COPY IKJDB2
 
 2. 浏览 PROC#Sxx 和 PROC#Axx PROFILE，它们用于保护不同的 TSO 登陆服务：
 
-   ```python
+   ```
    RLIST TSOPROC PROC#S16 AUTHUSER
    RLIST TSOPROC PROC#A16 AUTHUSER
    ```
@@ -702,7 +702,7 @@ S PROC#A16;COPY IKJDB2
 
 3. 刷新 TSOPROC 类在内存中的 PROFILE
 
-   ```python
+   ```
    SETROPTS RACLIST(TSOPROC) REFRESH
    ```
 
@@ -718,7 +718,7 @@ S PROC#A16;COPY IKJDB2
 
    授权规则：ACCT#Sxx 只有 SP 才能使用(READ 权限)，其他人不可以使用。
 
-   ```python
+   ```
    RDEFINE ACCTNUM ACCT#S16 OWNER(DIV16FUN) UACC(NONE)
    PE ACCT#S16 CLASS(ACCTNUM) ID(FUN16SP) AC(READ)
    ```
@@ -729,7 +729,7 @@ S PROC#A16;COPY IKJDB2
 
    授权规则：ACCT#Axx 只有 AP 才能使用(READ 权限)，其他人不可以使用。
 
-   ```python
+   ```
    RDEFINE ACCTNUM ACCT#A16 OWNER(DIV16FUN) UACC(NONE)
    PE ACCT#A16 CLASS(ACCTNUM) ID(FUN16AP) AC(READ)
    ```
@@ -738,7 +738,7 @@ S PROC#A16;COPY IKJDB2
 
 3. 浏览 PROFILE：ACCT#Sxx 和 ACCT#Axx
 
-   ```python
+   ```
    RLIST ACCTNUM ACCT#S16 AUTHUSER
    RLIST ACCTNUM ACCT#A16 AUTHUSER
    ```
@@ -750,7 +750,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 1. （不做）为 SP 和 AP 用户赋权访问 JCL 权限：
 
-   ```python
+   ```
    PE JCL CLASS(TSOAUTH) ID(FUN16AP FUN16SP) ACCESS(READ)
    ```
 
@@ -758,7 +758,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 2. 查看 SP 和 AP 用户是否拥有提交 JCL 作业的权利：
 
-   ```python
+   ```
    RLIST TSOAUTH JCL
    ```
 
@@ -768,7 +768,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 1. 保护 TSO1607 的用户数据集 
 
-   ```python
+   ```
    ADDSD 'TSO1607.**' UACC(NONE)
    ```
 
@@ -776,7 +776,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 2. 保护 TSO1608 的用户数据集 
 
-   ```python
+   ```
    ADDSD 'TSO1608.**' UACC(NONE)
    ```
 
@@ -788,7 +788,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 1. 为 TSOxx07 创建别名
 
-   ```python
+   ```
    DEFINE ALIAS(NAME(TSO1607) RELATE('CATALOG.UCAT.STGRP'))
    ```
 
@@ -796,7 +796,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 2. 为 TSOxx08 创建别名
 
-   ```python
+   ```
    DEFINE ALIAS(NAME(TSO1608) RELATE('CATALOG.UCAT.STGRP'))
    ```
 
@@ -806,7 +806,7 @@ TSOAUTH 通用资源类提供保护 TSO 权限的功能，TSO 权限主要包括
 
 编写 JCL 作业，然后 SUBMIT：
 
-```python
+```
 //ST016R1 JOB CLASS=A,MSGLEVEL=(1,1),MSGCLASS=H,
 // NOTIFY=ST016
 //SEND EXEC PGM=IKJEFT01

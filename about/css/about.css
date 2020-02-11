@@ -1,8 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
 /*  ------------------- Fonts style ------------------- */
 
 h1,
@@ -84,13 +79,10 @@ p.description {
     color: #797878;
 }
 
-/*  --------------------------------------------------------- */
-
-body {
-    color: #2c2c2c;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+.profile-page {
     font-family: "Montserrat";
+    margin-top: 150px;
+    min-height: 550px;
 }
 
 /*  ------------------- Header Page style ------------------- */
@@ -98,11 +90,6 @@ body {
 img {
     max-width: 100%;
     border-radius: 1px;
-}
-
-.profile-page {
-    margin-top: 150px;
-    min-height: 550px;
 }
 
 .profile-page .about-header {
