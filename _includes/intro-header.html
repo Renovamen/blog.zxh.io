@@ -8,7 +8,7 @@
     <style type="text/css">
         header.intro-header{
             position: relative;
-            background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');
+            background-image: url('{{ site.baseurl }}/{{ page.header-img }}');
             background: {{ page.header-bg-css }};
         }
 
@@ -26,16 +26,16 @@
     <style type="text/css">
         header.intro-header{
             position: relative;
-            background-image: url('{{ site.baseurl }}/{{ site.header-img[0].url }}');
+            background-image: url('{{ site.baseurl }}/{{ page.header-img[0].url }}');
             background: {{ page.header-bg-css }};
         }
 
-        {% if site.header-img[0].mask %}
+        {% if page.header-img[0].mask %}
         header.intro-header .header-mask{
             width: 100%;
             height: 100%;
             position: absolute;
-            background: {{ site.header-img[0].mask }};
+            background: {{ page.header-img[0].mask }};
         }
         {% endif %}
     </style>
@@ -133,32 +133,33 @@
             <i class="fa fa-chevron-down" ></i>
         </a>
     </div>
+
+    <div class="header-avatar">
+        <a href="{{site.baseurl}}" >
+            <img src="{{site.baseurl}}/img/header-avatar.jpeg">
+        </a>
+    </div>
+
+    <!-- 手机端隐藏 -->
+    <div class="header-info-back">
+        <div class="site-heading home-site-heading">
+            <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+            <span class="subheading">{{ page.description }}</span>
+        </div>
+    </div>
     {% endif %}
 
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {% if page.homepage == true %}
-                <div class="header-avatar">
-                    <a href="{{site.baseurl}}" >
-                        <img src="{{site.baseurl}}/img/header-avatar.jpeg">
-                    </a>
-                </div>
-
-                <!-- 手机端隐藏 -->
-                <div class="header-info-back">
-                    <div class="site-heading">
-                        <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-                        <span class="subheading">{{ page.description }}</span>
-                    </div>
-                </div>
 
                 <!-- 只在手机端显示 -->
                 <div class="site-heading phone-site-heading">
                     <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
                     <span class="subheading">{{ page.description }}</span>
                 </div>
-
+                
                 {% else %}
                 {% if include.short %}
                 <div class="site-heading" id="tag-heading">
@@ -186,44 +187,32 @@ document.addEventListener("DOMContentLoaded", function() {
     new SweetScroll({});
 }, !1);
 
-function headerResize() {
-    //console.log(document.body.clientWidth)
-    $('.intro-header').css({
-        'height': $(window).height() + "px"
-    });
-
-    $('.img-prev').css({
-        'top': $(window).height() / 2 - 30 + "px"
-    });
-
-    $('.img-next').css({
-        'top': $(window).height() / 2 - 30 + "px"
-    });
-
-    $('.header-avatar').css({
-        'display': 'block',
-        'padding-top': $(window).height() / 2 - 140 + "px"
-    });
-
-    $('.site-heading h1').css({
-        'font-size': '25px',
-        'font-family': 'Montserrat',
-    });
-
-    window.resizeFlag= null;
-    $(window).resize(function () {
-        //直接 resize 性能爆炸，改成延时
-        if(resizeFlag = null){
-            clearTimeout(resizeFlag);
-        }
-        resizeFlag = setTimeout(function(){ headerResize();}, 1000);
-    })
-}
-
 // 首页图片高度适配
-if(document.body.clientWidth > 1024) {
-    headerResize();
+function headerResize() {
+    if(document.body.clientWidth > 1024) {
+        //console.log(document.body.clientWidth)
+        $('.intro-header').css({
+            'height': $(window).height() + "px"
+        });
+    }
+    else {
+        $('.intro-header').css({
+            'height': 'auto'
+        });
+    }
 }
+
+document.addEventListener('DOMContentLoaded', function(){
+    headerResize();
+})
+window.addEventListener('load', function(){
+    headerResize();
+})
+window.addEventListener('resize', function(){
+    headerResize();
+})
+
+headerResize();
 </script>
 {% endif %}
 
@@ -231,8 +220,8 @@ if(document.body.clientWidth > 1024) {
 
 <script>
 function changeImage(n) {
-    
-    headerImgList = '[{{site.header-img}}]'.replace(/=>/g,":").replace(/}{/g,"},{");
+
+    headerImgList = '[{{page.header-img}}]'.replace(/=>/g,":").replace(/}{/g,"},{");
     headerImgList = $.parseJSON(headerImgList);
     len = headerImgList.length
 

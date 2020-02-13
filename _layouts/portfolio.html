@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<div class="portfolio container">
+    <div class="row">
+        <div class="col-md-12">
+            {% for group in page.portfolio %}
+                <h2 class="section-title text-center">{{group.type}}</h2>
+                <p class="section-subtitle text-center">{{group.desc}}</p>
+                <div class="break"></div>
+
+                {% for item in group.items %}
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h3 class="title">{{item.title}} | {{item.year}}</h3>
+                                <h4 class="description">{{item.desc}}</h4>
+                                <p class="excerpt">{{item.excerpt}}</p>
+                            </div>
+                            
+                            <div class="col-md-5">
+                                {% for btn in item.btns %}
+                                <a href="{{btn.url}}" target="_blank">
+                                    <button class="btn btn-default">
+                                        <i class="fa {{btn.font}} fa-lg"></i> {{btn.name}}
+                                    </button>
+                                </a>
+                                {% endfor %}
+                                <div class="tags">
+                                    {% for tag in item.tags %}
+                                    <span>{{tag}}</span>
+                                    {% endfor %}
+                                </div>	
+                            </div>	
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

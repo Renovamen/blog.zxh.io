@@ -199,24 +199,25 @@ nav_pos: 1
         new SweetScroll({});
     }, !1);
 
+    // about-header 高度适配
     function headerResize() {
         //console.log(document.body.clientWidth)
-        $('.about-header').css({
-            'height': $(window).height() + "px"
-        });
+        if(document.body.clientWidth > 1200 && $(window).height() <= 800) {
+            $('.about-header').css({
+                'height': $(window).height() + "px"
+            });
+        }
+    }
 
-        window.resizeFlag= null;
-        $(window).resize(function () {
-            //直接 resize 性能爆炸，改成延时
-            if(resizeFlag = null){
-                clearTimeout(resizeFlag);
-            }
-            resizeFlag = setTimeout(function(){ headerResize();}, 1000);
-        })
-    }
-    
-    // about-header 高度适配
-    if(document.body.clientWidth > 1200 && $(window).height() <= 800) {
+    document.addEventListener('DOMContentLoaded', function(){
         headerResize();
-    }
+    })
+    window.addEventListener('load', function(){
+        headerResize();
+    })
+    window.addEventListener('resize', function(){
+        headerResize();
+    })
+
+    headerResize();
 </script>

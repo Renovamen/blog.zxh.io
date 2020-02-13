@@ -27,11 +27,6 @@
         outline: none;
         font-size: 28px;
         font-weight: bold;
-        @media only screen and (max-width: 1024px) {
-            & {
-                width: 80%;
-            }
-        }
     }
     .search-results {
         margin-top: 20px;
@@ -66,11 +61,6 @@
                 margin: 0;
                 margin-bottom: 12px;
             }
-            @media only screen and (max-width: 1024px) {
-                & {
-                    width: 80%;
-                }
-            }
         }
     }
     .search-img-right {
@@ -79,9 +69,13 @@
         bottom: 30px;
         right: 30px;
         @media only screen and (max-width: 768px) {
-            & {
-                display: none;
-            }
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 1024px) {
+        .search-field,
+        .search-results .result-item {
+            width: 80%;
         }
     }
 }

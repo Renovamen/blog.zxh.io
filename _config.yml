@@ -6,25 +6,6 @@ description: "Xiaohan Zou's blog"
 keyword: ""
 url: "https://renovamen.ink"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
-header-img: [
-  {
-    url: img/home-bg/1.jpg,
-    mask: "rgba(40, 57, 101, .4)",
-  },
-  {
-    url: img/home-bg/2.jpg,
-    mask: "rgba(31, 64, 87, .2)",
-  },
-  {
-    url: img/home-bg/3.jpg,
-    mask: "rgba(68, 74, 83, .1)",
-  },
-  {
-    url: img/home-bg/4.jpg,
-    mask: "rgba(19, 75, 50, .2)",
-  },
-]
-
 
 # Publish posts or collection documents with a future date.
 future: true
@@ -49,7 +30,14 @@ email_address: renovamenzxh@gmail.com
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
+exclude:
+  - Gruntfile.js
+  - package.json
+  - README.md
+  - README.zh.md
+  - /less
+  - /node_modules
+  - /docs
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 # If you have timezone issue (e.g. #68) in China, uncomment to use this:
 #timezone: CN  
@@ -131,49 +119,5 @@ service-worker: true
 page-mathjax: false
 
 
-# Exclude files
-exclude:
-  - README.md
-  - /docs
-
-
 # Friends (side bar)
 friends: []
-
-# Links
-links: [
-  {
-    link-title: "What are these",
-    link-list: [
-      {
-        sitename: "nazo",
-        href: "https://nazo.io/",
-        img: "img/nazo.jpg",
-        linkdes: "???",
-      },
-    ],
-  },
-  {
-    link-title: "It is time to catch fish",
-    link-list: [
-      {
-        sitename: "IGN",
-        href: "http://www.ign.com/?ccpref=US",
-        img: "img/ign.jpg",
-        linkdes: "Practice English",
-      },
-      {
-        sitename: "GAMECORES",
-        href: "https://www.gcores.com",
-        img: "img/gamecores.jpeg",
-        linkdes: "All-embracing",
-      },
-      {
-        sitename: "VGTIME",
-        href: "http://www.vgtime.com",
-        img: "img/vgtime.jpeg",
-        linkdes: "Game info",
-      },
-    ],
-  }
-]

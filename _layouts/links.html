@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="links-page container">
+    <h2 class="title text-center">{{page.title}}</h2>
+    <p class="subtitle text-center">{{page.desc}}</p>
+    <div class="break"></div>
+    
+    <div class="link-list">
+        {% if page.links %}
+            {% for group in page.links %}
+                <h3 class="section-title">{{group.type}}</h3>
+                <ul>
+                    {% for item in group.items %}
+                        <li>
+                            <a href="{{item.url}}" target="_blank">
+                                <img src="{{item.img}}">
+                                <span class="sitename">{{item.sitename}}</span>
+                                <div class="desc">{{item.desc}}</div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

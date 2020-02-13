@@ -553,42 +553,6 @@ img {
     font-size: 16px;
 }
 
-/* 
-.w-experience-content {
-    border-bottom: 1px solid #D6DCE1;
-    padding: 30px 0;  
-}
-.w-experience-content:last-child {
-    border-bottom: none;
-}
-
-.company-logo {
-    margin: 20px 0 0 20px;
-    max-width: 250px;
-}
-.work-content p.create-time {
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-.work-content p.job {
-    font-weight: bold;
-    font-size: 16px;
-    letter-spacing: 1.14px;
-    margin-top: -30px; 
-    margin-bottom: 10px; 
-}
-.work-content li {
-    font-size: 14px;
-}
-
-@media only screen and (max-width: 768px) {
-    .profile-page .work-experience .about-title, 
-    .profile-page .publication .about-title, 
-    .profile-page .award .about-title {
-        margin-top: -20px;
-    }
-} */
-
 /*  ------------------- Publication style ------------------- */
 .post-container {
     margin: 0 auto;

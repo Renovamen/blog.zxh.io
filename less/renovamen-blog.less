@@ -1,12 +1,14 @@
-@import "variables.less";
-@import "mixins.less";
-@import "sidebar.less";
-@import "side-catalog.less";
-@import "snackbar.less";
+@import "common/variables.less";
+@import "common/mixins.less";
+@import "components/sidebar.less";
+@import "components/side-catalog.less";
+@import "components/snackbar.less";
+@import "components/cd-top.less";
+@import "components/search.less";
 @import "highlight/default"; // "default", "night", "night-eighties", "night-blue", "night-bright"
-@import "cd-top.less";
-@import "search.less";
-// @import "theme-tool.less";
+@import "layouts/portfolio.less";
+@import "layouts/links.less";
+
 
 // Global Components
 
@@ -598,7 +600,12 @@ samp {
   // Avatar on home page
   .header-avatar {
     text-align: center;
-    display: none;
+    // display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -140px;
+    left: 50%;
+    margin-left: -75px;
     img {
       width: 130px;
       height: 130px;
@@ -624,21 +631,35 @@ samp {
         -ms-transform: rotate(360deg)
       }
     }
+    @media only screen and (max-width: 1024px) {
+      & {
+        display: none
+      }
+    }
   }
   // Background of info on home page (hide on phone)
   .header-info-back {
-    width: 63%;
-    margin: auto;
+    width: 37%;
+    max-width: 500px;
     font-size: 16px;
     color: #eaeadf;
     background: rgba(0, 0, 0, .5);
     padding: 15px;
-    margin-top: 22px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50%;
+    margin-top: 15px;
     letter-spacing: 0;
     line-height: 30px;
     border-radius: 10px;
     box-sizing: initial;
     white-space: nowrap;
+    .home-site-heading h1{
+      font-size: 25px;
+      font-family: Montserrat;
+    }
     @media only screen and (max-width: 1024px) {
       & {
         display: none
@@ -661,7 +682,8 @@ samp {
     cursor: pointer;
     text-decoration: none;
     position: absolute;
-    top: 180px;
+    top: 50%;
+    margin-top: -30px;
     width: auto;
     padding: 12px;
     color: rgba(255, 255, 255, 0.6);
@@ -692,7 +714,8 @@ samp {
   .headertop-down {
     position: absolute;
     bottom: 20px;
-    left: 48.8%;
+    left: 50%;
+    margin-left: -22px;
     cursor: pointer;
     @media (max-width:1024px) {
       & {
