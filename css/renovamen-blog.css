@@ -1304,6 +1304,15 @@ samp {
   }
 }
 @media only screen and (max-width: 991px) {
+  .navbar-toggle {
+    display: block;
+  }
+  .container-fluid > .navbar-header {
+    margin-right: -15px;
+  }
+  .navbar-header {
+    float: none;
+  }
   #huxblog_navbar {
     display: none;
   }
@@ -2205,12 +2214,27 @@ img::-moz-selection {
   border-radius: 50%;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  width: 18px;
+  margin-top: -1px;
+  width: 22px;
   border-radius: 0px;
   background-color: white;
+  transition-duration: .3s;
 }
 .navbar-default .navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+.navbar-default .navbar-toggle.open .icon-bar {
   margin-top: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.navbar-default .navbar-toggle.open .icon-bar + .icon-bar {
+  margin-top: -2px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.navbar-default .navbar-toggle.open .icon-bar + .icon-bar + .icon-bar {
+  display: none;
 }
 /* Hux customize Style for Duoshuo */
 .comment {

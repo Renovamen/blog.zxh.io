@@ -353,8 +353,18 @@ samp {
   }
 }
 
-// Hide on mobile
 @media only screen and (max-width: 991px) {
+  // Overwrite one of the bootstrap navbar breakpoints (768px->992px)
+  .navbar-toggle {
+    display: block;
+  }
+  .container-fluid > .navbar-header {
+    margin-right: -15px;
+  }
+  .navbar-header {
+    float: none;
+  }
+  // Only shows on desktop, hide on mobile
   #huxblog_navbar {
     display: none;
   }
@@ -1350,13 +1360,28 @@ img::-moz-selection {
   margin-bottom: 2px;
   border-radius: 50%;
   .icon-bar {
-    width: 18px;
+    margin-top: -1px;
+    width: 22px;
     border-radius: 0px;
-    // materialize
     background-color: white;
+    transition-duration: .3s;
   }
   .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+  // When navbar open (mobile)
+  &.open .icon-bar {
     margin-top: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  &.open .icon-bar + .icon-bar {
+    margin-top: -2px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  &.open .icon-bar + .icon-bar + .icon-bar {
+    display: none;
   }
 }
 
