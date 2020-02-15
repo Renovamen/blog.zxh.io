@@ -1,8 +1,3 @@
-/*!
- * Renovamen Blog v1.0.0 (https://renovamen.github.io)
- * Copyright 2020 Renovamen <renovamenzxh@gmail.com>
- */
-
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
@@ -1366,8 +1361,8 @@ samp {
   width: 100px;
   border-radius: 5px;
   box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5);
-  -webkit-animation: fadeInUp .3s .1s ease both;
-  -moz-animation: fadeInUp .3s .1s ease both;
+  -webkit-animation: fadeIn .3s .1s ease both;
+  -moz-animation: fadeIn .3s .1s ease both;
 }
 .navbar-custom .nav li .sub-menu li {
   margin-left: -9px;
