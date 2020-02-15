@@ -67,6 +67,30 @@ kramdown:
       start_line: 1
 
 
+# Navigation(menu) settings
+menus:
+  - title: Home
+    font: fa-fort-awesome
+    url: /
+  - title: About
+    font: fa-paw
+    submenus:
+      - title: Me
+        font: fa-grav
+        url: /about/
+      - title: Theme
+        font: fa-wpexplorer
+        url: /theme/
+  - title: Archive
+    font: fa-archive
+    url: /archive/
+  - title: Portfolio
+    font: fa-empire
+    url: /portfolio/
+  - title: Links
+    font: fa-link
+    url: /links/
+
 
 # Comment settings
 # Disqus settings

@@ -6,12 +6,36 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
 
+    <section class="main-container">
     {% include nav.html %}
 
     {{ content }}
 
     {% include footer.html %}
+    </section>
 
+    {% include mobile-nav.html %}
+
+    <!-- Search Page Animate -->
+    <script src="{{ "/js/library/animatedModal.js" | prepend: site.baseurl }}"></script>
+    <link rel="stylesheet" href="{{ "/css/library/animate.min.css" | prepend: site.baseurl }}">
+
+    {% include search.html %}
+
+    <script>
+        $("#search-btn").animatedModal();
+        $("#search-btn-mobile").animatedModal();
+
+        function autoFocus() {
+            setTimeout(function () {
+                document.querySelector('.search-page input').focus();
+            }, 400);
+        }
+    </script>
+
+    <!-- Go to Top -->
+    {% include cd-top.html %}
+    
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>

@@ -20,28 +20,37 @@
         <div id="huxblog_navbar">
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
+
+                    {% for page in site.menus %}
                     <li>
-                        <a href="{{ site.baseurl }}/" class="faa-parent animated-hover">
-                            <i class="fa fa-fort-awesome fa-lg faa-wrench"></i> Home
-                        </a>
-                    </li>
-                    {% assign _page_list = site.pages | sort: 'nav_pos' %}
-                    {% for page in _page_list | sort%}
-                    {% if page.title and page.hide-in-nav != true %}
-                    <li>
+                        {% if page.url %}
                         <a href="{{ page.url | prepend: site.baseurl }}" class="faa-parent animated-hover">
+                        {% else %}
+                        <a class="faa-parent animated-hover">
+                        {% endif %}
                             {% if page.font %}
                             <i class="fa {{page.font}} fa-lg faa-wrench"></i>
                             {% endif %}
                             {{ page.title }}
                         </a>
+                        {% if page.submenus %}
+                        <ul class="sub-menu">
+                            {% for submenu in page.submenus %}
+                            <li>
+                                <a href="{{ submenu.url | prepend: site.baseurl }}" class="faa-parent animated-hover">
+                                <i class="fa {{submenu.font}} fa-lg faa-wrench"></i>
+                                {{ submenu.title }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
                     </li>
-                    {% endif %}
                     {% endfor %}
 
                     <li>
                         <a id="search-btn" href="#search" class="faa-parent animated-hover" onclick="autoFocus()">
-                            <i class="fa fa-search fa-lg faa-wrench"></i> SEARCH
+                            <i class="fa fa-search fa-lg faa-wrench"></i> Search
                         </a>
                     </li>
                 </ul>
@@ -52,7 +61,8 @@
     <!-- /.container -->
 </nav>
 
-<script>
+<!-- Old Mobile Navbar Script (By Hux) -->
+<!-- <script>
     // Drop Bootstarp low-performance Navbar
     // Use customize navbar with high-quality material design animation
     // in high-perf jank-free CSS3 implementation
@@ -103,24 +113,7 @@
         if(e.target.className == 'icon-bar') return;
         __HuxNav__.close();
     })
-</script>
+</script> -->
 
-<!-- Search Page Animate -->
+<!-- jQuery -->
 <script src="{{ "/js/library/jquery.min.js" | prepend: site.baseurl }}"></script>
-<script src="{{ "/js/library/animatedModal.js" | prepend: site.baseurl }}"></script>
-<link rel="stylesheet" href="{{ "/css/library/animate.min.css" | prepend: site.baseurl }}">
-
-{% include search.html %}
-
-<script>
-    $("#search-btn").animatedModal();
-
-    function autoFocus() {
-        setTimeout(function () {
-            document.querySelector('.search-page input').focus();
-        }, 400);
-    }
-</script>
-
-<!-- Go to Top -->
-{% include cd-top.html %}

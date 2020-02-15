@@ -14,7 +14,7 @@ header-img:
 ---
 
 {% for post in paginator.posts %}
-{% if post.hide %}
+{% if post.hide-in-home %}
 <!----------- 不显示 ----------->
 {% else %}
 <div class="post-preview">

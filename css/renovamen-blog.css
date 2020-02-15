@@ -133,6 +133,7 @@
   bottom: 0px;
   opacity: 0;
   font-family: "Montserrat";
+  z-index: 4;
 }
 @media (min-width: 640px) {
   .paper-snackbar {
@@ -1201,76 +1202,115 @@ samp {
   position: absolute;
   padding-top: 1px;
 }
-@media only screen and (max-width: 991px) {
-  /**
-	 * Layout
-	 * Since V1.6 we use absolute positioning to prevent to expand container-fluid
-	 * which would cover tags. A absolute positioning make a new layer.
-	 */
-  .navbar-default .navbar-collapse {
-    position: absolute;
+.mobile-nav {
+  display: none;
+}
+@media (max-width: 991px) {
+  .main-container {
+    transition-duration: .5s;
+    position: relative;
+    overflow: hidden;
+  }
+  .main-container.open:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 3;
+  }
+  .main-container.open {
+    transform: translateX(-250px) translateY(0px);
+    -webkit-transform: translateX(-250px) translateY(0px);
+    position: fixed;
     right: 0;
-    border: none;
-    background: white;
-    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px;
-    border-radius: 2px;
-    width: 170px;
+    left: 0;
   }
-  /**
-	 * Animation
-	 * HuxBlog-Navbar using genuine Material Design Animation
-	 */
-  #huxblog_navbar {
-    /**
-		 * Sharable code and 'out' function
-		 */
-    opacity: 0;
-    transform: scaleX(0);
-    transform-origin: top right;
-    transition: all 200ms cubic-bezier(0.47, 0, 0.4, 0.99) 0ms;
-    -webkit-transform: scaleX(0);
-    -webkit-transform-origin: top right;
-    -webkit-transition: all 200ms cubic-bezier(0.47, 0, 0.4, 0.99) 0ms;
-    /**
-		 *'In' Animation
-		 */
+  .mobile-nav {
+    background-color: #fff;
+    width: 0;
+    max-width: 250px !important;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    overflow-x: hidden !important;
+    overflow-y: auto;
   }
-  #huxblog_navbar a {
+  .mobile-nav.open {
+    width: 250px;
+    transition: all .3s ease;
+  }
+  .mobile-nav .mobile-menu-avatar {
+    position: relative;
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+    padding: 30px 0 20px;
+    text-align: center;
+  }
+  .mobile-nav .mobile-menu-avatar img {
+    width: 90px;
+    height: 90px;
+    max-width: 90px;
+    border-radius: 100%;
+  }
+  .mobile-nav .mobile-menu-heading {
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: -5px;
+  }
+  .mobile-nav .mobile-menu-heading:after {
+    content: '';
+    position: absolute;
+    top: 175px;
+    width: 12em;
+    height: 1px;
+    background-color: #d0ddf3;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  .mobile-nav ul {
+    height: auto;
+  }
+  .mobile-nav ul li {
+    transition-duration: .25s;
+    display: block;
+    padding: 6px 40px;
+  }
+  .mobile-nav ul li a {
+    font-size: 17px;
+    text-decoration: none;
+  }
+  .mobile-nav ul li ul {
+    width: 250px;
+    margin: 10px 0;
+    padding-left: 10px;
+  }
+  .mobile-nav ul li ul li {
+    padding: 5px 9px;
+  }
+  .mobile-nav ul li ul li a {
+    font-size: 16px;
+    color: #9cacc5;
+    text-decoration: none;
+  }
+  .mobile-nav ul li ul li a:hover {
+    color: #377bb5;
+  }
+  .mobile-nav .footer {
+    text-align: center;
     font-size: 13px;
-    line-height: 28px;
+    color: #b9b9b9;
   }
-  #huxblog_navbar .navbar-collapse {
-    height: 0px;
-    transform: scaleY(0);
-    transform-origin: top right;
-    transition: transform 400ms cubic-bezier(0.32, 1, 0.23, 1) 0ms;
-    -webkit-transform: scaleY(0);
-    -webkit-transform-origin: top right;
-    -webkit-transition: -webkit-transform 400ms cubic-bezier(0.32, 1, 0.23, 1) 0ms;
-  }
-  #huxblog_navbar li {
-    opacity: 0;
-    transition: opacity 100ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-    -webkit-transition: opacity 100ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  }
-  #huxblog_navbar.in {
-    transform: scaleX(1);
-    -webkit-transform: scaleX(1);
-    opacity: 1;
-    transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-    -webkit-transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  }
-  #huxblog_navbar.in .navbar-collapse {
-    transform: scaleY(1);
-    -webkit-transform: scaleY(1);
-    transition: transform 500ms cubic-bezier(0.23, 1, 0.32, 1);
-    -webkit-transition: -webkit-transform 500ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  #huxblog_navbar.in li {
-    opacity: 1;
-    transition: opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 205ms;
-    -webkit-transition: opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 205ms;
+}
+@media only screen and (max-width: 991px) {
+  #huxblog_navbar {
+    display: none;
   }
 }
 .navbar-custom {
@@ -1303,9 +1343,53 @@ samp {
   line-height: 20px;
   font-weight: 800;
   letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
 }
 .navbar-custom .nav li a:active {
   background: rgba(0, 0, 0, 0.12);
+}
+.navbar-custom .nav li:hover .sub-menu {
+  display: inline-block;
+  -webkit-transition: all .4s;
+  transition: all 0.4s;
+}
+.navbar-custom .nav li .sub-menu {
+  display: none;
+  background: white;
+  list-style-type: none;
+  position: absolute;
+  padding: 10px 0;
+  top: 55px;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  border-radius: 5px;
+  box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5);
+  -webkit-animation: fadeInUp .3s .1s ease both;
+  -moz-animation: fadeInUp .3s .1s ease both;
+}
+.navbar-custom .nav li .sub-menu li {
+  margin-left: -9px;
+  padding: 5px 0;
+}
+.navbar-custom .nav li .sub-menu li a {
+  color: #404040;
+}
+.navbar-custom .nav li .sub-menu li a:hover,
+.navbar-custom .nav li .sub-menu li a:active,
+.navbar-custom .nav li .sub-menu li a:focus {
+  color: #377bb5;
+}
+.navbar-custom .nav li .sub-menu:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
 }
 @media only screen and (min-width: 992px) {
   .navbar-custom {
@@ -1613,6 +1697,10 @@ samp {
   box-sizing: initial;
   white-space: nowrap;
 }
+.intro-header .header-info-back .home-site-heading {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 .intro-header .header-info-back .home-site-heading h1 {
   font-size: 25px;
   font-family: Montserrat;
@@ -1625,10 +1713,6 @@ samp {
 @media only screen and (min-width: 1025px) {
   .intro-header .phone-site-heading {
     display: none;
-  }
-  .intro-header .site-heading {
-    padding-top: 0;
-    padding-bottom: 0;
   }
 }
 .intro-header .img-prev,

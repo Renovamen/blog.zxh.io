@@ -1,0 +1,47 @@
+<div class="mobile-nav">
+    <div class="mobile-menu-avatar">
+        <img src="{{site.baseurl}}/img/header-avatar.jpeg">
+    </div>
+    <p class="mobile-menu-heading">Meow?</p>
+    <ul>
+        {% for page in site.menus %}
+        <li>
+            {% if page.url %}
+            <a href="{{ page.url | prepend: site.baseurl }}" class="faa-parent animated-hover">
+            {% else %}
+            <a class="faa-parent animated-hover">
+            {% endif %}
+                {% if page.font %}
+                <i class="fa {{page.font}} fa-lg faa-wrench"></i>
+                {% endif %}
+                {{ page.title }}
+            </a>
+            {% if page.submenus %}
+            <ul class="sub-menu">
+                {% for submenu in page.submenus %}
+                <li>
+                    <a href="{{ submenu.url | prepend: site.baseurl }}" class="faa-parent animated-hover">
+                    <i class="fa {{submenu.font}} fa-lg faa-wrench"></i>
+                    {{ submenu.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+        <li>
+            <a id="search-btn-mobile" href="#search" class="faa-parent animated-hover" onclick="autoFocus()">
+                <i class="fa fa-search fa-lg faa-wrench"></i> Search
+            </a>
+        </li>
+    </ul>
+    <p class="footer">&copy Renovamen 2019</p>
+</div>
+
+<script>
+$('.navbar-toggle').on('click', function () {
+    $('body').toggleClass('navOpen')
+    $('.main-container, .mobile-nav').toggleClass('open')
+})
+</script>
