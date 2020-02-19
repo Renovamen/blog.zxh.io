@@ -4,7 +4,7 @@
     <p class="search-title text-center"></p>
 
     <div class="input">
-        <input id="search-input" type="text" class="search-field" placeholder="Just search ..." onkeypress="checkDark()">
+        <input id="search-input" type="text" class="search-field" placeholder="Just search ..." onkeypress="checkCode()">
     </div>
     <div id="search-results" class="search-results"></div>
 
@@ -31,9 +31,15 @@
         'height': $(window).height() - 200 + "px"
     });
 
-    function checkDark() {
-        if (event.keyCode == 13 && $('#search-input').val() == "cd dark universe") {
-            window.location.href = "http://renovamen.gitee.io/dark-universe/";
+    function checkCode() {
+        if (event.keyCode == 13) {
+            getCode = $('#search-input').val();
+            if(getCode == "cd dark universe") {
+                window.location.href = "https://renovamen.gitee.io/dark-universe/";
+            }
+            else if(getCode == "cd resume") {
+                window.location.href = "https://renovamen.ink/Endless-Resume/";
+            }
         }
     }
 </script>

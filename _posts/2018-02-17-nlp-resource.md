@@ -4,6 +4,7 @@ title: "NLP 不入门直接放弃"
 subtitle: "How to give up NLP"
 author: "Renovamen"
 header-style: text
+header-img: img/in-post/2018-02-17/header.jpg
 catalog: true
 tags:
   - NLP

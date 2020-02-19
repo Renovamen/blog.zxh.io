@@ -2,11 +2,12 @@
 layout: default
 ---
 
-<div class="links-page container">
-    <h2 class="title text-center">{{page.title}}</h2>
-    <p class="subtitle text-center">{{page.desc}}</p>
-    <div class="break"></div>
-    
+<!-- Borrowed a lot from: https://github.com/mashirozx/Sakura/ -->
+
+<!-- Page Header -->
+{% include intro-header.html type='page' short=true %}
+
+<div class="links-page container"> 
     <div class="link-list">
         {% if page.links %}
             {% for group in page.links %}

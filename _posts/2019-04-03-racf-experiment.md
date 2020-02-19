@@ -4,6 +4,7 @@ title: "RACF 实验"
 subtitle: 'RACF Experiment'
 author: "Renovamen"
 header-style: text
+header-img: img/in-post/2019-04-03/header.jpg
 mathjax: true
 catalog: true
 tags:

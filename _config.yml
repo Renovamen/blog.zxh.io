@@ -67,7 +67,7 @@ kramdown:
       start_line: 1
 
 
-# Navigation(menu) settings
+# Navigation menu settings
 menus:
   - title: Home
     font: fa-fort-awesome
@@ -121,9 +121,9 @@ ga_domain: renovamen.ink
 
 
 # Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "When you are looking at the stars, please put the brightest star shining night sky as my soul."
-sidebar-avatar: /img/avatar.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar: false                           # whether or not using Sidebar.
+sidebar-about-description:
+sidebar-avatar: # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -145,3 +145,11 @@ page-mathjax: false
 
 # Friends (side bar)
 friends: []
+
+
+# Whether or not to enable Hitokoto (the bubble on homepage)
+hitokoto: true # default: false
+
+
+# Whether or not to display post's header image on home page
+post-review-img: true # default: false

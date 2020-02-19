@@ -142,7 +142,16 @@
         </a>
     </div>
 
-    <!-- 手机端隐藏 -->
+    {% if site.hitokoto %}
+    <div class="header-bubble">
+        <div class="bubble">
+            <p class="bubble-words" id="hitokoto"></p>
+        </div>
+        <div class="bubble-tile"></div>
+    </div>
+    {% endif %}
+
+    <!-- 只在桌面端显示 -->
     <div class="header-info-back">
         <div class="site-heading home-site-heading">
             <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
@@ -155,13 +164,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {% if page.homepage == true %}
-
                 <!-- 只在手机端显示 -->
                 <div class="site-heading phone-site-heading">
                     <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
                     <span class="subheading">{{ page.description }}</span>
-                </div>
-                
+                </div>  
                 {% else %}
                 {% if include.short %}
                 <div class="site-heading" id="tag-heading">
@@ -191,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // 首页图片高度适配
 function headerResize() {
-    if(document.body.clientWidth > 1024) {
+    if(document.body.clientWidth >= 1024) {
         //console.log(document.body.clientWidth)
         $('.intro-header').css({
             'height': $(window).height() + "px"
@@ -215,14 +222,9 @@ window.addEventListener('resize', function(){
 })
 
 headerResize();
-</script>
-{% endif %}
 
-
-
-<script>
+// Header Image Switcher
 function changeImage(n) {
-
     headerImgList = '[{{page.header-img}}]'.replace(/=>/g,":").replace(/}{/g,"},{");
     headerImgList = $.parseJSON(headerImgList);
     len = headerImgList.length
@@ -241,3 +243,10 @@ function changeImage(n) {
     }
 }
 </script>
+
+{% if site.hitokoto %}
+<!-- Hitokoto API （一言）-->
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+{% endif %}
+
+{% endif %}

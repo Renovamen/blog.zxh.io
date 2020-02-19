@@ -1,49 +1,20 @@
 .links-page {
     width: 61%;
-    margin-top: 10em;
-    margin-bottom: 5em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     background-color: rgba(255, 255, 255, .8);
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 480px) {
         width: 80%;
-        margin-top: 7em;
-        margin-bottom: 1em;
     }
-    h1, h2, h3, h4, h5, h6, p, span, .desc {
+    h3, span, .desc {
         font-family: "Montserrat";
     }
-    .title {
-        position: relative;
-        margin: 0 auto;
-        margin-bottom: 1em;
-        &:after {
-            content: '';
-            position: absolute;
-            top: 1.35em;
-            width: 3em;
-            height: 3px;
-            background-color: #ECEFF1;
-            left: 50%;
-            -webkit-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-            transform: translateX(-50%)
-        }
-    }
-    .subtitle {
-        width: 60%;
-        margin: 0 auto;
-        @media only screen and (max-width: 768px) {
-            width: 100%;
-        }
-    }
     .link-list {
-        margin-top: 80px;
+        margin-bottom: 80px;
         .section-title {
             font-weight: 400;
             font-size: 18px;
             padding-left: 10px;
-            border-left: 3px solid #377bb5;
+            border-left: 3px solid @brand-primary;
             margin: 50px 0 20px
         }
         ul {
@@ -66,7 +37,7 @@
                 border-radius: 10px;
                 &:before {
                     content: "";
-                    background-color: #377bb5;
+                    background-color: @brand-primary;
                     -webkit-transform: skew(45deg, 0);
                     transform: skew(45deg, 0);
                     width: 0;
@@ -104,7 +75,7 @@
                 }
                 &:hover {
                     color: #27323a;
-                    border: 1px solid #377bb5;
+                    border: 1px solid @brand-primary;
                     img {
                         transform: rotate(360deg);
                         -webkit-transform: rotate(360deg);
@@ -120,7 +91,7 @@
                     }
                 }
                 span.sitename {
-                    color: #377bb5;
+                    color: @brand-primary;
                     padding-bottom: 10px;
                     display: block;
                     -webkit-transition: all .3s;
@@ -145,13 +116,13 @@
             }
         }
     }
-    @media (max-width: 630px) {
+    @media (max-width: 480px) {
         .link-list ul li {
             width: 100% !important
         }
     }
     
-    @media (max-width: 860px) {
+    @media (max-width: 1024px) {
         .link-list ul li {
             width: 48.6%;
             &:before {

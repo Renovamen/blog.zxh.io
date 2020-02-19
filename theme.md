@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 还没取好名字的主题
-subtitle: 所有没取好名字的东西都叫 Renovamen
+title: "[Jekyll] Theme NuLL"
+subtitle: 因为没起好名字所以叫它 NuLL 了
 header-img: img/theme.jpg
 header-mask: rgba(40, 57, 101, .4)
 catalog: true
