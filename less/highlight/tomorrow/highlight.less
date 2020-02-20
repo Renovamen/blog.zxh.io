@@ -73,58 +73,61 @@ pre.highlight {
 
 // Customize (by Hux)
 .highlighter-rouge .highlight {
-    margin-bottom: 10px;
-    border-radius: 6px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  pre {
+    font-size: 14px;
+    line-height: 1.5;
+    color: @highlight-pre;
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    word-wrap: normal; // Safari Bug
+  }
+  .rouge-code {
     pre {
-      font-size: 14px;
-      line-height: 1.5;
-      color: @highlight-pre;
-      background: transparent;
-      border: 0;
+      color: @highlight-foreground; // default color for nil-lang code
+    }
+  }
+  .table-responsive {
+    margin: 0px;
+    border: 0px;
+  }
+  .table {
+    margin: 0px;
+    table-layout: fixed;
+  }
+  table > tbody > tr {
+    > td {
       margin: 0;
+      border: 0;
       padding: 0;
-      word-wrap: normal; // Safari Bug
-    }
-    .rouge-code {
-      pre {
-        color: @highlight-foreground; // default color for nil-lang code
+      > pre {
+        padding: 14px;
       }
     }
-    .table-responsive {
-      margin: 0px;
-      border: 0px;
-    }
-    .table {
-      margin: 0px;
-      table-layout: fixed;
-    }
-    table > tbody > tr {
-      > td {
-        margin: 0;
-        border: 0;
-        padding: 0;
-        > pre {
-          padding: 14px;
-        }
-      }
-    }
-    td.rouge-gutter {
-      width: 56px;
-    }
-    .lineno {
-      text-align: right;
-      // border-right: 1px solid #373434;
-      border-radius: 0px;
-    }
+  }
+  td.rouge-gutter {
+    width: 56px;
+  }
+  .lineno {
+    text-align: right;
+    // border-right: 1px solid #373434;
+    border-radius: 0px;
+  }
 }
 /* Landscape phones and down */
 @media (max-width: 480px) { 
-    .highlighter-rouge .highlight {
-        margin-left: -15px;
-        margin-right: -15px;
-        border-radius: 0px;
-        td.rouge-gutter {
+  .highlighter-rouge {
+    padding: 0 15px;
+    .highlight {
+      margin-left: -15px;
+      margin-right: -15px;
+      border-radius: 0px;
+      td.rouge-gutter {
         width: 46px;
-        }
+      }
     }
+  }
 }

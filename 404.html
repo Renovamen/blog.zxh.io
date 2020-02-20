@@ -1,16 +1,29 @@
 ---
 layout: default
-title: ""
 hide-in-nav: true
-description: ""
-header-img: "img/404.png"
+header-style: text
 permalink: /404.html
 ---
 
+<style type="text/css">
+	html, body{
+        height: 100%;
+    }
+</style>
 
-<!-- Page Header -->
-{% include intro-header.html type="page" short='true' %}
+<div class="notfound">
+	<div class="error-info">
+		<h1 class="error-emoji"></h1>
+		<p>/* Oops! Where are we? */</p>
+		<p><a href="{{ site.baseurl }}/">$ cd /home/</a></p>
+	</div>
+ </div>
 
 <script>
-	document.body.classList.add('page-fullscreen');
+	var emojiArray = [
+		'\\(o_o)/', '(o^^)o', '(˚Δ˚)b', '(^-^*)', '(^_^)b', '(╯‵□′)╯',
+		'(=\'X\'=)', '(>_<)', '\\(°ˊДˋ°)/', 'ㄟ(▔▽▔)ㄏ'
+	];
+	var errorEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length)];
+	$('.error-emoji').append(document.createTextNode(errorEmoji));
 </script>

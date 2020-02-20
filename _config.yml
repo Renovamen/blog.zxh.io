@@ -151,5 +151,5 @@ friends: []
 hitokoto: true # default: false
 
 
-# Whether or not to display post's header image on home page
+# Whether or not to display post's featured image on home page
 post-review-img: true # default: false

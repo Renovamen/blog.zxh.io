@@ -1,8 +1,3 @@
-/*!
- * Renovamen Blog v1.0.0 (https://renovamen.github.io)
- * Copyright 2020 Renovamen <renovamenzxh@gmail.com>
- */
-
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
@@ -661,6 +656,9 @@ pre.highlight {
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
+  .highlighter-rouge {
+    padding: 0 15px;
+  }
   .highlighter-rouge .highlight {
     margin-left: -15px;
     margin-right: -15px;
@@ -1477,6 +1475,10 @@ samp {
 .mobile-nav {
   display: none;
 }
+.main-container {
+  height: 100%;
+  overflow: hidden;
+}
 @media (max-width: 991px) {
   .main-container {
     transition-duration: .5s;
@@ -1614,6 +1616,7 @@ samp {
   color: white;
   height: 56px;
   line-height: 25px;
+  font-family: "Montserrat";
 }
 .navbar-custom .navbar-brand:hover {
   color: rgba(255, 255, 255, 0.8);
@@ -2755,49 +2758,51 @@ img::-moz-selection {
 #ds-smilies-tooltip ul.ds-smilies-tabs li a {
   background: white !important;
 }
-.page-fullscreen .intro-header {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
+.notfound {
   height: 100%;
-}
-.page-fullscreen #tag-heading {
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding-bottom: 150px;
+  margin-top: -230px;
   width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  display: -webkit-flex;
-  -webkit-align-items: center;
-  -webkit-justify-content: center;
-  -webkit-flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
-.page-fullscreen footer {
+.notfound .error-info {
   position: absolute;
-  width: 100%;
-  bottom: 0;
-  padding-bottom: 20px;
-  opacity: 0.6;
-  color: #fff;
+  left: 50%;
+  margin-left: -165px;
+  bottom: 40%;
+  text-align: center;
 }
-.page-fullscreen footer .copyright {
-  color: #fff;
+.notfound .error-info h1,
+.notfound .error-info p {
+  font-family: "Montserrat";
 }
-.page-fullscreen footer .copyright a {
-  color: #fff;
+.notfound .error-info h1 {
+  font-size: 50px;
+  margin-bottom: 40px;
 }
-.page-fullscreen footer .copyright a:hover {
-  color: #ddd;
+.notfound .error-info p {
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 14px;
+}
+.notfound .error-info p a {
+  text-decoration: none;
+}
+.notfound .error-info p a:after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 20px;
+  margin-top: -2px;
+  margin-left: 8px;
+  animation: blink 1s infinite steps(1, start);
+}
+@keyframes blink {
+  0%,
+  100% {
+    background-color: currentColor;
+  }
+  50% {
+    background-color: transparent;
+  }
 }
 .MathJax_SVG_Display {
   overflow: auto;
