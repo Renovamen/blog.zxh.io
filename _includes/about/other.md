@@ -1,6 +1,6 @@
 ## Miscellaneous
 
-- [This blog](https://github.com/Renovamen/renovamen.github.io){:target="_blank"} is adapted from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io){:target="_blank"} & [mashirozx/Sakura](https://github.com/mashirozx/Sakura){:target="_blank"} and powered by [Jekyll](https://jekyllrb.com/){:target="_blank"} & [Github Pages](https://pages.github.com/){:target="_blank"}.
+- [This blog](https://github.com/Renovamen/renovamen.github.io){:target="_blank"} is modified from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io){:target="_blank"} and powered by [Jekyll](https://jekyllrb.com/){:target="_blank"} & [Github Pages](https://pages.github.com/){:target="_blank"}. Know more about this theme [here](/theme).
 
 - *Renovamen* is an Latin word means *renewal*.
 

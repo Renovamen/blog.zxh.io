@@ -1,0 +1,32 @@
+@mixin alert-modern() {
+    margin: 0 0 1rem;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.post-container {
+    p.success {
+        @include alert-modern();
+        background-color: rgba($success, .1);
+        border: 1px solid $success;
+    }
+  
+    p.info {
+        @include alert-modern();
+        background-color: rgba($info, .1);
+        border: 1px solid $info;
+    }
+  
+    p.warning {
+        @include alert-modern();
+        background-color: rgba($warning, .1);
+        border: 1px solid $warning;
+    }
+  
+    p.error {
+        @include alert-modern();
+        background-color: rgba($error, .1);
+        border: 1px solid $error;
+    }
+  }
+  

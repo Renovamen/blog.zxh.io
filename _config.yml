@@ -6,6 +6,16 @@ description: "Xiaohan Zou's blog"
 keyword: ""
 url: "https://renovamen.ink"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+avatar: "img/header-avatar.jpeg" # the avatar showing on the homepage
+
+
+# Theme style settings
+theme_style: 
+  highlight:  # "default" (default), "night", "night-eighties", "night-blue", "night-bright"
+  alert:  # "flat" (default), "modern"
+  # Whether or not to display post's featured image on home page
+  post_preview: # "image" (default), "text"
+
 
 # Publish posts or collection documents with a future date.
 future: true
@@ -15,14 +25,15 @@ collections:
     output: true
 
 # SNS settings
-RSS: false
-github_username:    Renovamen
-#weibo_username:     
-#zhihu_username:     
-#twitter_username:   
-facebook_username:  renovamen.zou
-#linkedin_username:  firstname-lastname-idxxxx
-email_address: renovamenzxh@gmail.com
+sns:
+  RSS: false
+  github_username: Renovamen
+  weibo_username:     
+  zhihu_username:     
+  twitter_username:   
+  facebook_username: renovamen.zou
+  linkedin_username:  # firstname-lastname-idxxxx
+  email_address: renovamenzxh@gmail.com
 
 
 # Build settings
@@ -31,11 +42,11 @@ highlighter: rouge
 permalink: pretty
 paginate: 10
 exclude:
-  - Gruntfile.js
   - package.json
+  - package-lock.json
   - README.md
-  - README.zh.md
-  - /less
+  - LICENSE
+  - Gruntfile.js
   - /node_modules
   - /docs
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
@@ -93,43 +104,37 @@ menus:
 
 
 # Comment settings
-# Disqus settings
-# disqus_username: renovamen
+comment: 
+  provider: gitalk # false (default), "disqus", "gitalk", "valine"
 
-# Gitalk settings
-gitalk:
-  clientID: 'd6247712dc288a5a60ca'
-  clientSecret: 'ed1ec72417828343c79ed910a1b77d140fa715a7'
-  repo: gitalk-comments
-  owner: This-is-an-Apple
+  # Disqus settings
+  disqus_username: renovamen
 
-# Valine settings
-# valine:
-#   appID: 
-#   appKey: 
+  # Gitalk settings
+  # https://github.com/gitalk/gitalk
+  gitalk:
+    clientID: 'd6247712dc288a5a60ca'
+    clientSecret: 'ed1ec72417828343c79ed910a1b77d140fa715a7'
+    repo: gitalk-comments
+    owner: This-is-an-Apple
+    admin: Renovamen
 
+  # Valine settings
+  # https://valine.js.org/
+  valine:
+    appID: 
+    appKey: 
 
 
 # Analytics settings
-# Baidu Analytics 
-# ba_track_id: [your track id]
+analytics:
+  # Baidu Analytics 
+  ba_track_id: # [your track id]
 
-# Google Analytics
-ga_track_id: 'UA-146858305-1'            # Format: UA-xxxxxx-xx
-ga_domain: renovamen.ink
-
-
-
-# Sidebar settings
-sidebar: false                           # whether or not using Sidebar.
-sidebar-about-description:
-sidebar-avatar: # use absolute URL, seeing it's used in both `/` and `/about/`
-
-
-
-# Featured Tags
-featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+  # Google Analytics
+  google:
+    ga_track_id: 'UA-146858305-1'            # Format: UA-xxxxxx-xx
+    ga_domain: renovamen.ink
 
 
 
@@ -143,13 +148,6 @@ service-worker: true
 page-mathjax: false
 
 
-# Friends (side bar)
-friends: []
-
 
 # Whether or not to enable Hitokoto (the bubble on homepage)
 hitokoto: true # default: false
-
-
-# Whether or not to display post's featured image on home page
-post-review-img: true # default: false

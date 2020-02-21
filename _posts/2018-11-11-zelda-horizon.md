@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "《塞尔达传说：旷野之息》&《地平线：黎明时分》联动"
+title: "《塞尔达传说：荒野之息》&《地平线：黎明时分》联动"
 subtitle: "The Legend of Zelda: Breath of the Wild & Horizon: Zero Dawn"
 author: "Renovamen"
 header-img: "img/in-post/2018-11-11/header.jpg"
-header-mask: 0.3
+header-mask: rgb(71, 108, 152, .2)
 tags:
   - 摸鱼
 ---

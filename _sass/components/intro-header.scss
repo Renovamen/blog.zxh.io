@@ -1,0 +1,293 @@
+// Header
+
+.intro-header {
+    &.style-text {
+        background: none;
+        .site-heading,
+        .post-heading,
+        .page-heading {
+            padding: 85px 0 20px;
+            color: $gray-dark;
+            .subheading{
+                margin-bottom: 15px;
+            }
+        }
+        .tags {
+            a, .tag {
+                border-color: $gray-dark;
+                color: $gray-dark;
+                &:hover,
+                &:active {
+                    background-color: rgba(0, 0, 0, 0.05);
+                }
+            }
+        }
+    }
+    background: no-repeat center center;
+    background-color: $gray;
+    background-attachment: scroll;
+    @include background-cover();
+    // NOTE: Background images are set within the HTML using inline CSS!
+    margin-bottom: 0px; /* 0 on mobile, modify by Hux */
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 20px; /* response on desktop */
+    }
+    .site-heading,
+    .post-heading,
+    .page-heading {
+        padding: 85px 0 55px;
+        color: white;
+        @media only screen and (min-width: 768px) {
+            padding: 150px 0;
+        }
+    }
+    // masterialize
+    .site-heading {
+        padding: 95px 0 70px;
+        @media only screen and (min-width: 768px) {
+            padding: 150px 0;
+        }
+    }
+    .site-heading,
+    .page-heading {
+        text-align: center;
+        h1 {
+            margin-top: 0;
+            font-size: 50px;
+        }
+        .subheading {
+            @include sans-serif();
+            font-size: 18px;
+            line-height: 1.1;
+            display: block;
+            font-weight: 300;
+            margin: 10px 0 0;
+        }
+        @media only screen and (min-width: 768px) {
+            h1 {
+                font-size: 80px;
+            }
+        }
+    }
+    .post-heading {
+        h1 {
+            font-size: 30px;
+            margin-bottom: 24px;
+        }
+        .subheading,
+        .meta {
+            line-height: 1.1;
+            display: block;
+        }
+        .subheading {
+            @include sans-serif();
+            font-size: 17px;
+            line-height: 1.4;
+            font-weight: normal;
+            margin: 10px 0 30px;
+            margin-top: -5px;
+        }
+        .meta {
+            @include serif();
+            font-weight: 300;
+            font-size: 16px;
+            a {
+                color: white;
+            }
+        }
+        @media only screen and (min-width: 768px) {
+            h1 {
+                font-size: 55px;
+            }
+            .subheading {
+                font-size: 30px;
+            }
+            .meta {
+                font-size: 20px;
+            }
+        }
+    }
+    .header-img-credit {
+        position: absolute;
+        bottom: 6px;
+        right: 9px;
+        color: white;
+        opacity: 0.3;
+        font-size: 10px;
+        z-index: 1;
+        a {
+            color: white;
+        }
+        @media only screen and (min-width: 768px) {
+            & {
+                font-size: 12px;
+                bottom: 10px;
+                right: 15px;
+            }
+        }
+    }
+    // Avatar on home page
+    .header-avatar {
+        position: absolute;
+        top: 50%;
+        margin-top: -140px;
+        left: 50%;
+        margin-left: -75px;
+        width: 130px;
+        height: 130px;
+        img {
+            @include rotating-img();
+            box-shadow: inset 0 0 10px #000;
+            &:hover {
+                @include rotating-img-hover();
+            }
+        }
+        @media only screen and (max-width: 1023px) {
+            display: none
+        }
+        &:hover+.header-bubble{
+            display: block;
+        }
+    }
+    // Background of info on home page (hide on phone)
+    .header-info-back {
+        width: 37%;
+        max-width: 500px;
+        font-size: 16px;
+        background: rgba(0, 0, 0, .5);
+        padding: 15px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 50%;
+        margin-top: 15px;
+        letter-spacing: 0;
+        line-height: 30px;
+        border-radius: 10px;
+        box-sizing: initial;
+        white-space: nowrap;
+        .home-site-heading {
+            padding-top: 0;
+            padding-bottom: 0;
+            h1{
+                font-size: 25px;
+                font-family: Montserrat;
+            }
+        }
+        @media only screen and (max-width: 1023px) {
+            display: none;
+        }
+    }
+    // Info on home page (shows on phone only)
+    @media only screen and (min-width: 1024px) {
+        .phone-site-heading {
+            display: none
+        }
+    }
+    // Button on homepage: Change header image
+    .img-prev, 
+    .img-next {
+        cursor: pointer;
+        text-decoration: none;
+        position: absolute;
+        top: 50%;
+        margin-top: -30px;
+        width: auto;
+        padding: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        transition: .6s ease;
+        border-radius: 0 3px 3px 0;
+        background-color: rgba(0, 0, 0, .3);
+        .fa {
+            font-size: 30px;
+        }
+        &:hover {
+            color: #fff;
+            background-color: rgba(0, 0, 0, .6);
+        }
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+    .img-prev {
+        left: 0;
+    }
+    .img-next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+    // Down arrow on home page
+    .headertop-down {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        margin-left: -22px;
+        cursor: pointer;
+        @media only screen and (max-width: 1023px) {
+            display: none
+        }
+        i {
+            font-size: 28px;
+            color: #ffffff;
+            transition: .4s ease;
+            &:active,
+            &:hover {
+                color: #a7a7a7;
+            }
+        }
+    }
+    .header-bubble {
+        display: none;
+        position: absolute;
+        left: 50%;
+        margin-left: 100px;
+        top: 50%;
+        margin-top: -200px;
+        
+        // float up and down
+        animation: bubbleFloat 2s infinite;
+        -webkit-animation: bubbleFloat 2s infinite;
+        animation-timing-function: ease-in-out;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;
+        
+        .bubble {
+            min-width: 150px;
+            max-width: 250px;
+            min-height: 80px;
+            background: rgba(0, 0, 0, .5);
+            border-radius: 10px;
+            .bubble-words {
+                font-size: 15px;
+                padding: 10px 20px;
+                color: #fff;
+            }
+        }
+        .bubble-tile {
+            position: absolute;
+            content: '';
+            margin-left: -23px;
+            top: 0;
+            margin-top: 60px;
+            width: 23px;
+            height: 44px;
+            border-width: 0;
+            border-style: solid;
+            border-top-width: 20px;
+            border-radius: 56px 0 0 0;
+            color: rgba(0, 0, 0, .5);
+        }
+    }
+    
+    @keyframes bubbleFloat{
+        0%{transform: translateY(0);}
+        100%{transform: translateY(10px);}
+    }
+    
+    @-webkit-keyframes bubbleFloat{
+        0%{-webkit-transform: translateY(0);}
+        100%{-webkit-transform: translateY(10px);}
+    }
+}

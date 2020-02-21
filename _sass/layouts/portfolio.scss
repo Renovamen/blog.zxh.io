@@ -1,0 +1,111 @@
+.portfolio {
+    margin-top: 5em;
+
+    h1, h2, h3, h4, h5, h6, p, button, span {
+        @include null-font();
+    }
+    .break {
+        margin: 8em 0;
+
+        @media only screen and (max-width: 768px) {
+            margin: 2em 0;
+        }
+    }
+    .section-title {
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 1em;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 1.35em;
+            width: 3em;
+            height: 3px;
+            background-color: #ECEFF1;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%)
+        }
+    }
+    .section-subtitle {
+        width: 40%;
+        margin: 0 auto;
+
+        @media only screen and (max-width: 768px) {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 770px) and (max-width: 990px) {
+            width: 60%;
+        }
+    }
+    .content {
+        margin-top: -3em;
+        margin-left: 5em;
+        margin-bottom: 5em;
+        @media only screen and (max-width: 768px) {
+            margin-top: 0;
+            margin-left: 0;
+        }
+        h3.title,
+        h4.description {
+            position: relative;
+        }
+        h4.description {
+            font-size: 15px;
+            color: #8a8a8a;
+            margin-bottom: 1.5em;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 1.5em;
+                left: 0;
+                width: 5em;
+                height: 3px;
+                background-color: #ECEFF1;
+                @media only screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+            a {
+                color: #8a8a8a;
+                &:hover {
+                    color: $brand-primary;
+                }
+            }
+        }
+        .excerpt {
+            width: 80%;
+            @media only screen and (max-width: 768px) {
+                width: 100%;
+            }
+        }
+        button {
+            font-size: 16px;
+            margin-left: 0;
+            margin-bottom: 1em;
+            margin-top: 1em
+        }
+        .btn, .btn-default {
+            border-radius: 10px;
+            padding: 0.3em 1.3em;
+            text-transform: capitalize;
+        }
+        .tags {
+            margin: 1em 0;
+            span {
+                color: #9eb1bd;
+                background-color: #ECEFF1;
+                padding: 0.3em 1.3em;
+                display: inline-block;
+                margin-bottom: 0.5em;
+                border-radius: 10px;
+            }
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
