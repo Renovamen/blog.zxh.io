@@ -5,7 +5,6 @@ subtitle: 'Note of Linear Algebra'
 author: "Renovamen"
 header-style: text
 header-img: img/in-post/2019-06-06/header.jpg
-mathjax: true
 catalog: true
 tags:
   - 数学

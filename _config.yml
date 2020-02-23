@@ -17,6 +17,19 @@ theme_style:
   post_preview: # "image" (default), "text"
 
 
+# Markdown enhancements settings
+# MathJax rendering for layout: post and keynote
+mathjax: true # false (defaule), true
+# MathJax rendering for layout: page (e.g. post preview)
+page-mathjax: false # false (defaule), true
+chart: true # false (defaule), true
+mermaid: true # false (default), true
+
+
+# CDN source settings
+cdn: # "jsdelivr" (default), "bootcdn", "unpkg", "cdnjs"
+
+
 # Publish posts or collection documents with a future date.
 future: true
 
@@ -49,10 +62,9 @@ exclude:
   - Gruntfile.js
   - /node_modules
   - /docs
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+anchorjs: true                          # if you want to customize anchor. check out `anchor.html`
 # If you have timezone issue (e.g. #68) in China, uncomment to use this:
 #timezone: CN  
-
 
 
 # Gems
@@ -117,13 +129,15 @@ comment:
     clientSecret: 'ed1ec72417828343c79ed910a1b77d140fa715a7'
     repo: gitalk-comments
     owner: This-is-an-Apple
-    admin: Renovamen
+    admin: 
+      - Renovamen
+      - This-is-an-Apple
 
   # Valine settings
   # https://valine.js.org/
   valine:
-    appID: 
-    appKey: 
+    appID:
+    appKey:
 
 
 # Analytics settings
@@ -141,12 +155,6 @@ analytics:
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
-
-
-
-# MathJax rendering for layout:page (e.g. post preview)
-page-mathjax: false
-
 
 
 # Whether or not to enable Hitokoto (the bubble on homepage)

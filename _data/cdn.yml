@@ -1,0 +1,79 @@
+jsdelivr:
+  bootstrap-css: https://cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/css/bootstrap.min.css
+  font-awesome: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
+  font-awesome-animation: https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css
+  jquery: https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js
+  fastclick: https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js
+  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js
+  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.2.2/anchor.min.js
+  gitalk: https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
+  valine: https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js
+  chart: https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js
+  mathjax:
+    post: https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
+    page: https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  sweet-scroll: https://cdn.jsdelivr.net/npm/sweet-scroll@4.0.0/sweet-scroll.min.js
+  simple-jekyll-search: https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
+  scrollreveal: https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js
+  animate-css: https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css
+
+bootcdn:
+  bootstrap-css: https://cdn.bootcss.com/twitter-bootstrap/3.3.2/css/bootstrap.min.css
+  font-awesome: https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css
+  font-awesome-animation: https://cdn.bootcss.com/font-awesome-animation/0.2.1/font-awesome-animation.min.css
+  jquery: https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
+  fastclick: https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  tocbot: https://cdn.bootcss.com/tocbot/4.10.0/tocbot.min.js
+  anchor: https://cdn.bootcss.com/anchor-js/4.2.2/anchor.min.js
+  gitalk: https://cdn.bootcss.com/gitalk/1.6.0/gitalk.min.js
+  valine: https://cdn.bootcss.com/valine/1.3.10/Valine.min.js
+  chart: https://cdn.bootcss.com/Chart.js/2.9.3/Chart.min.js
+  mermaid: https://cdn.bootcss.com/mermaid/8.4.8/mermaid.min.js
+  mathjax: 
+    post: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
+    page: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  sweet-scroll: https://cdn.jsdelivr.net/npm/sweet-scroll@4.0.0/sweet-scroll.min.js # here use jsdelivr, because bootcdn is not available
+  simple-jekyll-search: https://cdn.bootcss.com/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
+  scrollreveal: https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.min.js
+  animate-css: https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css
+
+unpkg:
+  bootstrap-css: https://unpkg.com/bootstrap@3.3.2/dist/css/bootstrap.min.css
+  font-awesome: https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css
+  font-awesome-animation: https://unpkg.com/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css
+  jquery: https://unpkg.com/jquery@2.1.3/dist/jquery.min.js
+  fastclick: https://unpkg.com/fastclick@1.0.6/lib/fastclick.js
+  tocbot: https://unpkg.com/tocbot@4.10.0/dist/tocbot.min.js
+  anchor: https://unpkg.com/anchor-js@4.2.2/anchor.min.js
+  gitalk: https://unpkg.com/gitalk@1.6.0/dist/gitalk.min.js
+  valine: https://unpkg.com/valine@1.3.10/dist/Valine.min.js
+  chart: https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js
+  mermaid: https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js
+  mathjax: 
+    post: https://unpkg.com/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-AMS-MML_SVG
+    page: https://unpkg.com/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  sweet-scroll: https://unpkg.com/sweet-scroll@4.0.0/sweet-scroll.min.js
+  simple-jekyll-search: https://unpkg.com/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
+  scrollreveal: https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.min.js
+  animate-css: https://unpkg.com/animate.css@3.7.2/animate.min.css
+
+cdnjs:
+  bootstrap-css: https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css
+  font-awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+  font-awesome-animation: https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.2.1/font-awesome-animation.min.css
+  jquery: https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
+  fastclick: https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js
+  tocbot: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.min.js
+  anchor: https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js
+  gitalk: https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.6.0/gitalk.min.js
+  valine: https://cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js
+  chart: https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js
+  mermaid: https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js
+  mathjax: 
+    post: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
+    page: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  sweet-scroll: https://cdn.jsdelivr.net/npm/sweet-scroll@4.0.0/sweet-scroll.min.js # here use jsdelivr, because cdnjs is not available
+  simple-jekyll-search: https://cdnjs.cloudflare.com/ajax/libs/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
+  scrollreveal: https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.5/scrollreveal.min.js
+  animate-css: https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css

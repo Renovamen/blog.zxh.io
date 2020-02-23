@@ -1,0 +1,18 @@
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
+
+<!-- Borrowed from: https://github.com/kitian616/jekyll-TeXt-theme -->
+<!-- mermaid.js: https://mermaid-js.github.io/mermaid/ -->
+<script>
+    LazyLoad.js('{{ _cdn.mermaid }}', function() {
+        mermaid.initialize({
+            startOnLoad: true
+        });
+        mermaid.init(undefined, '.language-mermaid');
+    });
+
+    $('.language-mermaid').parent().css({
+        "background-color": "transparent",
+        "border": "none",
+    });
+</script>

@@ -129,24 +129,34 @@ layout: default
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweet-scroll@4.0.0/sweet-scroll.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
-<script>
-    // 时间轴上浮效果
-    window.sr = ScrollReveal();
-    sr.reveal('.timeline-panel', {
-        duration: 500,
-        distance: '80px'
-    });
-    sr.reveal('.timeline-image', {
-        duration: 500,
-        distance: '80px'
-    });
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
 
-    // 页面平滑滚动
-    document.addEventListener("DOMContentLoaded", function() {
-        new SweetScroll({});
-    }, !1);
+{% if page.experience %}
+<script>
+    LazyLoad.js("{{ _cdn.scrollreveal }}", function(){
+        // 时间轴上浮效果
+        window.sr = ScrollReveal();
+        sr.reveal('.timeline-panel', {
+            duration: 500,
+            distance: '80px'
+        });
+        sr.reveal('.timeline-image', {
+            duration: 500,
+            distance: '80px'
+        });
+    })
+</script>
+{% endif %}
+
+
+<script>
+    LazyLoad.js("{{ _cdn.sweet-scroll }}", function(){
+        // 页面平滑滚动
+        document.addEventListener("DOMContentLoaded", function() {
+            new SweetScroll({});
+        }, !1);
+    })
 
     // about-header 高度适配
     function headerResize() {

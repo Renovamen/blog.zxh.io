@@ -1,0 +1,36 @@
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
+
+<!-- tocbot: https://github.com/tscanlin/tocbot -->
+<script type="text/javascript">
+    LazyLoad.css('{{ " /css/library/tocbot.css " | prepend: site.baseurl }}');
+    LazyLoad.js('{{ _cdn.tocbot }}', function(){
+        function generateCatalog (selector) {
+
+            // interop with multilangual 
+            if ('{{ page.multilingual }}' == 'true') {
+                _containerSelector = 'div.post-container.active'
+            } else {
+                _containerSelector = 'div.post-container'
+            }
+            
+            tocbot.init({
+                // Where to render the table of contents.
+                tocSelector: selector,
+                // Where to grab the headings to build the table of contents.
+                contentSelector: _containerSelector,
+                // Which headings to grab inside of the contentSelector element.
+                headingSelector: 'h2, h3, h4, h5, h6',
+            });
+            return true;
+        }
+
+        generateCatalog(".catalog-body");
+    })
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+</script>

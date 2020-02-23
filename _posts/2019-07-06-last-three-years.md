@@ -9,7 +9,7 @@ tags:
   - 摸鱼
 ---
 
-> 封面图是《塞尔达传说：荒野之息》里的利特族族长 Kaneli，来自 [@wroage](https://wroage.tumblr.com/image/185206416422){:target="_blank"}。
+> 封面图是《塞尔达传说：荒野之息》里的利特族族长 Kaneli，来自 [@wroage (tumblr)](https://wroage.tumblr.com/image/185206416422){:target="_blank"}。利特族真是一个毛茸茸的好族。
 
 
 我的游戏机（之一）死掉了，大概上学期就发现它死掉了。

@@ -12,16 +12,16 @@
 </footer>
 
 <!-- jQuery -->
-<!-- Has been included in head.html already -->
+<!-- Renovamen: has been included in `head.html` already -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script> -->
 
 <!-- Bootstrap Core JavaScript -->
 <!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
-<!-- Maybe don't need this anymore -->
+<!-- Renovamen: Maybe don't need this anymore -->
 <!-- <script src="{{ "/js/library/bootstrap.min.js " | prepend: site.baseurl }}"></script> -->
 
-<!-- Custom Theme JavaScript -->
-<script src="{{ "/js/main.min.js " | prepend: site.baseurl }}"></script>
+<!-- Theme JavaScript -->
+<script src="{{ "/js/gungnir.min.js " | prepend: site.baseurl }}"></script>
 
 <!-- Service Worker -->
 {% if site.service-worker %}
@@ -29,17 +29,6 @@
 <script src="{{ "/js/sw-registration.js " | prepend: site.baseurl }}"></script>
 {% endif %}
 
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
 
 <!--
      Because of the native support for backtick-style fenced code blocks
@@ -64,7 +53,7 @@
 {% if page.title == 'Archive' %}
 <!-- jquery.tagcloud.js -->
 <script>
-    async('{{ "/js/library/jquery.tagcloud.js" | prepend: site.baseurl }}',function(){
+    LazyLoad.js('{{ "/js/library/jquery.tagcloud.js" | prepend: site.baseurl }}',function(){
         $.fn.tagcloud.defaults = {
             //size: {start: 1, end: 1, unit: 'em'},
             color: {start: '#bbbbee', end: '#2f93b4'},
@@ -75,9 +64,12 @@
 <script src='{{ "/js/archive.js " | prepend: site.baseurl }}'></script>
 {% endif %}
 
+
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
 <!--fastClick.js -->
 <script>
-    async("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+    LazyLoad.js("{{ _cdn.fastclick }}", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
@@ -86,128 +78,23 @@
 
 <!-- Google Analytics -->
 {% if site.analytics.google.ga_track_id %}
-<script>
-    // dynamic User by Hux
-    var _gaId = '{{ site.analytics.google.ga_track_id }}';
-    var _gaDomain = '{{ site.analytics.google.ga_domain }}';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
+    {% include analytics/google.html %}
 {% endif %}
 
 
 <!-- Baidu Tongji -->
 {% if site.analytics.ba_track_id %}
-<script>
-    // dynamic User by Hux
-    var _baId = '{{ site.analytics.ba_track_id }}';
-
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?" + _baId;
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+    {% include analytics/baidu.html %}
 {% endif %}
 
 
 <!-- Side Catalog -->
 {% if page.catalog %}
-<!-- tocbot: https://github.com/tscanlin/tocbot -->
-<script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
-<link rel="stylesheet" href="{{ " /css/library/tocbot.css " | prepend: site.baseurl }}">
-
-<script type="text/javascript">
-    function generateCatalog (selector) {
-
-        // interop with multilangual 
-        if ('{{ page.multilingual }}' == 'true') {
-            _containerSelector = 'div.post-container.active'
-        } else {
-            _containerSelector = 'div.post-container'
-        }
-        
-        tocbot.init({
-            // Where to render the table of contents.
-            tocSelector: selector,
-            // Where to grab the headings to build the table of contents.
-            contentSelector: _containerSelector,
-            // Which headings to grab inside of the contentSelector element.
-            headingSelector: 'h2, h3, h4, h5, h6',
-        });
-        return true;
-    }
-
-    generateCatalog(".catalog-body");
-
-    // toggle side catalog
-    $(".catalog-toggle").click((function(e){
-        e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
-    }))
-
-</script>
+    {% include catalog/script.html %}
 {% endif %}
 
 
 <!-- Multi-Lingual -->
 {% if page.multilingual %}
-<!-- Handle Language Change -->
-<script type="text/javascript">
-    // get nodes
-    var $zh = document.querySelector(".zh");
-    var $en = document.querySelector(".en");
-    var $select = document.querySelector("select");
-
-    // bind hashchange event
-    // Changes at v1.7.2: change the language flag from hash-basing to in-memory basing
-    // due to its confliction with catalog anchors.
-    // window.addEventListener('hashchange', _render);
-
-    // handle render
-    function _render(_hash){
-        var _hash = _hash || window.location.hash;
-        // en
-        if(_hash == "#en"){
-            $select.selectedIndex = 1;
-            $en.style.display = "block";
-            $en.classList.add("active");
-            $zh.style.display = "none";
-            $zh.classList.remove("active");
-        // zh by default
-        }else{
-            // not trigger onChange, otherwise cause a loop call.
-            $select.selectedIndex = 0;
-            $zh.style.display = "block";
-            $zh.classList.add("active");
-            $en.style.display = "none";
-            $en.classList.remove("active");
-        }
-        // interop with catalog 
-        if ("{{ page.catalog }}") generateCatalog(".catalog-body");
-    }
-
-    // handle select change
-    function onLanChange(index){
-        if(index == 0){
-            _hash = "#zh"
-        }else{
-            _hash = "#en"
-        }
-        _render(_hash)
-    }
-
-    // init
-    _render();
-</script>
+    {% include multilingual/script.html %}
 {% endif %}

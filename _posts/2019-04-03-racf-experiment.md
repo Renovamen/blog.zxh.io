@@ -5,7 +5,6 @@ subtitle: 'RACF Experiment'
 author: "Renovamen"
 header-style: text
 header-img: img/in-post/2019-04-03/header.png
-mathjax: true
 catalog: true
 tags:
   - 主机

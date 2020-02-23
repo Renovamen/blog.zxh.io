@@ -32,8 +32,6 @@
     
     <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
 
-    <!-- Renovamen: change cdn to jsdelivr -->
-
     <!-- Web App Manifest -->
     <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json">
 
@@ -43,21 +41,24 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/css/bootstrap.min.css">
+    {%- include utils/get-cdn.html -%}
+    {%- assign _cdn = __return -%}
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ _cdn.bootstrap-css }}">
     
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"/>
 
     <!-- Custom Fonts -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ _cdn.font-awesome }}" rel="stylesheet" type="text/css">
     
     <!-- Font Awesome Animation -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ _cdn.font-awesome-animation }}" rel="stylesheet" type="text/css">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ "/css/gungnir.css" | prepend: site.baseurl }}">
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -69,5 +70,8 @@
     <script></script>
 
     <!-- jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+    <script src="{{ _cdn.jquery }}"></script>
+
+    <!-- Lazyload (.js & .css)-->
+    <script>{%- include utils/lazyload.js -%}</script>
 </head>

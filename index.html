@@ -89,13 +89,16 @@ header-img:
 
 
 {% if site.theme_style.post_preview != 'text' %}
-<script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
 <script>
-    // 文章上浮效果
-    window.sr = ScrollReveal();
-    sr.reveal('.post-preview-img', {
-        duration: 700,
-        distance: '100px'
-    });
+    LazyLoad.js('{{ _cdn.scrollreveal }}', function(){
+        // 文章上浮效果
+        window.sr = ScrollReveal();
+        sr.reveal('.post-preview-img', {
+            duration: 700,
+            distance: '100px'
+        });
+    })
 </script>
 {% endif %}

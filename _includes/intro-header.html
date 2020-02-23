@@ -188,60 +188,64 @@
 
 
 {% if page.homepage %}
-<script src="https://cdn.jsdelivr.net/npm/sweet-scroll@4.0.0/sweet-scroll.min.js"></script>
+
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
 
 <script>
-// 页面平滑滚动
-document.addEventListener("DOMContentLoaded", function() {
-    new SweetScroll({});
-}, !1);
+    LazyLoad.js("{{ _cdn.sweet-scroll }}", function(){
+        // 页面平滑滚动
+        document.addEventListener("DOMContentLoaded", function() {
+            new SweetScroll({});
+        }, !1);
+    })
 
-// 首页图片高度适配
-function headerResize() {
-    if(document.body.clientWidth >= 1024) {
-        //console.log(document.body.clientWidth)
-        $('.intro-header').css({
-            'height': $(window).height() + "px"
-        });
-    }
-    else {
-        $('.intro-header').css({
-            'height': 'auto'
-        });
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function(){
-    headerResize();
-})
-window.addEventListener('load', function(){
-    headerResize();
-})
-window.addEventListener('resize', function(){
-    headerResize();
-})
-
-headerResize();
-
-// Header Image Switcher
-function changeImage(n) {
-    headerImgList = '[{{page.header-img}}]'.replace(/=>/g,":").replace(/}{/g,"},{");
-    headerImgList = $.parseJSON(headerImgList);
-    len = headerImgList.length
-
-    introHeader = document.getElementById("intro-header");
-    curImgURL = getComputedStyle(introHeader, null).backgroundImage;
-
-    for(i=0; i<len; i++) {
-        if(curImgURL.indexOf(headerImgList[i].url) != -1) {
-            newImg = headerImgList[(i + n + len) % len]
-            $(".intro-header").css("background-image", 'url("{{ site.baseurl }}/' + newImg.url + '")');
-            
-            if(newImg.mask) $(".header-mask").css("background", newImg.mask);
-            else $(".header-mask").css("background", "rgb(0, 0, 0, 0)");
+    // 首页图片高度适配
+    function headerResize() {
+        if(document.body.clientWidth >= 1024) {
+            //console.log(document.body.clientWidth)
+            $('.intro-header').css({
+                'height': $(window).height() + "px"
+            });
+        }
+        else {
+            $('.intro-header').css({
+                'height': 'auto'
+            });
         }
     }
-}
+
+    document.addEventListener('DOMContentLoaded', function(){
+        headerResize();
+    })
+    window.addEventListener('load', function(){
+        headerResize();
+    })
+    window.addEventListener('resize', function(){
+        headerResize();
+    })
+
+    headerResize();
+
+    // Header Image Switcher
+    function changeImage(n) {
+        headerImgList = '[{{page.header-img}}]'.replace(/=>/g,":").replace(/}{/g,"},{");
+        headerImgList = $.parseJSON(headerImgList);
+        len = headerImgList.length
+
+        introHeader = document.getElementById("intro-header");
+        curImgURL = getComputedStyle(introHeader, null).backgroundImage;
+
+        for(i=0; i<len; i++) {
+            if(curImgURL.indexOf(headerImgList[i].url) != -1) {
+                newImg = headerImgList[(i + n + len) % len]
+                $(".intro-header").css("background-image", 'url("{{ site.baseurl }}/' + newImg.url + '")');
+                
+                if(newImg.mask) $(".header-mask").css("background", newImg.mask);
+                else $(".header-mask").css("background", "rgb(0, 0, 0, 0)");
+            }
+        }
+    }
 </script>
 
 {% if site.hitokoto %}

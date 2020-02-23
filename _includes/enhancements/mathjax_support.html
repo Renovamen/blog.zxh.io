@@ -15,4 +15,7 @@
     }
   });
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
+<script type="text/javascript" src="{{ _cdn.mathjax.post }}"></script>

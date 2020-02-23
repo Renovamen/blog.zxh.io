@@ -17,10 +17,13 @@
     {% include mobile-nav.html %}
 
     <!-- Renovamen: support search -->
-    <script src="{{ "/js/library/animatedModal.min.js" | prepend: site.baseurl }}"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
-
     {% include search.html %}
+
+    {%- include utils/get-cdn.html -%}
+    {%- assign _cdn = __return -%}
+
+    <script src="{{ "/js/library/animatedModal.min.js" | prepend: site.baseurl }}"></script>
+    <link rel="stylesheet" href="{{ _cdn.animate-css }}">
 
     <script>
         $("#search-btn").animatedModal();

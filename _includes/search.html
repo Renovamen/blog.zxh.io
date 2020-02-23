@@ -12,18 +12,21 @@
 </div>
 
 
-<!-- simple-jekyll-search.js -->
-<script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script>
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
 
 <script>
-    SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('search-results'),
-        json: '/search.json',
-        searchResultTemplate: '<li class="result-item item"><a href="{url}" title="{desc}"><div class="result-title">{title}</div><div class="result-subtitle">{subtitle}</div></a></li>',
-        noResultsText: '<li class="result-item item"><div class="result-title">No Results</div></li>',
-        limit: 20,
-        fuzzy: false
+    // simple-jekyll-search.js
+    LazyLoad.js("{{ _cdn.simple-jekyll-search }}", function(){
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('search-results'),
+            json: '/search.json',
+            searchResultTemplate: '<li class="result-item item"><a href="{url}" title="{desc}"><div class="result-title">{title}</div><div class="result-subtitle">{subtitle}</div></a></li>',
+            noResultsText: '<li class="result-item item"><div class="result-title">No Results</div></li>',
+            limit: 20,
+            fuzzy: false
+        })
     })
 
     // search-results 高度适配

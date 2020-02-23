@@ -1,21 +1,3 @@
-@import "common/variables";
-@import "common/mixins";
-@import "components/sidebar";
-@import "components/side-catalog";
-@import "components/snackbar";
-@import "components/cd-top";
-@import "components/search";
-@import "components/navbar";
-@import "components/postlist";
-@import "components/intro-header";
-@import "layouts/archive";
-@import "layouts/portfolio";
-@import "layouts/links";
-@import "layouts/about";
-@import "layouts/404";
-@import "additional/tag";
-
-
 // Global Components
 
 body {
@@ -514,4 +496,8 @@ img::-moz-selection {
 .MathJax_SVG_Display{
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.language-mermaid {
+  text-align: center;
 }

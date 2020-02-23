@@ -21,7 +21,7 @@ layout: default
 
                 <!-- Multi-Lingual -->
                 {% if page.multilingual %}
-                    {% include multilingual.html %}
+                    {% include multilingual/selector.html %}
                 {% endif %}
 
 				{{ content }}
@@ -47,91 +47,42 @@ layout: default
                 </ul>
                 <hr style="visibility: hidden;">
 
-                <!---------- Comment Start ---------->
-                <!-- disqus -->
-                {% if site.comment.provider == 'disqus' %}
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
                 </div>
-                <!-- Gitalk -->
-                {% elsif site.comment.provider == 'gitalk' %}
-                <div class="comment">
-                    <div id="gitalk-container"></div>
-                </div>
-                <!-- Valine -->
-                {% elsif site.comment.provider == 'valine' %}
-                <div class="comment">
-                    <div id="valine-container"></div>
-                </div>
+                {% if site.comment.provider %}
+                    {% include comment/container.html %}
                 {% endif %}
-                <!---------- Comment End ---------->
             </div>  
 
-        <!-- Side Catalog Container -->
-        {% if page.catalog %}
-            <div class="
-                col-lg-2 col-lg-offset-0
-                visible-lg-block
-                sidebar-container
-                catalog-container">
-                <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5>
-                        <a class="catalog-toggle" href="#">CATALOG</a>
-                    </h5>
-                    <ul class="catalog-body"></ul>
-                </div>
-            </div>
-        {% endif %}
-
+            <!-- Side Catalog Container -->
+            {% if page.catalog %}
+                {% include catalog/container.html %}
+            {% endif %}
         </div>
     </div>
 </article>
 
 <!-- add support for mathjax by voleking-->
-{% if page.mathjax %}
-  {% include mathjax_support.html %}
+{% if site.mathjax %}
+  {% include enhancements/mathjax_support.html %}
+{% endif %}
+
+
+<!-- Renovamen: add support for chart and mermaid -->
+{% if site.chart %}
+  {% include enhancements/chart.html %}
+{% endif %}
+
+{% if site.mermaid %}
+  {% include enhancements/mermaid.html %}
 {% endif %}
 
 
 <!-- comment -->
 {% if site.comment.provider %}
-    {% include comment.html %}
+    {% include comment/script.html %}
 {% endif %}
 
 
 {% if site.anchorjs %}
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.jsdelivr.net/npm/anchor-js@4.2.2/anchor.min.js", function(){
-        anchors.options = {
-          visible: 'always',
-          placement: 'right',
-          icon: '#'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
+    {% include anchor.html %}
 {% endif %}
