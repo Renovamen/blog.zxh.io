@@ -96,9 +96,16 @@ select {
 table.table > tbody, table.table > thead {
   th,
   td {
-    border: 1px solid #eee;
+    border: 1px solid #eee !important;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    border: 0;
+  }
+}
+
 
 hr.small {
   max-width: 100px;
@@ -226,6 +233,12 @@ samp {
     // I can not understand this but this made anchor always in the same line as title
     position: absolute; 
     padding-top: 1px;
+  }
+
+  // Renovamen: modify reference style
+  sup {
+    font-weight: bold;
+    font-size: 13px;
   }
 }
 

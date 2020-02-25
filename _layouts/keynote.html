@@ -85,7 +85,7 @@ layout: default
 
 
 <!-- add support for mathjax by voleking-->
-{% if site.mathjax %}
+{% if site.mathjax or page.mathjax %}
   {% include enhancements/mathjax_support.html %}
 {% endif %}
 

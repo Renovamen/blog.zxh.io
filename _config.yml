@@ -11,14 +11,14 @@ avatar: "img/header-avatar.jpeg" # the avatar showing on the homepage
 
 # Theme style settings
 theme_style: 
-  highlight:  # "default" (default), "night", "night-eighties", "night-blue", "night-bright"
+  highlight: # "default" (default), "night", "night-eighties", "night-blue", "night-bright"
   alert:  # "flat" (default), "modern"
   # Whether or not to display post's featured image on home page
   post_preview: # "image" (default), "text"
 
 
 # Markdown enhancements settings
-# MathJax rendering for layout: post and keynote
+# MathJax rendering for all posts and keynotes
 mathjax: true # false (defaule), true
 # MathJax rendering for layout: page (e.g. post preview)
 page-mathjax: false # false (defaule), true
