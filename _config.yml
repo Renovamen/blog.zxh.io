@@ -24,6 +24,7 @@ mathjax: true # false (defaule), true
 page-mathjax: false # false (defaule), true
 chart: true # false (defaule), true
 mermaid: true # false (default), true
+emoji-plus: true # false (default), true
 
 
 # CDN source settings
@@ -71,7 +72,9 @@ anchorjs: true                          # if you want to customize anchor. check
 # from PR#40, to support local preview for Jekyll 3.0
 # make sure you have this gem installed
 # `$ gem install jekyll-paginate`
-plugins: [jekyll-paginate]
+plugins:
+  - jekyll-paginate
+  - jemoji
 
 
 

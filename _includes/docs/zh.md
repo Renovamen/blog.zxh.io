@@ -57,7 +57,7 @@ alert:  # "flat" (default), "modern"
 
 默认为 `flat`，长[这样](#配置)。`modern` 风格长这样：
 
-![alert-modern](../img/docs/alert-modern.jpg)
+![alert-modern](../img/docs/alert-modern.png)
 
 
 #### 首页文章列表
@@ -73,7 +73,7 @@ post_preview: # "image" (default), "text"
 
 
 `text`：
-![preview-text](../img/docs/preview-text.png)
+![preview-text](../img/docs/preview-text.jpg)
 
 
 ### 社交链接
@@ -197,6 +197,27 @@ analytics:
     ga_domain: renovamen.ink # 要跟踪的网站域名
 ```
 
+### CDN 源
+
+```yaml
+cdn: # "jsdelivr" (default), "bootcdn", "unpkg", "cdnjs"
+```
+
+默认使用 [jsDelivr](https://www.jsdelivr.com/){:target="_blank"} 作为所有引用的开源库的 CDN 源，也可以把 CDN 源配置为 [BootCDN](https://www.bootcdn.cn/){:target="_blank"}、[unpkg](https://unpkg.com/){:target="_blank"} 或 [cdnjs](https://cdnjs.com/){:target="_blank"}。可以在 `_data/cdn.yml` 中看到所有 CDN 地址。
+
+
+### Markdown 附加功能
+
+```yaml
+mathjax: # 是否对所有文章启用公式渲染：false (defaule), true
+chart: # 是否启用 Chart.js：false (defaule), true
+mermaid: # 是否启用 mermaid：false (default), true
+emoji-plus: # 是否启用附加表情：false (default), true
+```
+
+[这里](#markdown-附加功能-1)是具体说明。
+
+
 
 ### 一言
 
@@ -204,7 +225,7 @@ analytics:
 hitokoto: true # default: false
 ```
 
-将 `hitokoto` 设为 `true` 可以开启首页的一言气泡，将鼠标悬浮在头像上气泡就会显示出来：
+将 `hitokoto` 设为 `true` 可以开启首页的[一言](https://hitokoto.cn/){:target="_blank"}气泡，将鼠标悬浮在头像上气泡就会显示出来：
 
 ![Hitokoto Bubble](../img/docs/hitokoto-bubble.jpg)
 
@@ -237,6 +258,8 @@ header-img:
 
 参考一下本站 [Links 页面](/links){:target="_blank"} 和它的 [Front-matter](https://github.com/Renovamen/renovamen.github.io/blob/master/links.html){:target="_blank"} 大概就知道怎么改了？
 
+如果没有指定某个链接的头像，那么会显示默认头像（`img/links/default.jpg`）。
+
 
 ### Portfolio
 
@@ -254,11 +277,37 @@ header-img:
 
 ## 内容
 
+### 文章
+
+把要发布的文章放在 `_post/` 文件夹中，文件名格式为 `年-月-日-标题.md`，然后配置其 YAML Front-matter：
+
+```yaml
+---
+layout: post
+title: # 文章标题
+subtitle: # 副标题
+author: # 作者名称，默认为网站名称
+header-img: # 文章封面图
+header-mask: # 封面图遮罩，格式：rgba(40, 57, 101, .4)
+header-style: text # 如果不想该文章显示封面图，就需要加这一项
+catalog: # 是否显示目录：false (default), true
+mathjax: # 是否开启数学公式渲染
+tags: # 标签
+  - 标签1
+  - 标签2
+  - ...
+---
+```
+
+其中 `header-img` 会同时显示在[首页](#首页文章列表)和文章页。`mathjax` 的配置可以参考[这里](#mathjax)。
+
+
+
 ### Markdown 附加功能
 
 #### Mathjax
 
-使用了 [Mathjax](https://github.com/mathjax/MathJax){:target="_blank"} 以在 Markdown 中渲染数学公式。
+使用了 [Mathjax](https://github.com/mathjax/MathJax){:target="_blank"} 以在文章中渲染数学公式。
 
 如果 `_config.yml` 中 `mathjax: true`，则所有文章（包括 Post 和 Keynote）中都会开启公式渲染。否则只有 Front-matter 中添加了 `mathjax: true` 的文章才会开启此功能：
 
@@ -287,7 +336,7 @@ $$
 
 ##### Chart.js
 
-使用了 [Chart.js](https://github.com/chartjs/Chart.js){:target="_blank"} 以在 Markdown 中加入可交互的图表。可以参考 [Chart.js 文档](https://www.chartjs.org/docs/latest/){:target="_blank"}来创建表格。
+使用了 [Chart.js](https://github.com/chartjs/Chart.js){:target="_blank"} 以在文章中加入可交互的图表。可以参考 [Chart.js 文档](https://www.chartjs.org/docs/latest/){:target="_blank"}来创建表格。
 
 示例：
 
@@ -376,7 +425,7 @@ $$
 
 ##### mermaid
 
-使用了 [mermaid](https://github.com/knsv/mermaid){:target="_blank"} 以在 Markdown 中加入流程图、状态图、时序图、甘特图等。可以参考 [mermaid 文档](https://mermaid-js.github.io/mermaid/){:target="_blank"}来创建图。
+使用了 [mermaid](https://github.com/knsv/mermaid){:target="_blank"} 以在文章中加入流程图、状态图、时序图、甘特图等。可以参考 [mermaid 文档](https://mermaid-js.github.io/mermaid/){:target="_blank"}来创建图。
 
 示例：
 
@@ -489,12 +538,50 @@ classDiagram
 {:.error}
 ```
 
+#### 表情
+##### emoji
+
+使用了 [jemoji](){:target="_blank"} 插件以在文章中插入 emoji，需要手动安装这个插件：
+
+```bash
+gem install jemoji
+```
+
+从[这里](https://pages.github.com/versions/){:target="_blank"}可以看到 Github Pages 上自带 jemoji 插件。[这里](https://www.webfx.com/tools/emoji-cheat-sheet/){:target="_blank"}是所有 emoji 的代码。
+
+示例：
+
+:smile: :smirk: :racehorse: :wolf:
+
+```markdown
+:smile: :smirk: :racehorse: :wolf:
+```
+
+##### 附加表情
+
+也可以在文章中插入其他表情，目前支持 Bilibili 的小电视表情 `斜眼笑`{:.emoji-plus}（效果出乎意料的好）。
+
+示例：
+
+`斜眼笑`{:.emoji-plus} `doge`{:.emoji-plus} `白眼`{:.emoji-plus}
+
+```markdown
+`斜眼笑`{:.emoji-plus} `doge`{:.emoji-plus} `白眼`{:.emoji-plus}
+```
+
+[附录](#附录)是所有支持的小电视表情和它们对应的代码，表情源文件来源于[这里](https://www.bilibili.com/video/av27621778/){:target="_blank"}。
+
+
+
+
 #### 图片注释
 
 ![](../img/theme.jpg)
 
 这是一张图片
 {:.desc}
+
+    ![](../img/theme.jpg)
 
     这是一张图片
     {:.desc}
@@ -524,3 +611,31 @@ classDiagram
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"}（解决移动设备上的点击延迟问题）
 - [animatedModal.js](https://github.com/joaopereirawd/animatedModal.js){:target="_blank"}（搜索页面弹出动画）
 - [LazyLoad](https://github.com/rgrove/lazyload){:target="_blank"}（JavaScript 和 CSS 文件延迟加载）
+
+
+## 附录
+
+
+| ---- | ---- |
+|`白眼`{:.emoji-plus} `` `白眼`{:.emoji-plus} ``|`鄙视`{:.emoji-plus} `` `鄙视`{:.emoji-plus} ``|
+|`闭嘴`{:.emoji-plus}   `` `闭嘴`{:.emoji-plus} ``|`馋`{:.emoji-plus}   `` `馋`{:.emoji-plus} ``|
+|`打脸`{:.emoji-plus}   `` `打脸`{:.emoji-plus} ``|`大哭`{:.emoji-plus}   `` `大哭`{:.emoji-plus} ``|
+|`大佬`{:.emoji-plus}   `` `大佬`{:.emoji-plus} ``|`呆`{:.emoji-plus}   `` `呆`{:.emoji-plus} ``|
+|`点赞`{:.emoji-plus} `` `点赞`{:.emoji-plus} ``|`调皮`{:.emoji-plus} `` `调皮`{:.emoji-plus} ``|
+|`发财`{:.emoji-plus}   `` `发财`{:.emoji-plus} ``|`发怒`{:.emoji-plus}   `` `发怒`{:.emoji-plus} ``|
+|`尴尬`{:.emoji-plus}   `` `尴尬`{:.emoji-plus} ``|`鼓掌`{:.emoji-plus}   `` `鼓掌`{:.emoji-plus} ``|
+|`害羞`{:.emoji-plus}   `` `害羞`{:.emoji-plus} ``|`黑人问号`{:.emoji-plus}   `` `黑人问号`{:.emoji-plus} ``|
+|`坏笑`{:.emoji-plus} `` `坏笑`{:.emoji-plus} ``|`惊吓`{:.emoji-plus} `` `惊吓`{:.emoji-plus} ``|
+|`可爱`{:.emoji-plus}   `` `可爱`{:.emoji-plus} ``|`抠鼻子`{:.emoji-plus}   `` `抠鼻子`{:.emoji-plus} ``|
+|`困`{:.emoji-plus}   `` `困`{:.emoji-plus} ``|`流鼻血`{:.emoji-plus}   `` `流鼻血`{:.emoji-plus} ``|
+|`流汗`{:.emoji-plus}   `` `流汗`{:.emoji-plus} ``|`腼腆`{:.emoji-plus}   `` `腼腆`{:.emoji-plus} ``|
+|`难过`{:.emoji-plus} `` `难过`{:.emoji-plus} ``|`呕吐`{:.emoji-plus} `` `呕吐`{:.emoji-plus} ``|
+|`亲亲`{:.emoji-plus}   `` `亲亲`{:.emoji-plus} ``|`色`{:.emoji-plus}   `` `色`{:.emoji-plus} ``|
+|`生病`{:.emoji-plus}   `` `生病`{:.emoji-plus} ``|`生气`{:.emoji-plus}   `` `生气`{:.emoji-plus} ``|
+|`睡着`{:.emoji-plus}   `` `睡着`{:.emoji-plus} ``|`思考`{:.emoji-plus}   `` `思考`{:.emoji-plus} ``|
+|`偷笑`{:.emoji-plus}   `` `偷笑`{:.emoji-plus} ``|`吐血`{:.emoji-plus}   `` `吐血`{:.emoji-plus} ``|
+|`微笑`{:.emoji-plus}   `` `微笑`{:.emoji-plus} ``|`委屈`{:.emoji-plus}   `` `委屈`{:.emoji-plus} ``|
+|`无奈`{:.emoji-plus} `` `无奈`{:.emoji-plus} ``|`笑哭`{:.emoji-plus} `` `笑哭`{:.emoji-plus} ``|
+|`斜眼笑`{:.emoji-plus}   `` `斜眼笑`{:.emoji-plus} ``|`疑问`{:.emoji-plus}   `` `疑问`{:.emoji-plus} ``|
+|`晕`{:.emoji-plus}   `` `晕`{:.emoji-plus} ``|`再见`{:.emoji-plus}   `` `再见`{:.emoji-plus} ``|
+|`抓狂`{:.emoji-plus}   `` `抓狂`{:.emoji-plus} ``|`doge`{:.emoji-plus}   `` `doge`{:.emoji-plus} ``|

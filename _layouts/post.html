@@ -75,6 +75,10 @@ layout: default
   {% include enhancements/mermaid.html %}
 {% endif %}
 
+<!-- Renovamen: add support for additional emoji -->
+{% if site.emoji-plus %}
+    {% include enhancements/emoji.html %}
+{% endif %}
 
 <!-- comment -->
 {% if site.comment.provider %}

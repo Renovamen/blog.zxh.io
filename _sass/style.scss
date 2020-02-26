@@ -455,6 +455,12 @@ img::-moz-selection {
   margin: 1.5em auto 1.6em auto;
 }
 
+/* Renovamen: emoji img is an exception */
+.post-container .emoji,
+.post-container .emoji-plus {
+  display: inline;
+}
+
 /* Hux customize Style for Duoshuo */
 .comment {
   margin-top: 20px;

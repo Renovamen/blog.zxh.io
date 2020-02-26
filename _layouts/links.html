@@ -15,8 +15,8 @@ layout: default
                 <ul>
                     {% for item in group.items %}
                         <li>
-                            <a href="{{item.url}}" target="_blank">
-                                <img src="{{item.img}}">
+                            <a href="{{ item.url }}" target="_blank">
+                                <img src="{{ item.img | default: '../img/links/default.jpg' }}">
                                 <span class="sitename">{{item.sitename}}</span>
                                 <div class="desc">{{item.desc}}</div>
                             </a>
