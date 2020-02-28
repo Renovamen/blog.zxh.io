@@ -1,17 +1,14 @@
 // Mixins
 
-@mixin transition-all() {
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
-}
-
 @mixin background-cover() {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
+
+
+// ---------------- Font ----------------
 
 @mixin serif() {
 	font-family: 'Lora', 'Times New Roman', serif;
@@ -51,33 +48,25 @@
 	line-height: 1.7;
 }
 
-
-// Renovamen: add following things:
-
-@mixin null-font() {
+@mixin gungnir-font() {
 	font-family: "Montserrat", sans-serif;
 }
 
-@mixin rotating-img() {
-    cursor: auto;
-    padding: 5px;
-    border-radius: 100%;
-    max-width: 100%;
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transition: all ease 1s;
-    -webkit-transition: all ease 1s;
-    -moz-transition: all ease 1s;
-    -o-transition: all ease 1s;
+
+// ---------------- Animation ----------------
+
+@mixin transition($value) {
+    transition: $value;
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -o-transition: $value;
+    -ms-transition: $value;
 }
 
-@mixin rotating-img-hover() {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
+@mixin transform($value) {
+    transform: $value;
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -o-transform: $value;
+    -ms-transform: $value;
 }

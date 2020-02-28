@@ -136,10 +136,14 @@
         width: 130px;
         height: 130px;
         img {
-            @include rotating-img();
+            cursor: auto;
+            padding: 5px;
+            border-radius: 100%;
+            max-width: 100%;
+            @include transition(all ease 1s);
             box-shadow: inset 0 0 10px #000;
             &:hover {
-                @include rotating-img-hover();
+                @include transform(rotate(360deg));
             }
         }
         @media only screen and (max-width: 1023px) {
@@ -149,30 +153,56 @@
             display: block;
         }
     }
-    // Background of info on home page (hide on phone)
-    .header-info-back {
-        width: 37%;
+    // Description and social links on home page (hide on phone)
+    .header-info {
+        width: 39%;
         max-width: 500px;
-        font-size: 16px;
-        background: rgba(0, 0, 0, .5);
-        padding: 15px;
         position: absolute;
         left: 0;
         right: 0;
         margin: auto;
         top: 50%;
         margin-top: 15px;
-        letter-spacing: 0;
-        line-height: 30px;
-        border-radius: 10px;
-        box-sizing: initial;
-        white-space: nowrap;
-        .home-site-heading {
-            padding-top: 0;
-            padding-bottom: 0;
-            h1{
-                font-size: 25px;
-                font-family: Montserrat;
+        // Background
+        .header-info-back {
+            font-size: 16px;
+            background: rgba(0, 0, 0, .5);
+            padding: 15px;
+            letter-spacing: 0;
+            line-height: 30px;
+            border-radius: 10px;
+            box-sizing: initial;
+            white-space: nowrap;
+            .home-site-heading {
+                padding-top: 0;
+                padding-bottom: 0;
+                h1 {
+                    font-size: 25px;
+                    @include gungnir-font();
+                }
+            }
+        }
+        // Social links
+        .list-inline {
+            margin-top: 10px;
+            margin-left: -20px;
+            padding: 0;
+            font-size: 16px;
+            a {
+                text-decoration: none;
+            }
+            .fa-stack {
+                @include transition(all ease 0.4s);
+                // margin-left: 10px;
+                min-width: 50px;
+                &:hover {
+                    position: relative;
+                    cursor: pointer;
+                    @include transform(translateY(-0.35em));
+                }
+                .fa-circle {
+                    color: rgba(0, 0, 0, .5); 
+                }
             }
         }
         @media only screen and (max-width: 1023px) {
@@ -196,9 +226,9 @@
         width: auto;
         padding: 12px;
         color: rgba(255, 255, 255, 0.6);
-        transition: .6s ease;
         border-radius: 0 3px 3px 0;
         background-color: rgba(0, 0, 0, .3);
+        @include transition(.6s ease);
         .fa {
             font-size: 30px;
         }
@@ -230,7 +260,7 @@
         i {
             font-size: 28px;
             color: #ffffff;
-            transition: .4s ease;
+            @include transition(.4s ease);
             &:active,
             &:hover {
                 color: #a7a7a7;

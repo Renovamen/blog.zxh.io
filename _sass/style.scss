@@ -275,11 +275,13 @@ footer {
     text-align: center;
     margin-bottom: 0;
     a {
-      color: #337ab7;
+      color: currentColor;
       // different to @brand-primary
+      @include transition(.2s ease);
       &:hover,
       &:focus {
         color: $brand-primary;
+        text-decoration: none;
       }
     }
   }

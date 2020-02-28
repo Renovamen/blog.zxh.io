@@ -88,7 +88,7 @@ sns:
   linkedin_username:  # 领英
   email_address: # 邮件地址
 ```
-填入用户名或用户 ID 后，社交链接会出现在页面下方和 About 页中。
+填入用户名或用户 ID 后，社交链接会出现在首页封面和 About 页上。
 
 
 ### 导航菜单

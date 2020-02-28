@@ -3,89 +3,72 @@
 {% endcomment %}
 
 {% if include.center %}
-<ul class="list-inline text-center">
+<div class="list-inline text-center">
 {% else %}
-<ul class="list-inline">
+<div class="list-inline">
 {% endif %}
-
-  {% if site.sns.RSS %}
-  <li>
-    <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
-  {% endif %}
   {% if site.sns.github_username %}
-  <li>
-    <a target="_blank" href="https://github.com/{{ site.sns.github_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
+  <a target="_blank" href="https://github.com/{{ site.sns.github_username }}">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
   {% endif %}
   {% if site.sns.twitter_username %}
-  <li>
-    <a href="https://twitter.com/{{ site.sns.twitter_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
+  <a target="_blank" href="https://twitter.com/{{ site.sns.twitter_username }}">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
   {% endif %}
   {% if site.sns.zhihu_username %}
-  <li>
-    <a target="_blank" href="https://www.zhihu.com/people/{{ site.sns.zhihu_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa  fa-stack-1x fa-inverse">知</i>
-      </span>
-    </a>
-  </li>
+  <a target="_blank" href="https://www.zhihu.com/people/{{ site.sns.zhihu_username }}">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa  fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
   {% endif %}
   {% if site.sns.weibo_username %}
-  <li>
-    <a target="_blank" href="http://weibo.com/{{ site.sns.weibo_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
+  <a target="_blank" href="http://weibo.com/{{ site.sns.weibo_username }}">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
   {% endif %}
   {% if site.sns.facebook_username %}
-  <li>
-    <a target="_blank" href="https://www.facebook.com/{{ site.sns.facebook_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
+  <a target="_blank" href="https://www.facebook.com/{{ site.sns.facebook_username }}">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
   {% endif %}
   {% if site.sns.linkedin_username %}
-  <li>
-    <a target="_blank" href="https://www.linkedin.com/in/{{ site.sns.linkedin_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
+  <a target="_blank" href="https://www.linkedin.com/in/{{ site.sns.linkedin_username }}">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
   {% endif %}
   {% if site.sns.email_address %}
-  <li>
-    <a href="mailto:{{ site.sns.email_address }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
+  <a href="mailto:{{ site.sns.email_address }}">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
   {% endif %}
-</ul>
+  {% if site.sns.RSS %}
+  <a target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  {% endif %}
+</div>

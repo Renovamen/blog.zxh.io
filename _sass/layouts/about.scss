@@ -1,10 +1,10 @@
 
 .about-page {
-    @include null-font();
+    @include gungnir-font();
     margin-top: 150px;
     min-height: 550px;
     h1, h2, h3, h4, h5, h6, p {
-        @include null-font();
+        @include gungnir-font();
     }
     p {
         line-height: 1.61em;
@@ -37,10 +37,14 @@
                 border-radius: 100%;
                 box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.2);
                 img {
-                    @include rotating-img();
+                    cursor: auto;
+                    padding: 5px;
+                    border-radius: 100%;
+                    max-width: 100%;
+                    @include transition(all ease 1s);
                     box-shadow: inset 0 0 10px rgba(179, 179, 179, 0.6);
                     &:hover {
-                        @include rotating-img-hover();
+                        @include transform(rotate(360deg));
                     }
                 }
             }
@@ -137,7 +141,7 @@
         cursor: pointer;
         i {
             font-size: 28px;
-            transition: .4s ease;
+            @include transition(.4s ease);
             &:active,
             &:hover {
                 color: $brand-primary

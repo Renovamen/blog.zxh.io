@@ -9,8 +9,7 @@
     height: 900px;
     background: url(../img/scroll.png) no-repeat center;
     background-size: contain;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+    @include transition(all .5s ease-in-out);
     cursor: pointer;
     opacity: 1;
     &.cd-is-visible {

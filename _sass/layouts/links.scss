@@ -6,7 +6,7 @@
         width: 80%;
     }
     h3, span, .desc {
-        @include null-font();
+        @include gungnir-font();
     }
     .link-list {
         margin-bottom: 80px;
@@ -32,9 +32,8 @@
                 margin: 4px 4px;
                 position: relative;
                 overflow: hidden;
-                -webkit-transition: all .3s;
-                transition: all .3s;
                 border-radius: 10px;
+                @include transition(all .3s);
                 &:before {
                     content: "";
                     background-color: $brand-primary;
@@ -46,27 +45,29 @@
                     top: 0;
                     left: -60px;
                     z-index: -1;
-                    -webkit-transition: all .5s;
-                    transition: all .5s
+                    @include transition(all .5s);
                 }
                 a {
                     text-decoration: none;
                 }
                 img {
-                    @include rotating-img();
+                    cursor: auto;
+                    padding: 2px;
+                    border-radius: 100%;
+                    max-width: 100%;
                     float: right;
                     box-shadow: inset 0 0 10px #000;
                     margin-top: 5px;
                     margin-right: -15px;
                     width: 65px;
                     height: 65px;
-                    padding: 2px;
+                    @include transition(all ease 1s);
                 }
                 &:hover {
                     color: #27323a;
                     border: 1px solid $brand-primary;
                     img {
-                        @include rotating-img-hover();
+                        @include transform(rotate(360deg));
                     }
                     &:before {
                         width: 180%
@@ -79,8 +80,7 @@
                     color: $brand-primary;
                     padding-bottom: 10px;
                     display: block;
-                    -webkit-transition: all .3s;
-                    transition: all .3s;
+                    @include transition(all .3s);
                     overflow: hidden;
                     text-overflow: ellipsis;
                     -o-text-overflow: ellipsis;
@@ -95,8 +95,7 @@
                     text-overflow: ellipsis;
                     overflow: hidden;
                     line-height: 15px;
-                    -webkit-transition: all .5s;
-                    transition: all .5s;
+                    @include transition(all .5s);
                 }
             }
         }

@@ -151,12 +151,16 @@
     </div>
     {% endif %}
 
-    <!-- 只在桌面端显示 -->
-    <div class="header-info-back">
-        <div class="site-heading home-site-heading">
-            <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-            <span class="subheading">{{ page.description }}</span>
+    <!-- Only shows on desktop -->
+    <div class="header-info">
+        <div class="header-info-back">
+            <div class="site-heading home-site-heading">
+                <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+                <span class="subheading">{{ page.description }}</span>
+            </div>
         </div>
+        <!-- SNS Link -->
+        {% include sns-links.html center=true %}
     </div>
     {% endif %}
 
@@ -164,7 +168,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {% if page.homepage == true %}
-                <!-- 只在手机端显示 -->
+                <!-- Only shows on mobile -->
                 <div class="site-heading phone-site-heading">
                     <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
                     <span class="subheading">{{ page.description }}</span>

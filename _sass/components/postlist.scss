@@ -75,7 +75,7 @@
         img {
             display: block;
             height: 100%;
-            transition: all .6s;
+            @include transition(all .6s);
             &:hover {
                 transform: scale(1.1);
             }

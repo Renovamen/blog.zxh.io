@@ -3,6 +3,7 @@
         <img src="{{site.baseurl}}/img/header-avatar.jpeg">
     </div>
     <p class="mobile-menu-heading">Meow?</p>
+    {% include sns-links.html center=true %}
     <ul>
         {% for page in site.menus %}
         <li>
@@ -36,7 +37,6 @@
             </a>
         </li>
     </ul>
-    <p class="footer">&copy Renovamen 2019</p>
 </div>
 
 <script>

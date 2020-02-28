@@ -21,7 +21,7 @@
   bottom: 0px;
   opacity: 0;
   z-index: 4;
-  @include null-font();
+  @include gungnir-font();
 }
 
 @media (min-width: 640px) {

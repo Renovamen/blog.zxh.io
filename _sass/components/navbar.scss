@@ -45,7 +45,7 @@
         overflow-y: auto;
         &.open {
             width: 250px;
-            transition: all .3s ease;
+            @include transition(all .3s ease);
         }
         .mobile-menu-avatar {
             position: relative;
@@ -66,17 +66,27 @@
             font-size: 17px;
             font-weight: bold;
             margin-top: -5px;
+        }
+        // Social links
+        .list-inline {
+            font-size: 11px;
+            margin-top: -20px;
+            margin-bottom: 40px;
+            a {
+                text-decoration: none;
+            }
             &:after {
                 content: '';
                 position: absolute;
-                top: 175px;
-                width: 12em;
+                top: 215px;
+                width: 18em;
                 height: 1px;
                 background-color: #d0ddf3;
                 left: 50%;
-                -webkit-transform: translateX(-50%);
-                -ms-transform: translateX(-50%);
-                transform: translateX(-50%)
+                @include transform(translateX(-50%));
+            }
+            .fa-circle {
+                color: #9cacc5; 
             }
         }
         ul {
@@ -224,7 +234,7 @@
         color: white;
         height: 56px;
         line-height: 25px;
-        @include null-font(); 
+        @include gungnir-font(); 
         &:hover {
             color: rgba(255, 255, 255, 0.8);
         }
@@ -246,8 +256,7 @@
             }
             &:hover .sub-menu {
                 display: inline-block;
-                -webkit-transition: all .4s;
-                transition: all .4s
+                @include transition(all .4s);
             }
             .sub-menu {
                 display: none;
@@ -348,15 +357,9 @@
       }
     }
     @media only screen and (min-width: 1170px) {
-        -webkit-transition: background-color 0.3s;
-        -moz-transition: background-color 0.3s;
-        transition: background-color 0.3s;
+        @include transition(background-color 0.3s);
         /* Force Hardware Acceleration in WebKit */
-        -webkit-transform: translate3d(0, 0, 0);
-        -moz-transform: translate3d(0, 0, 0);
-        -ms-transform: translate3d(0, 0, 0);
-        -o-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
+        @include transform(translate3d(0, 0, 0));
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         &.is-fixed {

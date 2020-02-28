@@ -2,16 +2,16 @@
 
 .notfound {
     height: 100%;
-    margin-top: -230px;
+    margin-top: -160px;
     width: 100%;
     .error-info {
         position: absolute;
         left: 50%;
         margin-left: -170px;
-        bottom: 40%;
+        bottom: 35%;
         text-align: center;
         h1, p {
-            @include null-font();
+            @include gungnir-font();
         }
         h1 {
             font-size: 50px;

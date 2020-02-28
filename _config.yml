@@ -40,7 +40,7 @@ collections:
 
 # SNS settings
 sns:
-  RSS: false
+  RSS: true
   github_username: Renovamen
   weibo_username:     
   zhihu_username:     
