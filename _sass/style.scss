@@ -1,5 +1,9 @@
 // Global Components
 
+html {
+  @include hide-scrollbar();
+}
+
 body {
   @include sans-serif();
   font-size: 16px;

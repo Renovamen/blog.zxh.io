@@ -13,7 +13,6 @@ jsdelivr:
   mathjax:
     post: https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
     page: https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  sweet-scroll: https://cdn.jsdelivr.net/npm/sweet-scroll@4.0.0/sweet-scroll.min.js
   simple-jekyll-search: https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
   scrollreveal: https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js
   animate-css: https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css
@@ -33,7 +32,6 @@ bootcdn:
   mathjax: 
     post: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
     page: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  sweet-scroll: https://cdn.jsdelivr.net/npm/sweet-scroll@4.0.0/sweet-scroll.min.js # here use jsdelivr, because bootcdn is not available
   simple-jekyll-search: https://cdn.bootcss.com/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
   scrollreveal: https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.min.js
   animate-css: https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css
@@ -53,7 +51,6 @@ unpkg:
   mathjax: 
     post: https://unpkg.com/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-AMS-MML_SVG
     page: https://unpkg.com/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  sweet-scroll: https://unpkg.com/sweet-scroll@4.0.0/sweet-scroll.min.js
   simple-jekyll-search: https://unpkg.com/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
   scrollreveal: https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.min.js
   animate-css: https://unpkg.com/animate.css@3.7.2/animate.min.css
@@ -73,7 +70,6 @@ cdnjs:
   mathjax: 
     post: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
     page: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  sweet-scroll: https://cdn.jsdelivr.net/npm/sweet-scroll@4.0.0/sweet-scroll.min.js # here use jsdelivr, because cdnjs is not available
   simple-jekyll-search: https://cdnjs.cloudflare.com/ajax/libs/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
   scrollreveal: https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.5/scrollreveal.min.js
   animate-css: https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css

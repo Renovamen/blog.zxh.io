@@ -1,5 +1,5 @@
 <!-- Go to Top -->
-<!-- This function is borrowed from: https://github.com/mashirozx/Sakura/ -->
+<!-- Borrowed a lot from: https://github.com/mashirozx/Sakura/ -->
 <a class="to-top cd-top animated"></a>
 <button class="to-top mobileGoTop animated" id="mobileGoTop" title="Go to top">
     <i class="fa fa-chevron-up" aria-hidden="true"></i>
@@ -9,21 +9,23 @@
     var offset = 100,
         offset_opacity = 1200,
         scroll_top_duration = 700,
+        btn_height = 100,
         $back_to_top = $('.to-top');
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > offset) {
             $back_to_top.addClass('cd-is-visible');
-            if ($(window).height() > 950) {
-                $(".cd-top.cd-is-visible").css("top", "0");
-            } 
-            else {
-                $(".cd-top.cd-is-visible").css("top", ($(window).height() - 950) + "px");
-            }
+            $(".cd-top.cd-is-visible").css("top", ($(window).height() - btn_height - 10) + "px");
+            setTimeout(() => {
+                $back_to_top.addClass('cd-rotate');
+            }, 500);
         } 
         else {
-            $(".cd-top.cd-is-visible").css("top", "-900px");
+            $(".cd-top.cd-is-visible").css("top", - btn_height + "px");
             $back_to_top.removeClass('cd-is-visible cd-fade-out');
+            setTimeout(() => {
+                $back_to_top.removeClass('cd-rotate');
+            }, 500);
         }
         if ($(this).scrollTop() > offset_opacity) {
             $back_to_top.addClass('cd-fade-out');

@@ -443,4 +443,14 @@
         -webkit-transform: rotate(45deg);
     }
 }
-  
+
+.top-scrollbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: none;
+    width: 0;
+    height: 2px;
+    background: #fe9600;
+}

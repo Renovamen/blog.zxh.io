@@ -83,3 +83,10 @@ jQuery(document).ready(function($) {
             });
     }
 });
+
+// Renovamen: add top scrollbar controler
+$(document).ready(function () {
+    $(window).scroll(function(){
+        $(".top-scrollbar").attr("style", "width: " + ($(this).scrollTop() / ($(document).height() - $(this).height()) * 100) + "%; display: block;");
+    });
+});

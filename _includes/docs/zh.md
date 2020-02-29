@@ -606,7 +606,6 @@ gem install jemoji
 - [Chart.js](https://github.com/chartjs/Chart.js){:target="_blank"}（[图表](#chartjs)）
 - [mermaid](https://github.com/mermaid-js/mermaid){:target="_blank"}（[图表](#mermaid)）
 - [MathJax](https://github.com/mathjax/MathJax){:target="_blank"}（公式渲染）
-- [Sweet Scroll](https://github.com/wadackel/sweet-scroll){:target="_blank"}（首页和 About 页点击向下箭头后页面的平滑滚动效果）
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search){:target="_blank"}（搜索）
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"}（解决移动设备上的点击延迟问题）
 - [animatedModal.js](https://github.com/joaopereirawd/animatedModal.js){:target="_blank"}（搜索页面弹出动画）

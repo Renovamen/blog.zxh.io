@@ -70,3 +70,14 @@
     -o-transform: $value;
     -ms-transform: $value;
 }
+
+
+// Hide scrollbar
+
+@mixin hide-scrollbar() {
+    ::-webkit-scrollbar { // Chrome, Safari
+        display: none;
+    }
+    -ms-overflow-style: none; // IE
+    scrollbar-width: none; // Firefox
+}

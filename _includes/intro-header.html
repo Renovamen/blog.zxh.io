@@ -131,7 +131,7 @@
     </a>
 
     <div class="headertop-down faa-float animated"> 
-        <a href="#container" data-scroll>
+        <a onclick="scrollDown()" data-scroll>
             <i class="fa fa-chevron-down" ></i>
         </a>
     </div>
@@ -192,17 +192,13 @@
 
 
 {% if page.homepage %}
-
-{%- include utils/get-cdn.html -%}
-{%- assign _cdn = __return -%}
-
 <script>
-    LazyLoad.js("{{ _cdn.sweet-scroll }}", function(){
-        // 页面平滑滚动
-        document.addEventListener("DOMContentLoaded", function() {
-            new SweetScroll({});
-        }, !1);
-    })
+    function scrollDown() {
+        var coverOffset = $('#container').offset().top
+        $('html, body').animate({
+            scrollTop: coverOffset
+        }, 500)
+    }
 
     // 首页图片高度适配
     function headerResize() {
