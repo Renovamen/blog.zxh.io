@@ -241,8 +241,18 @@ samp {
 
   // Renovamen: modify reference style
   sup {
-    font-weight: bold;
-    font-size: 13px;
+    font-size: inherit;
+    position: inherit;
+    &:before {
+      content: '[';
+      margin-right: 1px;
+      color: $brand-primary;
+    }
+    &:after {
+      content: ']';
+      margin-left: 1px;
+      color: $brand-primary;
+    }
   }
 }
 
