@@ -14,13 +14,15 @@ tags:
 
 ## Surveys
 
-1. **Algorithmic Inferencing of Aesthetics and Emotion in Natural Images: An Exposition.** ICIP 2008. [^datta_2008]
+- **Algorithmic Inferencing of Aesthetics and Emotion in Natural Images: An Exposition.** ICIP 2008. [^datta_2008]
 
-2. **On Aesthetics and Emotions in Images: A Computational Perspective.** *Dhiraj Joshi, et al.* IEEE Signal Processing Magazine 2011. [[IEEE]](https://ieeexplore.ieee.org/document/5999579){:target="_blank"} [[Paper]](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/37213.pdf){:target="_blank"}
+- **On Aesthetics and Emotions in Images: A Computational Perspective.** *Dhiraj Joshi, et al.* IEEE Signal Processing Magazine 2011. [[IEEE]](https://ieeexplore.ieee.org/document/5999579){:target="_blank"} [[Paper]](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/37213.pdf){:target="_blank"}
 
-3. **Image Aesthetic Assessment: An Experimental Survey.** IEEE Signal Processing Magazine 2017. [^deng_2017]
+- **Aesthetic Analysis of Images.** 2015. [[Report]](https://eg.uc.pt/bitstream/10316/35507/1/Aesthetic%20Analysis%20of%20Images%20Intermediate%20report.pdf){:target="_blank"}
 
-4. **A Report: Image Aesthetic Assessment.** *Chunbiao Zhu.* 2018. [[Report]](https://www.researchgate.net/publication/325184839_A_Report_Image_Aesthetic_Assessment){:target="_blank"}
+- **Image Aesthetic Assessment: An Experimental Survey.** IEEE Signal Processing Magazine 2017. [^deng_2017]
+
+- **A Report: Image Aesthetic Assessment.** *Chunbiao Zhu.* 2018. [[Report]](https://www.researchgate.net/publication/325184839_A_Report_Image_Aesthetic_Assessment){:target="_blank"}
 
 
 ## Datasets
@@ -305,7 +307,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 - **Predicting Aesthetic Score Distribution through Cumulative Jensen-Shannon Divergence.** *Xin Jin, et al.* AAAI 2018. [[Paper]](http://jinxin.me/downloads/papers/028-AAAI2018/ScoreDestribution.pdf){:target="_blank"} [[Code]](https://github.com/BestiVictory/CJS-CNN){:target="_blank"}
 
 
-#### 文字评论
+#### 文字描述
 
 - **Aesthetic Critiques Generation for Photos.** ICCV 2017. [^chang_2017]
 
@@ -313,6 +315,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
 - **Neural Aesthetic Image Reviewer.** *Wenshan Wang, et al.* IET Computer Vision 2019. [[arxiv]](https://arxiv.org/pdf/1802.10240.pdf){:target="_blank"}
 
+- **Aesthetic Image Captioning From Weakly-Labelled Photographs.** *Koustav Ghosal, Aakanksha Rana, and Aljosa Smolic.* ICCV 2019. [[Paper]](http://openaccess.thecvf.com/content_ICCVW_2019/papers/CROMOL/Ghosal_Aesthetic_Image_Captioning_From_Weakly-Labelled_Photographs_ICCVW_2019_paper.pdf){:target="_blank"} [[Code]](https://github.com/V-Sense/Aesthetic-Image-Captioning-ICCVW-2019){:target="_blank"}
 
 ## Reference
 

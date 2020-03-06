@@ -9,7 +9,7 @@ Github: [<i class="fa fa-link"></i> Renovamen/renovamen.github.io](https://githu
 ## 快速开始
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
-jekyll serve # 本地预览
+jekyll server --watch # 本地预览
 ```
 
 ## 配置
@@ -541,7 +541,7 @@ classDiagram
 #### 表情
 ##### emoji
 
-使用了 [jemoji](){:target="_blank"} 插件以在文章中插入 emoji，需要手动安装这个插件：
+使用了 [jemoji](https://github.com/jekyll/jemoji){:target="_blank"} 插件以在文章中插入 emoji，需要手动安装这个插件：
 
 ```bash
 gem install jemoji

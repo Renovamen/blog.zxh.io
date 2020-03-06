@@ -1,141 +1,58 @@
-# Just a Blog
+# Gungnir
 
-My blog. A Jekyll theme adapted from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io) & [mashirozx/Sakura](https://github.com/mashirozx/Sakura).
+My blog. Also a theme for Jekyll. It is derived from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io), thanks for this theme.
 
-[View this blog](https://renovamen.ink/)
+**Gungnir** is the spear of the god Odin in Norse mythology.
+
+![preview](docs/preview.jpg)
 
 &nbsp;
 
-## New Features
+## Demo
 
-### Pages
+Check out the demo [here](https://renovamen.ink/).
 
-#### Links
+&nbsp;
 
-Add a beautiful and responsive links page. You can easily add links to it by modifying `_config.yml`, for example:
+## Documentation
 
-```yaml
-links: [
-  {
-    link-title: "Why I lost in human world",
-    link-list: [
-      {
-        sitename: "Cool Dragon",
-        href: "http://allspark.ink/",
-        img: "img/dragon.jpeg",
-        linkdes: "The coolest dragon in the world",
-      }
-    ],
-  },
-]
+Check out the ongoing documentation [here](https://renovamen.ink/). It supports Chinese ~~and English~~ now.
+
+&nbsp;
+
+## Features
+
+- Fully responsive
+- Multi-level navigation menu
+- Switchable cover image for home page
+- Search (based on [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search))
+- Table of contents (based on [Tocbot](https://github.com/tscanlin/tocbot))
+- Highlight theme (based on [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme))
+- Support [Mathjax](https://github.com/mathjax/MathJax), [Chart.js](https://github.com/chartjs/Chart.js) and [mermaid](https://github.com/mermaid-js/mermaid)
+- Additional styles (alert and tag)
+- Support Markdown emoji (based on [jemoji](https://github.com/jekyll/jemoji)) and additional emoji (for example, bilibili tv)
+- Comments ([Gitalk](https://github.com/gitalk/gitalk), [Disqus](https://disqus.com/) and [Valine](https://github.com/xCss/Valine))
+- Analytics ([Google Analytics](https://analytics.google.com/) and [Baidu Tongji](https://tongji.baidu.com/))
+- About, Portfolio and Link page
+
+Inherit from the original theme:
+
+- PWA
+- RSS
+- Archive page with tags
+- Multilingual
+
+&nbsp;
+
+## Quick start
+
+```bash
+git clone https://github.com/Renovamen/renovamen.github.io.git
+jekyll server --watch # local preview
 ```
 
 &nbsp;
 
-#### About
+## Lisence
 
-Responsive and more beautiful. 
-
-Biography can be modified in `_includes/about/biography.md`.
-
-Experience information can be added by creating Markdown files in `/_experience`, an example of the file's front-matter is:
-
-```yaml
----
-img: "../../img/experience/cat.jpeg"
-time: "2019.9 - Present"
-job: "Bala"
-description: "Waitting to be completed..."
-if-left: true
----
-```
-
-&nbsp;
-
-#### Portfolio
-
-Responsive and more beautiful.
-
-&nbsp;
-
-### Comment
-
-[Gitalk](https://github.com/gitalk/gitalk) and [Valine](https://github.com/xCss/Valine) are supported as third party discussion systems now.
-
-#### Gitalk
-
-You have to register a [Github Application](https://github.com/settings/applications/new) and get your Client ID and Client Secret, then modify `_config.yml`:
-
-```yaml
-# Gitalk settings
-gitalk:
-  clientID: your_client_id
-  clientSecret: your_client_secret
-  repo: your_repo
-  owner: owner_of_your_repo
-```
-
-&nbsp;
-
-#### Valine
-
-Create a new application in [Leancloud](https://leancloud.cn/) and get APP ID and APP Key, then modify `_config.yml`:
-
-```yaml
-# Valine settings
-valine:
-  appID: your_app_id
-  appKey: your_app_key
-```
-
-&nbsp;
-
-### Header Image Switcher
-
-Switching the header image of homepage is supported now. You can add the images which you want to show on your homepage to `_config.yml`, for example:
-
-```yaml
-header-img: [
-  {
-    url: img/home-bg/1.jpg,
-    mask: "rgba(40, 57, 101, .6)",
-  },
-  {
-    url: img/home-bg/2.jpg,
-    mask: "rgba(31, 64, 87, .4)",
-  }
-]
-```
-
-&nbsp;
-
-### Highlight Theme
-
-Use [Tomorrow](https://github.com/chriskempson/tomorrow-theme) as the highlight theme.
-
-| `default` | `night` | `night-bright` | `night-eighties` | `night-blue` |
-| :--: | :--: | :--: | :--: | :--: |
-| ![highlight-default](docs/highlight-default.png) | ![highlight-night](docs/highlight-night.png) | ![highlight-night-bright](docs/highlight-night-bright.png) | ![highlight-night-eighties](docs/highlight-night-eighties.png) | ![highlight-night-blue](docs/highlight-night-blue.png) |
-
-To change the highlight theme, you should specify the theme in `less/renovamen-blog.less`:
-
-```less
-// "default", "night", "night-eighties", "night-blue", "night-bright"
-@import "highlight/default";
-```
-
-and then run `grunt` to rebuild the blog.
-
-&nbsp;
-
-### Other Features
-
-- Better catalog (based on [tocbot.js](https://github.com/tscanlin/tocbot));
-
-- Search (based on [simple-jekyll-search.js](https://github.com/christian-fei/Simple-Jekyll-Search));
-
-- Hide posts from home page: 
-
-  Add `hide: true` to the front-matter of the post you want to hide;
-
-- Go to top;
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
