@@ -59,6 +59,7 @@ exclude:
   - package.json
   - package-lock.json
   - README.md
+  - README-CH.md
   - LICENSE
   - Gruntfile.js
   - /node_modules

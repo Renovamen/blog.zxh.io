@@ -173,7 +173,7 @@ comment:
     appKey: # LeanCloud App Key
 ```
 
-### 分析统计
+### 站点统计
 
 支持谷歌统计和百度统计。
 

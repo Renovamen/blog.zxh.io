@@ -4,19 +4,21 @@ My blog. Also a theme for Jekyll. It is derived from [Huxpro/huxpro.github.io](h
 
 **Gungnir** is the spear of the god Odin in Norse mythology.
 
+[中文说明](README-CH.md) | English Intro
+
 ![preview](docs/preview.jpg)
 
 &nbsp;
 
 ## Demo
 
-Check out the demo [here](https://renovamen.ink/).
+Check out the demo [here](https://renovamen.ink/) (my blog).
 
 &nbsp;
 
 ## Documentation
 
-Check out the ongoing documentation [here](https://renovamen.ink/). It supports Chinese ~~and English~~ now.
+Check out the ongoing documentation [here](https://renovamen.ink/theme/). It supports Chinese ~~and English~~ now.
 
 &nbsp;
 
@@ -24,10 +26,10 @@ Check out the ongoing documentation [here](https://renovamen.ink/). It supports 
 
 - Fully responsive
 - Multi-level navigation menu
-- Switchable cover image for home page
+- Switchable cover images for home page
 - Search (based on [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search))
 - Table of contents (based on [Tocbot](https://github.com/tscanlin/tocbot))
-- Highlight theme (based on [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme))
+- Highlight themes (based on [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme))
 - Support [Mathjax](https://github.com/mathjax/MathJax), [Chart.js](https://github.com/chartjs/Chart.js) and [mermaid](https://github.com/mermaid-js/mermaid)
 - Additional styles (alert and tag)
 - Support Markdown emoji (based on [jemoji](https://github.com/jekyll/jemoji)) and additional emoji (for example, bilibili tv)
