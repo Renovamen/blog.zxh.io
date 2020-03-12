@@ -42,7 +42,7 @@ Inherit from the original theme:
 - PWA
 - RSS
 - Archive page with tags
-- Multilingual
+- Multilingual article
 
 &nbsp;
 

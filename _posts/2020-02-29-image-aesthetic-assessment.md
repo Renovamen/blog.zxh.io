@@ -3,7 +3,7 @@ layout: post
 title: 图像美感评估
 subtitle: A Survey on Image Aesthetic Assessment
 author: "Renovamen"
-header-img: img/in-post/2020-02-29/header.gif
+header-img: img/in-post/2020-02-29/header.jpeg
 header-style: text
 catalog: true
 tags:
@@ -131,7 +131,15 @@ $$
 AROD 与其他数据集的比较
 {:.desc}
 
-下载地址：[<i class="fa fa-link"></i> Github](https://github.com/cgtuebingen/will-people-like-your-image)，`arod/list.txt` 中给出了图片的 URL，格式为 `url;faves;views`。
+下载：[<i class="fa fa-link"></i> Github](https://github.com/cgtuebingen/will-people-like-your-image){:target="_blank"}，`arod/list.txt` 中给出了图片的 URL，格式为 `url;faves;views`。
+
+### GPA
+
+在论文 [^sheng_2018] 中提出，是一个用于食物图片美感评估的数据集。从社交媒体和食物分类数据集中收集了共 24,000 张图片，然后人工标注（二分类）。
+
+下载：[<i class="fa fa-link"></i> Github](https://github.com/Openning07/GPA){:target="_blank"}
+
+
 
 
 ### 其他
@@ -346,3 +354,5 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
 
 [^jin_2019]: **Aesthetic Attributes Assessment of Images.** *Xin Jin, et al.* ACM MM 2019. [[arxiv]](https://arxiv.org/pdf/1907.04983.pdf){:target="_blank"} [[Dataset]](https://github.com/BestiVictory/DPC-Captions){:target="_blank"}
+
+[^sheng_2018]: **Gourmet Photography Dataset for Aesthetic Assessment of Food Images.** *Kekai Sheng, et al.* SIGGRAPH 2018. [[Dataset]](https://github.com/Openning07/GPA){:target="_blank"}

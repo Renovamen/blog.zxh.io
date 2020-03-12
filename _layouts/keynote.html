@@ -83,33 +83,4 @@ layout: default
     resize();
 </script>
 
-
-<!-- add support for mathjax by voleking-->
-{% if site.mathjax or page.mathjax %}
-  {% include enhancements/mathjax_support.html %}
-{% endif %}
-
-
-<!-- Renovamen: add support for chart and mermaid -->
-{% if site.chart %}
-  {% include enhancements/chart.html %}
-{% endif %}
-
-{% if site.mermaid %}
-  {% include enhancements/mermaid.html %}
-{% endif %}
-
-<!-- Renovamen: add support for additional emoji -->
-{% if site.emoji-plus %}
-    {% include enhancements/emoji.html %}
-{% endif %}
-
-<!-- comment -->
-{% if site.comment.provider %}
-    {% include comment/script.html %}
-{% endif %}
-
-
-{% if site.anchorjs %}
-    {% include anchor.html %}
-{% endif %}
+{% include post-func.html %}

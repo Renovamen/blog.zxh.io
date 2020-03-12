@@ -6,6 +6,10 @@ Github: [<i class="fa fa-link"></i> Renovamen/renovamen.github.io](https://githu
 
 **Gungnir**，冈格尼尔，北欧神话中主神奥丁使用的用世界树树枝做成的武器，和本主题并没有什么关系但我就是用了这个名字。
 
+
+![theme-gungnir](../img/docs/gungnir.jpg)
+
+
 ## 快速开始
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
@@ -256,21 +260,16 @@ header-img:
 
 ### Links
 
-参考一下本站 [Links 页面](/links){:target="_blank"} 和它的 [Front-matter](https://github.com/Renovamen/renovamen.github.io/blob/master/links.html){:target="_blank"} 大概就知道怎么改了？
+参考一下本站 [Links 页面](/links){:target="_blank"} 和它的 [Front-matter](https://github.com/Renovamen/renovamen.github.io/blob/master/links.html){:target="_blank"} 大概就知道怎么改了？（复读 *1）
 
 如果没有指定某个链接的头像，那么会显示默认头像（`img/links/default.jpg`）。
+
+如果想在该页面开启评论，需要在 `_config.yml` 中启用评论并在该页的 Front-matter 中设 `comment: true`。
 
 
 ### Portfolio
 
-参考一下本站 [Portfolio 页面](/portfolio){:target="_blank"} 和它的 [Front-matter](https://github.com/Renovamen/renovamen.github.io/blob/master/portfolio.html){:target="_blank"} 大概就知道怎么改了？
-
-
-### 甩锅
-
-感觉写得像个复读机...
-
-或者你想重写上述三个页面的话，改 `_layouts/` 和 `_sassl/layouts/` 文件夹里对应文件的代码就行。
+参考一下本站 [Portfolio 页面](/portfolio){:target="_blank"} 和它的 [Front-matter](https://github.com/Renovamen/renovamen.github.io/blob/master/portfolio.html){:target="_blank"} 大概就知道怎么改了？（复读 *2）
 
 
 
@@ -585,6 +584,38 @@ gem install jemoji
 
     这是一张图片
     {:.desc}
+
+
+#### BibTex
+
+点击显示文献的 BibTex（写得很乱的一个功能）：
+
+**Attention is All You Need.** *Ashish Vaswani, et al.* Advances in Neural Information Processing Systems 2017. [[BibTex]](javascript:bibTex(vaswani2017, vaswani2017_block)){:#vaswani2017}
+
+{:.bib_block #vaswani2017_block}
+    @inproceedings{vaswani2017attention,
+        title={Attention is all you need},
+        author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+        booktitle={Advances in neural information processing systems},
+        pages={5998--6008},
+        year={2017}
+    }
+
+
+**Markdown：**
+
+```markdown
+[[BibTex]](javascript:bibTex(vaswani2017, vaswani2017_block)){:#vaswani2017}
+
+{:.bib_block #vaswani2017_block}
+    @inproceedings{vaswani2017attention,
+        title={Attention is all you need},
+        author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+        booktitle={Advances in neural information processing systems},
+        pages={5998--6008},
+        year={2017}
+    }
+```
 
 
 ## 用到的开源库

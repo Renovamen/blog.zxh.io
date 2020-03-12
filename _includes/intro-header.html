@@ -26,6 +26,7 @@
     <style type="text/css">
         header.intro-header{
             position: relative;
+            background-attachment: fixed;
             background-image: url('{{ site.baseurl }}/{{ page.header-img[0].url }}');
             background: {{ page.header-bg-css }};
         }
@@ -200,7 +201,7 @@
         }, 500)
     }
 
-    // 首页图片高度适配
+    // resize header's height
     function headerResize() {
         if(document.body.clientWidth >= 1024) {
             //console.log(document.body.clientWidth)
@@ -227,7 +228,7 @@
 
     headerResize();
 
-    // Header Image Switcher
+    // header image switcher
     function changeImage(n) {
         headerImgList = '[{{page.header-img}}]'.replace(/=>/g,":").replace(/}{/g,"},{");
         headerImgList = $.parseJSON(headerImgList);
@@ -246,6 +247,13 @@
             }
         }
     }
+
+    // fade out when scrolling
+    $(window).scroll(function(){ 
+        $(".img-prev, .img-next, .headertop-down, .header-avatar, .header-bubble, .header-info").css({
+            "opacity": 1 - $(this).scrollTop() * 1.2 / $(this).height(),
+        })
+    })
 </script>
 
 {% if site.hitokoto %}

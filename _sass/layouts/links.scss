@@ -1,11 +1,7 @@
 .links-page {
-    width: 61%;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, .8);
-    @media only screen and (max-width: 480px) {
-        width: 80%;
-    }
-    h3, span, .desc {
+    h2, span, .desc {
         @include gungnir-font();
     }
     .link-list {

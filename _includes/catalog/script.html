@@ -14,11 +14,18 @@
 
 <script type="text/javascript">
     function generateCatalog (selector) {
+        // links page
+        if('{{ page.layout }}' == 'links') {
+            _containerSelector = 'div.link-list'
+        }
         // interop with multilangual 
-        if ('{{ page.multilingual }}' == 'true') {
-            _containerSelector = 'div.post-container.active'
-        } else {
-            _containerSelector = 'div.post-container'
+        else {
+            if ('{{ page.multilingual }}' == 'true') {
+                _containerSelector = 'div.post-container.active'
+            } 
+            else {
+                _containerSelector = 'div.post-container'
+            }
         }
         
         tocbot.init({
