@@ -111,7 +111,7 @@ menus:
 
 需要填入每个页面的名称、路径和图标。图标库使用了 [Font Awesome](https://fontawesome.com){:target="_blank"}，可以在[这里](https://fontawesome.com/icons?d=gallery){:target="_blank"}查找图标。
 
-如果要添加**二级菜单**，则需要在需要添加二级菜单的一级菜单下添加 `submenu` 关键字，然后在 `submenu` 下填入每个二级菜单页面的名称、路径和图标：
+如果要添加**二级菜单**，则需要在需要添加二级菜单的一级菜单下添加 `submenus` 关键字，然后在 `submenus` 下填入每个二级菜单页面的名称、路径和图标：
 
 ```yaml
 menus:
@@ -419,7 +419,7 @@ $$
     }
     ```
 
-`注意`{:.warning}：`json` 中的 `key` 值一定要加引号，否则会渲染出错。
+`注意`{:.warning}：`json` 中的 `key` 值一定要加**引号**，否则会渲染出错。
 
 
 ##### mermaid

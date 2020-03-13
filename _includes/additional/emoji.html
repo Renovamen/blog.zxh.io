@@ -3,7 +3,6 @@ $('.emoji-plus').each(function(){
     var $this = $(this);
     var imgURL = '/img/emoji/bilitv/' + $this.text() + '.gif';
     var $img = $('<img class="emoji-plus" src="' + imgURL + '" height="30" width="30">');
-    console.log($img);
     $this.replaceWith($img);
 });
 </script>

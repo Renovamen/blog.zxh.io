@@ -26,9 +26,14 @@
     <style type="text/css">
         header.intro-header{
             position: relative;
-            background-attachment: fixed;
             background-image: url('{{ site.baseurl }}/{{ page.header-img[0].url }}');
             background: {{ page.header-bg-css }};
+        }
+
+        @media only screen and (min-width: 1024px) {
+            header.intro-header{
+                background-attachment: fixed;
+            }
         }
 
         {% if page.header-img[0].mask %}
