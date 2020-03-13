@@ -553,30 +553,30 @@ This is an image.
 
 Click to show the BibTex of bibliographies:
 
-**Attention is All You Need.** *Ashish Vaswani, et al.* Advances in Neural Information Processing Systems 2017. [[BibTex]](javascript:bibTex(vaswani2017, vaswani2017_block)){:#vaswani2017}
+**Sequence to Sequence Learning with Neural Networks.** *Ilya Sutskever, et al.* Advances in Neural Information Processing Systems 2014. [[BibTex]](javascript:bibTex(sutskever2014, sutskever2014_block)){:#sutskever2014}
 
-{:.bib_block #vaswani2017_block}
-    @inproceedings{vaswani2017attention,
-        title={Attention is all you need},
-        author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+{:.bib_block #sutskever2014_block}
+    @inproceedings{sutskever2014sequence,
+        title={Sequence to sequence learning with neural networks},
+        author={Sutskever, Ilya and Vinyals, Oriol and Le, Quoc V},
         booktitle={Advances in neural information processing systems},
-        pages={5998--6008},
-        year={2017}
+        pages={3104--3112},
+        year={2014}
     }
 
 
 **Markdown：**
 
 ```markdown
-[[BibTex]](javascript:bibTex(vaswani2017, vaswani2017_block)){:#vaswani2017}
+[[BibTex]](javascript:bibTex(sutskever2014, sutskever2014_block)){:#sutskever2014}
 
-{:.bib_block #vaswani2017_block}
-    @inproceedings{vaswani2017attention,
-        title={Attention is all you need},
-        author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+{:.bib_block #sutskever2014_block}
+    @inproceedings{sutskever2014sequence,
+        title={Sequence to sequence learning with neural networks},
+        author={Sutskever, Ilya and Vinyals, Oriol and Le, Quoc V},
         booktitle={Advances in neural information processing systems},
-        pages={5998--6008},
-        year={2017}
+        pages={3104--3112},
+        year={2014}
     }
 ```
 
