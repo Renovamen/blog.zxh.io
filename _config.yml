@@ -97,25 +97,25 @@ kramdown:
 # Navigation menu settings
 menus:
   - title: Home
-    font: fa-fort-awesome
+    font: fab fa-fort-awesome
     url: /
   - title: About
-    font: fa-paw
+    font: fas fa-paw
     submenus:
       - title: Me
-        font: fa-grav
+        font: fas fa-user-astronaut
         url: /about/
       - title: Theme
-        font: fa-wpexplorer
+        font: fas fa-meteor
         url: /theme/
   - title: Archive
-    font: fa-archive
+    font: fas fa-archive
     url: /archive/
   - title: Portfolio
-    font: fa-empire
+    font: fas fa-jedi
     url: /portfolio/
   - title: Links
-    font: fa-link
+    font: fas fa-link
     url: /links/
 
 

@@ -1,7 +1,7 @@
 
 # Maybe a Ducumentation
 
-Github: [<i class="fa fa-link"></i> Renovamen/renovamen.github.io](https://github.com/Renovamen/renovamen.github.io){:target="_blank"}
+Github: [<i class="fas fa-link"></i> Renovamen/renovamen.github.io](https://github.com/Renovamen/renovamen.github.io){:target="_blank"}
 
 Derived from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io){:target="_blank"}. Some of the designs and functions are borrowed from other themes, including but not limited to [mashirozx/Sakura](https://github.com/mashirozx/Sakura/){:target="_blank"}, [kitian616/jekyll-TeXt-theme](https://github.com/kitian616/jekyll-TeXt-theme){:target="_blank"}, [Fechin/hexo-theme-diaspora](https://github.com/Fechin/hexo-theme-diaspora){:target="_blank"}, [liuzc/LeaveIt](https://github.com/liuzc/LeaveIt){:target="_blank"}, et al.
 
@@ -105,27 +105,27 @@ Configuration of the first level menu is like this:
 ```yaml
 menus:
   - title: Home
-    font: fa-fort-awesome
+    font: fab fa-fort-awesome
     url: /
   - title: Archive
-    font: fa-archive
+    font: fas fa-archive
     url: /archive/
 ```
 
-You should specify the name, URL and icon of each page. [Font Awesome](https://fontawesome.com){:target="_blank"} is used as icon set, you can search for icons [here](https://fontawesome.com/icons?d=gallery){:target="_blank"}.
+You should specify the name, URL and icon of each page. [Font Awesome](https://fontawesome.com){:target="_blank"} is used as icon set, you can search for icons [here](https://fontawesome.com/icons){:target="_blank"}.
 
 Use key `submenus` to add the second level menu:
 
 ```yaml
 menus:
   - title: About
-    font: fa-paw
+    font: fas fa-paw
     submenus:
       - title: Me
-        font: fa-grav
+        font: fas fa-user-astronaut
         url: /about/
       - title: Theme
-        font: fa-wpexplorer
+        font: fas fa-meteor
         url: /theme/
 ```
 

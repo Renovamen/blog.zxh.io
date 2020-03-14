@@ -62,7 +62,7 @@ DPChallenge 数据集的图片平均得分分布
 
 在论文[^luo_2011]（ICCV 2011）和[^tang_2013]中提出。现在有 30,000 左右张图片，每张图片被按内容分为了 7 个类别。美学标注只有“高质量”和“低质量”两个，高低质量图片比例约为 1:3[^deng_2017]。所以该数据集很难被用来进行评分任务的训练，而且分类难度不算大。因为是直接把从专业摄影网站（dpchallenge.com）和从业余摄影师处收集到的图片混在了一起，所以可能不能代表真实场景。[^murray_2012]
 
-下载：[<i class="fa fa-link"></i> Multimedia Laboratory, CUHK](http://mmlab.ie.cuhk.edu.hk/archive/CUHKPQ/Dataset.htm){:target="_blank"}
+下载：[<i class="fas fa-link"></i> Multimedia Laboratory, CUHK](http://mmlab.ie.cuhk.edu.hk/archive/CUHKPQ/Dataset.htm){:target="_blank"}
 
 
 ### AVA
@@ -81,7 +81,7 @@ AVA 与其他数据集的比较
 但 AVA 的很多图片后期处理痕迹太重。且绝大多数图片来自于专业摄影者而非普通人，所以 AVA 有较大的 bias。[^kong_2016]
 
 
-下载：[<i class="fa fa-link"></i> Github](https://github.com/mtobeiyf/ava_downloader){:target="_blank"}
+下载：[<i class="fas fa-link"></i> Github](https://github.com/mtobeiyf/ava_downloader){:target="_blank"}
 
 
 ### AADB
@@ -99,7 +99,7 @@ AADB 与其他数据集的比较
 
 但 AADB 的数据量过小，且标注人员过少。
 
-下载：[<i class="fa fa-link"></i> Google Drive](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM){:target="_blank"}
+下载：[<i class="fas fa-link"></i> Google Drive](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM){:target="_blank"}
 
 
 ### PCCD
@@ -131,13 +131,13 @@ $$
 AROD 与其他数据集的比较
 {:.desc}
 
-下载：[<i class="fa fa-link"></i> Github](https://github.com/cgtuebingen/will-people-like-your-image){:target="_blank"}，`arod/list.txt` 中给出了图片的 URL，格式为 `url;faves;views`。
+下载：[<i class="fas fa-link"></i> Github](https://github.com/cgtuebingen/will-people-like-your-image){:target="_blank"}，`arod/list.txt` 中给出了图片的 URL，格式为 `url;faves;views`。
 
 ### GPA
 
 在论文 [^sheng_2018] 中提出，是一个用于食物图片美感评估的数据集。从社交媒体和食物分类数据集中收集了共 24,000 张图片，然后人工标注（二分类）。
 
-下载：[<i class="fa fa-link"></i> Github](https://github.com/Openning07/GPA){:target="_blank"}
+下载：[<i class="fas fa-link"></i> Github](https://github.com/Openning07/GPA){:target="_blank"}
 
 
 

@@ -91,6 +91,9 @@
         }
         ul {
             height: auto;
+            i {
+                width: 25px;
+            }
             li {
                 transition-duration: .25s;
                 display: block;
@@ -241,6 +244,9 @@
     }
     .nav {
         li {
+            i {
+                width: 18px;
+            }
             a {
                 text-transform: uppercase;
                 font-size: 12px;
@@ -267,7 +273,7 @@
                 top: 55px;
                 left: 50%;
                 margin-left: -50px;
-                width: 100px;
+                width: 105px;
                 border-radius: 5px;
                 box-shadow: 0 1px 40px -8px rgba(0, 0, 0, .5);
                 -webkit-animation: fadeIn .3s .1s ease both;

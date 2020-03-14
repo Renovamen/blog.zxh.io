@@ -13,7 +13,7 @@
             <a class="faa-parent animated-hover">
             {% endif %}
                 {% if page.font %}
-                <i class="fa {{page.font}} fa-lg faa-wrench"></i>
+                <i class="{{page.font}} fa-lg faa-wrench"></i>
                 {% endif %}
                 {{ page.title }}
             </a>
@@ -22,7 +22,7 @@
                 {% for submenu in page.submenus %}
                 <li>
                     <a href="{{ submenu.url | prepend: site.baseurl }}" class="faa-parent animated-hover">
-                    <i class="fa {{submenu.font}} fa-lg faa-wrench"></i>
+                    <i class="{{submenu.font}} fa-lg faa-wrench"></i>
                     {{ submenu.title }}
                     </a>
                 </li>
@@ -33,7 +33,7 @@
         {% endfor %}
         <li>
             <a id="search-btn-mobile" href="#search" class="faa-parent animated-hover" onclick="autoFocus()">
-                <i class="fa fa-search fa-lg faa-wrench"></i> Search
+                <i class="fas fa-search fa-lg faa-wrench"></i> Search
             </a>
         </li>
     </ul>

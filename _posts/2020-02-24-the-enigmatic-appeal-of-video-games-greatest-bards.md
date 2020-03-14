@@ -9,7 +9,7 @@ tags:
   - 摸鱼
 ---
 
-翻译自 [EGM](https://egmnow.com/){:target="_blank"} 上的文章：[<i class="fa fa-link"></i> *Toss a Coin: The Enigmatic Appeal of Gaming’s Greatest Bards*](https://egmnow.com/toss-a-coin-the-enigmatic-appeal-of-video-games-greatest-bards/){:target="_blank"}。
+翻译自 [EGM](https://egmnow.com/){:target="_blank"} 上的文章：[<i class="fas fa-link"></i> *Toss a Coin: The Enigmatic Appeal of Gaming’s Greatest Bards*](https://egmnow.com/toss-a-coin-the-enigmatic-appeal-of-video-games-greatest-bards/){:target="_blank"}。
 
 本文的封面图是《塞尔达传说：荒野之息》中的利特族游吟诗人卡西瓦（Kass）。原文的封面图是这张（《巫师》系列里的游吟诗人丹德里恩）：
 

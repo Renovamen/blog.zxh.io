@@ -1,6 +1,6 @@
 # 这大概是一篇（施工中的）文档
 
-Github: [<i class="fa fa-link"></i> Renovamen/renovamen.github.io](https://github.com/Renovamen/renovamen.github.io){:target="_blank"}
+Github: [<i class="fas fa-link"></i> Renovamen/renovamen.github.io](https://github.com/Renovamen/renovamen.github.io){:target="_blank"}
 
 在 [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io){:target="_blank"} 的基础上瞎改的的主题，同时~~照搬~~借鉴了很多其他主题的代码和设计，包括但不限于 [mashirozx/Sakura](https://github.com/mashirozx/Sakura/){:target="_blank"}、[kitian616/jekyll-TeXt-theme](https://github.com/kitian616/jekyll-TeXt-theme){:target="_blank"}、[Fechin/hexo-theme-diaspora](https://github.com/Fechin/hexo-theme-diaspora){:target="_blank"}、[liuzc/LeaveIt](https://github.com/liuzc/LeaveIt){:target="_blank"} 等（这么看来似乎也没多少东西是我自己写的了，逃）。
 
@@ -102,27 +102,27 @@ sns:
 ```yaml
 menus:
   - title: Home
-    font: fa-fort-awesome
+    font: fab fa-fort-awesome
     url: /
   - title: Archive
-    font: fa-archive
+    font: fas fa-archive
     url: /archive/
 ```
 
-需要填入每个页面的名称、路径和图标。图标库使用了 [Font Awesome](https://fontawesome.com){:target="_blank"}，可以在[这里](https://fontawesome.com/icons?d=gallery){:target="_blank"}查找图标。
+需要填入每个页面的名称、路径和图标。图标库使用了 [Font Awesome](https://fontawesome.com){:target="_blank"}，可以在[这里](https://fontawesome.com/icons){:target="_blank"}查找图标。
 
 如果要添加**二级菜单**，则需要在需要添加二级菜单的一级菜单下添加 `submenus` 关键字，然后在 `submenus` 下填入每个二级菜单页面的名称、路径和图标：
 
 ```yaml
 menus:
   - title: About
-    font: fa-paw
+    font: fas fa-paw
     submenus:
       - title: Me
-        font: fa-grav
+        font: fas fa-user-astronaut
         url: /about/
       - title: Theme
-        font: fa-wpexplorer
+        font: fas fa-meteor
         url: /theme/
 ```
 

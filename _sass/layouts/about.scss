@@ -64,7 +64,10 @@
                     > a {
                         text-decoration: none;
                         color: $brand-primary;
-                        &:hover .fa {
+                        i {
+                            @include transition(all ease .1s);
+                        }
+                        &:hover i {
                             transform: scale(1.3);
                         }
                     }
