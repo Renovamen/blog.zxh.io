@@ -13,7 +13,7 @@ Derived from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.i
 ## Quick Start
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
-jekyll server --watch # local preview
+jekyll serve --watch # local preview
 ```
 
 ## Configuration

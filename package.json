@@ -1,7 +1,7 @@
 {
-    "name": "renovamen-blog",
-    "title": "Renovamen Blog",
-    "description": "Blog of Renovamen & Jekyll theme NuLL",
+    "name": "gungnir",
+    "title": "Jekyll Theme Gungnir",
+    "description": "Blog of Renovamen & Jekyll theme Gungnir",
     "version": "1.0.0",
     "author": "Renovamen <renovamenzxh@gmail.com>",
     "homepage": "https://renovamen.github.io",
@@ -17,7 +17,7 @@
         "grunt-contrib-uglify": "~4.0.1"
     },
     "scripts": {
-        "start": "jekyll serve -w -l --host 127.0.0.1 --port 4000",
+        "start": "jekyll serve --watch --host 127.0.0.1 --port 4000",
         "dev": "grunt watch & npm run start",
         "github": "git push origin master",
         "coding": "git push coding master"

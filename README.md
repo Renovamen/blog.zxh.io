@@ -50,7 +50,7 @@ Inherit from the original theme:
 
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
-jekyll server --watch # local preview
+jekyll serve --watch # local preview
 ```
 
 &nbsp;

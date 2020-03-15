@@ -13,7 +13,7 @@ Github: [<i class="fas fa-link"></i> Renovamen/renovamen.github.io](https://gith
 ## 快速开始
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
-jekyll server --watch # 本地预览
+jekyll serve --watch # 本地预览
 ```
 
 ## 配置

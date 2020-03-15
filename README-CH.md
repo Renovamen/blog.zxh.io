@@ -50,7 +50,7 @@
 
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
-jekyll server --watch # 本地预览
+jekyll serve --watch # 本地预览
 ```
 
 &nbsp;
