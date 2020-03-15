@@ -250,7 +250,7 @@ Set `hitokoto` to `true` to enable the Hitokoto bubble on home page. The bubble 
 
 ### Home
 
-Switching among multiple cover images is supported. The path and the RGB value of the mask of each cover image should be specified here:
+Switching among multiple cover images is supported. The path and the RGB value of the mask of each cover image should be specified in the Front-matter of `index.html`:
 
 ```yaml
 description: # the sentence you want to show on the home page

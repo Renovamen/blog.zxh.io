@@ -239,6 +239,8 @@ hitokoto: true # default: false
 
 ### 首页
 
+在 `index.html` 的 Front-matter 中设置：
+
 ```yaml
 description: # 想在首页显示的一句话
 header-img:

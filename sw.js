@@ -16,12 +16,11 @@ const PRECACHE_LIST = [
   "./",
   "./offline.html",
   "https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js",
-  "./js/renovamen-blog.min.js",
+  "./js/gungnir.min.js",
   "./js/snackbar.js",
-  "./img/avatar.png",
+  "./img/header-avatar.jpeg",
   "./img/home-bg/1.jpg",
-  "./img/404.png",
-  "./css/renovamen-blog.min.css",
+  "./css/gungnir.css",
   "https://cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/css/bootstrap.min.css"
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3",
@@ -30,7 +29,6 @@ const PRECACHE_LIST = [
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
   "renovamen.ink",
-  "yanshuo.io",
   "cdn.jsdelivr.net"
 ]
 const DEPRECATED_CACHES = ['precache-v1', 'runtime', 'main-precache-v1', 'main-runtime']
