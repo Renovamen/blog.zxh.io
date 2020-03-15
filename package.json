@@ -19,7 +19,7 @@
     "scripts": {
         "start": "jekyll serve -w -l --host 127.0.0.1 --port 4000",
         "dev": "grunt watch & npm run start",
-        "push": "git push origin master --tag",
-        "cafe": "git co gitcafe-pages; git merge master; git push gitcafe gitcafe-pages:gitcafe-pages --tag; git co master;"
+        "github": "git push origin master",
+        "coding": "git push coding master"
     }
 }
