@@ -30,7 +30,7 @@ Check out the ongoing documentation [here](https://renovamen.ink/theme/). It sup
 - Search (based on [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search))
 - Table of contents (based on [Tocbot](https://github.com/tscanlin/tocbot))
 - Highlight themes (based on [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme))
-- Support [Mathjax](https://github.com/mathjax/MathJax), [Chart.js](https://github.com/chartjs/Chart.js) and [mermaid](https://github.com/mermaid-js/mermaid)
+- Support [Mathjax](https://github.com/mathjax/MathJax), [Katex](https://github.com/KaTeX/KaTeX), [Chart.js](https://github.com/chartjs/Chart.js) and [mermaid](https://github.com/mermaid-js/mermaid)
 - Additional styles (alert and tag)
 - Support Markdown emoji (based on [jemoji](https://github.com/jekyll/jemoji)) and additional emoji (for example, bilibili tv)
 - Comments ([Gitalk](https://github.com/gitalk/gitalk), [Disqus](https://disqus.com/) and [Valine](https://github.com/xCss/Valine))

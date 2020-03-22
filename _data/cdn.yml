@@ -10,9 +10,10 @@ jsdelivr:
   valine: https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js
   chart: https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js
   mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js
-  mathjax:
-    post: https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
-    page: https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
+  katex:
+    css: https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
+    js: https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js
   simple-jekyll-search: https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
   scrollreveal: https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js
   animate-css: https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css
@@ -29,9 +30,10 @@ bootcdn:
   valine: https://cdn.bootcss.com/valine/1.3.10/Valine.min.js
   chart: https://cdn.bootcss.com/Chart.js/2.9.3/Chart.min.js
   mermaid: https://cdn.bootcss.com/mermaid/8.4.8/mermaid.min.js
-  mathjax: 
-    post: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
-    page: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  mathjax: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
+  katex:
+    css: https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css
+    js: https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js
   simple-jekyll-search: https://cdn.bootcss.com/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
   scrollreveal: https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.min.js
   animate-css: https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css
@@ -48,9 +50,10 @@ unpkg:
   valine: https://unpkg.com/valine@1.3.10/dist/Valine.min.js
   chart: https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js
   mermaid: https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js
-  mathjax: 
-    post: https://unpkg.com/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-AMS-MML_SVG
-    page: https://unpkg.com/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  mathjax: https://unpkg.com/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-AMS-MML_SVG
+  katex:
+    css: https://unpkg.com/katex@0.11.1/dist/katex.min.css
+    js: https://unpkg.com/katex@0.11.1/dist/katex.min.js
   simple-jekyll-search: https://unpkg.com/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
   scrollreveal: https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.min.js
   animate-css: https://unpkg.com/animate.css@3.7.2/animate.min.css
@@ -67,9 +70,10 @@ cdnjs:
   valine: https://cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js
   chart: https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js
   mermaid: https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js
-  mathjax: 
-    post: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
-    page: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  mathjax: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG
+  katex:
+    css: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css
+    js: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js
   simple-jekyll-search: https://cdnjs.cloudflare.com/ajax/libs/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
   scrollreveal: https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.5/scrollreveal.min.js
   animate-css: https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css

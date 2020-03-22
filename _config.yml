@@ -18,11 +18,11 @@ theme_style:
 
 
 # Markdown enhancements settings
-# MathJax rendering for all posts and keynotes
-mathjax: true # false (defaule), true
-# MathJax rendering for layout: page (e.g. post preview)
-page-mathjax: false # false (defaule), true
-chart: true # false (defaule), true
+math: 
+  enable: true # false (default), true 
+               # math rendering for all posts and keynotes
+  engine: # "katex" (default), "mathjax"
+chart: true # false (default), true
 mermaid: true # false (default), true
 emoji-plus: true # false (default), true
 

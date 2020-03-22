@@ -30,7 +30,7 @@
 - 搜索（使用了 [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search)）
 - 文章目录（使用了 [Tocbot](https://github.com/tscanlin/tocbot)）
 - 多种代码高亮主题（使用了 [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme)）
-- 支持在文章中使用 [Mathjax](https://github.com/mathjax/MathJax)、[Chart.js](https://github.com/chartjs/Chart.js) 和 [mermaid](https://github.com/mermaid-js/mermaid)
+- 支持在文章中使用 [Mathjax](https://github.com/mathjax/MathJax)、[Katex](https://github.com/KaTeX/KaTeX)、[Chart.js](https://github.com/chartjs/Chart.js) 和 [mermaid](https://github.com/mermaid-js/mermaid)
 - 文章中的一些附加样式（提示和标签）
 - 支持在文章中使用 emoji（使用了 [jemoji](https://github.com/jekyll/jemoji)）和其他表情（比如 B 站小电视）
 - 评论（[Gitalk](https://github.com/gitalk/gitalk)、[Disqus](https://disqus.com/) 和 [Valine](https://github.com/xCss/Valine)）

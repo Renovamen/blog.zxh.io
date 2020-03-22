@@ -108,7 +108,7 @@ AADB 与其他数据集的比较
 
 但数据量过少。
 
-我并没有找到这个数据集，该论文的 [Github 主页](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"} 上似乎也没有。但论文[^jin_2019]倒是公开了他们用 PCCD 搞了下 knowledge transfer 搞出来的一个更大的弱标注数据集 [DPC-Captions](https://github.com/BestiVictory/DPC-Captions){:target="_blank"}。
+我并没有找到这个数据集，该论文的 [Github 主页](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"}上似乎也没有。但论文[^jin_2019]倒是公开了他们用 PCCD 搞了下 knowledge transfer 搞出来的一个更大的弱标注数据集 [DPC-Captions](https://github.com/BestiVictory/DPC-Captions){:target="_blank"}。
 
 
 
@@ -144,7 +144,7 @@ AROD 与其他数据集的比较
 
 ### 其他
 
-- **Understanding Aesthetics in Photography Using Deep Convolutional neural Networks.** *Maciej Suchecki, and Tomasz Trzciski.* SPA 2017. [[IEEE]](https://ieeexplore.ieee.org/abstract/document/8166855){:target="_blank"} [[Paper]](http://ii.pw.edu.pl/~ttrzcins/papers/SPA_2017.pdf){:target="_blank"}
+- **Understanding Aesthetics in Photography Using Deep Convolutional neural Networks.** *Maciej Suchecki and Tomasz Trzciski.* SPA 2017. [[IEEE]](https://ieeexplore.ieee.org/abstract/document/8166855){:target="_blank"} [[Paper]](http://ii.pw.edu.pl/~ttrzcins/papers/SPA_2017.pdf){:target="_blank"}
 
 
     该论文用的数据集与 AROD 比较类似，从 Flicker 上爬了大概 170 万张图片，定义的美学分数为：
@@ -189,7 +189,7 @@ AROD 与其他数据集的比较
 
 **前景背景对比特征：**
 
-- **Photo and Video Quality Evaluation: Focusing on the Subject.** *Yiwen Luo, and Xiaoou Tang.* ECCV 2008. [[Paper]](http://mmlab.ie.cuhk.edu.hk/pdf/luoT_ECCV08.pdf){:target="_blank"}
+- **Photo and Video Quality Evaluation: Focusing on the Subject.** *Yiwen Luo and Xiaoou Tang.* ECCV 2008. [[Paper]](http://mmlab.ie.cuhk.edu.hk/pdf/luoT_ECCV08.pdf){:target="_blank"}
 
     先把主题区域和背景分离，然后考虑了主题区域和背景的清晰度对比度、亮度对比度等特征，最终提取了 5 维特征。分类器分别使用了朴素贝叶斯、SVM 和 Gentle AdaBoost。从它给出的结果来看效果比上面两篇论文提高了很多。它还顺便用这种方法搞了一下视频质量评估。
 
@@ -309,7 +309,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
 #### 评分分布
 
-- **NIMA: Neural Image Assessment in Keras.** *Hossein Talebi, and Peyman Milanfar.* TIP 2018. [[arxiv]](https://arxiv.org/pdf/1709.05424.pdf){:target="_blank"} [[Blog]](https://ai.googleblog.com/2017/12/introducing-nima-neural-image-assessment.html){:target="_blank"} [[Code (Reproduction)]](https://github.com/titu1994/neural-image-assessment){:target="_blank"}
+- **NIMA: Neural Image Assessment in Keras.** *Hossein Talebi and Peyman Milanfar.* TIP 2018. [[arxiv]](https://arxiv.org/pdf/1709.05424.pdf){:target="_blank"} [[Blog]](https://ai.googleblog.com/2017/12/introducing-nima-neural-image-assessment.html){:target="_blank"} [[Code (Reproduction)]](https://github.com/titu1994/neural-image-assessment){:target="_blank"}
 
 
 - **Predicting Aesthetic Score Distribution through Cumulative Jensen-Shannon Divergence.** *Xin Jin, et al.* AAAI 2018. [[Paper]](http://jinxin.me/downloads/papers/028-AAAI2018/ScoreDestribution.pdf){:target="_blank"} [[Code]](https://github.com/BestiVictory/CJS-CNN){:target="_blank"}

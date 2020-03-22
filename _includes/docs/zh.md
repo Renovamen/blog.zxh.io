@@ -213,7 +213,11 @@ cdn: # "jsdelivr" (default), "bootcdn", "unpkg", "cdnjs"
 ### Markdown 附加功能
 
 ```yaml
-mathjax: # 是否对所有文章启用公式渲染：false (defaule), true
+math: 
+    enable: # 是否对所有文章启用公式渲染
+            # false (default), true 
+    engine: # 公式渲染引擎
+            # "katex" (default), "mathjax"
 chart: # 是否启用 Chart.js：false (defaule), true
 mermaid: # 是否启用 mermaid：false (default), true
 emoji-plus: # 是否启用附加表情：false (default), true
@@ -292,7 +296,7 @@ header-img: # 文章封面图
 header-mask: # 封面图遮罩，格式：rgba(40, 57, 101, .4)
 header-style: text # 如果不想该文章显示封面图，就需要加这一项
 catalog: # 是否显示目录：false (default), true
-mathjax: # 是否开启数学公式渲染
+math: # 是否开启数学公式渲染
 tags: # 标签
   - 标签1
   - 标签2
@@ -300,17 +304,19 @@ tags: # 标签
 ---
 ```
 
-其中 `header-img` 会同时显示在[首页](#首页文章列表)和文章页。`mathjax` 的配置可以参考[这里](#mathjax)。
+其中 `header-img` 会同时显示在[首页](#首页文章列表)和文章页。`math` 的配置可以参考[这里](#数学公式渲染)。
 
 
 
 ### Markdown 附加功能
 
-#### Mathjax
+#### 数学公式渲染
 
-使用了 [Mathjax](https://github.com/mathjax/MathJax){:target="_blank"} 以在文章中渲染数学公式。
+支持使用 [Mathjax](https://github.com/mathjax/MathJax){:target="_blank"} 或 [Katex](https://github.com/KaTeX/KaTeX){:target="_blank"} 来在文章中渲染数学公式。
 
-如果 `_config.yml` 中 `mathjax: true`，则所有文章（包括 Post 和 Keynote）中都会开启公式渲染。否则只有 Front-matter 中添加了 `mathjax: true` 的文章才会开启此功能：
+Katex 渲染速度快于 Mathjax（可以参考[这里](https://katex.org/){:target="_blank"}），但支持的 Tex 公式少于 Mathjax（[这里](https://katex.org/docs/supported.html){:target="_blank"}是 Katex 支持的公式列表）。
+
+如果 `_config.yml` 中 `math.enable: false`，则只有 Front-matter 中添加了 `mathjax: true` 的文章才会开启公式渲染：
 
 ```markdown
 ---
@@ -319,7 +325,13 @@ mathjax: true
 ---
 ```
 
+否则所有文章（包括 `post` 和 `keynote`）中都会开启此功能。
+
 示例：
+
+Inline math: $$ E = mc^2 $$
+
+Display math:
 
 $$
 i\hbar\frac{\partial \psi}{\partial t} = \frac{-\hbar^2}{2m} ( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} ) \psi + V \psi.
@@ -327,6 +339,8 @@ $$
 
 
 ```latex
+$$ E = mc^2 $$
+
 $$
 i \hbar \frac{\partial \psi}{\partial t}
 = \frac{-\hbar^2}{2m} ( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} ) \psi + V \psi
@@ -639,6 +653,7 @@ gem install jemoji
 - [Chart.js](https://github.com/chartjs/Chart.js){:target="_blank"}（[图表](#chartjs)）
 - [mermaid](https://github.com/mermaid-js/mermaid){:target="_blank"}（[图表](#mermaid)）
 - [MathJax](https://github.com/mathjax/MathJax){:target="_blank"}（公式渲染）
+- [Katex](https://github.com/KaTeX/KaTeX){:target="_blank"} （公式渲染）
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search){:target="_blank"}（搜索）
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"}（解决移动设备上的点击延迟问题）
 - [animatedModal.js](https://github.com/joaopereirawd/animatedModal.js){:target="_blank"}（搜索页面弹出动画）

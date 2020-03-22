@@ -1,15 +1,19 @@
 <!-- add support for mathjax by voleking-->
-{% if site.mathjax or page.mathjax %}
-  {% include additional/mathjax.html %}
+{% if site.math.enable or page.math %}
+    {% if site.math.engine == "mathjax" %}
+        {% include additional/mathjax.html %}
+    {% else %}
+        {% include additional/katex.html %}
+    {% endif %}
 {% endif %}
 
 <!-- Renovamen: add support for chart and mermaid -->
 {% if site.chart %}
-  {% include additional/chart.html %}
+    {% include additional/chart.html %}
 {% endif %}
 
 {% if site.mermaid %}
-  {% include additional/mermaid.html %}
+    {% include additional/mermaid.html %}
 {% endif %}
 
 <!-- Renovamen: add support for additional emoji -->

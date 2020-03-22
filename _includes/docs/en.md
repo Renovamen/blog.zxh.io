@@ -225,7 +225,11 @@ cdn: # "jsdelivr" (default), "bootcdn", "unpkg", "cdnjs"
 ### Additional Functions for Markdown
 
 ```yaml
-mathjax: # if to enable mathjax for all articles: false (defaule), true
+math: 
+    enable: # if to enable math rendering for all articles
+            # false (default), true
+    engine: # specify the math rendering engine
+            # "katex" (default), "mathjax"
 chart: # if to enable Chart.js: false (defaule), true
 mermaid: # if to enable mermaid: false (default), true
 emoji-plus: # if to enable additional emoji: false (default), true
@@ -302,7 +306,7 @@ header-img: # path of the cover image
 header-mask: # RGB value of the mask of the cover image, like: rgba(40, 57, 101, .4)
 header-style: text # add this line if you don't want a cover image
 catalog: # if to enable catalog: false (default), true
-mathjax: # if to enable mathjax
+math: # if to enable math rendering
 tags: # tags
   - tag1
   - tag2
@@ -310,27 +314,35 @@ tags: # tags
 ---
 ```
 
-It should be noted that, `header-img` will be shown on both [home page](#post-list) and post page. Refer to [here](#mathjax) for the information about the configuration of `mathjax`.
+It should be noted that, `header-img` will be shown on both [home page](#post-list) and post page. Refer to [here](#math-rendering) for the information about the configuration of `math`.
 
 
 
 ### Additional Functions for Markdown
 
-#### Mathjax
+#### Math Rendering
 
-[Mathjax](https://github.com/mathjax/MathJax){:target="_blank"} is used to display mathematical formulas in articles.
+[Mathjax](https://github.com/mathjax/MathJax){:target="_blank"} and [Katex](https://github.com/KaTeX/KaTeX){:target="_blank"} are supported for rendering mathematical formulas in articles.
 
-Formula displaying will be enabled for all articles (including `post` and `keynote`) when `mathjax: true` is set in `_config.yml`. Otherwise, this function will only be enabled for the articles with `mathjax: true` in their Front-matter:
+Katex is faster than Mathjax (check it out [here](https://katex.org/){:target="_blank"}), but the number of Tex functions it supports is less than Mathjax ([here](https://katex.org/docs/supported.html){:target="_blank"} is all functions supported by Katex).
 
+Math rendering will only be enabled for the articles with `math: true` in their Front-matter when `math.enable: false` is set in `_config.yml`:
 
 ```markdown
 ---
 layout: post
-mathjax: true
+math: true
 ---
 ```
 
+Otherwise, this function will be enabled for all articles (including `post` and `keynote`).
+
+
 Example：
+
+Inline math: $$ E = mc^2 $$
+
+Display math:
 
 $$
 i\hbar\frac{\partial \psi}{\partial t} = \frac{-\hbar^2}{2m} ( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} ) \psi + V \psi.
@@ -338,6 +350,8 @@ $$
 
 
 ```latex
+$$ E = mc^2 $$
+
 $$
 i \hbar \frac{\partial \psi}{\partial t}
 = \frac{-\hbar^2}{2m} ( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} ) \psi + V \psi
@@ -600,7 +614,8 @@ Click to show the BibTex of bibliographies:
 - [Valine](https://github.com/xCss/Valine){:target="_blank"}
 - [Chart.js](https://github.com/chartjs/Chart.js){:target="_blank"} ([charts](#chart-chartjs))
 - [mermaid](https://github.com/mermaid-js/mermaid){:target="_blank"} ([diagrams](#diagram-mermaid))
-- [MathJax](https://github.com/mathjax/MathJax){:target="_blank"} (display formulas)
+- [MathJax](https://github.com/mathjax/MathJax){:target="_blank"} (math rendering)
+- [Katex](https://github.com/KaTeX/KaTeX){:target="_blank"} (math rendering)
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search){:target="_blank"} (search)
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"} (remove click delays on mobile browsers)
 - [animatedModal.js](https://github.com/joaopereirawd/animatedModal.js){:target="_blank"} (pop-up animation of the search page)

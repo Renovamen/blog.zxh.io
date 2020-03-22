@@ -9,7 +9,7 @@
       scale: 90
     },
     tex2jax: {
-      inlineMath: [ ['$','$'] ],
+      inlineMath: [ ['$$','$$'] ],
       displayMath: [ ['$$','$$'] ],
       processEscapes: true,
     }
@@ -18,4 +18,4 @@
 
 {%- include utils/get-cdn.html -%}
 {%- assign _cdn = __return -%}
-<script type="text/javascript" src="{{ _cdn.mathjax.post }}"></script>
+<script type="text/javascript" src="{{ _cdn.mathjax }}"></script>
