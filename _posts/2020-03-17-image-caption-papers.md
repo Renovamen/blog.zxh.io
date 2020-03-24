@@ -74,7 +74,7 @@ $$
 $$
 
 
-其中，$$\gamma$$ 是 ReLU 激活函数，$$W \in R^{n \times n}$$、$$U \in R^{n \times n}$$ 和 $$V \in R^{n \times n}$$ 是需要学习的参数矩阵，$$n$$ 是 LSTM 输出的隐向量的维度（论文里面设的 768）。
+其中，$$\gamma$$ 是 ReLU 激活函数，$$W \in R^{n \times n}$$、$$U \in R^{n \times n}$$ 和 $$V \in R^{n \times n}$$ 是需要学习的参数矩阵，$$n$$ 是 LSTM 输出的隐状态的维数（论文里面设的 768）。
 
 流程图如下：
 
