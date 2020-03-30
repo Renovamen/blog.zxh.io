@@ -141,11 +141,11 @@ samp {
   a {
     // display: inline-block;
     // safari has bugs on word-break on inline elements.
-    color: #337ab7;
+    color: $brand-primary;
     // different to $brand-primary
     &:hover,
     &:focus {
-      color: $brand-primary;
+      color: darken($brand-primary, 10%);
     }
   }
   h1,
@@ -508,6 +508,14 @@ img::-moz-selection {
   -webkit-overflow-scrolling: touch;
 }
 
+// Renovamen: Katex overflow
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Renovamen: diagrams created by mermaid should be in center
 .language-mermaid {
   text-align: center;
 }

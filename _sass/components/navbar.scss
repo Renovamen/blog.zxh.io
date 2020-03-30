@@ -16,37 +16,40 @@
         transition-duration: .5s;
         position: relative;
         overflow: hidden;
-        &.open:before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            background-color: rgba(0, 0, 0, .2);
-            z-index: 3;
-        }
-        &.open {
-            transform: translateX(-250px) translateY(0px);
-            -webkit-transform: translateX(-250px) translateY(0px);
-            position: fixed;
+        box-shadow: -20px 18px 0px 0px rgba(255, 255, 255, .2);
+        &.navOpen {
+            // position: fixed;
             right: 0;
-            left: 0
+            left: 0;
+            @include transform(translateX(250px) translateY(0px) scale(0.9));
         }
+        &.navClose {
+            // position: fixed;
+            right: 0;
+            left: 0;
+            @include transform(translateX(0px) translateY(0px) scale(1));
+        }
+        background-color: #fff;
     }
     .mobile-nav {
-        background-color: #fff;
-        width: 0;
+        // background-color: #fff;
         max-width: 250px !important;
         height: 100%;
         position: absolute;
         top: 0;
-        right: 0;
+        left: 0;
         display: block;
         overflow-x: hidden !important;
         overflow-y: auto;
-        &.open {
-            width: 250px;
-            @include transition(all .3s ease);
+
+        width: 250px;
+        background-color: $brand-primary;
+        z-index: -2;
+
+        p {
+            color: lighten($brand-primary, 50%);
         }
+
         .mobile-menu-avatar {
             position: relative;
             width: 250px;
@@ -54,11 +57,19 @@
             margin: 0 auto;
             padding: 30px 0 20px;
             text-align: center;
-            img {
+            margin-top: 30px;
+            .avatar-container {
                 width: 90px;
                 height: 90px;
-                max-width: 90px;
-                border-radius: 100%
+                margin: 0 auto;
+                border-radius: 100%;
+                background-color: lighten($brand-primary, 40%);
+                box-shadow: 0px 10px 25px 0px rgba(lighten($brand-primary, 40%), 0.27);
+                img {
+                    padding: 2px;
+                    max-width: 100%;
+                    border-radius: 100%
+                }
             }
         }
         .mobile-menu-heading {
@@ -78,15 +89,15 @@
             &:after {
                 content: '';
                 position: absolute;
-                top: 215px;
+                top: 248px;
                 width: 18em;
-                height: 1px;
-                background-color: #d0ddf3;
+                height: 0.05em;
+                background-color: lighten($brand-primary, 50%);
                 left: 50%;
                 @include transform(translateX(-50%));
             }
             .fa-circle {
-                color: #9cacc5; 
+                color: lighten($brand-primary, 10%);
             }
         }
         ul {
@@ -101,6 +112,7 @@
                 a {
                     font-size: 17px;
                     text-decoration: none;
+                    color: lighten($brand-primary, 50%);
                 }
                 ul {
                     width: 250px;
@@ -110,11 +122,8 @@
                         padding: 5px 9px;
                         a {
                             font-size: 16px;
-                            color: #9cacc5;
                             text-decoration: none;
-                            &:hover {
-                                color: $brand-primary;
-                            }
+                            color: lighten($brand-primary, 40%);
                         }
                     }
                 }
@@ -438,25 +447,14 @@
     }
 
     // Renovamen: icon change when navbar menu open (mobile)
-    &.open .icon-bar {
+    &.navOpen .icon-bar {
         margin-top: 3px;
         transform: rotate(-45deg);
         -webkit-transform: rotate(-45deg);
     }
-    &.open .icon-bar + .icon-bar {
+    &.navOpen .icon-bar + .icon-bar {
         margin-top: -2px;
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
     }
-}
-
-.top-scrollbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    display: none;
-    width: 0;
-    height: 2px;
-    background: #fe9600;
 }

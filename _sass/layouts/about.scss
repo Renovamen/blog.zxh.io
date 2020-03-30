@@ -68,7 +68,7 @@
                             @include transition(all ease .1s);
                         }
                         &:hover i {
-                            transform: scale(1.3);
+                            @include transform(scale(1.3));
                         }
                     }
                     @media only screen and (max-width: 768px) {

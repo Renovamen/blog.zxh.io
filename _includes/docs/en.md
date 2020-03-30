@@ -35,6 +35,7 @@ avatar: "img/header-avatar.jpeg" # path of the avatar showing on home page
 ### Theme Style
 ```yaml
 theme_style: 
+  primary_color: # theme primary color, default: #377bb5
   highlight:  # highlight theme
   alert:  # style of alerts
   post_preview: # style of the post list showing on home page

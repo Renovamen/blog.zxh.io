@@ -35,6 +35,7 @@ avatar: "img/header-avatar.jpeg" # 首页头像路径
 ### 主题风格
 ```yaml
 theme_style: 
+  primary_color: # 主题色，default: #377bb5
   highlight:  # 代码高亮主题
   alert:  # 提示风格
   post_preview: # 首页文章列表显示风格

@@ -4,7 +4,9 @@ jsdelivr:
   font-awesome-animation: https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css
   jquery: https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js
   fastclick: https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js
-  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js
+  tocbot: 
+    js: https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js
+    css: https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css
   anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.2.2/anchor.min.js
   gitalk: https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
   valine: https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js
@@ -24,7 +26,9 @@ bootcdn:
   font-awesome-animation: https://cdn.bootcss.com/font-awesome-animation/0.2.1/font-awesome-animation.min.css
   jquery: https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
   fastclick: https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
-  tocbot: https://cdn.bootcss.com/tocbot/4.10.0/tocbot.min.js
+  tocbot: 
+    js: https://cdn.bootcss.com/tocbot/4.10.0/tocbot.min.js
+    css: https://cdn.bootcss.com/tocbot/4.10.0/tocbot.css
   anchor: https://cdn.bootcss.com/anchor-js/4.2.2/anchor.min.js
   gitalk: https://cdn.bootcss.com/gitalk/1.6.0/gitalk.min.js
   valine: https://cdn.bootcss.com/valine/1.3.10/Valine.min.js
@@ -44,7 +48,9 @@ unpkg:
   font-awesome-animation: https://unpkg.com/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css
   jquery: https://unpkg.com/jquery@2.1.3/dist/jquery.min.js
   fastclick: https://unpkg.com/fastclick@1.0.6/lib/fastclick.js
-  tocbot: https://unpkg.com/tocbot@4.10.0/dist/tocbot.min.js
+  tocbot: 
+    js: https://unpkg.com/tocbot@4.10.0/dist/tocbot.min.js
+    css: https://unpkg.com/tocbot@4.10.0/dist/tocbot.css
   anchor: https://unpkg.com/anchor-js@4.2.2/anchor.min.js
   gitalk: https://unpkg.com/gitalk@1.6.0/dist/gitalk.min.js
   valine: https://unpkg.com/valine@1.3.10/dist/Valine.min.js
@@ -64,7 +70,9 @@ cdnjs:
   font-awesome-animation: https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.2.1/font-awesome-animation.min.css
   jquery: https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
   fastclick: https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js
-  tocbot: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.min.js
+  tocbot: 
+    js: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.min.js
+    css: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.css
   anchor: https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js
   gitalk: https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.6.0/gitalk.min.js
   valine: https://cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js

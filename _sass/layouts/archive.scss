@@ -63,14 +63,14 @@
         &:hover,
         &:active,
         &.focus {
-            background-color: #377bb5 !important;
+            background-color: $brand-primary !important;
         }
         &.focus{
             box-shadow: rgba(0,0,0,.117647) 0 1px 6px, rgba(0,0,0,.239216) 0 1px 4px;
         }
         &.tag-button--all {
             font-weight: 700;
-            color: #377bb5 !important;
+            color: $brand-primary !important;
             &:hover, &:active, &.focus{
                 background-color: #e4e4e4 !important;
             }
@@ -99,7 +99,7 @@
 }
 
 .listing-seperator {
-    color: #377bb5;
+    color: $brand-primary;
     font-size: 21px !important;
     &::before {
         margin-right: 5px;

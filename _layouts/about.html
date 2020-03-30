@@ -81,7 +81,9 @@ layout: default
     </div>
 
     <div class="down faa-float animated">
-        <a onclick="scrollDown()" data-scroll><i class="fa fa-chevron-down"></i></a>
+        <a onclick="smoothTo('#other-info')">
+            <i class="fa fa-chevron-down"></i>
+        </a>
     </div>
     <div class="border" id="other-info"></div>
 
@@ -151,13 +153,6 @@ layout: default
 
 
 <script>
-    function scrollDown() {
-        var coverOffset = $('#other-info').offset().top
-        $('html, body').animate({
-            scrollTop: coverOffset
-        }, 400)
-    }
-
     // about-header 高度适配
     function headerResize() {
         //console.log(document.body.clientWidth)

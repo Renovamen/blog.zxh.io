@@ -1,6 +1,8 @@
 <div class="mobile-nav">
     <div class="mobile-menu-avatar">
-        <img src="{{site.baseurl}}/img/header-avatar.jpeg">
+        <div class="avatar-container">
+            <img src="{{site.baseurl}}/img/header-avatar.jpeg">
+        </div>
     </div>
     <p class="mobile-menu-heading">Meow?</p>
     {% include sns-links.html center=true %}
@@ -31,17 +33,5 @@
             {% endif %}
         </li>
         {% endfor %}
-        <li>
-            <a id="search-btn-mobile" href="#search" class="faa-parent animated-hover" onclick="autoFocus()">
-                <i class="fas fa-search fa-lg faa-wrench"></i> Search
-            </a>
-        </li>
     </ul>
 </div>
-
-<script>
-$('.navbar-toggle').on('click', function () {
-    $('body').toggleClass('navOpen')
-    $('.main-container, .mobile-nav, .navbar-toggle').toggleClass('open')
-})
-</script>

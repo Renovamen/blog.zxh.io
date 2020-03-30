@@ -137,7 +137,7 @@
     </a>
 
     <div class="headertop-down faa-float animated"> 
-        <a onclick="scrollDown()" data-scroll>
+        <a onclick="smoothTo('#container')">
             <i class="fas fa-chevron-down" ></i>
         </a>
     </div>
@@ -199,13 +199,6 @@
 
 {% if page.homepage %}
 <script>
-    function scrollDown() {
-        var coverOffset = $('#container').offset().top
-        $('html, body').animate({
-            scrollTop: coverOffset
-        }, 500)
-    }
-
     // resize header's height
     function headerResize() {
         if(document.body.clientWidth >= 1024) {

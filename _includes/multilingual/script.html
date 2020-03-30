@@ -20,8 +20,9 @@
             $en.classList.add("active");
             $zh.style.display = "none";
             $zh.classList.remove("active");
+        }
         // zh by default
-        }else{
+        else {
             // not trigger onChange, otherwise cause a loop call.
             $select.selectedIndex = 0;
             $zh.style.display = "block";
@@ -30,7 +31,9 @@
             $en.classList.remove("active");
         }
         // interop with catalog 
-        if ("{{ page.catalog }}") generateCatalog(".catalog-body");
+        if ("{{ page.catalog }}") {
+            generateCatalog();
+        }
     }
 
     // handle select change

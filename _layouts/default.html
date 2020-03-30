@@ -6,17 +6,21 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
 
-    <section class="main-container">
-    {% include nav.html %}
+    <div class="main-container">
+    {% include navbar/nav.html %}
 
     {{ content }}
 
     {% include footer.html %}
-    </section>
+    </div>
 
-    {% include mobile-nav.html %}
+    <!-- Renovamen: modify styles of navbar on mobile -->
+    {% include navbar/mobile-nav.html %}
 
-    <!-- Renovamen: support search -->
+    <!-- add menu button -->
+    {% include menu.html %}
+
+    <!-- support search -->
     {% include search.html %}
 
     {%- include utils/get-cdn.html -%}
@@ -26,8 +30,9 @@
     <link rel="stylesheet" href="{{ _cdn.animate-css }}">
 
     <script>
+        // search page pop out animation
         $("#search-btn").animatedModal();
-        $("#search-btn-mobile").animatedModal();
+        $("#menu-search-btn").animatedModal();
 
         function autoFocus() {
             setTimeout(function () {
@@ -35,9 +40,6 @@
             }, 400);
         }
     </script>
-
-    <!-- Renovamen: support go to top -->
-    {% include cd-top.html %}
     
 <!-- Migrate from head to bottom, no longer block render and still work -->
 

@@ -1,0 +1,53 @@
+<div class="menu-btn-container">
+    <div class="menu-btn-wrapper">
+        <div class="menu-btn">
+            <div class="menu-btn-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-text"></div>
+            <svg class="menu-svg">
+                <circle class="menu-border" cx="50%" cy="50%" r="48%"></circle>
+            </svg>
+        </div>
+        <div class="menu-btn-child-wrapper">
+            <div class="menu-btn-child" id="menu-search-btn" href="#search" onclick="autoFocus()">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="menu-btn-child" onclick="smoothTo('bottom')">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="menu-btn-child" onclick="smoothTo('top')">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            {% if page.layout == 'post' or page.layout == 'keynote' %}
+            {% if page.catalog %}
+            <div class="menu-btn-child" id="menu-toc-btn">
+                <i class="fas fa-list-ul"></i>
+            </div>
+            {% endif %}
+            {% endif %}
+            <div class="menu-btn-child" id="menu-navbar-btn">
+                <i class="far fa-window-restore"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // open menu
+    $('.menu-btn').click(function() {
+        $('.menu-btn-container').toggleClass('open');
+    });
+    
+    // open navbar
+    $('#menu-navbar-btn').click(function() {
+        mobileNavToggle("{{ site.theme_style.primary_color | default: '#377bb5' }}");
+    });
+
+    // open catalog
+    $('#menu-toc-btn').click(function() {
+        $('.mobile-catalog').toggleClass('open');
+    });
+</script>

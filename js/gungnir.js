@@ -84,9 +84,80 @@ jQuery(document).ready(function($) {
     }
 });
 
-// Renovamen: add top scrollbar controler
+// Renovamen: add following things
+
+// smooth scroll to top or bottom
+function smoothTo(target) {
+    var coverOffset;
+    if (target == 'top') coverOffset = 0;
+    else if (target == 'bottom') coverOffset = $('html').height();
+    else coverOffset = $(target).offset().top;
+    $('body, html').animate({
+        scrollTop: coverOffset,
+    }, 500);
+}
+
+// open or close navbar on mobile
+function mobileNavToggle(bgColor) {
+    // $('body').toggleClass('navOpen')
+    // $('.navbar-toggle').toggleClass('navOpen')
+
+    // close navbar
+    if ($('.main-container').hasClass('navOpen')) {
+        $('.main-container').removeClass('navOpen')
+        $('.main-container').addClass('navClose')
+        // when transition end
+        setTimeout(function (){
+            $('body').css("background-color", "#fff")
+            $('.main-container').css({
+                "position": "relative",
+                "border-radius": "0",
+            })
+            /*
+                It is hard to explain why I add 'navClose' and then remove it ...
+                but it really can solve the conflicts between navbar and catalog,
+                and avoid some bad animations when the blog is displayed on mobile ...
+            */
+            $('.main-container').removeClass('navClose')
+        }, 550)
+    }
+    // open navbar
+    else {
+        $('body').css("background-color", bgColor)
+        $('.main-container').css({
+            "position": "fixed",
+            "border-radius": "10px",
+        })
+        $('.main-container').addClass('navOpen')
+        // $('.main-container').removeClass('navClose')
+    }
+}
+
+// progress showing on menu
+function menuListener() {
+    // scroll percent
+    var percent = $(this).scrollTop() / ($(document).height() - $(this).height()) * 100;
+    if (percent > 100) percent = 100;
+  
+    $menuText = $('.menu-text');
+    $menuBtn = $('.menu-btn-icon');
+    if (!percent) {
+        percent = 0;
+        $menuText.css('display','none');
+        $menuBtn.css('display','block');
+    } 
+    else {
+        $menuText.css('display','block');
+        $menuText.text(Math.round(percent) + '%');
+        $menuBtn.css('display','none');
+    }
+  
+    // update strokeDasharray
+    $('.menu-border').css('stroke-dasharray', 3.1415926 * (percent || 0) + '% 314.15926%')
+};
+  
 $(document).ready(function () {
     $(window).scroll(function(){
-        $(".top-scrollbar").attr("style", "width: " + ($(this).scrollTop() / ($(document).height() - $(this).height()) * 100) + "%; display: block;");
+        menuListener();
     });
 });

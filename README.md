@@ -4,7 +4,7 @@ My blog. Also a theme for Jekyll. It is derived from [Huxpro/huxpro.github.io](h
 
 **Gungnir** is the spear of the god Odin in Norse mythology.
 
-[中文说明](README-CH.md) | English Intro
+[中文说明](README-CN.md) | English Intro
 
 ![preview](docs/preview.jpg)
 

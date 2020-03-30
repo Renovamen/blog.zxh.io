@@ -9,11 +9,20 @@
     I'm trying to find a better solution.
 -->
 
-<link href="{{ "/css/library/tocbot.css" | prepend: site.baseurl }}" rel="stylesheet" type="text/css">
-<script src="{{ _cdn.tocbot }}"></script>
+<link href="{{ _cdn.tocbot.css }}" rel="stylesheet" type="text/css">
+<script src="{{ _cdn.tocbot.js }}"></script>
 
 <script type="text/javascript">
-    function generateCatalog (selector) {
+    function generateCatalog() {
+
+        // responsive
+        if(document.body.clientWidth >= 1200) {
+            selector = ".catalog-body";
+        }
+        else {
+            selector = ".mobile-catalog-body";
+        }
+
         // links page
         if('{{ page.layout }}' == 'links') {
             _containerSelector = 'div.link-list'
@@ -38,7 +47,18 @@
         });
         return true;
     }
-    generateCatalog(".catalog-body");
+    
+    document.addEventListener('DOMContentLoaded', function(){
+        generateCatalog();
+    })
+    window.addEventListener('load', function(){
+        generateCatalog();
+    })
+    window.addEventListener('resize', function(){
+        generateCatalog();
+    })
+
+    generateCatalog();
 
     // toggle side catalog
     $(".catalog-toggle").click((function(e){

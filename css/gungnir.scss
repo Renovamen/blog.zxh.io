@@ -2,6 +2,8 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
+$brand-primary: {{ site.theme_style.primary_color | default: '#377bb5' }};
+
 @import 
     "common/variables",
     "common/mixins",
@@ -9,11 +11,11 @@
     "components/sidebar",
     "components/side-catalog",
     "components/snackbar",
-    "components/cd-top",
     "components/search",
     "components/navbar",
     "components/postlist",
     "components/intro-header",
+    "components/menu",
 
     "layouts/archive",
     "layouts/portfolio",
