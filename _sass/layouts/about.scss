@@ -1,13 +1,16 @@
 
 .about-page {
     @include gungnir-font();
-    margin-top: 150px;
+    // margin-top: 150px;
     min-height: 550px;
     h1, h2, h3, h4, h5, h6, p {
         @include gungnir-font();
     }
     p {
         line-height: 1.61em;
+    }
+    .about-blank {
+        height: 150px;
     }
     .about-title {
         font-weight: 600;

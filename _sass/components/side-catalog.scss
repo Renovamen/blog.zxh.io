@@ -20,7 +20,7 @@
         color: #797878 !important;
     }
     .catalog-toggle::before {
-        content: "−";
+        content: "-";
         position: relative;
         margin-right: 5px;
         bottom: 1px;
@@ -79,7 +79,7 @@
 $mobile-catalog-width: 280px;
 
 .mobile-catalog {
-    @include transition(all .5s);
+    @include transition(all ease .5s);
     max-width: $mobile-catalog-width !important;
     height: 100%;
     position: fixed;

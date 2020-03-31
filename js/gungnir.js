@@ -90,7 +90,7 @@ jQuery(document).ready(function($) {
 function smoothTo(target) {
     var coverOffset;
     if (target == 'top') coverOffset = 0;
-    else if (target == 'bottom') coverOffset = $('html').height();
+    else if (target == 'bottom') coverOffset = $(document).height();
     else coverOffset = $(target).offset().top;
     $('body, html').animate({
         scrollTop: coverOffset,
@@ -98,39 +98,21 @@ function smoothTo(target) {
 }
 
 // open or close navbar on mobile
+// TO DO: don't let the page go to top when open the navbar on mobile ...
+// ... haven't came out with any idea ...
 function mobileNavToggle(bgColor) {
-    // $('body').toggleClass('navOpen')
-    // $('.navbar-toggle').toggleClass('navOpen')
-
     // close navbar
-    if ($('.main-container').hasClass('navOpen')) {
-        $('.main-container').removeClass('navOpen')
-        $('.main-container').addClass('navClose')
+    if ($('.main-container').hasClass('open')) {
+        $('.main-container').css("overflow-y", "hidden") // some messy code for bettter animation effect...
         // when transition end
         setTimeout(function (){
             $('body').css("background-color", "#fff")
-            $('.main-container').css({
-                "position": "relative",
-                "border-radius": "0",
-            })
-            /*
-                It is hard to explain why I add 'navClose' and then remove it ...
-                but it really can solve the conflicts between navbar and catalog,
-                and avoid some bad animations when the blog is displayed on mobile ...
-            */
-            $('.main-container').removeClass('navClose')
-        }, 550)
+            $('.main-container').css("overflow-y", "")
+        }, 500)
     }
     // open navbar
-    else {
-        $('body').css("background-color", bgColor)
-        $('.main-container').css({
-            "position": "fixed",
-            "border-radius": "10px",
-        })
-        $('.main-container').addClass('navOpen')
-        // $('.main-container').removeClass('navClose')
-    }
+    else $('body').css("background-color", bgColor)
+    $('.mobile-nav, .main-container').toggleClass('open')
 }
 
 // progress showing on menu
@@ -141,7 +123,7 @@ function menuListener() {
   
     $menuText = $('.menu-text');
     $menuBtn = $('.menu-btn-icon');
-    if (!percent) {
+    if (isNaN(percent) || Math.round(percent) <= 0) {
         percent = 0;
         $menuText.css('display','none');
         $menuBtn.css('display','block');
@@ -160,4 +142,7 @@ $(document).ready(function () {
     $(window).scroll(function(){
         menuListener();
     });
+    // $('body').css("width", $(window).height() + "px");
 });
+
+$('.main-container').css("height", $(window).height() + "px");

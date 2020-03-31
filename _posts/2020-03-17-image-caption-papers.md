@@ -64,7 +64,7 @@ $$
 其中，每个 $$\tau$$ 下的 $$\alpha_{lt}^{\tau}$$ 需要在 Soft Attention 中生成，公式为：
 
 $$
-e_{lt}^{\tau} = A(g_{\tau-1}, h_{lt}) = W_{\gamma} (Ug_{\tau−1} + Vh_{lt})
+e_{lt}^{\tau} = A(g_{\tau-1}, h_{lt}) = W_{\gamma} (Ug_{\tau-1} + Vh_{lt})
 $$
 
 然后把 $$e_{lt}^{\tau}$$ 归一化后就得到了 $$\alpha_{lt}^{\tau}$$：
@@ -253,26 +253,26 @@ LSTM 结构：
 推导公式：
 
 $$
-i_t = \sigma (W_i E y_{t−1} + U_i h_{t−1} + Z_i \hat{z}_t + b_i)
+i_t = \sigma (W_i E y_{t-1} + U_i h_{t-1} + Z_i \hat{z}_t + b_i)
 $$
 
 $$
-f_t = \sigma (W_f E y_{t−1} + U_f h_{t−1} + Z_f \hat{z}_t + b_f )
+f_t = \sigma (W_f E y_{t-1} + U_f h_{t-1} + Z_f \hat{z}_t + b_f )
 $$
 
 $$
-c_t = f_t c_{t−1} + i_t \text{tanh} (W_c E y_{t−1} + U_c h_{t−1} + Z_c \hat{z}_t + b_c)
+c_t = f_t c_{t-1} + i_t \text{tanh} (W_c E y_{t-1} + U_c h_{t-1} + Z_c \hat{z}_t + b_c)
 $$
 
 $$
-o_t = \sigma (W_o E y_{t−1} + U_o h_{t−1} + Z_o \hat{z}_t + b_o)
+o_t = \sigma (W_o E y_{t-1} + U_o h_{t-1} + Z_o \hat{z}_t + b_o)
 $$
 
 $$
 h_t = o_t \text{tanh} (c_t)
 $$
 
-**存疑：**虽然在图和推导式里，上一步输出 $$y_{t−1}$$ 也参与了这一步的计算，但代码里似乎没有参与，当然也不排除我理解错了代码...
+**存疑：**虽然在图和推导式里，上一步输出 $$y_{t-1}$$ 也参与了这一步的计算，但代码里似乎没有参与，当然也不排除我理解错了代码...
 
 跟正常 LSTM 的区别是用 context vector $$\hat{z}_t$$ 来代替了当前输入 $$x_t$$。$$\hat{z}_t$$ 由 $$\phi$$ 函数对 $$\{ \bold{a}_1, ..., \bold{a}_L \}$$ 进行一些加权得到，$$\alpha_i$$ 为 $$\bold{a}_i$$ 的权重：
 
@@ -312,7 +312,7 @@ $$
 所以 Soft Attention 网络的训练目标是要最小化以下惩罚函数：
 
 $$
-L_d = − \log(p(y \text{\textbar} \bold{a})) + \lambda \sum_i^L (1 - \sum_t^C \alpha_{ti})^2
+L_d = - \log(p(y \text{\textbar} \bold{a})) + \lambda \sum_i^L (1 - \sum_t^C \alpha_{ti})^2
 $$
 
 细胞状态和隐状态初始值为（$$f_{init, c}$$ 和 $$f_{init, h}$$ 都是 MLP）：

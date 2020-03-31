@@ -25,11 +25,6 @@ $longer-time: ($time*2);
 	width: $menu-btn-size;
 	height: $menu-btn-size;
 	z-index: 4;
-    
-    @media only screen and (max-width: 480px) {
-        bottom: 10px;
-	    right: 10px;
-    }
 
 	.menu-btn-wrapper {
 		position: relative;
@@ -69,8 +64,8 @@ $longer-time: ($time*2);
 
 			span {
 				width: 3px;
-				transition: margin $time, transform $time, border-radius $time $longer-time,
-					        height $time $longer-time;
+				$menu-btn-open-transition: margin $time, transform $time, border-radius $time, height $time $longer-time;
+				@include transition($menu-btn-open-transition);
 
 				&:first-child,
 				&:last-child {
@@ -80,7 +75,7 @@ $longer-time: ($time*2);
 				}
 
 				&:first-child {
-					transform: translate(-50%, -50%) rotate(45deg);
+					@include transform(translate(-50%, -50%) rotate(45deg));
 				}
 
 				&:nth-of-type(2) {
@@ -88,13 +83,13 @@ $longer-time: ($time*2);
 				}
 
 				&:last-child {
-					transform: translate(-50%, -50%) rotate(-45deg);
+					@include transform(translate(-50%, -50%) rotate(-45deg));
 				}
 			}
 		}
 
 		.menu-btn-child-wrapper {
-			transform: translateX((-$menu-btn-radius));
+			@include transform(translateX((-$menu-btn-radius)));
 			transition-delay: 0s;
 		}
 
@@ -163,27 +158,32 @@ $longer-time: ($time*2);
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 5px;
-		height: 5px;
+		// @include transform(translate(-50%, -50%));
+
+		$menu-btn-point-size: 5px;
+		width: $menu-btn-point-size;
+		height: $menu-btn-point-size;
+		margin-left: - $menu-btn-point-size/2;
+		margin-top: - $menu-btn-point-size/2;
         // background-color: $menu-btn-primary-color;
         background-color: #fff;
 		border-radius: 50%;
-		transition: height $time, transform $longer-time, margin $time $longer-time,
-			        background-color $longer-time, border-radius $longer-time;
+		$menu-btn-transition: height $time, transform $time $longer-time, margin $time $longer-time,
+								background-color $longer-time, border-radius $longer-time;
+		@include transition($menu-btn-transition);
 
 		&:first-child {
-			margin-left: -10px;
+			margin-left: -10px - $menu-btn-point-size/2;
 		}
 
 		&:last-child {
-			margin-left: 10px;
+			margin-left: 10px - $menu-btn-point-size/2;
 		}
 	}
 }
 
 .menu-btn-child-wrapper {
-	transition: transform 0.3s $bounce $delay;
+	@include transition(transform 0.3s $bounce $delay);
     z-index: 4;
     width: 80%;
     height: 80%;
@@ -204,7 +204,7 @@ $longer-time: ($time*2);
     // border: 3px solid $menu-btn-gray;
     background-color: $menu-btn-gray;
 	transform-origin: $menu-btn-transform-origin;
-	transition: all $time $bezier;
+	@include transition(all $time $bezier);
 
     &:nth-child(2),
     &:nth-child(5) {
@@ -223,6 +223,6 @@ $longer-time: ($time*2);
 	i {
 		opacity: 0;
 		visibility: hidden;
-		transition: all $longer-time $bezier calc((-$delay)/2);
+		@include transition(all $longer-time $bezier calc((-$delay)/2));
 	}
 }

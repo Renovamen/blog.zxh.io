@@ -65,6 +65,7 @@ var createSnackbar = (function() {
     // In order for the animations to trigger, I have to force the original style to be computed, and then change it.
     getComputedStyle(snackbar).bottom;
     snackbar.style.bottom = '0px';
+    snackbar.style.left = '0px';
     snackbar.style.opacity = 1;
   };
 })();

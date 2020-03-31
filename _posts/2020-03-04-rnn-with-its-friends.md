@@ -86,14 +86,14 @@ $$W^o, b_o$$ 没有长期依赖，所以偏导好求一些：
 $$
 \frac{\partial L}{\partial W^o}
 = \sum_{t=1}^n \frac{\partial L_t}{\partial W^o}
-= \sum_{t=1}^n (\hat{y}_t − y_t)(h_t)^T
+= \sum_{t=1}^n (\hat{y}_t - y_t)(h_t)^T
 (= \sum_{t=1}^n \frac{\partial L_t}{\partial o_t} \cdot \frac{\partial o_t}{\partial W^o})
 $$
 
 $$
 \frac{\partial L}{\partial b_o} 
 = \sum_{t=1}^n \frac{\partial L_t}{\partial b^o}
-= \sum_{t=1}^n \hat{y}_t − y_t
+= \sum_{t=1}^n \hat{y}_t - y_t
 $$
 
 
@@ -110,15 +110,15 @@ $$
   $$
 
   $$
-  = (W^o)^T(\hat{y}_t − y_t) + (\frac{\partial h_{t+1}}{\partial z_{t+1}} \frac{\partial z_{t+1}}{\partial h_t})^T \frac{\partial L}{\partial h_{t+1}}
+  = (W^o)^T(\hat{y}_t - y_t) + (\frac{\partial h_{t+1}}{\partial z_{t+1}} \frac{\partial z_{t+1}}{\partial h_t})^T \frac{\partial L}{\partial h_{t+1}}
   $$
 
   $$
-  = (W^o)^T(\hat{y}_t − y_t) + (\text{diag} (1 - h_{t+1})^2 W^h)^T \frac{\partial L}{\partial h_{t+1}}
+  = (W^o)^T(\hat{y}_t - y_t) + (\text{diag} (1 - h_{t+1})^2 W^h)^T \frac{\partial L}{\partial h_{t+1}}
   $$
 
   $$
-  = (W^o)^T(\hat{y}_t − y_t) + (W^h)^T \text{diag} (1 - h_{t+1})^2 \frac{\partial L}{\partial h_{t+1}}
+  = (W^o)^T(\hat{y}_t - y_t) + (W^h)^T \text{diag} (1 - h_{t+1})^2 \frac{\partial L}{\partial h_{t+1}}
   $$
 
 - 当 $$t = n$$ 时，因为已经是最后一个时刻了，所以：
@@ -126,7 +126,7 @@ $$
   $$
   \frac{\partial L}{\partial h_n} 
   = (\frac{\partial o_n}{\partial h_n})^T \frac{\partial L}{\partial o_n}
-  = (W^o)^T(\hat{y}_n − y_n)
+  = (W^o)^T(\hat{y}_n - y_n)
   $$
 
 然后 $$W^h, W^x, b_o$$ 的梯度为：

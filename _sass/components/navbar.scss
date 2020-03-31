@@ -8,43 +8,41 @@
   
 .main-container {
     height: 100%;
-    overflow: hidden;
+    // overflow: hidden;
+    background-color: #fff;
 }
   
 @media(max-width: 991px) {
     .main-container {
-        transition-duration: .5s;
+        $nav-transition: transform .5s, border-radius 1s;
+        @include transition($nav-transition);
         position: relative;
-        overflow: hidden;
+        // height will be set to $(window).height() in gungnir.js
+        // overflow-y: scroll;
+        // overflow-x: hidden;
         box-shadow: -20px 18px 0px 0px rgba(255, 255, 255, .2);
-        &.navOpen {
-            // position: fixed;
-            right: 0;
-            left: 0;
+        &.open {
             @include transform(translateX(250px) translateY(0px) scale(0.9));
+            border-radius: 10px;
+            overflow-y: hidden;
         }
-        &.navClose {
-            // position: fixed;
-            right: 0;
-            left: 0;
-            @include transform(translateX(0px) translateY(0px) scale(1));
-        }
-        background-color: #fff;
     }
     .mobile-nav {
-        // background-color: #fff;
+        position: absolute;
+        width: 250px;
         max-width: 250px !important;
         height: 100%;
-        position: absolute;
         top: 0;
-        left: 0;
+        left: -250px;
         display: block;
         overflow-x: hidden !important;
         overflow-y: auto;
-
-        width: 250px;
         background-color: $brand-primary;
-        z-index: -2;
+        @include transition(transform .5s);
+
+        &.open {
+            @include transform(translateX(250px));
+        }
 
         p {
             color: lighten($brand-primary, 50%);
