@@ -6,6 +6,9 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
 
+    <!-- Renovamen: add menu button -->
+    {% include menu.html %}
+
     <div class="main-container">
     {% include navbar/nav.html %}
 
@@ -14,11 +17,8 @@
     {% include footer.html %}
     </div>
 
-    <!-- Renovamen: modify styles of navbar on mobile -->
+    <!-- modify styles of navbar on mobile -->
     {% include navbar/mobile-nav.html %}
-
-    <!-- add menu button -->
-    {% include menu.html %}
 
     <!-- support search -->
     {% include search.html %}
@@ -30,9 +30,14 @@
     <link rel="stylesheet" href="{{ _cdn.animate-css }}">
 
     <script>
-        // search page pop out animation
-        $("#search-btn").animatedModal();
-        $("#menu-search-btn").animatedModal();
+        var animateOpt = {
+            animatedIn:'slideInUp',
+            animatedOut:'slideOutDown',
+            animationDuration: '.25s',
+        }
+        // search page pop animation
+        $("#search-btn").animatedModal(animateOpt);
+        $("#mobile-search-btn").animatedModal(animateOpt);
 
         function autoFocus() {
             setTimeout(function () {

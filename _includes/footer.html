@@ -5,7 +5,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <!-- SNS Link -->
                 <!-- {% include sns-links.html center=true %} -->
-                <p class="copyright text-muted">
+                <p class="copyright">
                     &copy; <a href="https://github.com/Renovamen" target="_blank">Renovamen</a> 2018
                     <br>
                     Powered by Jekyll & <a href="https://github.com/Renovamen/renovamen.github.io" target="_blank">Gungnir</a>
@@ -24,8 +24,11 @@
 <!-- Renovamen: Maybe don't need this anymore -->
 <!-- <script src="{{ "/js/library/bootstrap.min.js " | prepend: site.baseurl }}"></script> -->
 
+<!-- add dark / light detection -->
+{% include theme.html %}
+
 <!-- Theme JavaScript -->
-<script src="{{ "/js/gungnir.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/gungnir.min.js" | prepend: site.baseurl }}"></script>
 
 <!-- Service Worker -->
 {% if site.service-worker %}
@@ -94,7 +97,6 @@
 
 <!-- Side Catalog -->
 {% if page.catalog %}
-    {% include catalog/mobile-container.html %}
     {% include catalog/script.html %}
 {% endif %}
 

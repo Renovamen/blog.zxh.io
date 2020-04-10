@@ -163,7 +163,7 @@ SEARCH CLASS(GROUP) MASK(DIV16)
 
    在 OPTION3.4 中 DSN Level 输入 TSO1601 回车，看是否显示其 "ALIAS"，如果出现类似下面的结果则表明 ALIAS 创建成功：
 
-   ```powershell
+   ```bash
    DSLIST - Data Sets Matching TSO1601                       Row 1 of 3
    
    Command - Enter "/" to select action           Message        Volume
@@ -452,7 +452,7 @@ LISTDSD DATASET('RES16PRD.**') ALL
 
 创建一个顺序数据集 RES16PRD.DATA (RECFM=FB, LRECL=80) 和 RES16TST.DATA (RECFM=FB, LRECL=80) 
 
-```powershell
+```
                         Allocate New Data Set
 Data Set Name  . . . : RESxxPRD.DATA
 Management class . . .       (Blank for default management class)

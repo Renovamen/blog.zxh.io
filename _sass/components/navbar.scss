@@ -9,7 +9,7 @@
 .main-container {
     height: 100%;
     // overflow: hidden;
-    background-color: #fff;
+    background-color: transparent;
 }
   
 @media(max-width: 991px) {
@@ -20,7 +20,6 @@
         // height will be set to $(window).height() in gungnir.js
         // overflow-y: scroll;
         // overflow-x: hidden;
-        box-shadow: -20px 18px 0px 0px rgba(255, 255, 255, .2);
         &.open {
             @include transform(translateX(250px) translateY(0px) scale(0.9));
             border-radius: 10px;
@@ -130,7 +129,7 @@
         .footer {
             text-align: center; 
             font-size: 13px; 
-            color: #b9b9b9;
+            color: var(--body-gray);
         }
     }
 }
@@ -273,7 +272,7 @@
             }
             .sub-menu {
                 display: none;
-                background: white;
+                background: var(--bg);
                 list-style-type: none;
                 position: absolute;
                 padding: 10px 0;
@@ -282,18 +281,18 @@
                 margin-left: -50px;
                 width: 105px;
                 border-radius: 5px;
-                box-shadow: 0 1px 40px -8px rgba(0, 0, 0, .5);
+                box-shadow: var(--dropdown-shadow);
                 -webkit-animation: fadeIn .3s .1s ease both;
                 -moz-animation: fadeIn .3s .1s ease both;
                 li {
                     margin-left: -9px;
                     padding: 5px 0;
                     a {
-                        color: $gray-dark;
+                        color: var(--body-color);
                         &:hover,
                         &:active,
                         &:focus {
-                            color: $brand-primary;
+                            color: var(--primary-color);
                         }
                     }
                 }
@@ -305,7 +304,7 @@
                     margin-left: -10px;
                     border-width: 10px;
                     border-style: solid;
-                    border-color: transparent transparent white transparent;
+                    border-color: transparent transparent var(--bg) transparent;
                 }
             }
         }
@@ -342,32 +341,32 @@
         }
     }
     &.invert {
-      .navbar-toggle {
-        &:active {
-          background-color: rgba(0, 0, 0, 0.05);
+        .navbar-toggle {
+            &:active {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+            .icon-bar{
+                background-color: var(--body-color);
+            }
         }
-        .icon-bar{
-          background-color: $gray-dark;
-        }
-      }
-      .navbar-brand {
-        color: $gray-dark;
-        &:hover,
-        &:focus {
-          color: $brand-primary;
-        }
-      }
-      .nav {
-        li {
-          a {
-            color: $gray-dark;
+        .navbar-brand {
+            color: var(--body-color);
             &:hover,
             &:focus {
-              color: $brand-primary;
+                color: var(--primary-color);
             }
-          }
         }
-      }
+        .nav {
+            li {
+                a {
+                    color: var(--body-color);
+                    &:hover,
+                    &:focus {
+                        color: var(--primary-color);
+                    }
+                }
+            }
+        }
     }
     @media only screen and (min-width: 1170px) {
         @include transition(background-color 0.3s);
@@ -379,25 +378,25 @@
             /* when the user scrolls down, we hide the header right above the viewport */
             position: fixed;
             top: -61px;
-            background-color: rgba(white, .9);
-            border-bottom: 1px solid darken(white, 5%);
+            background-color: var(--bg-transparent);
+            border-bottom: 1px solid var(--border-color);
             -webkit-transition: -webkit-transform 0.3s;
             -moz-transition: -moz-transform 0.3s;
             transition: transform 0.3s;
             .navbar-brand {
-                color: $gray-dark;
+                color: var(--body-color);
                 &:hover,
                 &:focus {
-                    color: $brand-primary;
+                    color: var(--primary-color);
                 }
             }
             .nav {
                 li {
                     a {
-                        color: $gray-dark;
+                        color: var(--body-color);
                         &:hover,
                         &:focus {
-                            color: $brand-primary;
+                            color: var(--primary-color);
                         }
                     }
                 }

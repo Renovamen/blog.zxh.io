@@ -7,15 +7,15 @@
         .post-heading,
         .page-heading {
             padding: 85px 0 20px;
-            color: $gray-dark;
+            color: var(--body-color);
             .subheading{
                 margin-bottom: 15px;
             }
         }
         .tags {
             a, .tag {
-                border-color: $gray-dark;
-                color: $gray-dark;
+                border-color: var(--body-color);
+                color: var(--body-color);
                 &:hover,
                 &:active {
                     background-color: rgba(0, 0, 0, 0.05);
@@ -252,7 +252,7 @@
         position: absolute;
         bottom: 20px;
         left: 50%;
-        margin-left: -22px;
+        margin-left: -20px;
         cursor: pointer;
         @media only screen and (max-width: 1023px) {
             display: none

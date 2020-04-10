@@ -35,7 +35,6 @@ avatar: "img/header-avatar.jpeg" # path of the avatar showing on home page
 ### Theme Style
 ```yaml
 theme_style: 
-  primary_color: # theme primary color, default: #377bb5
   highlight:  # highlight theme
   alert:  # style of alerts
   post_preview: # style of the post list showing on home page
@@ -43,7 +42,29 @@ theme_style:
 
 #### Highlight Theme
 
-[Tomorrow](https://github.com/chriskempson/tomorrow-theme){:target="_blank"} is used as highlight theme:
+The default highlight theme looks like this:
+
+```python
+import food
+
+class Dragon:
+    def __init__(self, happiness):
+        self.happiness = happiness
+    def code(self):
+        """ just code """
+        self.happiness -= 60
+    def eat(self, n)
+        # just eat
+        self.happiness += n * food.size
+
+me = Dragon(100)
+
+while True:
+    me.code()
+    me.eat(10)
+```
+
+[Tomorrow](https://github.com/chriskempson/tomorrow-theme){:target="_blank"} can also be chosen as highlight theme:
 
 | `default` | `night` | `night-bright` | `night-eighties` | `night-blue` |
 | :--: | :--: | :--: | :--: | :--: |
@@ -51,7 +72,7 @@ theme_style:
 
 The default theme is `default`, you can also specify other themes:
 ```yaml
-highlight: # "default" (default), "night", "night-eighties", "night-blue", "night-bright"
+highlight: # "default" (default), "tomorrow-light", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 ```
 
 #### Alert

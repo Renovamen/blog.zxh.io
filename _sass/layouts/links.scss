@@ -1,6 +1,6 @@
 .links-page {
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, .8);
+    background-color: var(--bg-transparent);
     h2, span, .desc {
         @include gungnir-font();
     }
@@ -10,7 +10,7 @@
             font-weight: 400;
             font-size: 18px;
             padding-left: 10px;
-            border-left: 3px solid $brand-primary;
+            border-left: 3px solid var(--primary-color);
             margin: 50px 0 20px
         }
         ul {
@@ -23,7 +23,7 @@
                 width: 32%;
                 height: 98px;
                 float: left;
-                border: 1px solid #ececec;
+                border: 1px solid var(--border-color);
                 padding: 10px 30px 10px 20px;
                 margin: 4px 4px;
                 position: relative;
@@ -32,7 +32,7 @@
                 @include transition(all .3s);
                 &:before {
                     content: "";
-                    background-color: $brand-primary;
+                    background-color: var(--primary-color);
                     -webkit-transform: skew(45deg, 0);
                     transform: skew(45deg, 0);
                     width: 0;
@@ -60,8 +60,7 @@
                     @include transition(all ease 1s);
                 }
                 &:hover {
-                    color: #27323a;
-                    border: 1px solid $brand-primary;
+                    border: 1px solid var(--primary-color);
                     img {
                         @include transform(rotate(360deg));
                     }
@@ -73,7 +72,7 @@
                     }
                 }
                 span.sitename {
-                    color: $brand-primary;
+                    color: var(--primary-color);
                     padding-bottom: 10px;
                     display: block;
                     @include transition(all .3s);
@@ -84,7 +83,7 @@
                     font-weight: 600;
                 }
                 .desc {
-                    color: #7c7c7c;
+                    color: var(--body-gray);
                     font-size: 13px;
                     padding: 10px 0;
                     border-top: 1px dashed #ddd;

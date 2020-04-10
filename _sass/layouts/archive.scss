@@ -11,7 +11,7 @@
             padding: 0 10px 0 12px;
         }
     }
-        a, .tag {
+    a, .tag {
         display: inline-block;
         border: 1px solid rgba(255, 255, 255, 0.8);
         border-radius: 999em;
@@ -63,14 +63,14 @@
         &:hover,
         &:active,
         &.focus {
-            background-color: $brand-primary !important;
+            background-color: var(--primary-color) !important;
         }
         &.focus{
             box-shadow: rgba(0,0,0,.117647) 0 1px 6px, rgba(0,0,0,.239216) 0 1px 4px;
         }
         &.tag-button--all {
             font-weight: 700;
-            color: $brand-primary !important;
+            color: var(--primary-color) !important;
             &:hover, &:active, &.focus{
                 background-color: #e4e4e4 !important;
             }
@@ -99,7 +99,7 @@
 }
 
 .listing-seperator {
-    color: $brand-primary;
+    color: var(--primary-color);
     font-size: 21px !important;
     &::before {
         margin-right: 5px;

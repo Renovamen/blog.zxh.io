@@ -100,18 +100,28 @@ function smoothTo(target) {
 // open or close navbar on mobile
 // TO DO: don't let the page go to top when open the navbar on mobile ...
 // ... haven't came out with any idea ...
-function mobileNavToggle(bgColor) {
+function mobileNavToggle() {
     // close navbar
     if ($('.main-container').hasClass('open')) {
         $('.main-container').css("overflow-y", "hidden") // some messy code for bettter animation effect...
         // when transition end
         setTimeout(function (){
-            $('body').css("background-color", "#fff")
-            $('.main-container').css("overflow-y", "")
+            $('body').toggleClass("open")
+            $('.main-container').css({
+                "overflow-y":"",
+                "background-color": "transparent",
+                "box-shadow": "none"
+            })
         }, 500)
     }
     // open navbar
-    else $('body').css("background-color", bgColor)
+    else {
+        $('body').toggleClass("open")
+        $('.main-container').css({
+            "background-color":"var(--bg)",
+            "box-shadow": "-20px 18px 0px 0px rgba(255, 255, 255, .2)"
+        })
+    }
     $('.mobile-nav, .main-container').toggleClass('open')
 }
 

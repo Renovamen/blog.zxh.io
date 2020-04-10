@@ -6,11 +6,11 @@
 // Only text
 .post-preview {
     > a {
-        color: $gray-dark;
+        color: var(--body-color);
         &:hover,
         &:focus {
             text-decoration: none;
-            color: $brand-primary;
+            color: var(--primary-color);
         }
         > .post-title {
             font-size: 21px;
@@ -33,10 +33,10 @@
         margin-top: 0;
         > a {
             text-decoration: none;
-            color: $gray-dark;
+            color: var(--body-color);
             &:hover,
             &:focus {
-                color: $brand-primary;
+                color: var(--primary-color);
                 text-decoration: underline;
             }
         }
@@ -99,17 +99,17 @@
         top: 20px;
         height: 360px;
         width: 490px;
-        border: 1px solid #eaeaea;
+        border: 1px solid var(--border-color);
         border-radius: 5px;
         .post-meta {
-            color: $gray-little-dark;
+            color: var(--body-gray);
             font-size: 12px;
             margin: 80px 0 0 80px;
         }
         a:hover,
         a:focus {
             text-decoration: none;
-            color: $brand-primary;
+            color: var(--primary-color);
         }
         .post-title {
             font-size: 30px;
@@ -160,9 +160,9 @@
         padding: 0 15px;
         width: 100%;
         margin-top: 80px;
-        background: #fff;
+        background: var(--bg);
         padding-bottom: 30px;
-        border-bottom: 1px solid #eaeaea;
+        border-bottom: 1px solid var(--border-color);
         >a {
             display: block;
             margin: 0 auto;

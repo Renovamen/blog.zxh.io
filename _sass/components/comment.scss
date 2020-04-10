@@ -1,0 +1,106 @@
+/* Hux customize Style for Duoshuo */
+.comment {
+    margin-top: 20px;
+    #ds-thread {
+        #ds-reset {
+            a.ds-like-thread-button {
+                border: 1px solid #ddd;
+                border-radius: 0px;
+                background: white;
+                box-shadow: none;
+                text-shadow: none;
+            }
+            a.ds-thread-liked {
+            }
+            li.ds-tab a.ds-current {
+                border: 1px solid #ddd;
+                border-radius: 0px;
+                background: white;
+                box-shadow: none;
+                text-shadow: none;
+            }
+            .ds-textarea-wrapper {
+                //border:1px solid #ddd;
+                background: none;
+            }
+            .ds-gradient-bg {
+                background: none;
+            }
+            .ds-post-options {
+                border-bottom: 1px solid #ccc;
+            }
+            .ds-post-button {
+                border-bottom: 1px solid #ccc;
+            }
+            //v1.6 flatten button
+            .ds-post-button {
+                background: white;
+                box-shadow: none;
+                &:hover {
+                    background: $gray-light;
+                }
+            }
+        }
+    }
+}
+
+#ds-smilies-tooltip ul.ds-smilies-tabs li a {
+    background: white !important;
+}
+
+// Renovamen: customize styles for gitalk
+// TODO: customize markdown styles for dark and sepia mode
+.gt-container {
+    .gt-meta {
+        border-color: var(--border-color) !important;
+        // or the border may appear upon menu button
+        z-index: 2 !important;
+    }
+    a {
+        color: var(--primary-color) !important;
+        &:hover {
+            color: var(--primary-color-dark) !important;
+        }
+    }
+    .gt-ico-tip svg {
+        fill: var(--primary-color) !important;
+    }
+    .gt-ico-github svg,
+    .gt-ico-arrdown svg {
+        fill: var(--body-color) !important;
+    }
+    .gt-popup {
+        background-color: var(--bg) !important;
+        top: 3em !important;
+        border-color: var(--border-color) !important;
+        border-radius: 5px;
+        .gt-copyright {
+            border-color: var(--border-color) !important;
+            .gt-version {
+                color: var(--body-gray) !important;
+            }
+        }  
+    }
+    .gt-header-textarea {
+        background-color: var(--bg-teritary) !important;
+        &:hover {
+            background-color: transparent !important;
+            border-color: var(--border-color) !important;
+        }
+    }
+    .gt-header-preview {
+        background-color: var(--bg-teritary) !important;
+    }
+    .gt-btn-preview {
+        background-color: transparent !important;
+        color: var(--primary-color) !important;
+        border-color: var(--primary-color) !important;
+        &:hover {
+            background-color: var(--bg-teritary) !important;
+        }
+    }
+    .gt-btn-login {
+        background-color: $brand-primary !important;
+        border-color: $brand-primary !important;
+    }
+}

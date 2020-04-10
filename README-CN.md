@@ -27,6 +27,7 @@
 - 响应式
 - 多级目录
 - 可切换的首页大图
+- 明亮和夜间模式：识别系统的外观设置并自动切换模式，也支持用户手动切换
 - 搜索（使用了 [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search)）
 - 文章目录（使用了 [Tocbot](https://github.com/tscanlin/tocbot)）
 - 多种代码高亮主题（使用了 [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme)）

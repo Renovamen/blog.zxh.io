@@ -96,7 +96,12 @@ $longer-time: ($time*2);
 		.menu-btn-child {
 			transition-delay: $delay;
 
-			i {
+			// .icon-theme:before {
+			// 	color: #fff;
+			// }
+
+			i,
+			.icon-theme:before {
                 opacity: 1;
                 // color: $menu-btn-primary-color;
                 color: #fff;
@@ -121,13 +126,13 @@ $longer-time: ($time*2);
             }
 
             @media only screen and (min-width: 992px) {
-                &:nth-child(5) {
+                &#menu-navbar-btn {
                     display: none;
                 }
 			}
 			
 			@media only screen and (min-width: 1200px) {
-                &:nth-child(4) {
+                &#menu-toc-btn {
                     display: none;
                 }
             }
@@ -220,7 +225,8 @@ $longer-time: ($time*2);
 		}
 	}
 
-	i {
+	i,
+	.icon-theme:before {
 		opacity: 0;
 		visibility: hidden;
 		@include transition(all $longer-time $bezier calc((-$delay)/2));

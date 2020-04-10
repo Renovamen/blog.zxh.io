@@ -27,6 +27,7 @@ Check out the ongoing documentation [here](https://renovamen.ink/theme/). It sup
 - Fully responsive
 - Multi-level navigation menu
 - Switchable cover images for home page
+- Dark and light themes: system theme detection with a theme-switcher to set the theme as per the user preference
 - Search (based on [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search))
 - Table of contents (based on [Tocbot](https://github.com/tscanlin/tocbot))
 - Highlight themes (based on [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme))

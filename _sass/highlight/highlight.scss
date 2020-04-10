@@ -74,7 +74,7 @@ pre.highlight {
 // Customize (by Hux)
 .highlighter-rouge .highlight {
   margin-bottom: 10px;
-  border-radius: 6px;
+  border-radius: 4px;
   pre {
     font-size: 14px;
     line-height: 1.5;
@@ -121,6 +121,11 @@ pre.highlight {
     // border-right: 1px solid #373434;
     border-radius: 0px;
   }
+}
+// Renovamen: inline code
+:not(pre) > code {
+  color: var(--inline-code-text);
+  background-color: var(--inline-code-bg);
 }
 /* Landscape phones and down */
 @media (max-width: 480px) { 

@@ -120,7 +120,7 @@ $$
 S(i) \sim \frac{\log F(i)}{\log V(i)}
 $$
 
-其中 $V(i)$ 为每张图片的 views，$F(i)$ 为 faves。
+其中 $$V(i)$$ 为每张图片的 views，$$F(i)$$ 为 faves。
 
 相当于用一种类似于无监督标注的方法在试图解决 AVA 的 bias 太重和 AADB 数据量和标注人员过少的问题。
 
@@ -309,7 +309,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
 #### 评分分布
 
-- **NIMA: Neural Image Assessment in Keras.** *Hossein Talebi and Peyman Milanfar.* TIP 2018. [[arxiv]](https://arxiv.org/pdf/1709.05424.pdf){:target="_blank"} [[Blog]](https://ai.googleblog.com/2017/12/introducing-nima-neural-image-assessment.html){:target="_blank"} [[Code (Reproduction)]](https://github.com/titu1994/neural-image-assessment){:target="_blank"}
+- **NIMA: Neural Image Assessment.** *Hossein Talebi and Peyman Milanfar.* TIP 2018. [[arxiv]](https://arxiv.org/pdf/1709.05424.pdf){:target="_blank"} [[Blog]](https://ai.googleblog.com/2017/12/introducing-nima-neural-image-assessment.html){:target="_blank"} [[Code (Reproduction)]](https://github.com/titu1994/neural-image-assessment){:target="_blank"}
 
 
 - **Predicting Aesthetic Score Distribution through Cumulative Jensen-Shannon Divergence.** *Xin Jin, et al.* AAAI 2018. [[Paper]](http://jinxin.me/downloads/papers/028-AAAI2018/ScoreDestribution.pdf){:target="_blank"} [[Code]](https://github.com/BestiVictory/CJS-CNN){:target="_blank"}

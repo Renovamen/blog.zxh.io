@@ -35,23 +35,45 @@ avatar: "img/header-avatar.jpeg" # 首页头像路径
 ### 主题风格
 ```yaml
 theme_style: 
-  primary_color: # 主题色，default: #377bb5
   highlight:  # 代码高亮主题
   alert:  # 提示风格
   post_preview: # 首页文章列表显示风格
 ```
 
 #### 代码高亮
-使用了 [Tomorrow](https://github.com/chriskempson/tomorrow-theme){:target="_blank"} 作为代码高亮主题：
+
+默认的代码高亮大概长这样：
+
+```python
+import food
+
+class Dragon:
+    def __init__(self, happiness):
+        self.happiness = happiness
+    def code(self):
+        """ just code """
+        self.happiness -= 60
+    def eat(self, n)
+        # just eat
+        self.happiness += n * food.size
+
+me = Dragon(100)
+
+while True:
+    me.code()
+    me.eat(10)
+```
+
+也可以选用 [Tomorrow](https://github.com/chriskempson/tomorrow-theme){:target="_blank"} 作为代码高亮主题：
 
 
-| `default` | `night` | `night-bright` | `night-eighties` | `night-blue` |
+| `light` | `night` | `night-bright` | `night-eighties` | `night-blue` |
 | :--: | :--: | :--: | :--: | :--: |
 | ![highlight-default](../img/docs/highlight-default.png) | ![highlight-night](../img/docs/highlight-night.png) | ![highlight-night-bright](../img/docs/highlight-night-bright.png) | ![highlight-night-eighties](../img/docs/highlight-night-eighties.png) | ![highlight-night-blue](../img/docs/highlight-night-blue.png) |
 
 默认主题为 `default`，指定其他主题：
 ```yaml
-highlight: # "default" (default), "night", "night-eighties", "night-blue", "night-bright"
+highlight: # "default" (default), "tomorrow-light", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 ```
 
 #### 提示

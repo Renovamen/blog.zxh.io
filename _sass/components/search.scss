@@ -1,5 +1,6 @@
 .search-page {
     @include gungnir-font();
+    background-color: var(--bg) !important;
 
     .close-search {
         float: right;
@@ -22,6 +23,7 @@
     }
     .search-field {
         margin-top: 10px;
+        padding: 0;
         width: 50%;
         border: none;
         outline: none;
@@ -41,11 +43,11 @@
                 display: block;
             }
             > a {
-                color: #404040;
+                color: var(--body-color);
                 &:hover,
                 &:focus {
                     text-decoration: none;
-                    color: $brand-primary;
+                    color: var(--primary-color);
                 }
             }
             .result-title {

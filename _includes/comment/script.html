@@ -32,8 +32,8 @@
 
 <!-- Gitalk start -->
 <script type="text/javascript">
-    LazyLoad.css('{{ "/css/library/gitalk.css" | prepend: site.baseurl }}');
-    LazyLoad.js(['{{ "/js/library/md5.js " | prepend: site.baseurl }}', '{{ _cdn.gitalk }}'], function(){
+    LazyLoad.css('{{ _cdn.gitalk.css }}');
+    LazyLoad.js(['{{ "/js/library/md5.js " | prepend: site.baseurl }}', '{{ _cdn.gitalk.js }}'], function(){
         var gitalk = new Gitalk({
             clientID: '{{ site.comment.gitalk.clientID }}',
             clientSecret: '{{ site.comment.gitalk.clientSecret }}',

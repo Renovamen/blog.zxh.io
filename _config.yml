@@ -11,8 +11,7 @@ avatar: "img/header-avatar.jpeg" # the avatar showing on the homepage
 
 # Theme style settings
 theme_style: 
-  primary_color: # default: #377bb5
-  highlight: # "default" (default), "night", "night-eighties", "night-blue", "night-bright"
+  highlight: # "default" (default), "tomorrow-light", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
   alert:  # "flat" (default), "modern"
   # Whether or not to display post's featured image on home page
   post_preview: # "image" (default), "text"

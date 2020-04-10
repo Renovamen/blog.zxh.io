@@ -31,9 +31,7 @@
             $en.classList.remove("active");
         }
         // interop with catalog 
-        if ("{{ page.catalog }}") {
-            generateCatalog();
-        }
+        if ("{{ page.catalog }}") generateCatalog(".catalog-body");
     }
 
     // handle select change

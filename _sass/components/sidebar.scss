@@ -27,14 +27,14 @@
     a{
         color: $gray-l !important;
         &:hover, &:active{
-            color: $brand-primary !important;
+            color: var(--primary-color) !important;
         }
     }
     .tags{
         a{
             border-color: $gray-l;
             &:hover, &:active{
-                border-color: $brand-primary;
+                border-color: var(--primary-color);
             }
         }
     }

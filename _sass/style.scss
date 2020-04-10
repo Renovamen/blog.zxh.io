@@ -8,7 +8,7 @@ body {
   @include sans-serif();
   font-size: 16px;
   // Hux mpdify to 16px (Mobile First), and increase to 20px while 768+ width
-  color: $gray-dark;
+  color: var(--body-color);
   //-webkit-user-select:text; //对于 Blog 还是先不开启这句。
   overflow-x: hidden;
 
@@ -18,6 +18,11 @@ body {
 
   margin: 0;
   padding: 0;
+
+  background-color: var(--bg);
+  &.open {
+    background-color: $brand-primary;
+  }
 }
 
 // -- Typography
@@ -40,10 +45,10 @@ h4 {
   font-size: 21px;
 }
 a {
-  color: $gray-dark;
+  color: var(--body-color);
   &:hover,
   &:focus {
-    color: $brand-primary;
+    color: var(--primary-color);
   }
 }
 
@@ -58,7 +63,8 @@ article {
   overflow: hidden;
 }
 blockquote {
-  color: gray;
+  color: var(--body-gray);
+  border-color: var(--bg-secondary);
   font-style: italic;
   font-size: 0.95em;
   margin: 20px 0 20px;
@@ -85,10 +91,10 @@ img.shadow {
 select {
   -webkit-appearance: none;
   margin-top: 15px;
-  color: #337ab7;
-  border-color: #337ab7;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
   padding: 0em 0.4em;
-  background: white;
+  background: transparent;
   outline: none;
   border-radius: 5px;
   &.sel-lang {
@@ -101,7 +107,7 @@ select {
 table.table > tbody, table.table > thead {
   th,
   td {
-    border: 1px solid #eee !important;
+    border: 1px solid var(--border-color) !important;
   }
 }
 
@@ -142,11 +148,11 @@ samp {
   a {
     // display: inline-block;
     // safari has bugs on word-break on inline elements.
-    color: $brand-primary;
-    // different to $brand-primary
+    color: var(--primary-color);
+    // different to --primary-color
     &:hover,
     &:focus {
-      color: darken($brand-primary, 10%);
+      color: var(--primary-color-dark);
     }
   }
   h1,
@@ -247,12 +253,12 @@ samp {
     &:before {
       content: '[';
       margin-right: 1px;
-      color: $brand-primary;
+      color: var(--primary-color);
     }
     &:after {
       content: ']';
       margin-left: 1px;
-      color: $brand-primary;
+      color: var(--primary-color);
     }
   }
 }
@@ -289,13 +295,14 @@ footer {
     font-size: 14px;
     text-align: center;
     margin-bottom: 0;
+    color: var(--body-gray);
     a {
       color: currentColor;
       // different to @brand-primary
       @include transition(.2s ease);
       &:hover,
       &:focus {
-        color: $brand-primary;
+        color: var(--primary-color);
         text-decoration: none;
       }
     }
@@ -354,7 +361,7 @@ footer {
 
 .floating-label-form-group-with-focus {
   label {
-    color: $brand-primary;
+    color: var(--primary-color);
   }
 }
 
@@ -378,8 +385,9 @@ form .row:first-child .floating-label-form-group {
       font-weight: 800;
       letter-spacing: 1px;
       padding: 10px;
-      background-color: white;
-      border-radius: 0;
+      background-color: transparent;
+      border-radius: 3px;
+      border-color: var(--border-color-dark);
       @media only screen and (min-width: 768px) {
         font-size: 14px;
         padding: 15px 25px;
@@ -387,7 +395,10 @@ form .row:first-child .floating-label-form-group {
     }
 
     > a {
-      color: $gray-dark;
+      color: var(--body-color);
+      > span {
+        color: var(--body-gray) !important;
+      }
     }
     > a:hover,
     > a:focus {
@@ -397,7 +408,7 @@ form .row:first-child .floating-label-form-group {
 
       // V1.6 display title
       > span {
-        color: white;
+        color: white !important;
       }
     }
   }
@@ -408,7 +419,7 @@ form .row:first-child .floating-label-form-group {
     > a:focus,
     > span {
       color: $gray;
-      background-color: $gray-dark;
+      background-color: var(--body-color);
       cursor: not-allowed;
     }
   }
@@ -419,13 +430,13 @@ form .row:first-child .floating-label-form-group {
 ::-moz-selection {
   color: white;
   text-shadow: none;
-  background: $brand-primary;
+  background: var(--primary-color);
 }
 
 ::selection {
   color: white;
   text-shadow: none;
-  background: $brand-primary;
+  background: var(--primary-color);
 }
 
 img::selection {
@@ -453,56 +464,6 @@ img::-moz-selection {
   display: inline;
 }
 
-/* Hux customize Style for Duoshuo */
-.comment {
-  margin-top: 20px;
-  #ds-thread {
-    #ds-reset {
-      a.ds-like-thread-button {
-        border: 1px solid #ddd;
-        border-radius: 0px;
-        background: white;
-        box-shadow: none;
-        text-shadow: none;
-      }
-      a.ds-thread-liked {
-      }
-      li.ds-tab a.ds-current {
-        border: 1px solid #ddd;
-        border-radius: 0px;
-        background: white;
-        box-shadow: none;
-        text-shadow: none;
-      }
-      .ds-textarea-wrapper {
-        //border:1px solid #ddd;
-        background: none;
-      }
-      .ds-gradient-bg {
-        background: none;
-      }
-      .ds-post-options {
-        border-bottom: 1px solid #ccc;
-      }
-      .ds-post-button {
-        border-bottom: 1px solid #ccc;
-      }
-      //v1.6 flatten button
-      .ds-post-button {
-        background: white;
-        box-shadow: none;
-        &:hover {
-          background: $gray-light;
-        }
-      }
-    }
-  }
-}
-#ds-smilies-tooltip ul.ds-smilies-tabs li a {
-  background: white !important;
-}
-
-
 // MathJax Overflow
 .MathJax_SVG_Display{
   overflow: auto;
@@ -519,4 +480,10 @@ img::-moz-selection {
 // Renovamen: diagrams created by mermaid should be in center
 .language-mermaid {
   text-align: center;
+}
+
+hr {
+  background-color: var(--border-color);
+  border: 0;
+  height: 1px;
 }

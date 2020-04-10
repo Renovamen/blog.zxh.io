@@ -1,11 +1,10 @@
 // Variables
 
-$gray-dark: lighten(black, 20%);
-$gray-little-dark: lighten(black, 50%);
 $gray: gray;
 $gray-l: lighten(black, 75%);
 $white-faded: rgba(white, .8);
 $gray-light: #eee;
+$brand-primary: #377bb5;
 
 // Renovamen: add variables for additional styles
 $tag-text: #fff;
@@ -14,4 +13,51 @@ $info: #1890ff;
 $warning: #fa8c16;
 $error: #f5222d;
 
-// $a: #4793d4;
+:root {
+  --body-color: rgba(0, 0, 0, .8);
+  --body-gray: #797878;
+  --primary-color: #377bb5;
+  --primary-color-dark: #2c6699;
+  --bg: #fff;
+  --bg-secondary: #f1f1f1;
+  --bg-teritary: #fafafa;
+  --bg-transparent: rgba(255, 255, 255, .9);
+  --inline-code-text: #c52950;
+  --inline-code-bg: #f9f2f4;
+  --code-bg: #0e2233;
+  --border-color: #eaeaea;
+  --border-color-dark: #dadada;
+  --dropdown-shadow: 0 1px 30px -8px rgba(0, 0, 0, .5);
+  --mobile-catalog-shadow: -1px 0px 5px 0px rgba(0, 0, 0, .2);
+
+  [data-theme="dark"] {
+    --body-color: #dfe2e1;
+    --body-gray: #a7aaa9;
+    --primary-color: #60a8e7;
+    --primary-color-dark: #377bb5;
+    --bg: #171d38;
+    --bg-secondary: #48517e;
+    --bg-teritary: #1f2747;
+    --bg-transparent: rgb(23, 29, 56, .9);
+    --inline-code-text: #8fbce7;
+    --inline-code-bg: rgba(71, 81, 122, 0.4);
+    --code-bg: #1b2342;
+    --border-color: #2f375e;
+    --border-color-dark: #39426d;
+    --dropdown-shadow: 0 1px 20px -5px rgba(53, 64, 70, 0.5);
+    --mobile-catalog-shadow: -1px 0px 5px 0px rgba(255, 255, 255, .2);
+  }
+
+  [data-theme="sepia"] {
+    --body-gray: #868174;
+    --bg: #f1e7d0;
+    --bg-secondary: #e6dcc6;
+    --bg-teritary: #ece2cd;
+    --bg-transparent: #f1e7d0E1;
+    --inline-code-text: #666154;
+    --inline-code-bg: rgba(197, 183, 153, 0.3);
+    --code-bg: #1f1f1f;
+    --border-color: #ded0bf;
+    --border-color-dark: #b8ac9d;
+  }
+}

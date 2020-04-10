@@ -581,7 +581,7 @@ $$
 3 & 6 & 8 & 10 & b_3 \\
 \end{array}
 \right]
-\underrightarrow{消元}
+\underrightarrow{\text{消元}}
 \left[
 \begin{array}{c c c c|c}
 1 & 2 & 2 & 2 & b_1 \\
