@@ -111,7 +111,7 @@ table.table > tbody, table.table > thead {
   }
 }
 
-@media screen and (max-width: 767px) {
+@include mobile {
   .table-responsive {
     border: 0;
   }
@@ -181,7 +181,7 @@ samp {
     }
   }
   // downscale the font a little bit in mobile
-  @media screen and (max-width: 768px) {
+  @include mobile {
     h1 { font-size: 30px; }
     h2 { font-size: 24px; }
     h3 { font-size: 21px; }
@@ -190,7 +190,7 @@ samp {
   ul,
   ol {
     margin-bottom: 40px;
-    @media screen and (max-width: 768px) {
+    @include mobile {
       & {
         padding-left: 30px;
       }
@@ -388,7 +388,7 @@ form .row:first-child .floating-label-form-group {
       background-color: transparent;
       border-radius: 3px;
       border-color: var(--border-color-dark);
-      @media only screen and (min-width: 768px) {
+      @include mobile {
         font-size: 14px;
         padding: 15px 25px;
       }

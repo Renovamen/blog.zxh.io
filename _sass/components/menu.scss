@@ -121,13 +121,13 @@ $longer-time: ($time*2);
                 transform: translateY(-($menu-btn-radius - 0.3 * $menu-btn-size)) rotate(45deg);
             }
 
-            @media only screen and (min-width: 992px) {
+            @include desktop {
                 &#menu-navbar-btn {
                     display: none;
                 }
 			}
 			
-			@media only screen and (min-width: 1200px) {
+			@include large {
                 &#menu-toc-btn {
                     display: none;
                 }

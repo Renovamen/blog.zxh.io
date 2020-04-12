@@ -29,7 +29,7 @@
     @include background-cover();
     // NOTE: Background images are set within the HTML using inline CSS!
     margin-bottom: 0px; /* 0 on mobile, modify by Hux */
-    @media only screen and (min-width: 768px) {
+    @include tablet {
         margin-bottom: 20px; /* response on desktop */
     }
     .site-heading,
@@ -37,14 +37,14 @@
     .page-heading {
         padding: 85px 0 55px;
         color: white;
-        @media only screen and (min-width: 768px) {
+        @include tablet {
             padding: 150px 0;
         }
     }
     // masterialize
     .site-heading {
         padding: 95px 0 70px;
-        @media only screen and (min-width: 768px) {
+        @include tablet {
             padding: 150px 0;
         }
     }
@@ -63,7 +63,7 @@
             font-weight: 300;
             margin: 10px 0 0;
         }
-        @media only screen and (min-width: 768px) {
+        @include tablet {
             h1 {
                 font-size: 80px;
             }
@@ -95,7 +95,7 @@
                 color: white;
             }
         }
-        @media only screen and (min-width: 768px) {
+        @include tablet {
             h1 {
                 font-size: 55px;
             }
@@ -118,7 +118,7 @@
         a {
             color: white;
         }
-        @media only screen and (min-width: 768px) {
+        @include tablet {
             & {
                 font-size: 12px;
                 bottom: 10px;
@@ -236,7 +236,7 @@
             color: #fff;
             background-color: rgba(0, 0, 0, .6);
         }
-        @media only screen and (max-width: 768px) {
+        @include mobile {
             display: none;
         }
     }

@@ -625,7 +625,6 @@ Click to show the BibTex of bibliographies:
 - [Bootstrap](https://github.com/twbs/bootstrap){:target="_blank"}
 - [Font Awesome](https://github.com/FortAwesome/Font-Awesome){:target="_blank"}
 - [Font Awesome Animation](https://github.com/l-lin/font-awesome-animation){:target="_blank"} (animation of icons)
-- [Animate.css](https://github.com/daneden/animate.css){:target="_blank"} (dependent library of animatedModal.js)
 
 ### JavaScript
 - [jQuery](https://github.com/jquery/jquery){:target="_blank"}
@@ -640,5 +639,4 @@ Click to show the BibTex of bibliographies:
 - [Katex](https://github.com/KaTeX/KaTeX){:target="_blank"} (math rendering)
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search){:target="_blank"} (search)
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"} (remove click delays on mobile browsers)
-- [animatedModal.js](https://github.com/joaopereirawd/animatedModal.js){:target="_blank"} (pop-up animation of the search page)
 - [LazyLoad](https://github.com/rgrove/lazyload){:target="_blank"} (lazyload JavaScript and CSS files)

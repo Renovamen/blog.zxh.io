@@ -7,6 +7,16 @@
     -o-background-size: cover;
 }
 
+@mixin clearfix() {
+    &:before, &:after {
+      content: " ";
+      display: table;
+    }
+    &:after { 
+        clear: both; 
+    }
+}
+
 
 // ---------------- Font ----------------
 
@@ -81,4 +91,42 @@
     }
     -ms-overflow-style: none; // IE
     scrollbar-width: none; // Firefox
+}
+
+
+// Layout
+@mixin small {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin ipad {
+    @media (max-width: 1024px) {
+        @content;
+    }
 }

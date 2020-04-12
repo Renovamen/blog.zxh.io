@@ -95,13 +95,13 @@
             }
         }
     }
-    @media (max-width: 480px) {
+    @include small {
         .link-list ul li {
             width: 100% !important
         }
     }
     
-    @media (max-width: 1024px) {
+    @include ipad {
         .link-list ul li {
             width: 48.6%;
             &:before {

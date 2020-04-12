@@ -7,7 +7,7 @@
     .break {
         margin: 8em 0;
 
-        @media only screen and (max-width: 768px) {
+        @include mobile {
             margin: 2em 0;
         }
     }
@@ -33,7 +33,7 @@
         width: 40%;
         margin: 0 auto;
 
-        @media only screen and (max-width: 768px) {
+        @include mobile {
             width: 100%;
         }
 
@@ -45,7 +45,7 @@
         margin-top: -3em;
         margin-left: 5em;
         margin-bottom: 5em;
-        @media only screen and (max-width: 768px) {
+        @include mobile {
             margin-top: 0;
             margin-left: 0;
         }
@@ -65,14 +65,14 @@
                 width: 5em;
                 height: 3px;
                 background-color: var(--bg-secondary);
-                @media only screen and (max-width: 768px) {
+                @include mobile {
                     display: none;
                 }
             }
         }
         .excerpt {
             width: 80%;
-            @media only screen and (max-width: 768px) {
+            @include mobile {
                 width: 100%;
             }
         }

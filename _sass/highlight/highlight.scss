@@ -128,7 +128,7 @@ pre.highlight {
   background-color: var(--inline-code-bg);
 }
 /* Landscape phones and down */
-@media (max-width: 480px) { 
+@include small {
   .highlighter-rouge .highlight {
     // margin-left: -15px;
     // margin-right: -15px;

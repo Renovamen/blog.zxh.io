@@ -41,7 +41,7 @@
             }
         }
     }
-    @media only screen and (min-width: 768px) {
+    @include tablet {
         > a {
             > .post-title {
                 font-size: 26px;
@@ -191,7 +191,7 @@
             }
         }
     }
-    @media screen and (max-width: 480px) {
+    @include small {
         margin-top: 100px;
         border-bottom: none;
         >a {

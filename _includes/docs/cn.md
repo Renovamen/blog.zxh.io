@@ -664,7 +664,6 @@ gem install jemoji
 - [Bootstrap](https://github.com/twbs/bootstrap){:target="_blank"}
 - [Font Awesome](https://github.com/FortAwesome/Font-Awesome){:target="_blank"}
 - [Font Awesome Animation](https://github.com/l-lin/font-awesome-animation){:target="_blank"}（图标动画）
-- [Animate.css](https://github.com/daneden/animate.css){:target="_blank"}（animatedModal.js 的依赖库）
 
 ### JavaScript
 - [jQuery](https://github.com/jquery/jquery){:target="_blank"}
@@ -679,7 +678,6 @@ gem install jemoji
 - [Katex](https://github.com/KaTeX/KaTeX){:target="_blank"} （公式渲染）
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search){:target="_blank"}（搜索）
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"}（解决移动设备上的点击延迟问题）
-- [animatedModal.js](https://github.com/joaopereirawd/animatedModal.js){:target="_blank"}（搜索页面弹出动画）
 - [LazyLoad](https://github.com/rgrove/lazyload){:target="_blank"}（JavaScript 和 CSS 文件延迟加载）
 
 

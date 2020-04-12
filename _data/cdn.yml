@@ -18,7 +18,6 @@ jsdelivr:
     js: https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js
   simple-jekyll-search: https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
   scrollreveal: https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js
-  animate-css: https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css
 
 bootcdn:
   bootstrap-css: https://cdn.bootcss.com/twitter-bootstrap/3.3.2/css/bootstrap.min.css
@@ -40,7 +39,6 @@ bootcdn:
     js: https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js
   simple-jekyll-search: https://cdn.bootcss.com/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
   scrollreveal: https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.min.js
-  animate-css: https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css
 
 unpkg:
   bootstrap-css: https://unpkg.com/bootstrap@3.3.2/dist/css/bootstrap.min.css
@@ -62,7 +60,6 @@ unpkg:
     js: https://unpkg.com/katex@0.11.1/dist/katex.min.js
   simple-jekyll-search: https://unpkg.com/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
   scrollreveal: https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.min.js
-  animate-css: https://unpkg.com/animate.css@3.7.2/animate.min.css
 
 cdnjs:
   bootstrap-css: https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css
@@ -84,4 +81,3 @@ cdnjs:
     js: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js
   simple-jekyll-search: https://cdnjs.cloudflare.com/ajax/libs/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
   scrollreveal: https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.5/scrollreveal.min.js
-  animate-css: https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css

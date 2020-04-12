@@ -22,29 +22,6 @@
 
     <!-- support search -->
     {% include search.html %}
-
-    {%- include utils/get-cdn.html -%}
-    {%- assign _cdn = __return -%}
-
-    <script src="{{ "/js/library/animatedModal.min.js" | prepend: site.baseurl }}"></script>
-    <link rel="stylesheet" href="{{ _cdn.animate-css }}">
-
-    <script>
-        var animateOpt = {
-            animatedIn:'slideInUp',
-            animatedOut:'slideOutDown',
-            animationDuration: '.25s',
-        }
-        // search page pop animation
-        $("#search-btn").animatedModal(animateOpt);
-        $("#mobile-search-btn").animatedModal(animateOpt);
-
-        function autoFocus() {
-            setTimeout(function () {
-                document.querySelector('.search-page input').focus();
-            }, 400);
-        }
-    </script>
     
 <!-- Migrate from head to bottom, no longer block render and still work -->
 

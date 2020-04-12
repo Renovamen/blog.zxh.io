@@ -1,13 +1,13 @@
 // Sidebar Components
 
 // Large Screen
-@media (min-width: 1200px){
-    .post-container, .sidebar-container{
+@include large {
+    .post-container, .sidebar-container {
         padding-right: 5%;
     }
 }
-@media (min-width: 768px){
-    .post-container{
+@include tablet {
+    .post-container {
         padding-right: 5%;
     }
 }
@@ -16,24 +16,24 @@
 .sidebar-container{
     color: $gray-l;
     font-size: 14px;
-    h5{
+    h5 {
         color: $gray;
         padding-bottom: 1em;
-        a{
+        a {
             color: $gray !important;
             text-decoration: none;
         }
     }
-    a{
+    a {
         color: $gray-l !important;
-        &:hover, &:active{
+        &:hover, &:active {
             color: var(--primary-color) !important;
         }
     }
-    .tags{
-        a{
+    .tag s{
+        a {
             border-color: $gray-l;
-            &:hover, &:active{
+            &:hover, &:active {
                 border-color: var(--primary-color);
             }
         }

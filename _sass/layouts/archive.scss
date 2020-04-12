@@ -34,7 +34,7 @@
             background-color: rgba(255, 255, 255, 0.4);
             text-decoration: none;
         }
-        @media only screen and (min-width: 768px) {
+        @include tablet {
             margin-right: 5px;
         }
     }
@@ -42,7 +42,7 @@
   
 #tag-heading {
     padding: 70px 0 60px;
-    @media only screen and (min-width: 768px) {
+    @include tablet {
         padding: 55px 0;
     }
 }
@@ -76,14 +76,14 @@
             }
         }
     }
-    @media only screen and (min-width: 768px) {
+    @include tablet {
         margin-bottom: 25px;
     }
 }
   
 .tag-comments {
     font-size: 12px;
-    @media only screen and (min-width: 768px) {
+    @include tablet {
         font-size: 14px;
     }
 }
@@ -104,7 +104,7 @@
     &::before {
         margin-right: 5px;
     }
-    @media only screen and (min-width: 768px) {
+    @include tablet {
         font-size: 20px !important;
         line-height: 2 !important;
     }
@@ -137,7 +137,7 @@
             font-size: 12px;
             line-height: 12px;
         }
-        @media only screen and (min-width: 768px) {
+        @include tablet {
             margin-left: 20px;
             > a {
                 > .post-title {

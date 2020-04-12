@@ -1,6 +1,6 @@
 <div id="search" class="search-page">
 
-    <i class="close-search fas fa-times"></i>
+    <i class="search-close fas fa-times"></i>
     <p class="search-title text-center"></p>
 
     <div class="input">
@@ -29,8 +29,8 @@
             searchInput: document.getElementById('search-input'),
             resultsContainer: document.getElementById('search-results'),
             json: '/search.json',
-            searchResultTemplate: '<li class="result-item item"><a href="{url}" title="{desc}"><div class="result-title">{title}</div><div class="result-subtitle">{subtitle}</div></a></li>',
-            noResultsText: '<li class="result-item item"><div class="result-title">No Results</div></li>',
+            searchResultTemplate: '<li class="result-item item"><a href="{url}" title="{desc}"><div class="result-item-title">{title}</div><div class="result-item-subtitle">{subtitle}</div></a></li>',
+            noResultsText: '<li class="result-item item"><div class="result-item-title">No Results</div></li>',
             limit: 20,
             fuzzy: false
         })
@@ -52,4 +52,27 @@
             }
         }
     }
+
+    function autoFocus() {
+        setTimeout(function () {
+            document.querySelector('.search-page input').focus();
+        }, 400);
+    }
+
+    // open search page
+    $('#search-btn').click(function() {
+        $('.search-page').toggleClass('open')
+        autoFocus()
+    });
+
+    // open search page (mobile)
+    $('#mobile-search-btn').click(function() {
+        $('.search-page').toggleClass('open')
+        autoFocus()
+    });
+
+    // close search page
+    $('.search-close').click(function() {
+        $('.search-page').toggleClass('open')
+    });
 </script>

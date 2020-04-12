@@ -18,12 +18,12 @@
     }
     .catalog-toggle {
         color: var(--body-gray) !important;
-    }
-    .catalog-toggle::before {
-        content: "-";
-        position: relative;
-        margin-right: 5px;
-        bottom: 1px;
+        &::before {
+            content: "-";
+            position: relative;
+            margin-right: 5px;
+            bottom: 1px;
+        }
     }
     display: block;
     overflow: auto;
