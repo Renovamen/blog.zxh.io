@@ -46,7 +46,6 @@ tags:
 - $$f(\cdot), g(\cdot)$$：激活函数；
 - $$b$$：偏置向量（bias）；
 - $$\hat{y}_t$$：模型在 $$t$$ 时刻的最终输出；
-- $$+$$：直接把俩矩阵拼起来，用 pandas 的话说就是 concat
 
 公式：
 
@@ -228,7 +227,7 @@ sigmoid 函数的函数图像和导数图像为：
 Hidden Units（Keras 的 `units`）就是每个前馈网络层的神经元个数。
 
 
-论文 [Show and Tell: A Neural Image Caption Generator](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vinyals_Show_and_Tell_2015_CVPR_paper.pdf){:target="_blank"} 里给的图也有点意思，虽然它似乎把 output gate $$o$$ 写成了 output gate $$f$$（...）：
+论文 [Show and Tell](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vinyals_Show_and_Tell_2015_CVPR_paper.pdf){:target="_blank"} 里给的图也有点意思，虽然它似乎把 output gate $$o$$ 写成了 output gate $$f$$（...）：
 
 ![Also a LSTM](/img/in-post/2020-03-04/lstm/lstm2.png){:width="350px"}
 
@@ -307,10 +306,10 @@ $$
 
 #### 最终输出
 
-最终的输出 $$y_t$$ 会由 $$h_t$$ 变换得到。比如 Show and Tell 那篇论文中用 LSTM 来生成句子，要预测下一个单词，就是把 $$h_t$$ 扔进 Softmax 层，得到所有单词上的概率分布 $$y_t$$：
+最终的输出 $$y_t$$ 会由 $$h_t$$ 变换得到，常见的做法大概是把 $$h_t$$ 扔进 softmax：
 
 $$
-y_t = \text{Softmax}(h_t)
+y_t = \text{softmax}(h_t)
 $$
 
 
@@ -327,7 +326,7 @@ $$
 
 - [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/){:target="_blank"}
 - [LSTM Forward and Backward Pass](http://arunmallya.github.io/writeups/nn/lstm/index.html#/){:target="_blank"}
-- [stackoverflow - What is actually num_unit in LSTM cell circuit?](https://stackoverflow.com/questions/49225326/what-is-actually-num-unit-in-lstm-cell-circuit/49309905#49309905){:target="_blank"}
-- [CSDN - RNN 循环神经网络 基本结构类型](https://blog.csdn.net/qq_16234613/article/details/79476763){:target="_blank"}
+- [What is actually num_unit in LSTM cell circuit?](https://stackoverflow.com/questions/49225326/what-is-actually-num-unit-in-lstm-cell-circuit/49309905#49309905){:target="_blank"}
+- [RNN 循环神经网络 基本结构类型](https://blog.csdn.net/qq_16234613/article/details/79476763){:target="_blank"}
 - [循环神经网络（RNN）模型与前向反向传播算法](https://www.cnblogs.com/pinard/p/6509630.html){:target="_blank"}
 - [LSTM 模型与前向反向传播算法](https://www.cnblogs.com/pinard/p/6519110.html){:target="_blank"}

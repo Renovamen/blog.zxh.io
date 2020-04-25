@@ -21,7 +21,7 @@ tags:
 
     \left[
       \begin{matrix}
-        x_1 & x_2 & ... & x_n \\
+        x_1 & x_2 & ... & x_n
       \end{matrix}
     \right]
 
@@ -30,7 +30,7 @@ tags:
         y_1  \\
         y_2  \\
         \vdots  \\
-        y_n  \\
+        y_n
       \end{matrix}
     \right]
 
@@ -49,13 +49,13 @@ tags:
         x_1  \\
         x_2  \\
         ...  \\
-        x_m  \\
+        x_m
       \end{matrix}
     \right]
 
     \left[
       \begin{matrix}
-        y_1 & y_2 & ... & y_n \\
+        y_1 & y_2 & ... & y_n
       \end{matrix}
     \right]
 
@@ -66,7 +66,7 @@ tags:
         x_1y_1 & x_1y_2 & \cdots & x_1y_n \\
         x_2y_1 & x_2y_2 & \cdots & x_2y_n \\
         \vdots & \vdots & \ddots & \vdots \\
-        x_my_1 & x_my_2 & \cdots & x_my_n \\
+        x_my_1 & x_my_2 & \cdots & x_my_n
       \end{matrix}
     \right]
     $$
@@ -87,7 +87,7 @@ tags:
         - & a_1^T  & - \\
         - & a_2^T  & - \\
           & \vdots & \\
-        - & a_m^T  & - \\
+        - & a_m^T  & -
       \end{matrix}
     \right]x = 
 
@@ -96,7 +96,7 @@ tags:
         a_1^Tx \\
         a_2^Tx \\
         \vdots \\
-        a_m^Tx \\
+        a_m^Tx
       \end{matrix}
     \right]
     $$
@@ -114,7 +114,7 @@ tags:
       \begin{matrix}
           | &   | &        &   | \\
         a_1 & a_2 & \cdots & a_n \\
-          | &   | &        &   | \\
+          | &   | &        &   |
       \end{matrix}
     \right]
 
@@ -123,7 +123,7 @@ tags:
         x_1 \\
         x_2 \\
         \vdots \\
-        x_n \\
+        x_n
       \end{matrix}
     \right] = 
 
@@ -145,7 +145,7 @@ tags:
       \begin{matrix}
           | &   | &        &   | \\
         a_1 & a_2 & \cdots & a_n \\
-          | &   | &        &   | \\
+          | &   | &        &   |
       \end{matrix}
     \right]
     
@@ -153,7 +153,7 @@ tags:
 
     \left[
       \begin{matrix}
-        x^T a^1 & x^T a^2 & \cdots & x^T a^n \\
+        x^T a^1 & x^T a^2 & \cdots & x^T a^n
       \end{matrix}
     \right]
     $$
@@ -169,7 +169,7 @@ tags:
 
     \left[
       \begin{matrix}
-        x_1 & x_2 & \cdots & x_n \\
+        x_1 & x_2 & \cdots & x_n
       \end{matrix}
     \right]
 
@@ -178,7 +178,7 @@ tags:
         - a_1^T - \\
         - a_2^T - \\
           \vdots \\
-        - a_m^T - \\
+        - a_m^T -
       \end{matrix}
     \right]
     
@@ -209,7 +209,7 @@ $$
         - & a_1^T  & - \\
         - & a_2^T  & - \\
           & \vdots & \\
-        - & a_m^T  & - \\
+        - & a_m^T  & -
       \end{matrix}
     \right]
     
@@ -217,7 +217,7 @@ $$
       \begin{matrix}
           | &   | &        &   | \\
         b_1 & b_2 & \cdots & b_p \\
-          | &   | &        &   | \\
+          | &   | &        &   |
       \end{matrix}
     \right]
     
@@ -228,7 +228,7 @@ $$
         a_1^Tb_1 & a_1^Tb_2 & \cdots & a_1^Tb_p \\
         a_2^Tb_1 & a_2^Tb_2 & \cdots & a_2^Tb_p \\
           \vdots &   \vdots & \ddots &   \vdots \\
-        a_m^Tb_1 & a_m^Tb_2 & \cdots & a_m^Tb_p \\
+        a_m^Tb_1 & a_m^Tb_2 & \cdots & a_m^Tb_p
       \end{matrix}
     \right]
 
@@ -246,7 +246,7 @@ $$
       \begin{matrix}
           | &   | &        &   | \\
         a_1 & a_2 & \cdots & a_n \\
-          | &   | &        &   | \\
+          | &   | &        &   |
       \end{matrix}
     \right]
 
@@ -255,7 +255,7 @@ $$
         - & b_1^T  & - \\
         - & b_2^T  & - \\
           & \vdots & \\
-        - & b_n^T  & - \\
+        - & b_n^T  & -
       \end{matrix}
     \right]
     
@@ -273,14 +273,14 @@ $$
       \begin{matrix}
         2 & 7 \\
         3 & 8 \\
-        4 & 9 \\
+        4 & 9
       \end{matrix}
     \right]
 
     \left[
       \begin{matrix}
         1 & 6 \\
-        0 & 0 \\
+        0 & 0
       \end{matrix}
     \right]
 
@@ -290,13 +290,13 @@ $$
       \begin{matrix}
         2 \\
         3 \\
-        4 \\
+        4
       \end{matrix}
     \right]
 
     \left[
       \begin{matrix}
-        1 & 6 \\
+        1 & 6
       \end{matrix}
     \right]
 
@@ -306,13 +306,13 @@ $$
       \begin{matrix}
         7 \\
         8 \\
-        9 \\
+        9
       \end{matrix}
     \right]
 
     \left[
       \begin{matrix}
-        0 & 0 \\
+        0 & 0
       \end{matrix}
     \right]
 
@@ -322,7 +322,7 @@ $$
       \begin{matrix}
         2 & 12 \\
         3 & 18 \\
-        4 & 24 \\
+        4 & 24
       \end{matrix}
     \right]
     $$
@@ -391,7 +391,7 @@ $$
       \begin{matrix}
           | &   | &        &   | \\
         b_1 & b_2 & \cdots & b_p \\
-          | &   | &        &   | \\
+          | &   | &        &   |
       \end{matrix}
     \right]
 
@@ -401,7 +401,7 @@ $$
       \begin{matrix}
           | &   | &        &   | \\
         Ab_1 & Ab_2 & \cdots & Ab_p \\
-          | &   | &        &   | \\
+          | &   | &        &   |
       \end{matrix}
     \right]
     $$
@@ -421,7 +421,7 @@ $$
         - & a_1^T  & - \\
         - & a_2^T  & - \\
           & \vdots &   \\
-        - & a_m^T  & - \\
+        - & a_m^T  & -
       \end{matrix}
     \right] B = 
 
@@ -430,7 +430,7 @@ $$
         - & a_1^TB & - \\
         - & a_2^TB & - \\
           & \vdots &   \\
-        - & a_m^TB & - \\
+        - & a_m^TB & -
       \end{matrix}
     \right]
     $$
@@ -443,14 +443,14 @@ $$
     \left[
       \begin{array}{c|c}
                A_1 & A_2 \\
-        \hline A_3 & A_4 \\
+        \hline A_3 & A_4
       \end{array}
     \right]
     
     \left[
       \begin{array}{c|c}
                B_1 & B_2 \\
-        \hline B_3 & B_4 \\
+        \hline B_3 & B_4
       \end{array}
     \right]
     
@@ -459,7 +459,7 @@ $$
     \left[
       \begin{array}{c|c}
                A_1B_1+A_2B_3 & A_1B_2+A_2B_4 \\
-        \hline A_3B_1+A_4B_3 & A_3B_2+A_4B_4 \\
+        \hline A_3B_1+A_4B_3 & A_3B_2+A_4B_4
       \end{array}
     \right]
     $$
@@ -509,7 +509,7 @@ $$
   \begin{array}{c c c |c}
     \underline{1} & 2 & 1 & 2 \\
     3             & 8 & 1 & 12 \\
-    0             & 4 & 1 & 2 \\
+    0             & 4 & 1 & 2
   \end{array}
 \right]
 \underrightarrow{r2-3r1}
@@ -518,7 +518,7 @@ $$
   \begin{array}{c c c |c}
     \underline{1} & 2             & 1  & 2 \\
     0             & \underline{2} & -2 & 6 \\
-    0             & 4             & 1  & 2 \\
+    0             & 4             & 1  & 2
   \end{array}
 \right]
 
@@ -527,7 +527,7 @@ $$
   \begin{array}{c c c |c}
     \underline{1} & 2             & 1             & 2 \\
     0             & \underline{2} & -2            & 6 \\
-    0             & 0             & \underline{5} & -10 \\
+    0             & 0             & \underline{5} & -10
   \end{array}
 \right]
 $$
@@ -578,7 +578,7 @@ $$
 \begin{array}{c c c c|c}
 1 & 2 & 2 & 2 & b_1 \\
 2 & 4 & 6 & 8 & b_2 \\
-3 & 6 & 8 & 10 & b_3 \\
+3 & 6 & 8 & 10 & b_3
 \end{array}
 \right]
 \underrightarrow{\text{消元}}
@@ -586,7 +586,7 @@ $$
 \begin{array}{c c c c|c}
 1 & 2 & 2 & 2 & b_1 \\
 0 & 0 & 2 & 4 & b_2-2b_1 \\
-0 & 0 & 0 & 0 & b_3-b_2-b_1 \\
+0 & 0 & 0 & 0 & b_3-b_2-b_1
 \end{array}
 \right]
 $$
@@ -607,14 +607,14 @@ $$
     \Big\lbrace
     \begin{aligned}
       x_1 + 2x_3 & = 1 \\
-      2x_3 & = 3 \\
+      2x_3 & = 3
     \end{aligned}
     $$，解得
     $$
     \Big\lbrace
     \begin{aligned}
       x_1 & = -2 \\
-      x_3 & = \frac{3}{2} \\
+      x_3 & = \frac{3}{2}
     \end{aligned}
     $$
    
@@ -635,7 +635,7 @@ $$
     \Big\lbrace
     \begin{aligned}
       A x_p & = b \\
-      A x_n & = 0 \\
+      A x_n & = 0
     \end{aligned}
     \quad
       \rightarrow{}
@@ -657,14 +657,14 @@ $$
       -2\\
       1\\
       0\\
-      0\\
+      0
     \end{bmatrix}
     +c_2
     \begin{bmatrix}
       2\\
       0\\
       -2\\
-      1\\
+      1
     \end{bmatrix}
     $$
 
@@ -687,7 +687,7 @@ A=
   1 & 3 \\
   2 & 1 \\
   6 & 1 \\
-  5 & 1 \\
+  5 & 1
 \end{bmatrix}
 ，
 R=
@@ -695,7 +695,7 @@ R=
   1 & 0 \\
   0 & 1 \\
   0 & 0 \\
-  0 & 0 \\
+  0 & 0
 \end{bmatrix}
 $$
 
@@ -714,13 +714,13 @@ $$
 A=
 \begin{bmatrix}
   1 & 2 & 6 & 5 \\
-  3 & 1 & 1 & 1 \\
+  3 & 1 & 1 & 1
 \end{bmatrix},
 
 R=
 \begin{bmatrix}
   1 & 0 & - & - \\
-  0 & 1 & - & - \\
+  0 & 1 & - & -
 \end{bmatrix}
 $$
 
@@ -738,7 +738,7 @@ $$
 A=
 \begin{bmatrix}
   1 & 2 \\
-  3 & 4 \\
+  3 & 4
 \end{bmatrix}
 $$
 
@@ -749,9 +749,9 @@ $$
 
 $$
 \begin{array}{c|c|c|c}
-  r=m=n & r=n<m & r=m<n & r<m,r<n\\
+  r=m=n & r=n<m & r=m<n & r<m,r<n \\
 
-  R=I & R=\begin{bmatrix}I\\0\end{bmatrix} & R=\begin{bmatrix}I&F\end{bmatrix} & R=\begin{bmatrix}I&F\\0&0\end{bmatrix}\\
+  R=I & R=\begin{bmatrix}I\\0\end{bmatrix} & R=\begin{bmatrix}I&F\end{bmatrix} & R=\begin{bmatrix}I&F\\0&0\end{bmatrix} \\
   
   \text{1 solution} & \text{0 or 1 solution} & \infty \text{ solution} & \text{0 or } \infty \text{ solution}
 \end{array}
@@ -785,7 +785,7 @@ A=
 \begin{bmatrix}
   1 & 2 & 3 & 1 \\
   1 & 1 & 2 & 1 \\
-  1 & 2 & 3 & 1 \\
+  1 & 2 & 3 & 1
 \end{bmatrix}
 $$
 
@@ -802,14 +802,14 @@ x_1=
 \begin{bmatrix}-1 \\
   -1 \\
   1 \\
-  0 \\
+  0
 \end{bmatrix}，
 x_2=
 \begin{bmatrix}
   -1 \\
   0 \\
   0 \\
-  1 \\
+  1
 \end{bmatrix}
 $$
 
