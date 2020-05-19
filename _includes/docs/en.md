@@ -316,7 +316,7 @@ Just refer to the [Portfolio page](/portfolio){:target="_blank"} and its [Front-
 
 ### Post
 
-Create your posts (Markdown files) in `_post/` directory. The format of their filename should be `year-month-day-title.md`. Their YAML Front-matter should be like this：
+Create your posts (Markdown files) under `_posts/` directory. The format of their filename should be `year-month-day-title.md`. Their YAML Front-matter should be like this：
 
 ```yaml
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Text Generation
-subtitle: "Papers Reading: Machine Translation, Text Summarization, Sentence Compression"
+subtitle: "Papers Reading: Machine Translation & Text Summarization"
 author: "Renovamen"
 header-img: img/in-post/2020-04-13/header.jpg
 header-style: text
@@ -137,8 +137,11 @@ $$a$$ 是一个 MLP，$$\alpha_{ij}$$ 由 $$e_{ij}$$ 归一化（softmax）后�
 **Unsupervised Machine Translation Using Monolingual Corpora Only.** *Guillaume Lample, et al.* ICLR 2018. [[Paper]](https://research.fb.com/wp-content/uploads/2018/03/unsupervised-machine-translation-using-monolingual-corpora-only.pdf){:target="_blank"}
 
 
-## Sentence Compression
 
-### DAE (Unsupervised)
+## Text Summarization
+
+### Unsupervised
+
+#### DAE
 
 **Unsupervised Sentence Compression using Denoising Auto-Encoders.** *Thibault Fevry and Jason Phang.* CoNLL 2018. [[Paper]](https://www.aclweb.org/anthology/K18-1040.pdf){:target="_blank"} [[Code]](https://github.com/zphang/usc_dae){:target="_blank"}

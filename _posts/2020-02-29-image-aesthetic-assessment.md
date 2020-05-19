@@ -14,13 +14,13 @@ tags:
 
 ## Surveys
 
-- **Algorithmic Inferencing of Aesthetics and Emotion in Natural Images: An Exposition.** ICIP 2008. [^datta_2008]
+- **Algorithmic Inferencing of Aesthetics and Emotion in Natural Images: An Exposition.** *Ritendra Datta, Jia Li, and James Z. Wang.* ICIP 2008. [[Paper]](https://www.ri.cmu.edu/pub_files/pub4/datta_ritendra_2008_2/datta_ritendra_2008_2.pdf){:target="_blank"}
 
 - **On Aesthetics and Emotions in Images: A Computational Perspective.** *Dhiraj Joshi, et al.* IEEE Signal Processing Magazine 2011. [[IEEE]](https://ieeexplore.ieee.org/document/5999579){:target="_blank"} [[Paper]](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/37213.pdf){:target="_blank"}
 
 - **Aesthetic Analysis of Images.** 2015. [[Report]](https://eg.uc.pt/bitstream/10316/35507/1/Aesthetic%20Analysis%20of%20Images%20Intermediate%20report.pdf){:target="_blank"}
 
-- **Image Aesthetic Assessment: An Experimental Survey.** IEEE Signal Processing Magazine 2017. [^deng_2017]
+- **Image Aesthetic Assessment: An Experimental Survey.** *Yubin Deng, et al.* IEEE Signal Processing Magazine 2017. [[IEEE]](https://ieeexplore.ieee.org/abstract/document/7974874){:target="_blank"} [[arxiv]](https://arxiv.org/pdf/1610.00838.pdf){:target="_blank"}
 
 - **A Report: Image Aesthetic Assessment.** *Chunbiao Zhu.* 2018. [[Report]](https://www.researchgate.net/publication/325184839_A_Report_Image_Aesthetic_Assessment){:target="_blank"}
 
@@ -29,7 +29,9 @@ tags:
 
 ### Photo.net (PN)
 
-在论文[^datta_2008]（ICIP 2008）中提出。共 20,278 张图片[^deng_2017]，平均每张图片 12 个评分，评分范围为 0-7，分越高说明图片质量越高。所有图片的平均得分的峰值在分布右侧，说明整体评价偏高。
+**Algorithmic Inferencing of Aesthetics and Emotion in Natural Images: An Exposition.** *Ritendra Datta, Jia Li, and James Z. Wang.* ICIP 2008. [[Paper]](https://www.ri.cmu.edu/pub_files/pub4/datta_ritendra_2008_2/datta_ritendra_2008_2.pdf){:target="_blank"}
+
+共 20,278 张图片[^deng_2017]，平均每张图片 12 个评分，评分范围为 0-7，分越高说明图片质量越高。所有图片的平均得分的峰值在分布右侧，说明整体评价偏高。
 
 ![photo-net-distribution](/img/in-post/2020-02-29/photo-net-distribution.png)
 
@@ -45,7 +47,9 @@ PN 数据集的图片平均得分分布
 
 ### DPChallenge
 
-依然在论文[^datta_2008]（ICIP 2008）中提出。共 16,509 张图片，平均每张图片 205 个评分，评分范围为 0-10，分越高说明图片质量越高。
+**Algorithmic Inferencing of Aesthetics and Emotion in Natural Images: An Exposition.** *Ritendra Datta, Jia Li, and James Z. Wang.* ICIP 2008. [[Paper]](https://www.ri.cmu.edu/pub_files/pub4/datta_ritendra_2008_2/datta_ritendra_2008_2.pdf){:target="_blank"}（依然是这篇论文）
+
+共 16,509 张图片，平均每张图片 205 个评分，评分范围为 0-10，分越高说明图片质量越高。
 
 
 ![dpchallenge-distribution](/img/in-post/2020-02-29/dpchallenge-distribution.png)
@@ -60,14 +64,20 @@ DPChallenge 数据集的图片平均得分分布
 
 ### CUHK-PQ
 
-在论文[^luo_2011]（ICCV 2011）和[^tang_2013]中提出。现在有 30,000 左右张图片，每张图片被按内容分为了 7 个类别。美学标注只有“高质量”和“低质量”两个，高低质量图片比例约为 1:3[^deng_2017]。所以该数据集很难被用来进行评分任务的训练，而且分类难度不算大。因为是直接把从专业摄影网站（dpchallenge.com）和从业余摄影师处收集到的图片混在了一起，所以可能不能代表真实场景。[^murray_2012]
+**Content-based Photo Quality Assessment.** *Wei Luo, Xiaogang Wang, and Xiaoou Tang.* ICCV 2011. [[IEEE]](https://ieeexplore.ieee.org/abstract/document/6126498){:target="_blank"} [[Paper]](http://mmlab.ie.cuhk.edu.hk/archive/2011/cvpr11_WLuo_XWang_XTang.pdf){:target="_blank"}
+
+**Content-based Photo Quality Assessment.** *Xiaoou Tang, Wei Luo, and Xiaogang Wang.* TMM 2013. [[IEEE]](https://ieeexplore.ieee.org/document/6544270){:target="_blank"} [[Paper]](http://mmlab.ie.cuhk.edu.hk/archive/2011/cvpr11_WLuo_XWang_XTang.pdf){:target="_blank"}
+
+现在有 30,000 左右张图片，每张图片被按内容分为了 7 个类别。美学标注只有“高质量”和“低质量”两个，高低质量图片比例约为 1:3[^deng_2017]。所以该数据集很难被用来进行评分任务的训练，而且分类难度不算大。因为是直接把从专业摄影网站（dpchallenge.com）和从业余摄影师处收集到的图片混在了一起，所以可能不能代表真实场景。[^murray_2012]
 
 下载：[<i class="fas fa-link"></i> Multimedia Laboratory, CUHK](http://mmlab.ie.cuhk.edu.hk/archive/CUHKPQ/Dataset.htm){:target="_blank"}
 
 
 ### AVA
 
-在论文[^murray_2012]（CVPR 2012）中提出，收集并标注了来源于 dpchallenge.com 的超过 250,000 张图片。带有美学质量标注（Aesthetic annotations）（78～549 个评分，评分范围为 0-10，分越高说明图片质量越高）、语义标注（Semantic annotations）（共 66 种）和摄影风格标注（Photographic style annotations）（共 14 种，大概就是所谓的“美学因素”）。是第一个带有详细标注的大型图像美感评估数据集，也是图像美感评估领域公认的基准数据集。
+**AVA: A Large-Scale Database for Aesthetic Visual Analysis.** *Naila Murray, Luca Marchesotti, Florent Perronnin.* CVPR 2012. [[IEEE]](https://ieeexplore.ieee.org/document/6247954){:target="_blank"} [[Paper]](http://refbase.cvc.uab.es/files/MMP2012a.pdf){:target="_blank"} [[Dataset]](https://github.com/mtobeiyf/ava_downloader){:target="_blank"}
+
+收集并标注了来源于 dpchallenge.com 的超过 250,000 张图片。带有美学质量标注（Aesthetic annotations）（78～549 个评分，评分范围为 0-10，分越高说明图片质量越高）、语义标注（Semantic annotations）（共 66 种）和摄影风格标注（Photographic style annotations）（共 14 种，大概就是所谓的“美学因素”）。是第一个带有详细标注的大型图像美感评估数据集，也是图像美感评估领域公认的基准数据集。
 
 该论文比较了 AVA 与其他数据集：
 
@@ -86,7 +96,9 @@ AVA 与其他数据集的比较
 
 ### AADB
 
-在论文[^kong_2016]（ECCV 2016）中提出，收集并标注了来自 [Flickr](https://www.flickr.com/){:target="_blank"} 的共 10,000 张图片。带有美学质量标注（5 个人评分）和美学因素标注（共 11 种，二分类，算是对 AVA 的补充）。
+**Photo Aesthetics Ranking Network with Attributes and Content Adaptation.** *Shu Kong, et al.* ECCV 2016. [[arxiv]](https://arxiv.org/pdf/1606.01621.pdf){:target="_blank"} [[Project]](https://www.ics.uci.edu/~skong2/aesthetics.html){:target="_blank"} [[Code]](https://github.com/aimerykong/deepImageAestheticsAnalysis){:target="_blank"} [[Dataset & Model]](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM){:target="_blank"}
+
+收集并标注了来自 [Flickr](https://www.flickr.com/){:target="_blank"} 的共 10,000 张图片。带有美学质量标注（5 个人评分）和美学因素标注（共 11 种，二分类，算是对 AVA 的补充）。
 
 相比 AVA，AADB 中所有图片都是真实照片，且注意平衡了专业摄影者和普通拍照者的作品数量，且标注了每个评分的标注者 ID（用于消除标不同标注者评价标准的不同所带来的影响）。
 
@@ -102,19 +114,12 @@ AADB 与其他数据集的比较
 下载：[<i class="fas fa-link"></i> Google Drive](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM){:target="_blank"}
 
 
-### PCCD
-
-在论文[^chang_2017]（ICCV 2017）中提出，首次在图像美学数据集中加入了语言评论信息。包含了来自 [GuruShots](https://gurushots.com/){:target="_blank"}（一个专业图片评论网站）上的 4235 张图片和它们的超过 60,000 条评论信息，以及对每张图片整体和 7 个美学因素的分别评分（评分范围为 1-10）。在美学因素的标注上比 AVA 和 AADB 的二分类更详细。
-
-但数据量过少。
-
-我并没有找到这个数据集，该论文的 [Github 主页](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"}上似乎也没有。但论文[^jin_2019]倒是公开了他们用 PCCD 搞了下 knowledge transfer 搞出来的一个更大的弱标注数据集 [DPC-Captions](https://github.com/BestiVictory/DPC-Captions){:target="_blank"}。
-
-
-
 ### AROD
 
-在论文[^schwarz_2018]（WACV 2018）中提出，从 [Flickr](https://www.flickr.com/){:target="_blank"} 上爬了 2004 - 2016 年间的超过 380,000 张图片，及他们的浏览量（views）、评论数、被喜欢次数（faves）、图片标题、在网站上的描述等数据。然后定义了图片的美学质量为：
+**Will People Like Your Image? Learning the Aesthetic Space.** *Katharina Schwarz, Patrick Wieschollek, and Hendrik P. A. Lensch.* WACV 2018. [[arxiv]](https://arxiv.org/pdf/1611.05203.pdf){:target="_blank"} [[Code & Dataset]](https://github.com/cgtuebingen/will-people-like-your-image){:target="_blank"}
+
+
+从 [Flickr](https://www.flickr.com/){:target="_blank"} 上爬了 2004 - 2016 年间的超过 380,000 张图片，及他们的浏览量（views）、评论数、被喜欢次数（faves）、图片标题、在网站上的描述等数据。然后定义了图片的美学质量为：
 
 $$
 S(i) \sim \frac{\log F(i)}{\log V(i)}
@@ -135,10 +140,34 @@ AROD 与其他数据集的比较
 
 ### GPA
 
-在论文 [^sheng_2018] 中提出，是一个用于食物图片美感评估的数据集。从社交媒体和食物分类数据集中收集了共 24,000 张图片，然后人工标注（二分类）。
+**Gourmet Photography Dataset for Aesthetic Assessment of Food Images.** *Kekai Sheng, et al.* SIGGRAPH 2018. [[Dataset]](https://github.com/Openning07/GPA){:target="_blank"}
+
+一个用于食物图片美感评估的数据集。从社交媒体和食物分类数据集中收集了共 24,000 张图片，然后人工标注（二分类）。
 
 下载：[<i class="fas fa-link"></i> Github](https://github.com/Openning07/GPA){:target="_blank"}
 
+
+
+### PCCD
+
+**Aesthetic Critiques Generation for Photos.** *Kuang-Yu Chang, Kung-Hung Lu, and Chu-Song Chen.* ICCV 2017. [[IEEE]](https://ieeexplore.ieee.org/document/8237642){:target="_blank"} [[Paper]](https://www.iis.sinica.edu.tw/~kuangyu/iccv17_aesthetic_critiques.pdf){:target="_blank"} [[Code]](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"} [[Dataset]](https://github.com/ivclab/DeepPhotoCritic-ICCV17){:target="_blank"}
+
+首次在图像美学数据集中加入了语言评论信息。包含了来自 [GuruShots](https://gurushots.com/){:target="_blank"}（一个专业图片评论网站）上的 4235 张图片，和它们的超过 60,000 条评论信息。评论被按角度（如“color & light”、“depth of field”等）分成了 7 类。并且张图片都带有对图片整体和 7 个角度的打分（评分范围为 1-10）。可以说在美学因素的标注上比 AVA 和 AADB 的二分类更详细。
+
+但数据量过少。
+
+~~我并没有找到这个数据集，该论文的 [Github 主页](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"}上似乎也没有。~~ 不久前似乎开源了：[<i class="fas fa-link"></i> Github](https://github.com/ivclab/DeepPhotoCritic-ICCV17){:target="_blank"}
+
+我也不明白为啥 2017 年的论文 2020 年才开源数据集...
+
+
+### DPC-Caption
+
+**Aesthetic Attributes Assessment of Images.** *Xin Jin, et al.* ACM MM 2019. [[arxiv]](https://arxiv.org/pdf/1907.04983.pdf){:target="_blank"} [[Dataset]](https://github.com/BestiVictory/DPC-Captions){:target="_blank"}
+
+把 AVA 中图片的评论都爬了下来，并按角度分成了 6 类，分类的标准基于从 PCCD 中统计出来的信息。比 PCCD 数据量大得多，但没有每个角度的评分，标注要弱一些。
+
+下载：[<i class="fas fa-link"></i> Github](https://github.com/BestiVictory/DPC-Captions){:target="_blank"}
 
 
 
@@ -294,9 +323,9 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 - **Visual Aesthetic Quality Assessment with Multi-task Deep Learning.** *Yueying Kao, Ran He, and Kaiqi Huang.* arXiv 2016. [[Paper]](https://www.researchgate.net/profile/Yueying_Kao/publication/301877404_Visual_Aesthetic_Quality_Assessment_with_Multi-task_Deep_Learning/links/573a717108ae9f741b2cad7a/Visual-Aesthetic-Quality-Assessment-with-Multi-task-Deep-Learning.pdf){:target="_blank"}
 
 
-- **Photo Aesthetics Ranking Network with Attributes and Content Adaptation.** ECCV 2016. [^kong_2016]
+- **Photo Aesthetics Ranking Network with Attributes and Content Adaptation.** *Shu Kong, et al.* ECCV 2016. [[arxiv]](https://arxiv.org/pdf/1606.01621.pdf){:target="_blank"} [[Project]](https://www.ics.uci.edu/~skong2/aesthetics.html){:target="_blank"} [[Code]](https://github.com/aimerykong/deepImageAestheticsAnalysis){:target="_blank"} [[Dataset & Model]](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM){:target="_blank"}
 
-   构建了 AADB 数据集。
+   提出了 AADB 数据集。
 
 
 **DBM：**
@@ -317,19 +346,25 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
 #### 文字描述
 
-- **Aesthetic Critiques Generation for Photos.** ICCV 2017. [^chang_2017]
+- **Aesthetic Critiques Generation for Photos.** *Kuang-Yu Chang, Kung-Hung Lu, and Chu-Song Chen.* ICCV 2017. [[IEEE]](https://ieeexplore.ieee.org/document/8237642){:target="_blank"} [[Paper]](https://www.iis.sinica.edu.tw/~kuangyu/iccv17_aesthetic_critiques.pdf){:target="_blank"} [[Code]](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"} [[Dataset]](https://github.com/ivclab/DeepPhotoCritic-ICCV17){:target="_blank"}
 
-- **Aesthetic Attributes Assessment of Images.** ACM MM 2019. [^jin_2019]
+    在每个角度的数据集上跑了一个图像描述模型（直接用了 [NeuralTalk2](#show-and-tell)），然后用 Attention 把所有模型输出的隐状态融合起来，作为另一个新的 LSTM 的输入，新的 LSTM 的输出就是涵盖了多个角度的描述。（但从论文给的结果来看角度还是比较单一？）
+
+    ![pccd](/img/in-post/2020-02-29/pccd.png){:width="400px"}
+
+- **Aesthetic Attributes Assessment of Images.** *Xin Jin, et al.* ACM MM 2019. [[arxiv]](https://arxiv.org/pdf/1907.04983.pdf){:target="_blank"} [[Dataset]](https://github.com/BestiVictory/DPC-Captions){:target="_blank"}
+
+    搞了一个比 PCCD 大得多的数据集，跑了一个浮夸的模型，输出指定角度的描述。
+
+    ![aman](/img/in-post/2020-02-29/aman.png)
+
 
 - **Neural Aesthetic Image Reviewer.** *Wenshan Wang, et al.* IET Computer Vision 2019. [[arxiv]](https://arxiv.org/pdf/1802.10240.pdf){:target="_blank"}
 
-- **Aesthetic Image Captioning From Weakly-Labelled Photographs.** *Koustav Ghosal, Aakanksha Rana, and Aljosa Smolic.* ICCV 2019. [[Paper]](http://openaccess.thecvf.com/content_ICCVW_2019/papers/CROMOL/Ghosal_Aesthetic_Image_Captioning_From_Weakly-Labelled_Photographs_ICCVW_2019_paper.pdf){:target="_blank"} [[Code]](https://github.com/V-Sense/Aesthetic-Image-Captioning-ICCVW-2019){:target="_blank"}
+- **Aesthetic Image Captioning From Weakly-Labelled Photographs.** *Koustav Ghosal, Aakanksha Rana, and Aljosa Smolic.* ICCV Workshop 2019. [[Paper]](http://openaccess.thecvf.com/content_ICCVW_2019/papers/CROMOL/Ghosal_Aesthetic_Image_Captioning_From_Weakly-Labelled_Photographs_ICCVW_2019_paper.pdf){:target="_blank"} [[Code]](https://github.com/V-Sense/Aesthetic-Image-Captioning-ICCVW-2019){:target="_blank"}
+
 
 ## Reference
-
-
-[^datta_2008]: **Algorithmic Inferencing of Aesthetics and Emotion in Natural Images: An Exposition.** *Ritendra Datta, Jia Li, and James Z. Wang.* ICIP 2008. [[Paper]](https://www.ri.cmu.edu/pub_files/pub4/datta_ritendra_2008_2/datta_ritendra_2008_2.pdf){:target="_blank"}
-
 
 [^deng_2017]: **Image Aesthetic Assessment: An Experimental Survey.** *Yubin Deng, et al.* IEEE Signal Processing Magazine 2017. [[IEEE]](https://ieeexplore.ieee.org/abstract/document/7974874){:target="_blank"} [[arxiv]](https://arxiv.org/pdf/1610.00838.pdf){:target="_blank"}
 
@@ -338,21 +373,4 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
 [^marchesotti_2011]: **Assessing the Aesthetic Quality of Photographs Using Generic Image Descriptors.** *Luca Marchesotti, et al.* ICCV 2011. [[IEEE]](https://ieeexplore.ieee.org/abstract/document/6126444){:target="_blank"} [[Paper]](http://www.tamaraberg.com/teaching/Fall_13/papers/Marchesotti2011.pdf){:target="_blank"}
 
-[^luo_2011]: **Content-based Photo Quality Assessment.** *Wei Luo, Xiaogang Wang, and Xiaoou Tang.* ICCV 2011. [[IEEE]](https://ieeexplore.ieee.org/abstract/document/6126498){:target="_blank"} [[Paper]](http://mmlab.ie.cuhk.edu.hk/archive/2011/cvpr11_WLuo_XWang_XTang.pdf){:target="_blank"}
-
-[^tang_2013]: **Content-based Photo Quality Assessment.** *Xiaoou Tang, Wei Luo, and Xiaogang Wang.* TMM 2013. [[IEEE]](https://ieeexplore.ieee.org/document/6544270){:target="_blank"} [[Paper]](http://mmlab.ie.cuhk.edu.hk/archive/2011/cvpr11_WLuo_XWang_XTang.pdf){:target="_blank"}
-
-
 [^kong_2016]: **Photo Aesthetics Ranking Network with Attributes and Content Adaptation.** *Shu Kong, et al.* ECCV 2016. [[arxiv]](https://arxiv.org/pdf/1606.01621.pdf){:target="_blank"} [[Project]](https://www.ics.uci.edu/~skong2/aesthetics.html){:target="_blank"} [[Code]](https://github.com/aimerykong/deepImageAestheticsAnalysis){:target="_blank"} [[Dataset & Model]](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM){:target="_blank"}
-
-
-
-[^schwarz_2018]: **Will People Like Your Image? Learning the Aesthetic Space.** *Katharina Schwarz, Patrick Wieschollek, and Hendrik P. A. Lensch.* WACV 2018. [[arxiv]](https://arxiv.org/pdf/1611.05203.pdf){:target="_blank"} [[Code & Dataset]](https://github.com/cgtuebingen/will-people-like-your-image){:target="_blank"}
-
-
-[^chang_2017]: **Aesthetic Critiques Generation for Photos.** *Kuang-Yu Chang, Kung-Hung Lu, and Chu-Song Chen.* ICCV 2017. [[IEEE]](https://ieeexplore.ieee.org/document/8237642){:target="_blank"} [[Paper]](https://www.iis.sinica.edu.tw/~kuangyu/iccv17_aesthetic_critiques.pdf){:target="_blank"} [[Code]](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"}
-
-
-[^jin_2019]: **Aesthetic Attributes Assessment of Images.** *Xin Jin, et al.* ACM MM 2019. [[arxiv]](https://arxiv.org/pdf/1907.04983.pdf){:target="_blank"} [[Dataset]](https://github.com/BestiVictory/DPC-Captions){:target="_blank"}
-
-[^sheng_2018]: **Gourmet Photography Dataset for Aesthetic Assessment of Food Images.** *Kekai Sheng, et al.* SIGGRAPH 2018. [[Dataset]](https://github.com/Openning07/GPA){:target="_blank"}

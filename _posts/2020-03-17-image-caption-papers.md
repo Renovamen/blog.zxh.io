@@ -165,7 +165,7 @@ $$
 a = \{ \bold{a}_1, ..., \bold{a}_L \}, \bold{a}_i \in \reals^D
 $$
 
-![VGGNet](/img/in-post/2020-03-17/vggnet.jpeg){:width="500px"}
+![VGGNet](/img/in-post/2020-03-17/vggnet-arrow.png){:width="500px"}
 
 VGGNet 结构
 {:.desc}
@@ -287,14 +287,6 @@ $$
 
 **Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning.** *Jiasen Lu, et al.* CVPR 2017. [[Paper]](http://openaccess.thecvf.com/content_cvpr_2017/papers/Lu_Knowing_When_to_CVPR_2017_paper.pdf){:target="_blank"} [[Code]](https://github.com/jiasenlu/AdaptiveAttention){:target="_blank"}
 
-由于原版代码是用（我依然不会的）Lua + Torch 写的，所以这里是一些 PyTorch 复现：
-
-- [fawazsammani/knowing-when-to-look-adaptive-attention](https://github.com/fawazsammani/knowing-when-to-look-adaptive-attention){:target="_blank"}
-
-- [yufengm/Adaptive](https://github.com/yufengm/Adaptive){:target="_blank"}
-
-- [daveredrum/image-captioning](https://github.com/daveredrum/image-captioning){:target="_blank"}
-
 
 不是每个单词的生成都需要利用图像特征，有的词的生成只需要依赖语义信息，如“the”、“of”等词，和跟在“talking on a cell”后面的“phone”等词。因此该论文的 Adaptive Attention 机制能决定当前时间步要用多少图像特征和多少语义信息。
 
@@ -395,7 +387,7 @@ $$
 s_t = g_t \odot \text{tanh} (m_t)
 $$
 
-$$g_t$$ 是个门控信号，$$m_t$$ 是 $$t$$ 时刻的细胞状态，$$\sigma$$ 是 sigmoid 激活函数。相当于就是把 [LSTM 遗忘门](/2020/03/04/rnn-with-its-friends/#遗忘门){:target="_blank"}公式中的 $$m_{t-1}$$ 换成了 $$m_t$$。
+$$g_t$$ 是个门控信号，$$m_t$$ 是 $$t$$ 时刻的细胞状态，$$\sigma$$ 是 sigmoid 激活函数。跟 [LSTM 输出门](/2020/03/04/rnn-with-its-friends/#输出门){:target="_blank"}公式的形式是一样的，但是分别由不同的权重控制。
 
 于是 Adaptive Attention 中的 context vector $$\hat{c}_t$$ 为：
 
@@ -431,7 +423,7 @@ $$
 
 ## Aesthetic Critiques Generation for Photos
 
-**Aesthetic Critiques Generation for Photos.** *Kuang-Yu Chang, Kung-Hung Lu, and Chu-Song Chen.* ICCV 2017. [[IEEE]](https://ieeexplore.ieee.org/document/8237642){:target="_blank"} [[Paper]](https://www.iis.sinica.edu.tw/~kuangyu/iccv17_aesthetic_critiques.pdf){:target="_blank"} [[Code]](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"}
+**Aesthetic Critiques Generation for Photos.** *Kuang-Yu Chang, Kung-Hung Lu, and Chu-Song Chen.* ICCV 2017. [[IEEE]](https://ieeexplore.ieee.org/document/8237642){:target="_blank"} [[Paper]](https://www.iis.sinica.edu.tw/~kuangyu/iccv17_aesthetic_critiques.pdf){:target="_blank"} [[Code]](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"} [[Dataset]](https://github.com/ivclab/DeepPhotoCritic-ICCV17){:target="_blank"}
 
 开图像美感描述这个坑的第一篇论文，数据集 PCCD 的提出者（虽然我并没有找到这个数据集）。该论文考虑从不同角度（composition、color-arrangement、subject-contrast）来对图片进行美感描述，对每个角度而言大概就跟 Image Caption 差不多了。
 

@@ -1,0 +1,101 @@
+.about-page .pub {
+    width: 85%;
+    max-width: 100%;
+    margin: 0 auto;
+    // background-color: #223344;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    min-height: 11rem;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+    overflow: hidden;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-box-shadow: var(--pub-shadow);
+            box-shadow: var(--pub-shadow);
+    &:hover {
+        -webkit-transform: translate(0px, -2px);
+            -ms-transform: translate(0px, -2px);
+                transform: translate(0px, -2px);
+        -webkit-box-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
+                box-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
+    }
+    .pub-thumbnail {
+        width: 25%;
+        max-width: 100%;
+      /*   height: auto; */
+        min-height: 15rem;
+        vertical-align: middle;
+      /*   -webkit-background-size: cover;
+                background-size: cover; */
+        -webkit-background-size: contain;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+    .pub-content {
+        padding: 2.5rem 2.5rem 1rem 2.5rem;
+        width: 70%;
+        // margin-left: 15px;
+        .pub-title {
+            margin: 0 0 5px;
+            font-size: 19px;
+            font-weight: 1200;
+            a {
+                text-decoration: none;
+                color: #263959;
+            }
+        }
+        p {
+            margin-top: 15px;
+        }
+        a {
+            color: var(--primary-color);
+            &:hover {
+                color: var(--primary-color-dark);
+            }
+        }
+    }
+}
+
+@include small {
+    .about-page .pub {
+        width: 96%;
+        max-width: 100%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        .pub-thumbnail {
+            width: 100%;
+            max-width: 100%;
+            -webkit-background-size: contain;
+            background-size: contain;
+            background-repeat:no-repeat;
+            background-position: 50% 50%;
+        }
+        .pub-content {
+            width: 100%;
+            .pub-title {
+                margin: 0 0 5px;
+                a {
+                    font-size: 21px;
+                }
+            }
+        }
+    }
+}

@@ -307,7 +307,7 @@ header-img:
 
 ### 文章
 
-把要发布的文章放在 `_post/` 文件夹中，文件名格式为 `年-月-日-标题.md`，然后配置其 YAML Front-matter：
+把要发布的文章放在 `_posts/` 文件夹中，文件名格式为 `年-月-日-标题.md`，然后配置其 YAML Front-matter：
 
 ```yaml
 ---

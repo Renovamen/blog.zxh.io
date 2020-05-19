@@ -1,0 +1,13 @@
+{% for pub in site.publications %}
+<h3 class="about-title">Publications</h3>
+<article class="pub">
+    {% if pub.img %}
+        <a class="pub-thumbnail" style="background-image: url({{ site.baseurl }}/{{ pub.img }})"></a>
+    {% else %}
+    {% endif %}
+    <div class="pub-content">
+        <h2 class="pub-title">{{pub.title}}</h2>
+        <p>{{ pub.content }}</p>
+    </div>
+</article>
+{% endfor %}

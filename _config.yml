@@ -35,8 +35,11 @@ cdn: # "jsdelivr" (default), "bootcdn", "unpkg", "cdnjs"
 future: true
 
 collections:
-  experience:
+  experiences:
     output: true
+  publications:
+    output: true
+
 
 # SNS settings
 sns:
@@ -114,9 +117,9 @@ menus:
   - title: Portfolio
     font: fas fa-jedi
     url: /portfolio/
-  - title: Links
-    font: fas fa-link
-    url: /links/
+  # - title: Links
+  #   font: fas fa-link
+  #   url: /links/
 
 
 # Comment settings

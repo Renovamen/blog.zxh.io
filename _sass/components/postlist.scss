@@ -101,6 +101,7 @@
         width: 490px;
         border: 1px solid var(--border-color);
         border-radius: 5px;
+        overflow-y: hidden;
         .post-meta {
             color: var(--body-gray);
             font-size: 12px;
