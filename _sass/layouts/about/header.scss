@@ -33,10 +33,11 @@
             margin-top: -25px;
         }
         .social-info {
-            margin: 0 auto;
+            margin-top: -20px;
+            text-align: center;
             .social-link {
                 display: inline-block;
-                width: 23%;
+                width: 14%;
                 text-align: center;
                 margin: 55px 0;
                 > a {
@@ -50,7 +51,7 @@
                     }
                 }
                 @include mobile {
-                    margin: 0;
+                    margin-top: 20px;
                 }
             }
         }

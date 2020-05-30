@@ -11,7 +11,6 @@
                 <div class="social-link">
                     <a href="https://github.com/{{ site.sns.github_username }}" target="_blank">
                         <i class="fab fa-github fa-2x"></i>
-                        <p class="font-name">Github</p>
                     </a>
                 </div>
                 {% endif %}
@@ -19,7 +18,13 @@
                 <div class="social-link">
                     <a href="https://www.facebook.com/{{ site.sns.facebook_username }}" target="_blank">
                         <i class="fab fa-facebook-square fa-2x"></i>
-                        <p>Facebook</p>
+                    </a>
+                </div>
+                {% endif %}
+                {% if site.sns.linkedin_username %}
+                <div class="social-link">
+                    <a href="https://www.linkedin.com/in/{{ site.sns.linkedin_username }}" target="_blank">
+                        <i class="fab fa-linkedin fa-2x"></i>
                     </a>
                 </div>
                 {% endif %}
@@ -27,14 +32,12 @@
                 <div class="social-link">
                     <a href = "mailto:{{ site.sns.email_address }}">
                         <i class="fas fa-envelope fa-2x"></i>
-                        <p>Email</p>
                     </a>
                 </div>
                 {% endif %}
                 <div class="social-link">
                     <a href="{{site.url}}" target="_blank">
                         <i class="fas fa-share-alt fa-2x"></i>
-                        <p>Blog</p>
                     </a>
                 </div>
             </div>

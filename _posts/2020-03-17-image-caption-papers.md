@@ -74,7 +74,7 @@ $$c_{t-1}$$ 是 LSTM 在上一时间步的细胞状态。
 
 ### LSTM
 
-在[另一篇文章](/2020/03/04/rnn-with-its-friends/#lstm){:target="_blank"}里理过 LSTM。
+在[另一篇文章](/2019/02/15/rnn-with-its-friends/#lstm){:target="_blank"}里理过 LSTM。
 
 ![LSTM](/img/in-post/2020-03-17/lstm.png){:width="350px"}
 
@@ -387,7 +387,7 @@ $$
 s_t = g_t \odot \text{tanh} (m_t)
 $$
 
-$$g_t$$ 是个门控信号，$$m_t$$ 是 $$t$$ 时刻的细胞状态，$$\sigma$$ 是 sigmoid 激活函数。跟 [LSTM 输出门](/2020/03/04/rnn-with-its-friends/#输出门){:target="_blank"}公式的形式是一样的，但是分别由不同的权重控制。
+$$g_t$$ 是个门控信号，$$m_t$$ 是 $$t$$ 时刻的细胞状态，$$\sigma$$ 是 sigmoid 激活函数。跟 [LSTM 输出门](/2019/02/15/rnn-with-its-friends/#输出门){:target="_blank"}公式的形式是一样的，但是分别由不同的权重控制。
 
 于是 Adaptive Attention 中的 context vector $$\hat{c}_t$$ 为：
 

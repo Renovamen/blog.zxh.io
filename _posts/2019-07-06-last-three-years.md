@@ -7,6 +7,7 @@ header-img: img/in-post/2019-07-06/header.jpg
 header-mask: rgb(119, 145, 168, .2)
 tags:
   - 摸鱼
+hide-in-home: true
 ---
 
 > 封面图是《塞尔达传说：荒野之息》里的利特族族长 Kaneli，来自 [@wroage (tumblr)](https://wroage.tumblr.com/image/185206416422){:target="_blank"}。利特族真是一个毛茸茸的好族。

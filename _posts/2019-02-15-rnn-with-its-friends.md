@@ -3,7 +3,7 @@ layout: post
 title: RNN 和它的朋友们
 subtitle: RNN, LSTM, GRU ...
 author: "Renovamen"
-header-img: img/in-post/2020-03-04/header.jpg
+header-img: img/in-post/2019-02-15/header.jpg
 header-style: text
 catalog: true
 tags:
@@ -14,17 +14,17 @@ tags:
 
 这是一个三维低等生物眼里的 RNN：
 
-![Rolled RNN](/img/in-post/2020-03-04/rnn/rolled.png){:width="100px"}
+![Rolled RNN](/img/in-post/2019-02-15/rnn/rolled.png){:width="100px"}
 
 这个细胞（绿色的框）相当于 Keras 中一层 RNN 的隐藏层，一个隐藏层可能有多个神经元。它在 $$t$$ 时刻的状态（隐状态）叫做 $$h_t$$，是一个向量，向量维数与这个隐藏层的神经元数量相等，每个神经元的值都是一个标量。
 
 这是一个四维高等生物眼里的 RNN（按时间步展开）：
 
-![Unrolled RNN](/img/in-post/2020-03-04/rnn/unrolled.png){:width="600px"}
+![Unrolled RNN](/img/in-post/2019-02-15/rnn/unrolled.png){:width="600px"}
 
 如果画得详细一点：
 
-![Unrolled RNN's Details](/img/in-post/2020-03-04/rnn/unrolled-details.png){:width="500px"}
+![Unrolled RNN's Details](/img/in-post/2019-02-15/rnn/unrolled-details.png){:width="500px"}
 
 其中：
 
@@ -177,7 +177,7 @@ $$
 
 tanh 函数的函数图像和导数图像为：
 
-![tanh function](/img/in-post/2020-03-04/rnn/tanh.png){:width="400px"}
+![tanh function](/img/in-post/2019-02-15/rnn/tanh.png){:width="400px"}
 
 
 假设激活函数为 sigmoid：
@@ -188,7 +188,7 @@ $$
 
 sigmoid 函数的函数图像和导数图像为：
 
-![sigmoid function](/img/in-post/2020-03-04/rnn/sigmoid.jpeg){:width="500px"}
+![sigmoid function](/img/in-post/2019-02-15/rnn/sigmoid.jpeg){:width="500px"}
 
 **梯度消失：**
 
@@ -204,7 +204,7 @@ sigmoid 函数的函数图像和导数图像为：
 
 如，ReLU 激活函数的函数图像和导数图像为：
 
-![relu function](/img/in-post/2020-03-04/rnn/relu.jpeg){:width="500px"}
+![relu function](/img/in-post/2019-02-15/rnn/relu.jpeg){:width="500px"}
 
 因为 $$y$$ 轴右侧导数恒为 1，所以避免了梯度消失的问题。但恒为 1 的导数容易导致梯度爆炸，所以需要一些调参技巧，比如给梯度设定合适的阈值，如果大于这个阈值，就按这个阈值进行更新。
 
@@ -219,7 +219,7 @@ sigmoid 函数的函数图像和导数图像为：
 
 一般来说应该放一张这样的图：
 
-![LSTM](/img/in-post/2020-03-04/lstm/lstm1.png){:width="500px"}
+![LSTM](/img/in-post/2019-02-15/lstm/lstm1.png){:width="500px"}
 
 同样，这个细胞相当于 Keras 中一层 LSTM 的隐藏层，隐藏层里有四个前馈网络层。图里的 4 个黄色框每个都是一个前馈网络层，它们的激活函数分别为 sigmoid（1，2，4）和 tanh（3）。
 
@@ -228,7 +228,7 @@ Hidden Units（Keras 的 `units`）就是每个前馈网络层的神经元个数
 
 论文 [Show and Tell](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vinyals_Show_and_Tell_2015_CVPR_paper.pdf){:target="_blank"} 里给的图也有点意思，虽然它似乎把 output gate $$o$$ 写成了 output gate $$f$$（...）：
 
-![Also a LSTM](/img/in-post/2020-03-04/lstm/lstm2.png){:width="350px"}
+![Also a LSTM](/img/in-post/2019-02-15/lstm/lstm2.png){:width="350px"}
 
 
 LSTM 的核心是一个由 3 个门控制的记忆细胞 $$c$$。$$t-1$$ 时的隐状态 $$h_{t-1}$$ 会被用于当前细胞状态的损失计算，和下一细胞状态（$$t$$ 时）的隐状态 $$h_t$$ 的计算，所以 $$h_{t-1}$$ 会在 $$t$$ 时经过这 3 个门重新进入细胞。
@@ -238,7 +238,7 @@ LSTM 的核心是一个由 3 个门控制的记忆细胞 $$c$$。$$t-1$$ 时的�
 
 传播流程：
 
-![LSTM Forward](/img/in-post/2020-03-04/lstm/lstm-forward.png){:width="250px"}
+![LSTM Forward](/img/in-post/2019-02-15/lstm/lstm-forward.png){:width="250px"}
 
 后面公式中的符号说明：
 
@@ -248,7 +248,7 @@ LSTM 的核心是一个由 3 个门控制的记忆细胞 $$c$$。$$t-1$$ 时的�
 
 #### 遗忘门
 
-![Forget Gate](/img/in-post/2020-03-04/lstm/forget.png){:width="250px"}
+![Forget Gate](/img/in-post/2019-02-15/lstm/forget.png){:width="250px"}
 
 Forget Gate，对上一个细胞状态传进来的信息进行选择性遗忘。会根据 $$h_{t-1}$$ 和 $$x_t$$ 来为上一个细胞状态 $$c_{t-1}$$ 计算一个门控信号，计算公式为：
 
@@ -264,7 +264,7 @@ $$
 
 #### 输入门
 
-![Input Gate](/img/in-post/2020-03-04/lstm/input.png){:width="250px"}
+![Input Gate](/img/in-post/2019-02-15/lstm/input.png){:width="250px"}
 
 Input Gate，对现阶段输入 $$x_t$$ 进行选择性记忆，更新细胞状态。由两个部分构成：
 
@@ -289,7 +289,7 @@ $$
 
 #### 输出门
 
-![Output Gate](/img/in-post/2020-03-04/lstm/output.png){:width="250px"}
+![Output Gate](/img/in-post/2019-02-15/lstm/output.png){:width="250px"}
 
 Output Gate，现在细胞状态已经更新了，所以要决定那些状态最终会被输出（隐状态 $$h_t$$）。依然用 sigmoid 激活函数来计算一个门控信号，控制要输出哪些内容：
 
@@ -316,7 +316,7 @@ $$
 
 传播流程：
 
-![LSTM Backward](/img/in-post/2020-03-04/lstm/lstm-backward.png){:width="250px"}
+![LSTM Backward](/img/in-post/2019-02-15/lstm/lstm-backward.png){:width="250px"}
 
 公式以后再说，我已经跑偏太多了...
 

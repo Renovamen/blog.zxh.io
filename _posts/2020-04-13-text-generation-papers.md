@@ -73,9 +73,9 @@ $$g$$ 是一个非线性函数，用于输出单词 $$y_t$$ 的概率（比如 s
 
 **Neural Machine Translation by Jointly Learning to Align and Translate.** *Dzmitry Bahdanau, Kyunghyun Cho and Yoshua Bengio.* ICLR 2015. [[arXiv]](https://arxiv.org/pdf/1409.0473.pdf){:target="_blank"}
 
-首次把 Attention 引入 NLP。
+首次把 attention 引入 seq2seq。
 
-![seq2seq attention](/img/in-post/2020-04-13/seq2seq-attention.png){:width="250px"}
+![seq2seq attention](/img/in-post/2020-04-13/seq2seq-attention.png){:width="450px"}
 
 
 #### Encoder
