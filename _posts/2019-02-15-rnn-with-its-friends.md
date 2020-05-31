@@ -226,7 +226,7 @@ sigmoid 函数的函数图像和导数图像为：
 Hidden Units（Keras 的 `units`）就是每个前馈网络层的神经元个数。
 
 
-论文 [Show and Tell](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vinyals_Show_and_Tell_2015_CVPR_paper.pdf){:target="_blank"} 里给的图也有点意思，虽然它似乎把 output gate $$o$$ 写成了 output gate $$f$$（...）：
+另一种画法（论文 [Show and Tell](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vinyals_Show_and_Tell_2015_CVPR_paper.pdf){:target="_blank"}），虽然它似乎把 output gate $$o$$ 写成了 output gate $$f$$（...）：
 
 ![Also a LSTM](/img/in-post/2019-02-15/lstm/lstm2.png){:width="350px"}
 

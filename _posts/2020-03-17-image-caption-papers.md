@@ -12,6 +12,8 @@ tags:
   - Text Generation
 ---
 
+我的 Pytorch 复现：[<i class="fas fa-link"></i> Github: Renovemen/Image-Caption](https://github.com/Renovamen/Image-Caption){:target="_blank"}
+
 ## Show and Tell
 
 **Show and Tell: A Neural Image Caption Generator.** *Oriol Vinyals, et al.* CVPR 2015. [[Paper]](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vinyals_Show_and_Tell_2015_CVPR_paper.pdf){:target="_blank"} [[Code]](https://github.com/tensorflow/models/tree/master/research/im2txt){:target="_blank"}
@@ -76,13 +78,13 @@ $$c_{t-1}$$ 是 LSTM 在上一时间步的细胞状态。
 
 在[另一篇文章](/2019/02/15/rnn-with-its-friends/#lstm){:target="_blank"}里理过 LSTM。
 
-![LSTM](/img/in-post/2020-03-17/lstm.png){:width="350px"}
+![LSTM](/img/in-post/2020-03-17/img2txt/lstm.png){:width="350px"}
 
 #### Training
 
 把 LSTM 按时间步展开就是这个样子：
 
-![CNN-LSTM](/img/in-post/2020-03-17/cnn-lstm.png){:width="450px"}
+![CNN-LSTM](/img/in-post/2020-03-17/img2txt/cnn-lstm.png){:width="450px"}
 
 这样看起来就像一个前馈网络了。
 
@@ -127,9 +129,9 @@ $$
 在测试生成句子时使用了 beam search，beam size 设为 20。当把 beam size 设为 1（相当于 greedy search）时，BLEU 值降了 2 点左右。
 
 
-### 实验结果
+### Experiments
 
-![result](/img/in-post/2020-03-17/img2txt-result.png){:width="400px"}
+![result](/img/in-post/2020-03-17/img2txt/img2txt-result.png){:width="400px"}
 
 
 ## Show, Attend and Tell
@@ -144,7 +146,7 @@ $$
 
 - [ruotianluo/ImageCaptioning.pytorch](https://github.com/ruotianluo/ImageCaptioning.pytorch){:target="_blank"}
   
-  实现了很多模型，作者还有一个名为 [self-critical.pytorch](https://github.com/ruotianluo/self-critical.pytorch/tree/master/models){:target="_blank"} 的加强版 repo...
+  实现了很多模型，作者还有一个名为 [self-critical.pytorch](https://github.com/ruotianluo/self-critical.pytorch){:target="_blank"} 的加强版 repo...
 
 
 首次把 Attention 机制用进 Image Caption 中。
@@ -165,7 +167,7 @@ $$
 a = \{ \bold{a}_1, ..., \bold{a}_L \}, \bold{a}_i \in \reals^D
 $$
 
-![VGGNet](/img/in-post/2020-03-17/vggnet-arrow.png){:width="500px"}
+![VGGNet](/img/in-post/2020-03-17/show-attend-tell/vggnet-arrow.png){:width="500px"}
 
 VGGNet 结构
 {:.desc}
@@ -180,7 +182,7 @@ VGGNet 结构
 
 - LSTM 结构：
 
-  ![LSTM](/img/in-post/2020-03-17/attention-lstm.png){:width="400px"}
+  ![LSTM](/img/in-post/2020-03-17/show-attend-tell/attention-lstm.png){:width="400px"}
 
 - 推导公式：
 
@@ -206,7 +208,7 @@ VGGNet 结构
 
 但从代码实现来看（以原版代码为准），图应该画成这样（代码实现跟论文描述的出入会在后面提到）（图来自论文 [Adaptive Attention](#adaptive-attention)）：
 
-![True LSTM](/img/in-post/2020-03-17/true-attention-lstm.png){:width="400px"}
+![True LSTM](/img/in-post/2020-03-17/show-attend-tell/true-attention-lstm.png){:width="400px"}
 
 `备注`{:.info} 虽然在图和推导式里，上一步输出 $$y_{t-1}$$ 也参与了这一步的计算，但代码（原版和复现）里似乎没有参与。
 
@@ -278,9 +280,9 @@ $$
 
 `备注`{:.info} 似乎只有原版代码算是按照上面这个公式来算的单词概率（而且它依然没有考虑 $$y_{t-1}$$），俩复现代码都直接把 $$h_t$$ 扔进 softmax 完事，即：$$y_t = \text{softmax}(h_t)$$。
 
-### 实验结果
+### Experiments
 
-![Result](/img/in-post/2020-03-17/attention-result.png)
+![Result](/img/in-post/2020-03-17/show-attend-tell/attention-result.png)
 
 
 ## Adaptive Attention
@@ -331,16 +333,15 @@ $$
 
 首先对 Attention 机制做了一些修改：
 
-![Spatial Attention](/img/in-post/2020-03-17/spatial-attention.png){:width="500px"}
+![Spatial Attention](/img/in-post/2020-03-17/adaptive-attention/spatial-attention.png){:width="500px"}
 
 (a)：Show, Attend and Tell 网络结构，(b)：该论文的 Spatial Attention 网络结构
 {:.desc}
 
 与[上一篇论文](#show-attend-and-tell)的不同：
 
-- 计算 context vector $$c_t$$ 时用了 $$h_t$$ 而不是 $$h_{t-1}$$，论文认为这样 $$c_t$$ 就可以看作 $$h_t$$ 的残差连接，可以在生成下一个词时降低不确定性和提供当前时刻隐状态的信息，灵感来源于 ResNet：
+- 计算 context vector $$c_t$$ 时用了 $$h_t$$ 而不是 $$h_{t-1}$$，论文认为这样 $$c_t$$ 就可以看作 $$h_t$$ 的残差连接，可以在生成下一个词时降低不确定性和提供当前时刻隐状态的信息，灵感来源于 [ResNet](http://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf){:target="_blank"}
 
-  **Deep Residual Learning for Image Recognition.** *Kaiming He, et al.* CVPR 2016. [[Paper]](http://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf){:target="_blank"} [[Code]](https://github.com/KaimingHe/deep-residual-networks){:target="_blank"}
 
 - $$c_t$$ 没有输入 LSTM
 
@@ -375,7 +376,7 @@ $$
 
 ### Adaptive Attention
 
-![Adaptive Attention](/img/in-post/2020-03-17/adaptive-attention.png){:width="400px"}
+![Adaptive Attention](/img/in-post/2020-03-17/adaptive-attention/adaptive-attention.png){:width="400px"}
 
 在 LSTM 上新增了一个叫 visual sentinel 的向量 $$s_t$$，用于记录一部分的细胞状态：
 
@@ -392,7 +393,7 @@ $$g_t$$ 是个门控信号，$$m_t$$ 是 $$t$$ 时刻的细胞状态，$$\sigma$
 于是 Adaptive Attention 中的 context vector $$\hat{c}_t$$ 为：
 
 $$
-\hat{c}_t = \beta_t s_t + (1 − \beta_t) c_t
+\hat{c}_t = \beta_t s_t + (1 - \beta_t) c_t
 $$
 
 $$\beta_t \in [0,1]$$ 是一个控制 $$t$$ 时刻要利用多少 $$s_t$$（语义信息）和 $$c_t$$（图像特征）的门控信号（sentinel gate）。为了算出 $$\beta_t$$，把 Attention 权重的计算公式也做了修改，新的权重 $$\hat{\alpha}$$ 为：
@@ -416,16 +417,162 @@ p_t = \text{softmax} (W_p (\hat{c}_t + h_t))
 $$
 
 
-### 实验结果
+### Experiments
 
-![result](/img/in-post/2020-03-17/adaptive-attention-result.png)
+![result](/img/in-post/2020-03-17/adaptive-attention/adaptive-attention-result.png)
 
 
-## Aesthetic Critiques Generation for Photos
+## Self-critical
+
+**Self-critical Sequence Training for Image Captioning.** *Steven J. Rennie, et al.* CVPR 2017. [[Paper]](http://openaccess.thecvf.com/content_cvpr_2017/papers/Rennie_Self-Critical_Sequence_Training_CVPR_2017_paper.pdf){:target="_blank"} 
+
+Pytorch 复现：[ruotianluo/self-critical.pytorch](https://github.com/ruotianluo/self-critical.pytorch){:target="_blank"} 
+
+
+之前的方法都是用最大似然进行语言建模，在训练时最大化模型生成的单词序列的联合概率，从而最小化交叉熵损失。这种方法存在两个问题：
+
+- 曝光偏差（exposure bias）：训练时用了 teacher forcing，即解码器每个时刻的输入都是训练集中的真实单词（ground truth），而测试时，解码器每个时刻的输入是自己上一时刻生成的单词，如果某一个单词预测得不够准确，之后所有单词的预测都会受到影响；
+
+- 训练目标和评价准则不匹配：训练时用的交叉熵损失函数，而验证时用的是 BLEU、ROUGE、METEOR、CIDEr 之类的指标，导致模型训练时无法做到充分的优化评估指标。
+
+于是一个自然的想法是直接优化评估指标（CIDEr）。但由于生成单词的操作不可微，所以不能用一般的反向传播梯度下降来优化这些指标，因此考虑用强化学习（中的 Policy Gradient 方法）来优化。
+
+
+### Policy Gradient 
+
+如果把图像描述问题看成强化学习问题：
+
+- agent：decoder
+- environment：单词和图像特征
+- policy：$$p_{\theta}$$，由模型参数 $$\theta$$ 决定
+- action：对下一个单词的预测
+- state：decoder 要更新的各种状态，如 LSTM 隐状态和细胞状态、 attention 权重等
+- reward：$$r$$，CIDEr 值
+
+训练目标是最大化期望 reward，因为要用梯度下降，所以写成最小化负期望 reward：
+
+$$
+L(\theta) = - \mathbb{E}_{w^s \thicksim p_{\theta}} [r(w^s)] = - \sum_{w^s} p_{\theta}(w^s) r(w^s)
+$$
+
+其中，$$w^s = (w_1^s, ... , w_T^s)$$ 是生成的句子，$$r(w^s)$$ 是 $$w^s$$ 上的 $$\gamma$$ 折扣累积 reward：
+
+$$
+r(w^s) = r_1 + \gamma r_2 + \gamma_1 r_3 + ... +  \gamma_{T-1} r_T
+$$
+
+对 $$L(\theta)$$ 求梯度：
+
+$$
+\begin{aligned}
+  \nabla_{\theta} L(\theta) = - \nabla_{\theta} \mathbb{E}_{w^s \thicksim p_{\theta}} [r(w^s)] &= - \nabla_{\theta} \sum_{w^s} p_{\theta}(w^s) r(w^s) \\
+  &= - \sum_{w^s} \nabla_{\theta}  p_{\theta}(w^s) r(w^s) \\
+  &= - \sum_{w^s} p_{\theta}(w^s) \frac{\nabla_{\theta} p_{\theta}(w^s)}{p_{\theta}(w^s)} r(w^s)\\
+  &= - \sum_{w^s} p_{\theta}(w^s) \nabla_{\theta} \log p_{\theta}(w^s) r(w^s)\\
+  &= - \mathbb{E}_{w^s \thicksim p_{\theta}} [r(w^s) \nabla_{\theta} \log p_{\theta}(w^s)]
+\end{aligned}
+$$
+
+推导过程参考：[Deep Reinforcement Learning: Pong from Pixels](http://karpathy.github.io/2016/05/31/rl/){:target="_blank"}
+
+实际训练时，会用蒙特卡洛的思想从 $$p_{\theta}$$ 中按概率随机采样出一个单词序列 $$w^s = (w_1^s, ... , w_T^s)$$ 来估计出梯度的近似值：
+
+$$
+\nabla_{\theta} L(\theta) \approx -r(w^s) \nabla_{\theta} \log p_{\theta} (w^s)
+$$
+
+因为采样的每一步都具有较大的随机性，可能会使最终得到的样本之间差异巨大，所以一般认为这种基于蒙特卡洛采样的近似方法会导致估计出的梯度有较高的方差。于是为了引入了一个 baseline $$b$$ 来减小方差，即：
+
+$$
+\nabla_{\theta} L(\theta) = - \mathbb{E}_{w^s \thicksim p_{\theta}} [(r(w^s) - b) \nabla_{\theta} \log p_{\theta}(w^s)]
+$$
+
+只要 $$b$$ 不依赖于 $$w^s$$，减去一个 $$b$$ 并不会改变梯度的值，证明过程为：
+
+$$
+\begin{aligned}
+  \mathbb{E}_{w^s \thicksim p_{\theta}} [b \nabla_{\theta} \log p_{\theta}(w^s)] &= b \sum_{w_s} \nabla_{\theta} p_{\theta}(w^s) \\
+  &= b \nabla_{\theta} \sum_{w_s}  p_{\theta}(w^s) \\
+  &= b \nabla_{\theta} 1 = 0
+\end{aligned}
+$$
+
+所以估计出的梯度为：
+
+$$
+\nabla_{\theta} L(\theta) \approx -(r(w^s) - b) \nabla_{\theta} \log p_{\theta} (w^s)
+$$
+
+由链式法则可以得到：
+
+$$
+\nabla_{\theta} L(\theta) = \sum_{t=1}^T \frac{\partial L(\theta)}{\partial s_t} \frac{\partial s_t}{\partial \theta}
+$$
+
+其中 $$s_t$$ 是 softmax 的输入，是一个长度为词典大小的向量，表示了 $$t$$ 时刻词典中每个单词的分数。
+
+把 $$\frac{\partial L(\theta)}{\partial s_t}$$ 近似一下可以得到：
+
+$$
+\frac{\partial L(\theta)}{\partial s_t} \approx (r(w^s)-b)(p_{\theta}(w_t \text{\textbar} h_t) - 1_{w_t^s}) \tag{2}
+$$
+
+其中 $$1_{w_t^s}$$ 是单词 $$w_t^s$$ 的独热编码向量。这个近似相当于把 $$w_t^s$$ 当成了 $$t$$ 时刻 $$p_{\theta}(w_t \text{\textbar} h_t)$$ 的目标输出，在 [MIXER 的论文](https://arxiv.org/pdf/1511.06732.pdf){:target="_blank"}里有解释。
+
+
+因为公式 $$(2)$$ 的第二项 $$(p_{\theta}(w_t \text{\textbar} h_t) - 1_{w_t^s})$$ 一定小于 0，所以当样本的 reward 大于 baseline $$b$$ 时，梯度为负，梯度下降时就会提高单词 $$w_t^s$$ 的分数，否则就会抑制 $$w_t^s$$ 的分数。一般来说会用对当前模型的 reward 的平均值的估计函数作为 baseline，如在 MIXER 中，baseline $$\bar{r}_t$$ 是一个线性回归模型，通过优化均方误差 $$\lVert \bar{r}_t - r \rVert^2$$ 得到。
+
+
+### SCST
+
+**self-critical sequence training**
+
+论文把 baseline 定义为当前模型通过 greedy decoding 得到的句子 $$\hat{w}$$ 的reward。所以叫 self-critical，因为 baseline 也是自己生成的，相当于自己跟自己比。于是有：
+
+$$
+\frac{\partial L(\theta)}{\partial s_t} \approx (r(w^s) - r(\hat{w}))(p_{\theta}(w_t \text{\textbar} h_t) - 1_{w_t^s})
+$$
+
+![self-critical](/img/in-post/2020-03-17/self-critical/self-critical.png)
+
+论文认为这样做的优点是：
+
+- 不用另外训练一个模型来当 baseline，只需要用现有模型 inference 一遍，降低了训练复杂度
+- 训练和测试阶段的一致性，都用的同样的生成方法（但训练时不是随机采样吗...）
+- 梯度方差低于 MIXER，训练得更快（用 SGD 时）
+
+用强化学习的方法训练之前，会先用交叉熵损失进行预训练。
+
+
+### Experiments
+
+
+- 与以优化交叉熵损失（XE）为目标的模型和用 MIXER 方法训练的模型的对比实验：
+
+  ![self-critical result1](/img/in-post/2020-03-17/self-critical/sc-result1.png){:width="400px"}
+
+- 尝试 curriculum learning，即先对最后一个单词以优化 CIDEr 为目标进行训练，前面的词则以优化交叉熵损失为目标进行训练，然后每个 epoch 增加一个用 CIDEr 进行训练的单词。但这种方法至少在 MSCOCO 上对效果没有提升。
+
+- 尝试以优化别的指标为目标，但优化 CIDEr 的效果是最好的，能把所有指标都往上拉：
+
+  ![self-critical result2](/img/in-post/2020-03-17/self-critical/sc-result2.png){:width="450px"}
+
+
+- 发现 beam search 对 RL 训练出来的模型效果提升很小：
+
+  ![self-critical result3](/img/in-post/2020-03-17/self-critical/sc-result3.png){:width="450px"}
+
+  作为对比，这是 beam search 对用交叉熵损失训练出来的模型效果提升：
+
+  ![self-critical result4](/img/in-post/2020-03-17/self-critical/sc-result4.png){:width="450px"}
+
+- 似乎能对 objects out-of-context (OOOC) 的图片生成比较好的结果
+
+## Aesthetic Critiques
 
 **Aesthetic Critiques Generation for Photos.** *Kuang-Yu Chang, Kung-Hung Lu, and Chu-Song Chen.* ICCV 2017. [[IEEE]](https://ieeexplore.ieee.org/document/8237642){:target="_blank"} [[Paper]](https://www.iis.sinica.edu.tw/~kuangyu/iccv17_aesthetic_critiques.pdf){:target="_blank"} [[Code]](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"} [[Dataset]](https://github.com/ivclab/DeepPhotoCritic-ICCV17){:target="_blank"}
 
-开图像美感描述这个坑的第一篇论文，数据集 PCCD 的提出者（虽然我并没有找到这个数据集）。该论文考虑从不同角度（composition、color-arrangement、subject-contrast）来对图片进行美感描述，对每个角度而言大概就跟 Image Caption 差不多了。
+开图像美感描述这个坑的第一篇论文，数据集 PCCD 的提出者（虽然我并没有找到这个数据集）。该论文考虑从不同美学角度来对图片进行美感描述，对每个角度而言大概就跟 Image Caption 差不多了。
 
 训练数据结构：
 
@@ -447,7 +594,7 @@ AO 中，训练数据中每张图都只带有一个角度的描述，即 $$(\Phi
 
 CNN 还会用 $$\{ (\Phi_i; p_{i,l}) \}$$ 进行训练。在测试时，它会输出图片在每个角度上的美感分数，然后把得分最高的角度 $$l^*$$ 所对应的 CNN-LSTM 模型的输出结果当做最终结果。流程图如下：
 
-![ao-approach](/img/in-post/2020-03-17/ao.png){:width="450px"}
+![ao-approach](/img/in-post/2020-03-17/pccd/ao.png){:width="400px"}
 
 
 ### Aspect-fusion
@@ -488,31 +635,30 @@ $$
 
 流程图如下（自行加了一些不知对不对的标注）：
 
-![af-approach](/img/in-post/2020-03-17/af.jpg)
+![af-approach](/img/in-post/2020-03-17/pccd/af.jpg){:width="600px"}
 
 相当于论文认为 CNN-LSTM 输出的隐状态可以被看做每个角度的输入的深层特征，然后 Soft Attention 机制又可以很好的把它们融合到一起。
 
 
-**困惑：**按照代码里面的写法，第二个 LSTM 明明已经是在生成角度融合后的句子了，却依然把每个角度的句子分别输入和用来算损失，感觉说不通，虽然的确也没有角度融合后的标注数据来当验证集就是了...
+**困惑：**按照代码里面的写法，第二个 LSTM 明明已经是在生成融合各个角度之后的句子了，却依然把每个角度的句子分别输入和用来算损失，感觉说不通，虽然的确也没有角度融合后的 ground truth 就是了...
 
 
 ### PCCD
 
 图片和评论来源于 [GuruShots](https://gurushots.com/){:target="_blank"}，评论被分为了 7 个角度，每个角度都有评分（评分范围为 1-10）：
 
-![PCCD](/img/in-post/2020-03-17/pccd.png){:width="450px"}
+![PCCD](/img/in-post/2020-03-17/pccd/pccd.png){:width="450px"}
 
 
-### 实验
+### Experiments
 
 因为不是每个角度都有评论，所以实验时论文只选了 3 个角度（composition and perspective、color and lighting、subject of photo）。为了控制词典大小，词典中只保留出现次数 > 5 的单词，其他单词会被映射为 `<UNK>`。
 
 论文直接用了 [NeuralTalk2](#show-and-tell) 来当 CNN-LSTM 模型，拿了在 MSCOCO 数据集上预训练好的模型在 PCCD 上 fine-tune（只 fine-tune 了 LSTM 部分，CNN 部分保持不变）。
 
-评估指标用了 SPICE：
+评估指标用了 [SPICE](https://panderson.me/images/SPICE.pdf){:target="_blank"}。
 
-**SPICE: Semantic Propositional Image Caption Evaluation.** *Peter Anderson, et al.* ECCV 2016. [[Paper]](https://panderson.me/images/SPICE.pdf){:target="_blank"}
 
 实验结果：
 
-![result](/img/in-post/2020-03-17/pccd-result.png){:width="450px"}
+![result](/img/in-post/2020-03-17/pccd/pccd-result.png){:width="450px"}

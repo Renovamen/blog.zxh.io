@@ -246,7 +246,7 @@
         }
     }
 
-    // fade out when scrolling
+    // fade out while scrolling
     $(window).scroll(function(){ 
         $(".img-prev, .img-next, .headertop-down, .header-avatar, .header-bubble, .header-info").css({
             "opacity": 1 - $(this).scrollTop() * 1.2 / $(this).height(),

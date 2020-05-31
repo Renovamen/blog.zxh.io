@@ -114,9 +114,9 @@ menus:
   - title: Archive
     font: fas fa-archive
     url: /archive/
-  - title: Portfolio
-    font: fas fa-jedi
-    url: /portfolio/
+  # - title: Portfolio
+  #   font: fas fa-jedi
+  #   url: /portfolio/
   # - title: Links
   #   font: fas fa-link
   #   url: /links/
