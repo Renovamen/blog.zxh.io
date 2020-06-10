@@ -104,13 +104,14 @@ menus:
     url: /
   - title: About
     font: fas fa-paw
-    submenus:
-      - title: Me
-        font: fas fa-user-astronaut
-        url: /about/
-      - title: Theme
-        font: fas fa-meteor
-        url: /theme/
+    url: /about/
+    # submenus:
+    #   - title: Me
+    #     font: fas fa-user-astronaut
+    #     url: /about/
+    #   - title: Theme
+    #     font: fas fa-meteor
+    #     url: /theme/
   - title: Archive
     font: fas fa-archive
     url: /archive/

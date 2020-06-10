@@ -321,6 +321,47 @@ $$
 公式以后再说，我已经跑偏太多了...
 
 
+## GRU
+
+![GRU](/img/in-post/2019-02-15/gru/gru.png){:width="280px"}
+
+GRU 是 LSTM 的变体。它只有两个门，重置门 $$r_t$$ 和更新门 $$z_t$$（用一个门达到了遗忘和输入的目的）。它还合并了隐状态和细胞状态。它的模型结构比 LSTM 简单，但同时能达到跟 LSTM 相当的效果。
+
+### 重置门
+
+Reset Gate，先计算重置门控信号 $$r_t$$，用于控制要保留上一个时刻的多少信息：
+
+$$
+r_t = \sigma (W_{rx} x_t + W_{rh} h_{t-1} + b_r)
+$$
+
+然后计算当前时刻的候选隐状态（candidate hidden state）：
+
+$$
+\hat{h}_t = \text{tanh} (W_{hx} x_t + r_t \odot (W_{hh} h_{t-1}) + b_h)
+$$
+
+相当于 $$\hat{h}_t$$ 主要包含了当前输入 $$x_t$$ 的信息，然后有选择性的加入上一时刻的信息（$$h_{t-1}$$）。
+
+
+### 更新门
+
+Update Gate，先计算更新门控信号 $$z_t$$，用于控制要从 $$h_{t-1}$$ 中遗忘多少信息和要从 $$\hat{h}_t$$ 中记忆多少信息：
+
+$$
+z_t = \sigma (W_{zx} x_t + W_{zh} h_{t-1} + b_z)
+$$
+
+然后直接算出当前时刻隐状态 $$h_t$$：
+
+$$
+h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \hat{h}_t
+$$
+
+可以理解为 $$(1 - z_t)$$ 对标 LSTM 中的遗忘门控，$$z_t$$ 对标 LSTM 中的输入门控。
+
+
+
 ## Reference
 
 - [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/){:target="_blank"}
