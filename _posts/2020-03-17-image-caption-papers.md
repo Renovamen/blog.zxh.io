@@ -12,7 +12,6 @@ tags:
   - Text Generation
 ---
 
-我的 Pytorch 复现：[<i class="fas fa-link"></i> Github: Renovemen/Image-Caption](https://github.com/Renovamen/Image-Caption){:target="_blank"}
 
 ## Show and Tell
 

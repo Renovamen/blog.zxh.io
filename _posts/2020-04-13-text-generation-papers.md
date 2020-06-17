@@ -135,13 +135,3 @@ $$a$$ 是一个 MLP，$$\alpha_{ij}$$ 由 $$e_{ij}$$ 归一化（softmax）后�
 **Unsupervised Neural Machine Translation.** *Mikel Artetxe, et al.* ICLR 2018. [[arXiv]](https://arxiv.org/pdf/1710.11041.pdf){:target="_blank"} [[Code]](https://github.com/artetxem/undreamt){:target="_blank"}
 
 **Unsupervised Machine Translation Using Monolingual Corpora Only.** *Guillaume Lample, et al.* ICLR 2018. [[Paper]](https://research.fb.com/wp-content/uploads/2018/03/unsupervised-machine-translation-using-monolingual-corpora-only.pdf){:target="_blank"}
-
-
-
-## Text Summarization
-
-### Unsupervised
-
-#### DAE
-
-**Unsupervised Sentence Compression using Denoising Auto-Encoders.** *Thibault Fevry and Jason Phang.* CoNLL 2018. [[Paper]](https://www.aclweb.org/anthology/K18-1040.pdf){:target="_blank"} [[Code]](https://github.com/zphang/usc_dae){:target="_blank"}
