@@ -1,1 +1,1 @@
-Hi! I am a ~~dragon lost in human world~~ final-year undergraduate student in [SSE](http://sse.tongji.edu.cn/){:target="_blank"}, [Tongji University](https://www.tongji.edu.cn/){:target="_blank"}. I do not like parrots.
+Hi! I am a ~~dragon lost in human world~~ final-year undergraduate student in [School of Software Engineering](http://sse.tongji.edu.cn/){:target="_blank"}, [Tongji University](https://www.tongji.edu.cn/){:target="_blank"}. I do not like parrots.
