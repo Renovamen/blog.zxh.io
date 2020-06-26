@@ -35,7 +35,6 @@
 - 文章中的一些附加样式（提示和标签）
 - 支持在文章中使用 emoji（使用了 [jemoji](https://github.com/jekyll/jemoji)）和其他表情（比如 B 站小电视）
 - 评论（[Gitalk](https://github.com/gitalk/gitalk)、[Disqus](https://disqus.com/) 和 [Valine](https://github.com/xCss/Valine)）
-- 站点统计（[Google Analytics](https://analytics.google.com/) 和 [百度统计](https://tongji.baidu.com/)）
 - 关于、作品和友链页
 
 继承自原主题的特性：
@@ -44,6 +43,7 @@
 - RSS
 - 带标签的归档页
 - 文章多语言
+- 站点统计（[Google Analytics](https://analytics.google.com/) 和 [百度统计](https://tongji.baidu.com/)）
 
 &nbsp;
 

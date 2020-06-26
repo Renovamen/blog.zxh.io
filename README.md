@@ -35,7 +35,6 @@ Check out the ongoing documentation [here](https://renovamen.ink/theme/). It sup
 - Additional styles (alert and tag)
 - Support Markdown emoji (based on [jemoji](https://github.com/jekyll/jemoji)) and additional emoji (for example, bilibili tv)
 - Comments ([Gitalk](https://github.com/gitalk/gitalk), [Disqus](https://disqus.com/) and [Valine](https://github.com/xCss/Valine))
-- Analytics ([Google Analytics](https://analytics.google.com/) and [Baidu Tongji](https://tongji.baidu.com/))
 - About, Portfolio and Link page
 
 Inherit from the original theme:
@@ -44,6 +43,7 @@ Inherit from the original theme:
 - RSS
 - Archive page with tags
 - Multilingual article
+- Analytics ([Google Analytics](https://analytics.google.com/) and [Baidu Tongji](https://tongji.baidu.com/))
 
 &nbsp;
 

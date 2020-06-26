@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "「译」游戏中游吟诗人的神秘魅力"
+title: "「译」游戏中的游吟诗人的神秘魅力"
 subtitle: 'The world’s second-oldest profession has a long history of nonviolence in video games'
 author: "Renovamen"
 header-img: img/in-post/2020-02-24/header.jpg

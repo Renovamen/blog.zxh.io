@@ -1,24 +1,155 @@
 ---
 layout: post
-title: Image Caption
-subtitle: "Papers Reading: Image Caption & Image Asethetic Caption"
+title: Text Generation
+subtitle: "Papers Reading: Machine Translation, Text Summarization, Image Captioning"
 author: "Renovamen"
 header-img: img/in-post/2020-03-17/header.jpg
 header-style: text
 catalog: true
 tags:
+  - NLP
   - CV
-  - Image Caption
   - Text Generation
+  - Machine Translation
+  - Image Captioning
 ---
 
 
-## Show and Tell
+
+## Machine Translation
+
+给定源语言句子 $$x$$，目标是最大化其对应的目标语言翻译 $$y$$ 的概率，即：
+
+$$
+\hat{y} = \arg \max_y p(y \text{\textbar} x)
+$$
+
+
+### Seq2Seq 
+
+**Sequence to Sequence Learning with Neural Networks.** *Ilya Sutskeve, Oriol Vinyals and Quoc V. Le.* NIPS 2014. [[Paper]](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf){:target="_blank"}
+
+提出了 Sequence to Sequence 框架，由一个 encoder 和一个 decoder 组成。
+
+![seq2seq](/img/in-post/2020-03-17/machine-translation/seq2seq.png)
+
+
+#### Encoder
+
+一个 LSTM，用于把源语言句子 $$x = (x_1, ... , x_{T_x})$$ 编码成一个固定长度的向量 $$c$$：
+
+$$
+h_t = f_1 (x_t, h_{t−1}) 
+$$
+
+$$
+c = h_{T_x}
+$$
+
+即 LSTM 最后一个时间步输出的隐状态就是句子编码后的向量。\<EOS\> 是终止符，不用编码。
+
+
+#### Decoder
+
+一个 LSTM，用于生成目标语言翻译 $$y = (y_1, ... , y_{T_y})$$，第一个时间步的输入是 $$c$$，生成终止符 \<EOS\> 后停止句子生成。
+
+把[上述](#machine-translation)联合概率用链式法则分解后得到：
+
+$$
+p(y) = \prod_{t=1}^T p(y_t \text{\textbar} \{ y_1, ..., y_{t-1} \}, c)
+$$
+
+每个时间步的条件概率为：
+
+$$
+p(y_t \text{\textbar} \{ y_1, ..., y_{t-1} \}, c) = g(y_{t-1}, s_t, c)
+$$
+
+$$
+s_i = f_2 (s_{i−1}, y_{i−1})
+$$
+
+$$g$$ 是一个非线性函数，用于输出单词 $$y_t$$ 的概率（比如 softmax），$$s_t$$ 是 LSTM（decoder）在 $$t$$ 时刻的隐状态。
+
+
+### Seq2Seq + Attention
+
+**Neural Machine Translation by Jointly Learning to Align and Translate.** *Dzmitry Bahdanau, Kyunghyun Cho and Yoshua Bengio.* ICLR 2015. [[arXiv]](https://arxiv.org/pdf/1409.0473.pdf){:target="_blank"}
+
+首次把 attention 引入 seq2seq。
+
+![seq2seq attention](/img/in-post/2020-03-17/machine-translation/seq2seq-attention.png){:width="450px"}
+
+
+#### Encoder
+
+encoder 是一个 BiLSTM，即有两个 LSTM：
+
+- 第一个把源句子正向输入（$$x_1 \rightarrow x_{T_x}$$），所有时间步输出的隐状态为 $$(\overrightarrow{h_1}, ... , \overrightarrow{h_{T_x}})$$
+
+- 第二个把源句子逆向输入（$$x_{T_x} \rightarrow x_1$$），所有时间步输出的隐状态为 $$(\overleftarrow{h_1}, ... , \overleftarrow{h_{T_x}})$$
+
+最终，encoder 每个时间步的输出就是把 $$\overrightarrow{h_j}$$ 和 $$\overleftarrow{h_j}$$ 拼起来：
+
+$$h_j = [\overrightarrow{h_j}; \overleftarrow{h_j}]$$
+
+所有时间步的输出为：
+
+$$
+(h_1, ..., h_{T_x})
+$$
+
+
+#### Decoder
+
+把每个时间步的条件概率定义为：
+
+$$
+p(y_i \text{\textbar} y_1, ... , y_{i−1}, x) = g(y_{i−1}, s_i, c_i)
+$$
+
+$$s_i$$ 是 LSTM 在 $$i$$ 时刻的隐状态：
+
+$$
+s_i = f(s_{i−1}, y_{i−1}, c_i)
+$$
+
+$$c_i$$ 是 $$i$$ 时刻的 context vector，通过把 encoder 每个时间步的输出向量加权平均得到：
+
+$$
+c_i = \sum_{j=1}^{T_x} \alpha_{ij} h_j
+$$
+
+$$\alpha_{ij}$$ 是 $$h_j$$ 的权重，计算公式为：
+
+$$
+e_{ij} = a(s_{i−1}, h_j)
+$$
+
+$$
+\alpha_{ij} = \frac{\exp (e_{ij})}{\sum_{k=1}^{T_x} \exp (e_{ik})}
+$$
+
+$$a$$ 是一个 MLP，$$\alpha_{ij}$$ 由 $$e_{ij}$$ 归一化（softmax）后得到。相当于 $$\alpha_{ij}$$ 代表了在生成第 $$i$$ 个目标句子单词时，第 $$j$$ 个源句子单词的重要性。
+
+
+### Unsupervised NMT
+
+**Unsupervised Neural Machine Translation.** *Mikel Artetxe, et al.* ICLR 2018. [[arXiv]](https://arxiv.org/pdf/1710.11041.pdf){:target="_blank"} [[Code]](https://github.com/artetxem/undreamt){:target="_blank"}
+
+**Unsupervised Machine Translation Using Monolingual Corpora Only.** *Guillaume Lample, et al.* ICLR 2018. [[Paper]](https://research.fb.com/wp-content/uploads/2018/03/unsupervised-machine-translation-using-monolingual-corpora-only.pdf){:target="_blank"}
+
+
+
+
+## Image Captioning
+
+### Show and Tell
 
 **Show and Tell: A Neural Image Caption Generator.** *Oriol Vinyals, et al.* CVPR 2015. [[Paper]](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vinyals_Show_and_Tell_2015_CVPR_paper.pdf){:target="_blank"} [[Code]](https://github.com/tensorflow/models/tree/master/research/im2txt){:target="_blank"}
 
 
-Google 出品，算是最早开用 CNN-LSTM 做 Image Caption 这个坑的论文之一。
+Google 出品，算是最早开用 CNN-LSTM 做 Image Captioning 这个坑的论文之一。
 
 **P.S.** 依然是在 CVPR 2015 上，Stanford 也发了篇模型核心结构差不多的论文：
 
@@ -27,7 +158,7 @@ Google 出品，算是最早开用 CNN-LSTM 做 Image Caption 这个坑的论文
 但鉴于 NeuralTalk 的代码是用 Lua 和 Torch 写的，而我不会 Lua 和 Torch（...），所以这篇论文就没认真看......
 
 
-### CNN-LSTM
+#### CNN-LSTM
 
 **模型目标：**
 
@@ -73,13 +204,13 @@ $$c_{t-1}$$ 是 LSTM 在上一时间步的细胞状态。
 **Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift.** *Sergey Ioffe and Christian Szegedy.* arXiv 2015. [[arXiv]](https://arxiv.org/pdf/1502.03167v3.pdf){:target="_blank"}
 
 
-### LSTM
+#### LSTM
 
 在[另一篇文章](/2019/02/15/rnn-with-its-friends/#lstm){:target="_blank"}里理过 LSTM。
 
 ![LSTM](/img/in-post/2020-03-17/img2txt/lstm.png){:width="350px"}
 
-#### Training
+##### Training
 
 把 LSTM 按时间步展开就是这个样子：
 
@@ -123,17 +254,17 @@ $$
 - 词典中只保留出现次数 > 5 的单词
 
 
-#### Inference
+##### Inference
 
 在测试生成句子时使用了 beam search，beam size 设为 20。当把 beam size 设为 1（相当于 greedy search）时，BLEU 值降了 2 点左右。
 
 
-### Experiments
+#### Experiments
 
 ![result](/img/in-post/2020-03-17/img2txt/img2txt-result.png){:width="400px"}
 
 
-## Show, Attend and Tell
+### Show, Attend and Tell
 
 **Show, Attend and Tell: Neural Image Caption Generation with Visual Attention.** *Kelvin Xu, et al.* ICML 2015. [[Paper]](http://proceedings.mlr.press/v37/xuc15.pdf){:target="_blank"} [[Code]](https://github.com/kelvinxu/arctic-captions){:target="_blank"}
 
@@ -148,7 +279,7 @@ $$
   实现了很多模型，作者还有一个名为 [self-critical.pytorch](https://github.com/ruotianluo/self-critical.pytorch){:target="_blank"} 的加强版 repo...
 
 
-首次把 Attention 机制用进 Image Caption 中。
+首次把 Attention 机制用进 Image Captioning 中。
 
 在上述 Encoder-Decoder 结构中，Encoder 和 Decoder 之间唯一的联系只有一个固定长度的语义向量 $$x_{-1}$$，所以 Encoder 必须把原始输入的所有信息都压进 $$x_{-1}$$ 中。如果原始输入包含的信息较多， $$x_{-1}$$ 可能就无法表达所有信息。而且 $$x_{-1}$$ 携带的信息还可能被后面输入的信息覆盖掉。
 
@@ -156,7 +287,7 @@ $$
 
 **Neural Machine Translation by Jointly Learning to Align and Translate.** *Dzmitry Bahdanau, KyungHyun Cho, and Yoshua Bengio.* arXiv 2014. [[arXiv]](https://arxiv.org/pdf/1409.0473.pdf){:target="_blank"}
 
-### CNN
+#### CNN
 
 CNN 用了 VGGNet。
 
@@ -175,7 +306,7 @@ VGGNet 结构
 
 于是接下来的 LSTM 就需要在这 $$L$$ 个位置的特征里选有用的，这就是 Attention 机制。
 
-### LSTM + Attention
+#### LSTM + Attention
 
 以下是论文里给的 LSTM 结构图和推导公式：
 
@@ -279,19 +410,19 @@ $$
 
 `备注`{:.info} 似乎只有原版代码算是按照上面这个公式来算的单词概率（而且它依然没有考虑 $$y_{t-1}$$），俩复现代码都直接把 $$h_t$$ 扔进 softmax 完事，即：$$y_t = \text{softmax}(h_t)$$。
 
-### Experiments
+#### Experiments
 
 ![Result](/img/in-post/2020-03-17/show-attend-tell/attention-result.png)
 
 
-## Adaptive Attention
+### Adaptive Attention
 
 **Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning.** *Jiasen Lu, et al.* CVPR 2017. [[Paper]](http://openaccess.thecvf.com/content_cvpr_2017/papers/Lu_Knowing_When_to_CVPR_2017_paper.pdf){:target="_blank"} [[Code]](https://github.com/jiasenlu/AdaptiveAttention){:target="_blank"}
 
 
 不是每个单词的生成都需要利用图像特征，有的词的生成只需要依赖语义信息，如“the”、“of”等词，和跟在“talking on a cell”后面的“phone”等词。因此该论文的 Adaptive Attention 机制能决定当前时间步要用多少图像特征和多少语义信息。
 
-### CNN
+#### CNN
 
 用了 ResNet，最后一个卷积层输出 $$2048 \times 7 \times 7$$ 的特征图，表示为：
 
@@ -328,7 +459,7 @@ x_t = [w_t; v^g]
 $$
 
 
-### Spatial Attention
+#### Spatial Attention
 
 首先对 Attention 机制做了一些修改：
 
@@ -373,7 +504,7 @@ c_t = \sum_{i=1}^k \alpha_{ti} v_{ti}
 $$
 
 
-### Adaptive Attention
+#### Adaptive Attention
 
 ![Adaptive Attention](/img/in-post/2020-03-17/adaptive-attention/adaptive-attention.png){:width="400px"}
 
@@ -416,12 +547,12 @@ p_t = \text{softmax} (W_p (\hat{c}_t + h_t))
 $$
 
 
-### Experiments
+#### Experiments
 
 ![result](/img/in-post/2020-03-17/adaptive-attention/adaptive-attention-result.png)
 
 
-## Self-critical
+### Self-critical
 
 **Self-critical Sequence Training for Image Captioning.** *Steven J. Rennie, et al.* CVPR 2017. [[Paper]](http://openaccess.thecvf.com/content_cvpr_2017/papers/Rennie_Self-Critical_Sequence_Training_CVPR_2017_paper.pdf){:target="_blank"} 
 
@@ -437,7 +568,7 @@ Pytorch 复现：[ruotianluo/self-critical.pytorch](https://github.com/ruotianlu
 于是一个自然的想法是直接优化评估指标（CIDEr）。但由于生成单词的操作不可微，所以不能用一般的反向传播梯度下降来优化这些指标，因此考虑用强化学习（中的 Policy Gradient 方法）来优化。
 
 
-### Policy Gradient 
+#### Policy Gradient 
 
 如果把图像描述问题看成强化学习问题：
 
@@ -522,7 +653,7 @@ $$
 因为公式 $$(2)$$ 的第二项 $$(p_{\theta}(w_t \text{\textbar} h_t) - 1_{w_t^s})$$ 一定小于 0，所以当样本的 reward 大于 baseline $$b$$ 时，梯度为负，梯度下降时就会提高单词 $$w_t^s$$ 的分数，否则就会抑制 $$w_t^s$$ 的分数。一般来说会用对当前模型的 reward 的平均值的估计函数作为 baseline，如在 MIXER 中，baseline $$\bar{r}_t$$ 是一个线性回归模型，通过优化均方误差 $$\lVert \bar{r}_t - r \rVert^2$$ 得到。
 
 
-### SCST
+#### SCST
 
 **self-critical sequence training**
 
@@ -543,7 +674,7 @@ $$
 用强化学习的方法训练之前，会先用交叉熵损失进行预训练。
 
 
-### Experiments
+#### Experiments
 
 
 - 与以优化交叉熵损失（XE）为目标的模型和用 MIXER 方法训练的模型的对比实验：
@@ -567,11 +698,12 @@ $$
 
 - 似乎能对 objects out-of-context (OOOC) 的图片生成比较好的结果
 
-## Aesthetic Critiques
+
+### Aesthetic Critiques
 
 **Aesthetic Critiques Generation for Photos.** *Kuang-Yu Chang, Kung-Hung Lu, and Chu-Song Chen.* ICCV 2017. [[IEEE]](https://ieeexplore.ieee.org/document/8237642){:target="_blank"} [[Paper]](https://www.iis.sinica.edu.tw/~kuangyu/iccv17_aesthetic_critiques.pdf){:target="_blank"} [[Code]](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17){:target="_blank"} [[Dataset]](https://github.com/ivclab/DeepPhotoCritic-ICCV17){:target="_blank"}
 
-开图像美感描述这个坑的第一篇论文，数据集 PCCD 的提出者（虽然我并没有找到这个数据集）。该论文考虑从不同美学角度来对图片进行美感描述，对每个角度而言大概就跟 Image Caption 差不多了。
+开图像美感描述这个坑的第一篇论文，数据集 PCCD 的提出者（虽然我并没有找到这个数据集）。该论文考虑从不同美学角度来对图片进行美感描述，对每个角度而言大概就跟 Image Captioning 差不多了。
 
 训练数据结构：
 
@@ -583,7 +715,7 @@ $$
 $$\Phi_i$$ 是第 $$i$$ 张图片，$$C_i$$ 是它的描述（同一张图片可能有多个不同角度的描述），$$a_i$$（$$i \in \{1 ... L\}$$）是该描述的角度。在此之外，还有一个 $$p_{i,l} \in [0, 1] $$ 来描述图片 $$\Phi_i$$ 在角度 $$l$$ 上的美感分数。
 
 
-### Aspect-oriented
+#### Aspect-oriented
 
 **Baseline - Aspect-oriented (AO) Approach**
 
@@ -596,7 +728,7 @@ CNN 还会用 $$\{ (\Phi_i; p_{i,l}) \}$$ 进行训练。在测试时，它会�
 ![ao-approach](/img/in-post/2020-03-17/pccd/ao.png){:width="400px"}
 
 
-### Aspect-fusion
+#### Aspect-fusion
 
 AO 只能输出一个角度的描述，比较单一。为了解决这个问题，论文先尝试把整个数据集都扔进 CNN-LSTM 训练，但效果不好。
 
@@ -642,14 +774,14 @@ $$
 **困惑：**按照代码里面的写法，第二个 LSTM 明明已经是在生成融合各个角度之后的句子了，却依然把每个角度的句子分别输入和用来算损失，感觉说不通，虽然的确也没有角度融合后的 ground truth 就是了...
 
 
-### PCCD
+#### PCCD
 
 图片和评论来源于 [GuruShots](https://gurushots.com/){:target="_blank"}，评论被分为了 7 个角度，每个角度都有评分（评分范围为 1-10）：
 
 ![PCCD](/img/in-post/2020-03-17/pccd/pccd.png){:width="450px"}
 
 
-### Experiments
+#### Experiments
 
 因为不是每个角度都有评论，所以实验时论文只选了 3 个角度（composition and perspective、color and lighting、subject of photo）。为了控制词典大小，词典中只保留出现次数 > 5 的单词，其他单词会被映射为 `<UNK>`。
 
