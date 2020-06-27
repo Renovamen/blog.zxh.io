@@ -132,7 +132,7 @@
         top: 50%;
         margin-top: -140px;
         left: 50%;
-        margin-left: -75px;
+        margin-left: -65px;
         width: 130px;
         height: 130px;
         img {
@@ -185,7 +185,7 @@
         // Social links
         .list-inline {
             margin-top: 12px;
-            margin-left: -20px;
+            // margin-left: -20px;
             padding: 0;
             font-size: 14px;
             a {
@@ -252,7 +252,7 @@
         position: absolute;
         bottom: 20px;
         left: 50%;
-        margin-left: -20px;
+        margin-left: -14px;
         cursor: pointer;
         @media only screen and (max-width: 1023px) {
             display: none

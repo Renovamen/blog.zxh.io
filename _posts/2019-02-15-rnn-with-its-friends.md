@@ -7,7 +7,7 @@ header-img: img/in-post/2019-02-15/header.jpg
 header-style: text
 catalog: true
 tags:
-  - 神经网络
+  - Neural Networks
 ---
 
 ## RNN
