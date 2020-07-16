@@ -201,9 +201,6 @@ $$c_{t-1}$$ 是 LSTM 在上一时间步的细胞状态。
 
 **Rethinking the Inception Architecture for Computer Vision.** *Christian Szegedy, et al.* CVPR 2016. [[Paper]](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Szegedy_Rethinking_the_Inception_CVPR_2016_paper.pdf){:target="_blank"} [[Code]](https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v3.py){:target="_blank"}
 
-**Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift.** *Sergey Ioffe and Christian Szegedy.* arXiv 2015. [[arXiv]](https://arxiv.org/pdf/1502.03167v3.pdf){:target="_blank"}
-
-
 #### LSTM
 
 在[另一篇文章](/2019/02/15/rnn-with-its-friends/#lstm){:target="_blank"}里理过 LSTM。
