@@ -371,7 +371,11 @@ Hierarchical Softmax（层次化 Softmax）会先构造一个哈夫曼树（Huff
 
 - $$\theta^w_1, \theta^w_2, \dots , \theta^w_{l^w-1}$$：$$\theta^w_j$$ 表示路径 $$p^w$$ 中第 $$j$$ 个非叶子结点的对应的向量，作为求条件概率的参数
 
-假设根结点为词典 $$D$$，则第二层的两个子节点分别为 $$D$$ 的两个子集 $$D_1$$ 和 $$D_2$$。左子节点的哈夫曼编码为 0（负类），右子节点为 1（正类）。则在给定上下文的情况下，由二分类逻辑回归可知，第 $$j$$ 个节点被分为正类（即 $$w_t \in D_2$$）的概率为：
+假设根结点为词典 $$D$$，则第二层的两个子节点分别为 $$D$$ 的两个子集 $$D_1$$ 和 $$D_2$$。左子节点的哈夫曼编码为 0（负类），右子节点为 1（正类）。
+
+**CBOW**
+
+则在给定上下文的情况下，由二分类逻辑回归可知，第 $$j$$ 个节点被分为正类（即 $$w_t \in D_2$$）的概率为：
 
 $$
 p(d_j^w | x_w , \theta_{j-1}^w) = \sigma(x_w^{\top} \theta) = \frac{1}{1 + e^{-x_w^{\top} \theta}}
@@ -389,7 +393,24 @@ $$
 p(w | \text{Context}(w)) = \prod_{j=2}^{l^w} p(d_j^w | x_w , \theta_{j-1}^w)
 $$
 
-然后对这个函数求最大似然即可，具体公式上面引用的那篇[博客](https://blog.csdn.net/itplus/article/details/37969979){:target="_blank"}里有。
+**Skip-gram**
+
+条件概率函数为：
+
+$$
+p(\text{Context}(w) | w) = \prod_{u \in \text{Context}(w)} p(u | w)
+$$
+
+$$
+p(u | w) = \prod_{j=2}^{l^u} p(d_j^u | v(w) , \theta_{j-1}^u)
+$$
+
+其中 $$v(w)$$ 是单词 $$w$$ 的词向量。
+
+&nbsp;
+
+
+然后条件概率函数求最大似然即可，具体公式上面引用的那篇[博客](https://blog.csdn.net/itplus/article/details/37969979){:target="_blank"}里有。
 
 - 时间复杂度从 $$O(V)$$ 降到 $$O(\log_2V)$$
 
