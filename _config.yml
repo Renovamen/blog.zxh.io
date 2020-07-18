@@ -151,7 +151,7 @@ comment:
 # Analytics settings
 analytics:
   # Baidu Analytics 
-  ba_track_id: # [your track id]
+  ba_track_id: 75381d210789d3eaf855fa16246860cc # [your track id]
 
   # Google Analytics
   google:
