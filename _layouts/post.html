@@ -46,7 +46,9 @@ layout: default
                     {% endif %}
                 </ul>
                 <hr style="visibility: hidden;">
-
+                
+                {% include author/container.html %}
+                
                 {% if site.comment.provider %}
                     {% include comment/container.html %}
                 {% endif %}

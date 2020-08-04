@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Text Generation
+title: 文本生成
 subtitle: "Papers Reading: Machine Translation, Text Summarization, Image Captioning"
 author: "Renovamen"
 header-img: img/in-post/2020-03-17/header.jpg

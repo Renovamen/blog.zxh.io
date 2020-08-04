@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Text Classification
+title: 文本分类
 subtitle: "Papers Reading: Text Classification"
 author: "Renovamen"
 header-img: img/in-post/2020-06-10/header.jpg

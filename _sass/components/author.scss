@@ -1,0 +1,49 @@
+.author-profile {
+    padding: 30px 12.78%;
+    text-align: center;
+    .info {
+        overflow: hidden;
+        text-align: center;
+        .avatar {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            img {
+                max-width: 100%;
+                border-radius: 100%;
+                padding: 3px;
+                border: 1px solid var(--border-color-dark);
+            }
+        }
+        h1 {
+            @include gungnir-font();
+            margin: 20px 0 0;
+            font-size: 18px;
+            color: var(--body-gray);
+        }
+    }
+    span {
+        border-top: 1px solid var(--border-color-dark);
+        border-bottom: 1px solid var(--border-color-dark);
+        padding: 10px 20px;
+        display: inline-block;
+        margin-top: 20px;
+        p {
+            font-size: 13px;
+            color: var(--body-gray);
+            display: inline;
+        }
+        a {
+            text-decoration: none;
+        }
+        i {
+            color: var(--primary-color);
+            margin-right: 5px;
+            font-size: 16px;
+            display: inline;
+        }
+    }
+    @include mobile {
+        padding: 30px 3%;
+    }
+}

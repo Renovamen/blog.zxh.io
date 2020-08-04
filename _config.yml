@@ -118,9 +118,9 @@ menus:
   # - title: Portfolio
   #   font: fas fa-jedi
   #   url: /portfolio/
-  # - title: Links
-  #   font: fas fa-link
-  #   url: /links/
+  - title: Links
+    font: fas fa-link
+    url: /links/
 
 
 # Comment settings
