@@ -175,7 +175,7 @@ mask 是一个下三角矩阵，对角线以及对角线左下都是1，其余�
 
 ![mask](/img/in-post/2020-07-17/mask.png){:width="300px"}
 
-mask 矩阵，黄色部分是 1，紫色部分是 0（图片来源：[从语言模型到 Seq2Seq：Transformer 如戏，全靠 Mask](https://spaces.ac.cn/archives/6933#单向语言模型){:target="_blank"}）
+mask 矩阵，蓝色部分是 1，白色部分是 0（图片来源：[从语言模型到 Seq2Seq：Transformer 如戏，全靠 Mask](https://spaces.ac.cn/archives/6933#单向语言模型){:target="_blank"}）
 {:.desc}
 
 矩阵的行为当前预测到第几个单词，列为当前允许看到前几个位置的信息。然后 mask=0 的位置上的元素会都被替换为 `-inf`。
