@@ -194,7 +194,7 @@
             .fa-stack {
                 @include transition(all ease 0.4s);
                 // margin-left: 10px;
-                min-width: 50px;
+                min-width: 40px;
                 &:hover {
                     position: relative;
                     cursor: pointer;

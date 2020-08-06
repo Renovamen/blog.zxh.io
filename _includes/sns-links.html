@@ -15,6 +15,22 @@
     </span>
   </a>
   {% endif %}
+  {% if site.sns.linkedin_username %}
+  <a target="_blank" href="https://www.linkedin.com/in/{{ site.sns.linkedin_username }}">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  {% endif %}
+  {% if site.sns.facebook_username %}
+  <a target="_blank" href="https://www.facebook.com/{{ site.sns.facebook_username }}">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  {% endif %}
   {% if site.sns.twitter_username %}
   <a target="_blank" href="https://twitter.com/{{ site.sns.twitter_username }}">
     <span class="fa-stack fa-lg">
@@ -36,22 +52,6 @@
     <span class="fa-stack fa-lg">
       <i class="fas fa-circle fa-stack-2x"></i>
       <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
-    </span>
-  </a>
-  {% endif %}
-  {% if site.sns.facebook_username %}
-  <a target="_blank" href="https://www.facebook.com/{{ site.sns.facebook_username }}">
-    <span class="fa-stack fa-lg">
-      <i class="fas fa-circle fa-stack-2x"></i>
-      <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-    </span>
-  </a>
-  {% endif %}
-  {% if site.sns.linkedin_username %}
-  <a target="_blank" href="https://www.linkedin.com/in/{{ site.sns.linkedin_username }}">
-    <span class="fa-stack fa-lg">
-      <i class="fas fa-circle fa-stack-2x"></i>
-      <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
     </span>
   </a>
   {% endif %}

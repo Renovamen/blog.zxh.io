@@ -28,6 +28,27 @@
                     </a>
                 </div>
                 {% endif %}
+                {% if site.sns.twitter_username %}
+                <div class="social-link">
+                    <a href="https://twitter.com/{{ site.sns.twitter_username }}" target="_blank">
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </a>
+                </div>
+                {% endif %}
+                {% if site.sns.zhihu_username %}
+                <div class="social-link">
+                    <a href="https://www.zhihu.com/people/{{ site.sns.zhihu_username }}" target="_blank">
+                        <i class="fas fa-2x">知</i>
+                    </a>
+                </div>
+                {% endif %}
+                {% if site.sns.weibo_username %}
+                <div class="social-link">
+                    <a href="http://weibo.com/{{ site.sns.weibo_username }}" target="_blank">
+                        <i class="fab fa-weibo fa-2x"></i>
+                    </a>
+                </div>
+                {% endif %}
                 {% if site.sns.email_address %}
                 <div class="social-link">
                     <a href = "mailto:{{ site.sns.email_address }}">
@@ -35,11 +56,6 @@
                     </a>
                 </div>
                 {% endif %}
-                <div class="social-link">
-                    <a href="{{site.url}}" target="_blank">
-                        <i class="fas fa-share-alt fa-2x"></i>
-                    </a>
-                </div>
             </div>
         </div>
         <div class="about-header-info col-md-8">
