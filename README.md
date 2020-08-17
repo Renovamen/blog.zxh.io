@@ -6,7 +6,7 @@ My blog. Also a theme for Jekyll. It is derived from [Huxpro/huxpro.github.io](h
 
 [中文说明](README-CN.md) | English Intro
 
-![preview](docs/preview.jpg)
+![preview](img/docs/gungnir.jpg)
 
 &nbsp;
 

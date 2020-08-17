@@ -6,7 +6,7 @@
 
 中文说明 | [English Intro](README.md)
 
-![preview](docs/preview.jpg)
+![preview](img/docs/gungnir.jpg)
 
 &nbsp;
 
