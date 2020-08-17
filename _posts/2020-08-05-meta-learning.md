@@ -11,20 +11,19 @@ tags:
   - Deep Learning
 ---
 
-continual learning 方向 19 年之后的[几篇论文](https://notebook.renovamen.ink/papers/dl/continual-learning/#-meta-learning){:target="_blank"}搞出了一个套 meta learning 框架（主要是 MAML 这种 optimization-based 的方法）的新思路。这个思路~~又可以水不少论文~~还是很自然的，毕竟 meta learning『快速适应新任务』的思想跟 continual learning 的两个目标之一直接就契合了，那么就只需要解决剩下那个目标（灾难性遗忘）就可以了。
+continual learning 方向 19 年之后的[几篇论文](https://notebook.renovamen.ink/papers/dl/continual-learning/#-meta-learning){:target="_blank"}搞出了一个套 meta learning 框架（主要是 MAML 这种 optimization-based 的方法）的新思路。这个思路<del>又可以水不少论文</del>还是很自然的，毕竟 meta learning『快速适应新任务』的思想可以看做 continual learning 的两个目标之一（学习新任务）的升级版，那么就只需要解决剩下那个目标（灾难性遗忘）就可以了。
 
-于是这里我决定稍微理一理 meta learning 的基本概念。meta learning 背后的~~套娃~~ learning to learn 的思想为解决少样本（few-shot）场景下的问题提供了一种思路。
+于是这里我决定稍微理一理背后的思想是<del>套娃</del> learning to learn 的 meta learning 的基本概念。
 
-这是一篇讲 meta learning 讲得非常清楚的文章，本文很大程度上~~抄~~参考了这篇文章：
+这是一篇讲 meta learning 讲得非常清楚的文章，本文很大程度上<del>抄</del>参考了这篇文章：
 
 **Learning to Learn Fast** (Lilian Weng) [[英文原版]](https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html){:target="_blank"} [[中文翻译]](https://wei-tianhao.github.io/blog/2019/09/17/meta-learning.html){:target="_blank"}
 
-这作者还写过一篇在 rl 任务里面用 meta learning 的文章：
+这作者还写过一篇在 reinforcement learning 任务里面用 meta learning 的文章：
 
 [**Meta Reinforcement Learning**](https://lilianweng.github.io/lil-log/2019/06/23/meta-reinforcement-learning.html){:target="_blank"} (Lilian Weng)
 
-然后这是 MAML 一作：[Chelsea Finn](https://ai.stanford.edu/~cbfinn/)（现在是 Stanford 的 AP），她们组有不少相关的工作。
-
+这是自用的对 meta learning 相关文献的记录：[Literatures of Meta Learning](https://notebook.renovamen.ink/papers/dl/meta-learning/){:target="_blank"}
 
 
 ## 动机
@@ -40,7 +39,7 @@ continual learning 方向 19 年之后的[几篇论文](https://notebook.renovam
 图片来源：[Slides for ICML 2019 Meta-Learning Tutorial](https://drive.google.com/file/d/1DuHyotdwEAEhmuHQWwRosdiVBVGm8uYx/view){:target="_blank"} 
 {:.desc}
 
-答案是 Braque。由于每个类别的样本很少，人类能答对这个问题很大程度上是依赖过往经验，而不是从头开始学习（虽然作为~~神~~人类我觉得这个问题似乎也不简单？2333）。所以就有了这样的想法：虽然我现在要做的这个任务的数据集的数据量很少，但我有很多其它的数据集，如果模型可以先在其他数据集上学到“如何快速学习新知识”的先验知识（即 learn to learn，学习出一个会学习的模型），大概就能仅用少量的数据就学会新的概念。
+答案是 Braque。由于每个类别的样本很少，人类能答对这个问题很大程度上是依赖过往经验，而不是从头开始学习（虽然作为<del>神</del>人类我觉得这个问题似乎也不简单？2333）。所以就有了这样的想法：有些不同的任务之间是有一定的联系的，所以虽然我现在要做的这个任务的数据集的数据量很少，但我有很多其它的数据集，如果模型可以先在其他数据集上学到“如何快速学习新知识”的先验知识（即 learn to learn，学习出一个会学习的模型），大概就能仅用少量的数据就学会新的概念。
 
 这就是一个套娃的过程。
 
@@ -82,9 +81,11 @@ $$
 
 meta learning 的训练过程一般为，对于每一个 task $$D$$：
 
-1.采样出一个 support set $$S \in D$$ 和一个 query set $$B \in D$$；
+1. 采样出一个 support set $$S \in D$$ 和一个 query set $$B \in D$$；
 
-2. 在 support set $$S$$ 上进行学习，根据这些样本上的损失进行参数更新，得到更新后的参数 $$\theta'$$。但通常 $$\theta'$$ 只是一个临时参数，并不会永久更新模型参数；
+2. 在 support set $$S$$ 上进行学习，根据这些样本上的损失进行参数更新，得到更新后的参数 $$\theta'$$。但通常 $$\theta'$$ 只是一个临时参数。
+
+    这一步被叫做元学习器（meta-learner），其目的是为整个模型（学习器）该怎么更新参数提供指导；
 
 3. 用临时参数 $$\theta'$$ 在 query set $$B$$ 上计算损失，并根据这个损失来更新模型参数。这一步是永久更新，与监督学习一致。
 
@@ -111,6 +112,8 @@ meta learning 主要有三类常见的方法：
 ## MAML
 
 **Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks.** *Chelsea Finn, et al.* ICML 2017. [[Paper]](https://arxiv.org/pdf/1703.03400.pdf){:target="_blank"} [[Code]](https://github.com/cbfinn/maml){:target="_blank"} 
+
+这是 MAML 一作：[Chelsea Finn](https://ai.stanford.edu/~cbfinn/)（现在是 Stanford 的 AP），她们组有不少相关的工作。
 
 MAML 是一种通用的优化算法，可以被用于任何基于梯度下降学习的模型。它的目标是学习出一种初始化参数的规则，对于任意 task，这个初始化的参数 $$\theta$$ 都能在一步或极少步梯度下降中就快速达到最优参数解 $$\theta_n^*$$：
 
@@ -234,7 +237,12 @@ Reptile 论文里还对 Reptile 和 MAML 的原理写了一大段分析。推了
 
 - 最大化同一个 task 中多个 batch 的梯度的内积。因为梯度的内积越大说明它们夹角越小，意味着它们的更新方向越相似，因此在一个 batch 上的更新同时还能提升在另外一个 batch 上的性能，从而使模型在当前任务上具有更好的泛化性。
 
-我觉得第二点大概是最重要的一个点，那几篇用 meta learning 搞 continual learning 的论文核心思想都是这个。
+这是一张解释第二点的图：
+
+![transfer & interference](/img/in-post/2020-08-05/transfer-interference.jpg){:width="550px"}
+
+图片来源：[Learning to Learn without Forgetting by Maximizing Transfer and Minimizing Interference (ICLR 2019)](https://arxiv.org/pdf/1810.11910.pdf){:target="_blank"}
+{:.desc}
 
 
 ## 参考

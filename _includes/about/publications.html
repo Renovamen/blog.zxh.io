@@ -1,13 +1,16 @@
-{% for pub in site.publications %}
-<h3 class="about-title">Publications</h3>
-<article class="pub">
-    {% if pub.img %}
-        <a class="pub-thumbnail" style="background-image: url({{ site.baseurl }}/{{ pub.img }})"></a>
-    {% else %}
-    {% endif %}
-    <div class="pub-content">
-        <h2 class="pub-title">{{pub.title}}</h2>
-        <p>{{ pub.content }}</p>
-    </div>
-</article>
-{% endfor %}
+<div class="section publications">
+    <h3 class="about-title">Publications</h3>
+
+    {% for pub in site.publications %}
+    <article class="item">
+        {% if pub.header-img %}
+            <a class="item-thumbnail" style="background-image: url({{ site.baseurl }}/{{ pub.header-img }})"></a>
+        {% else %}
+        {% endif %}
+        <div class="item-content">
+            <h2 class="item-title">{{pub.title}}</h2>
+            <p>{{ pub.content }}</p>
+        </div>
+    </article>
+    {% endfor %}
+</div>

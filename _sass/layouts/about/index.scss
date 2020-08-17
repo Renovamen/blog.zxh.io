@@ -1,6 +1,6 @@
 @import 
     "header",
-    "publications",
+    "items",
     "experience"
 ;
 
@@ -30,28 +30,6 @@
         padding: 50px 0;
     }
 
-    /*  ------------------- Down Arrow -------------------  */
-    .down {
-        color: var(--body-gray);
-        text-align: center;
-        position: absolute;
-        top: 635px;
-        width: 100%;
-        display: block;
-        cursor: pointer;
-        i {
-            font-size: 28px;
-            @include transition(.4s ease);
-            &:active,
-            &:hover {
-                color: var(--primary-color)
-            }
-        }
-        @include ipad {
-            display: none;
-        }
-    }
-
     /*  ------------------- Markdown ------------------- */
     .post-container {
         margin: 0 auto;
@@ -64,15 +42,6 @@
         }
         @include mobile {
             width: 85%;
-        }
-    }
-
-    /*  ------------------- Border ------------------- */
-    .border {
-        border-bottom: 1px solid var(--border-color);
-        width: 100%;
-        @include mobile {
-            display: none;
         }
     }
 }

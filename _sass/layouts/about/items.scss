@@ -1,5 +1,5 @@
-.about-page .pub {
-    width: 85%;
+.about-page .item {
+    width: 75%;
     max-width: 100%;
     margin: 0 auto;
     // background-color: #223344;
@@ -33,30 +33,31 @@
         -webkit-box-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
                 box-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
     }
-    .pub-thumbnail {
+    .item-thumbnail {
         width: 25%;
         max-width: 100%;
       /*   height: auto; */
         min-height: 15rem;
         vertical-align: middle;
-      /*   -webkit-background-size: cover;
-                background-size: cover; */
-        -webkit-background-size: contain;
-        background-size: contain;
+        -webkit-background-size: cover;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%;
     }
-    .pub-content {
+    .item-content {
         padding: 2.5rem 2.5rem 1rem 2.5rem;
         width: 70%;
         // margin-left: 15px;
-        .pub-title {
+        .item-title {
             margin: 0 0 5px;
             font-size: 19px;
             font-weight: 1200;
             a {
                 text-decoration: none;
-                color: #263959;
+                color: var(--body-color);
+                &:hover {
+                    color: var(--primary-color);
+                }
             }
         }
         p {
@@ -72,7 +73,7 @@
 }
 
 @include small {
-    .about-page .pub {
+    .about-page .item {
         width: 96%;
         max-width: 100%;
         -webkit-box-orient: vertical;
@@ -80,17 +81,17 @@
         -webkit-flex-direction: column;
             -ms-flex-direction: column;
                 flex-direction: column;
-        .pub-thumbnail {
+        .item-thumbnail {
             width: 100%;
             max-width: 100%;
-            -webkit-background-size: contain;
-            background-size: contain;
+            -webkit-background-size: cover;
+            background-size: cover;
             background-repeat:no-repeat;
             background-position: 50% 50%;
         }
-        .pub-content {
+        .item-content {
             width: 100%;
-            .pub-title {
+            .item-title {
                 margin: 0 0 5px;
                 a {
                     font-size: 21px;

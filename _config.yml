@@ -39,6 +39,8 @@ collections:
     output: true
   publications:
     output: true
+  projects:
+    output: true
 
 
 # SNS settings

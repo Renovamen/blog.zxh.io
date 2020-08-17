@@ -58,24 +58,24 @@
     }
     &-info {
         .about-title {
-            margin-top: -20px;
+            margin-top: -30px;
             @include mobile {
                 margin-top: 30px;
             }
         }
         .biography {
-            font-size: 1.3em;
-            line-height: 1.4em;
+            font-size: 20px;
             text-align: left;
             max-width: 720px;
             margin: 20px 10px 75px;
             font-weight: 400;
             a {
-                text-decoration: none;
-                &:hover {
-                    color: var(--primary-color);
+                color: var(--primary-color);
+                &:hover,
+                &:focus {
+                  color: var(--primary-color-dark);
                 }
-            }
+              }
             @include mobile {
                 font-size: 18px;
             }

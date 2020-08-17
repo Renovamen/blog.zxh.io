@@ -7,7 +7,7 @@ header-style: text
 header-img: img/in-post/2018-12-22/header.jpg
 catalog: true
 tags:
-  - 数学
+  - Math
 ---
 
 
