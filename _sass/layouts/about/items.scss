@@ -20,20 +20,13 @@
         -ms-flex-align: stretch;
             align-items: stretch;
     min-height: 11rem;
-    -webkit-border-radius: 10px;
-            border-radius: 10px;
+    border-radius: 10px;
     overflow: hidden;
-    -webkit-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-    -webkit-box-shadow: var(--pub-shadow);
-            box-shadow: var(--pub-shadow);
+    @include transition(all .3s ease);
+    box-shadow: var(--item-shadow);
     &:hover {
-        -webkit-transform: translate(0px, -2px);
-            -ms-transform: translate(0px, -2px);
-                transform: translate(0px, -2px);
-        -webkit-box-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
-                box-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
+        @include transform(translate(0px, -2px));
+        box-shadow: var(--item-up-shadow);
     }
     .item-thumbnail {
         width: 25%;

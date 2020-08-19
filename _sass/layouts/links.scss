@@ -1,6 +1,5 @@
 .links-page {
     margin: 0 auto;
-    background-color: var(--bg-transparent);
     h2, span, .desc {
         @include gungnir-font();
     }
@@ -29,19 +28,6 @@
                 overflow: hidden;
                 border-radius: 10px;
                 @include transition(all .3s);
-                &:before {
-                    content: "";
-                    background-color: var(--primary-color);
-                    -webkit-transform: skew(45deg, 0);
-                    transform: skew(45deg, 0);
-                    width: 0;
-                    height: 100%;
-                    position: absolute;
-                    top: 0;
-                    left: -60px;
-                    z-index: -1;
-                    @include transition(all .5s);
-                }
                 a {
                     text-decoration: none;
                 }
@@ -59,22 +45,17 @@
                     @include transition(all ease 1s);
                 }
                 &:hover {
-                    border: 1px solid var(--primary-color);
+                    border: 1px solid transparent;
                     img {
                         @include transform(rotate(360deg));
                     }
-                    &:before {
-                        width: 180%
-                    }
-                    .desc {
-                        border-top: 1px dashed #fff
-                    }
+                    @include transform(translate(0px, -2px));
+                    box-shadow: var(--item-up-shadow);
                 }
                 span.sitename {
                     color: var(--primary-color);
                     padding-bottom: 10px;
                     display: block;
-                    @include transition(all .3s);
                     overflow: hidden;
                     text-overflow: ellipsis;
                     -o-text-overflow: ellipsis;
@@ -89,7 +70,6 @@
                     text-overflow: ellipsis;
                     overflow: hidden;
                     line-height: 15px;
-                    @include transition(all .5s);
                 }
             }
         }

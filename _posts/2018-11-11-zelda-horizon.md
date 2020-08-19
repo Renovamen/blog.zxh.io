@@ -7,7 +7,6 @@ header-img: "img/in-post/2018-11-11/header.jpg"
 header-mask: rgb(71, 108, 152, .2)
 tags:
   - 摸鱼
-header-img-credit: asf
 ---
 
 摸鱼。（等等你代码写完了吗......

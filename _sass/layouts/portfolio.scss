@@ -9,8 +9,8 @@
         -webkit-box-shadow: none;
         box-shadow: none;
         @include small {
-            -webkit-box-shadow: var(--pub-shadow);
-            box-shadow: var(--pub-shadow);
+            -webkit-box-shadow: var(--item-shadow);
+            box-shadow: var(--item-shadow);
         }
     }
 }

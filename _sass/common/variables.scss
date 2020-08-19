@@ -29,7 +29,8 @@ $error: #f5222d;
   --border-color-dark: #dadada;
   --dropdown-shadow: 0 1px 20px -8px rgba(0, 0, 0, .5);
   --mobile-catalog-shadow: -1px 0px 5px 0px rgba(0, 0, 0, .2);
-  --pub-shadow: 0 1px 1px 1px rgba(31, 35, 46, 0.1);
+  --item-shadow: 0 1px 1px 1px rgba(31, 35, 46, 0.1);
+  --item-up-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
   --gitalk-comment-bg: #f9f9f9;
   --gitalk-comment-admin-bg: #f6f9fe;
 
@@ -49,7 +50,8 @@ $error: #f5222d;
     --border-color-dark: #4b5a70;
     --dropdown-shadow: 0 1px 20px -5px rgba(83, 93, 112, 0.5);
     --mobile-catalog-shadow: -1px 0px 5px 0px rgba(255, 255, 255, .2);
-    --pub-shadow: 0 1px 1px 1px rgba(31, 35, 46, 0.3);
+    --item-shadow: 0 1px 1px 1px rgba(31, 35, 46, 0.3);
+    --item-up-shadow: 0 10px 30px 0px rgba(114, 117, 126, 0.3);
     --gitalk-comment-bg: #364050;
     --gitalk-comment-admin-bg: #404d61;
   }
