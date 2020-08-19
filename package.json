@@ -19,6 +19,8 @@
     "scripts": {
         "start": "jekyll serve --watch --host 0.0.0.0 --port 4000",
         "dev": "grunt watch & npm run start",
+        "build": "jekyll build",
+        "preview": "cd _site && http-server",
         "github": "git push origin master",
         "coding": "git push coding master"
     }
