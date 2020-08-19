@@ -1,9 +1,7 @@
-/*  ------------------- Experience Timeline ------------------- */
 .about-page .work-experience {
     width: 85%;
     margin: 0 auto;
     position: relative;
-    margin-bottom: 100px;
     @include mobile {
         width: 80%;
         margin-bottom: 0;
@@ -14,12 +12,13 @@
     position: relative;
     padding: 0;
     list-style: none;
+    margin-top: 50px;
     &:before {
         content: "";
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 40px;
+        left: 25%;
         width: 2px;
         margin-left: -1.5px;
         background-color: var(--bg-secondary);
@@ -27,7 +26,7 @@
     li {
         position: relative;
         margin-bottom: 50px;
-        min-height: 50px;
+        min-height: 150px;
         &:before,
         &:after {
             content: " ";
@@ -39,8 +38,8 @@
         .timeline-panel {
             float: right;
             position: relative;
-            width: 100%;
-            padding: 0 20px 0 100px;
+            padding: 0 20px 20px;
+            width: 65%;
             text-align: left;
             .timeline-heading {
                 margin-top: -20px;
@@ -60,18 +59,30 @@
                     margin-bottom: 10px;
                 }
             }
-            .timeline-body p.job-description {
-                margin-top: -10px;
+            .timeline-body {
+                margin-top: -20px;
                 font-size: 16px;
+                ul {
+                    margin-bottom: -25px;
+                    li {
+                        margin-bottom: 0;
+                        margin-top: -25px;
+                        min-height: 0;
+                        &:before,
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
             }
         }
         .timeline-image {
             z-index: 2;
             position: absolute;
-            left: 0;
-            width: 80px;
-            height: 80px;
-            margin-left: 0;
+            left: 25%;
+            width: 150px;
+            height: 150px;
+            margin-left: -75px;
             border: 7px solid var(--bg-secondary);
             border-radius: 100%;
             text-align: center;
@@ -82,47 +93,39 @@
             }
         }
     }
-    @media only screen and (min-width: 768px) {
-        &:before {
-            left: 50%;
-        }
+
+    @include desktop {
         li {
             margin-bottom: 100px;
             min-height: 100px;
             .timeline-panel {
-                width: 41%;
-            }
-            &:nth-child(odd) .timeline-panel {
-                float: left;
-                padding: 0 20px 20px 30px;
-                text-align: right;
-            }
-            &:nth-child(even) .timeline-panel {
-                float: right;
+                width: 70%;
                 padding: 0 30px 20px 20px;
-                text-align: left;
             }
             .timeline-image {
-                left: 50%;
                 width: 100px;
                 height: 100px;
                 margin-left: -50px;
             }
         }
     }
-    @include desktop {
+
+    @include mobile {
+        &:before {
+            left: 40px;
+        }
         li {
-            min-height: 150px;
+            margin-bottom: 50px;
+            min-height: 50px;
             .timeline-panel {
-                padding: 0 20px 20px;
+                width: 100%;
+                padding: 0 20px 0 100px;
             }
             .timeline-image {
-                width: 150px;
-                height: 150px;
-                margin-left: -75px;
-            }
-            &:last-child {
-                margin-bottom: -80px;
+                left: 0;
+                width: 80px;
+                height: 80px;
+                margin-left: 0;
             }
         }
     }

@@ -1,13 +1,11 @@
 // Sidebar Components
 
-// Large Screen
-@include large {
-    .post-container, .sidebar-container {
-        padding-right: 5%;
-    }
+.post-container {
+    padding-right: 5%;
 }
-@include tablet {
-    .post-container {
+
+@include large {
+    .sidebar-container {
         padding-right: 5%;
     }
 }

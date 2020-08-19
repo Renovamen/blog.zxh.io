@@ -96,8 +96,7 @@ $longer-time: ($time*2);
 		.menu-btn-child {
 			transition-delay: $delay;
 
-			i,
-			.icon-theme:before {
+			i, .icon-theme:before {
                 opacity: 1;
                 // color: $menu-btn-primary-color;
                 color: #fff;
@@ -120,11 +119,12 @@ $longer-time: ($time*2);
             &:nth-child(5) {
                 transform: translateY(-($menu-btn-radius - 0.3 * $menu-btn-size)) rotate(45deg);
             }
-
-            @include desktop {
-                &#menu-navbar-btn {
-                    display: none;
-                }
+			
+			&#menu-navbar-btn {
+				display: none;
+				@include desktop {
+					display: flex;
+				}
 			}
 			
 			@include large {

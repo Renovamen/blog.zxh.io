@@ -83,6 +83,9 @@
         .personal-information {
             margin: -20px 15px auto;
             width: 100%;
+            @include mobile {
+                width: 95%;
+            }
             .title {
                 margin: 15px 0 -10px 0;
                 font-weight: bold;

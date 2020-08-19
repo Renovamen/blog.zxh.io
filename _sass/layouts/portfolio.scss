@@ -4,115 +4,13 @@
     h1, h2, h3, h4, h5, h6, p, button, span {
         @include gungnir-font();
     }
-    .break {
-        margin: 8em 0;
 
-        @include mobile {
-            margin: 2em 0;
-        }
-    }
-    .section-title {
-        position: relative;
-        margin: 0 auto;
-        margin-bottom: 1em;
-
-        &:after {
-            content: '';
-            position: absolute;
-            top: 1.35em;
-            width: 3em;
-            height: 3px;
-            background-color: var(--bg-secondary);
-            left: 50%;
-            -webkit-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-            transform: translateX(-50%)
-        }
-    }
-    .section-subtitle {
-        width: 40%;
-        margin: 0 auto;
-
-        @include mobile {
-            width: 100%;
-        }
-
-        @media only screen and (min-width: 770px) and (max-width: 990px) {
-            width: 60%;
-        }
-    }
-    .content {
-        margin-top: -3em;
-        margin-left: 5em;
-        margin-bottom: 5em;
-        @include mobile {
-            margin-top: 0;
-            margin-left: 0;
-        }
-        h3.title,
-        h4.description {
-            position: relative;
-        }
-        h4.description {
-            font-size: 15px;
-            color: var(--body-gray);
-            margin-bottom: 1.5em;
-            &:after {
-                content: '';
-                position: absolute;
-                top: 1.5em;
-                left: 0;
-                width: 5em;
-                height: 3px;
-                background-color: var(--bg-secondary);
-                @include mobile {
-                    display: none;
-                }
-            }
-        }
-        .excerpt {
-            width: 80%;
-            @include mobile {
-                width: 100%;
-            }
-        }
-        button {
-            font-weight: 800;
-            letter-spacing: 1px;
-            font-size: 16px;
-            margin-left: 0;
-            margin-bottom: 1em;
-            margin-top: 1em;
-            height: 40px;
-            border-radius: 10px;
-            padding: 0.3em 1.3em;
-            text-transform: capitalize;
-            background-color: transparent;
-            border-color: var(--border-color-dark);
-            color: var(--body-color);
-            &:hover,
-            &:focus {
-                background-color: $brand-primary;
-                border: 1px solid $brand-primary;
-                color: white;
-            }
-            i {
-                font-size: 20px;
-            }
-        }
-        .tags {
-            margin: 1em 0;
-            span {
-                color: #9eb1bd;
-                background-color: var(--bg-secondary);
-                padding: 0.3em 1.3em;
-                display: inline-block;
-                margin-bottom: 0.5em;
-                border-radius: 10px;
-            }
-        }
-        a {
-            text-decoration: none;
+    .item {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        @include small {
+            -webkit-box-shadow: var(--pub-shadow);
+            box-shadow: var(--pub-shadow);
         }
     }
 }

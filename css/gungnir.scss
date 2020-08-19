@@ -19,9 +19,9 @@
     "components/author",
 
     "layouts/archive",
-    "layouts/portfolio",
     "layouts/links",
     "layouts/about/index",
+    "layouts/portfolio",
     "layouts/404",
 
     "highlight/{{ site.theme_style.highlight | default: 'default' }}",

@@ -72,7 +72,7 @@
     }
 }
 
-@media (max-width: 1200px){
+@include wide {
     .side-catalog {
         @include transition(all ease .5s);
         transform: translateX(100%);

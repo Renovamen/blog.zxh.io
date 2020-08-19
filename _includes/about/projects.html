@@ -1,5 +1,6 @@
 <div class="section projects">
-    <h3 class="about-title">Projects</h3>
+    <h3 class="about-title">Selected Projects</h3>
+    <h4>See all projects <a href="/portfolio">here</a>.</h4>
     {% for proj in site.projects %}
     <article class="item">
         {% if proj.header-img %}
@@ -10,7 +11,7 @@
             <h2 class="item-title">
                 <a href="{{ proj.url }}">{{proj.title}}</a>
             </h2>
-            <p>{{ proj.desc }}</p>
+            <p>{{ proj.content }}</p>
         </div>
     </article>
     {% endfor %}

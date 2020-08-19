@@ -28,24 +28,24 @@
     background-attachment: scroll;
     @include background-cover();
     // NOTE: Background images are set within the HTML using inline CSS!
-    margin-bottom: 0px; /* 0 on mobile, modify by Hux */
-    @include tablet {
-        margin-bottom: 20px; /* response on desktop */
+    margin-bottom: 20px; /* response on desktop */
+    @include mobile {
+        margin-bottom: 0px; /* 0 on mobile, modify by Hux */
     }
     .site-heading,
     .post-heading,
     .page-heading {
-        padding: 85px 0 55px;
+        padding: 150px 0;
         color: white;
-        @include tablet {
-            padding: 150px 0;
+        @include mobile {
+            padding: 85px 0 55px;
         }
     }
     // masterialize
     .site-heading {
-        padding: 95px 0 70px;
-        @include tablet {
-            padding: 150px 0;
+        padding: 150px 0;
+        @include mobile-minus {
+            padding: 95px 0 70px;
         }
     }
     .site-heading,
@@ -53,7 +53,10 @@
         text-align: center;
         h1 {
             margin-top: 0;
-            font-size: 50px;
+            font-size: 80px;
+            @include mobile-minus {
+                font-size: 50px;
+            }
         }
         .subheading {
             @include sans-serif();
@@ -63,15 +66,10 @@
             font-weight: 300;
             margin: 10px 0 0;
         }
-        @include tablet {
-            h1 {
-                font-size: 80px;
-            }
-        }
     }
     .post-heading {
         h1 {
-            font-size: 30px;
+            font-size: 55px;
             margin-bottom: 24px;
         }
         .subheading,
@@ -81,7 +79,7 @@
         }
         .subheading {
             @include sans-serif();
-            font-size: 17px;
+            font-size: 30px;
             line-height: 1.4;
             font-weight: normal;
             margin: 10px 0 30px;
@@ -90,40 +88,38 @@
         .meta {
             @include serif();
             font-weight: 300;
-            font-size: 16px;
+            font-size: 20px;
             a {
                 color: white;
             }
         }
-        @include tablet {
+        @include mobile-minus {
             h1 {
-                font-size: 55px;
-            }
-            .subheading {
                 font-size: 30px;
             }
+            .subheading {
+                font-size: 17px;
+            }
             .meta {
-                font-size: 20px;
+                font-size: 16px;
             }
         }
     }
     .header-img-credit {
         position: absolute;
-        bottom: 6px;
-        right: 9px;
+        bottom: 10px;
+        right: 15px;
         color: white;
         opacity: 0.3;
-        font-size: 10px;
+        font-size: 12px;
         z-index: 1;
         a {
             color: white;
         }
-        @include tablet {
-            & {
-                font-size: 12px;
-                bottom: 10px;
-                right: 15px;
-            }
+        @include mobile {
+            font-size: 10px;
+            bottom: 6px;
+            right: 9px;
         }
     }
     // Avatar on home page
@@ -146,7 +142,7 @@
                 @include transform(rotate(360deg));
             }
         }
-        @media only screen and (max-width: 1023px) {
+        @include ipad {
             display: none
         }
         &:hover+.header-bubble{
@@ -205,7 +201,7 @@
                 }
             }
         }
-        @media only screen and (max-width: 1023px) {
+        @include ipad {
             display: none;
         }
     }
@@ -254,7 +250,7 @@
         left: 50%;
         margin-left: -14px;
         cursor: pointer;
-        @media only screen and (max-width: 1023px) {
+        @include ipad {
             display: none
         }
         i {

@@ -1,4 +1,3 @@
-
 /* Hux add tags support */
 .d-none {
     display: none !important;
@@ -22,6 +21,7 @@
         text-decoration: none;
         margin: 0 1px;
         margin-bottom: 6px;
+        margin-right: 5px;
         cursor: pointer;
         > sup {
             margin-left: -2px;
@@ -34,22 +34,22 @@
             background-color: rgba(255, 255, 255, 0.4);
             text-decoration: none;
         }
-        @include tablet {
-            margin-right: 5px;
+        @include mobile-minus {
+            margin-right: 1px;
         }
     }
 }
   
 #tag-heading {
-    padding: 70px 0 60px;
-    @include tablet {
-        padding: 55px 0;
+    padding: 55px 0;
+    @include mobile {
+        padding: 70px 0 60px;
     }
 }
 
 // tag_cloud
 #tag_cloud {
-    margin: 20px 0 15px 0;
+    margin: 20px 0 25px 0;
     a, .tag {
         transition-property: all;
         transition-duration: 0.4s;
@@ -76,15 +76,8 @@
             }
         }
     }
-    @include tablet {
-        margin-bottom: 25px;
-    }
-}
-  
-.tag-comments {
-    font-size: 12px;
-    @include tablet {
-        font-size: 14px;
+    @include mobile {
+        margin-bottom: 15px;
     }
 }
   
@@ -104,10 +97,6 @@
     &::before {
         margin-right: 5px;
     }
-    @include tablet {
-        font-size: 20px !important;
-        line-height: 2 !important;
-    }
 }
   
 // Customize Style for Posts in Mini-Post-List
@@ -119,14 +108,15 @@
     }
     .post-preview {
         position: relative;
+        margin-left: 20px;
         > a {
             .post-title {
-                font-size: 16px;
+                font-size: 18px;
                 font-weight: 500;
                 margin-top: 20px;
             }
             .post-subtitle {
-                font-size: 13px;
+                font-size: 14px;
             }
         }
         > .post-meta {
@@ -134,22 +124,21 @@
             right: 5px;
             bottom: 0px;
             margin: 0px;
-            font-size: 12px;
+            font-size: 18px;
             line-height: 12px;
         }
-        @include tablet {
-            margin-left: 20px;
+        @include mobile-minus {
+            margin-left: 0;
             > a {
                 > .post-title {
-                    font-size: 18px;
-                    line-height: 1.3;
+                    font-size: 16px;
                 }
                 > .post-subtitle {
-                    font-size: 14px;
+                    font-size: 13px;
                 }
             }
             .post-meta {
-                font-size: 18px;
+                font-size: 12px;
             }
         }
     }
