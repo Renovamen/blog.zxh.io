@@ -625,38 +625,6 @@ gem install jemoji
     {:.desc}
 
 
-#### BibTex
-
-点击显示文献的 BibTex（写得很乱的一个功能）：
-
-**Attention is All You Need.** *Ashish Vaswani, et al.* Advances in Neural Information Processing Systems 2017. [[BibTex]](javascript:bibTex(vaswani2017, vaswani2017_block)){:#vaswani2017}
-
-{:.bib_block #vaswani2017_block}
-    @inproceedings{vaswani2017attention,
-        title={Attention is all you need},
-        author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
-        booktitle={Advances in neural information processing systems},
-        pages={5998--6008},
-        year={2017}
-    }
-
-
-**Markdown：**
-
-```markdown
-[[BibTex]](javascript:bibTex(vaswani2017, vaswani2017_block)){:#vaswani2017}
-
-{:.bib_block #vaswani2017_block}
-    @inproceedings{vaswani2017attention,
-        title={Attention is all you need},
-        author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
-        booktitle={Advances in neural information processing systems},
-        pages={5998--6008},
-        year={2017}
-    }
-```
-
-
 ## 用到的开源库
 
 ### CSS

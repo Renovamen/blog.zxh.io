@@ -584,40 +584,6 @@ This is an image.
     {:.desc}
 
 
-
-#### BibTex
-
-Click to show the BibTex of bibliographies:
-
-**Sequence to Sequence Learning with Neural Networks.** *Ilya Sutskever, et al.* Advances in Neural Information Processing Systems 2014. [[BibTex]](javascript:bibTex(sutskever2014, sutskever2014_block)){:#sutskever2014}
-
-{:.bib_block #sutskever2014_block}
-    @inproceedings{sutskever2014sequence,
-        title={Sequence to sequence learning with neural networks},
-        author={Sutskever, Ilya and Vinyals, Oriol and Le, Quoc V},
-        booktitle={Advances in neural information processing systems},
-        pages={3104--3112},
-        year={2014}
-    }
-
-
-**Markdown：**
-
-```markdown
-[[BibTex]](javascript:bibTex(sutskever2014, sutskever2014_block)){:#sutskever2014}
-
-{:.bib_block #sutskever2014_block}
-    @inproceedings{sutskever2014sequence,
-        title={Sequence to sequence learning with neural networks},
-        author={Sutskever, Ilya and Vinyals, Oriol and Le, Quoc V},
-        booktitle={Advances in neural information processing systems},
-        pages={3104--3112},
-        year={2014}
-    }
-```
-
-
-
 ## Libraries
 
 ### CSS

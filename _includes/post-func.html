@@ -32,31 +32,3 @@
 
 <!-- Renovamen: add support 今日诗词: https://www.jinrishici.com/ -->
 {% include author/script.html %}
-
-<!-- 
-    Renovamen: show bibtex of publications
-    Chaos code... 
--->
-<script>
-    function bibTex(bib_btn, bib_block) {
-        // if the citation is in footnote
-        $bib_btn = $('#' + bib_btn.id);
-        if($bib_btn.parents('.footnotes').length) {
-            $bib_btn.parents('li').append($bib_block);
-        }
-        
-        $bib_block = $('#' + bib_block.id);
-
-        if($bib_block.css("display") == "none") $bib_block.css("display", "block");
-        else $bib_block.css("display", "none");
-    
-        $bibText = $bib_block.find('.rouge-code').find('pre');
-        var textList = $bibText.text().split('\n');
-        if(textList[0].substr(0, 2) == '  ') {
-            for(let i in textList) {
-                textList[i] = textList[i].slice(2);
-            }
-            $bibText.text(textList.join('\n'));
-        }
-    }
-</script>
