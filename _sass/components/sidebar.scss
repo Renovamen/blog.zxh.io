@@ -1,11 +1,5 @@
 // Sidebar Components
 
-@media (min-width: 768px) {
-    .post-container {
-        padding-right: 5%;
-    }
-}
-
 @include large {
     .sidebar-container {
         padding-right: 5%;

@@ -305,12 +305,6 @@ If any of the links' avatar is not specified, `img/links/default.jpg` will be sh
 If you want to enable comments in this page, you should enable comments in `_config.yml` and set `comment: true` in the Front-matter of this page.
 
 
-### Portfolio
-
-Just refer to the [Portfolio page](/portfolio){:target="_blank"} and its [Front-matter](https://github.com/Renovamen/renovamen.github.io/blob/master/portfolio.html){:target="_blank"} of this site. (Repeat *2)
-
-
-
 ## Content
 
 

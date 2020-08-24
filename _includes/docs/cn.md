@@ -296,13 +296,6 @@ header-img:
 如果想在该页面开启评论，需要在 `_config.yml` 中启用评论并在该页的 Front-matter 中设 `comment: true`。
 
 
-### Portfolio
-
-参考一下本站 [Portfolio 页面](/portfolio){:target="_blank"} 和它的 [Front-matter](https://github.com/Renovamen/renovamen.github.io/blob/master/portfolio.html){:target="_blank"} 大概就知道怎么改了？（复读 *2）
-
-
-
-
 ## 内容
 
 ### 文章

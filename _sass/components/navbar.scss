@@ -38,6 +38,7 @@
         overflow-y: auto;
         background-color: $brand-primary;
         @include transition(transform .5s);
+        @include gungnir-font();
 
         &.open {
             @include transform(translateX(250px));

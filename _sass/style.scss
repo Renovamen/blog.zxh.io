@@ -145,6 +145,9 @@ samp {
 
 // In the post.
 .post-container {
+  @media (min-width: 768px) {
+    padding-right: 5%;
+  }
   a {
     // display: inline-block;
     // safari has bugs on word-break on inline elements.

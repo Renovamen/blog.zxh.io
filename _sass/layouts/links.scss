@@ -46,9 +46,9 @@
                 }
                 &:hover {
                     border: 1px solid transparent;
-                    img {
-                        @include transform(rotate(360deg));
-                    }
+                    // img {
+                    //     @include transform(rotate(360deg));
+                    // }
                     @include transform(translate(0px, -2px));
                     box-shadow: var(--item-up-shadow);
                 }

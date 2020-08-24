@@ -74,7 +74,7 @@ $$
 有参数 $$W^x, W^o, W^h, b_o, b_h$$，先对它们随机初始化，然后在每个迭代周期对各参数求梯度，并按梯度的方向更新这些参数以使 $$L$$ 最小化：
 
 $$
-W_{t+1} = W_t - r \cdot  \frac{\partial L}{\partial W} \text{\textbar}_{W:W_t}, r > 0
+W_{t+1} = W_t - r \cdot  \frac{\partial L}{\partial W} \mid_{W:W_t}, r > 0
 $$
 
 其中 $$r$$ 是学习率，$$\frac{\partial L}{\partial W}$$ 是损失函数在 $$W=W_t$$ 位置的偏导数，即梯度。
