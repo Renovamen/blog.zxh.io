@@ -10,6 +10,7 @@ tags:
   - Machine Learning
   - Deep Learning
   - Math
+  - Bayesian
 ---
 
 Radford Neal: I don't necessarily think that the Bayesian method is the best thing to do in all cases...

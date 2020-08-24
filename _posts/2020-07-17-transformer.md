@@ -32,7 +32,7 @@ Transformer 整体结构如下：
 
 ## Position Embedding
 
-Transformer 扔掉了 RNN，对输入句子的所有单词都是同时处理的，所以失去了捕捉单词的排序和位置信息的能力。为了解决这个问题，论文引入 position embedding 来对单词的位置信息进行编码。最终的输入词向量 = word embedding + position embedding：
+Transformer 扔掉了 RNN，对输入句子的所有单词都是同时处理的，所以失去了捕捉单词的排序和位置信息的能力。如果不解决词序的问题，那即使把一句话打乱，attention 出来的结果也是一样的，相当于这就只是一个词袋模型。为了解决这个问题，论文引入 position embedding 来对单词的位置信息进行编码。最终的输入词向量 = word embedding + position embedding：
 
 ![Positional Embedding](/img/in-post/2020-07-17/positional-embedding.png)
 
@@ -54,7 +54,7 @@ Transformer 扔掉了 RNN，对输入句子的所有单词都是同时处理的�
 具体的位置编码公式为：
 
 $$
-PE(pos, 2i) = \sin(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}})
+PE(pos, 2i) = \sin(\frac{pos}{10000^{\frac{2i}{d_{\text{model}}}}}) \\[20pt]
 $$
 
 $$
@@ -192,11 +192,11 @@ mask 矩阵，蓝色部分是 1，白色部分是 0（图片来源：[从语言�
 同 encoder。
 
 
-## 总结
+## Summary
 
 优点：
 
-- 每层的计算复杂度（complexity per layer）更低：
+- 相比其他方法，当序列长度 $$n$$ 小于词向量维度 $$d$$ 时，每层的计算复杂度（complexity per layer）更低：
 
     ![complexity](/img/in-post/2020-07-17/complexity.png)
 
@@ -207,7 +207,13 @@ mask 矩阵，蓝色部分是 1，白色部分是 0（图片来源：[从语言�
 
 缺点：
 
+- 但同时从上面那张复杂度表里也能看出来，当句子太长时，Transformer $$O(n^2)$$ 的时间复杂度是非常爆炸的。Transformer 能更好地处理长时依赖问题，但这种复杂度又让它没法处理太长的文本，即使是 Bert 的最大长度也只有 512。
+
+    于是出现了一堆致力于解决这个问题的后续工作，等我摸两天鱼再看看有没有空写这个...
+
 - 扔掉了 RNN 和 CNN，导致失去了捕捉局部特征的能力
+
+    不过论文也提到了一个 restricted self-attention（上面那张复杂度表里有），它假设当前词只与前后 $$r$$ 个词有关，因此只在这 $$2r+1$$ 个词上做 attention，复杂度是 $$O(nr)$$，相当于是在捕捉局部特征。听上去很像卷积窗口？
 
 - 失去的位置信息非常重要，在词向量中加入 position embedding 这个解决方案依然不够好
 
