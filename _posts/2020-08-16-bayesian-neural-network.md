@@ -310,7 +310,7 @@ $$
 
 ## 参考
 
-- [聊一聊机器学习的MLE和MAP：最大似然估计和最大后验估计](https://zhuanlan.zhihu.com/p/32480810){:target="_blank"}
+- [聊一聊机器学习的 MLE 和 MAP：最大似然估计和最大后验估计](https://zhuanlan.zhihu.com/p/32480810){:target="_blank"}
 
 - [Weight Uncertainty in Neural Networks.](https://arxiv.org/pdf/1505.05424.pdf){:target="_blank"} *Charles Blundell, et al.* ICML 2015.
 

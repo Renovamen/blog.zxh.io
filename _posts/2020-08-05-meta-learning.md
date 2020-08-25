@@ -185,7 +185,7 @@ $$
 而 FOMAML 直接对 $$\theta'$$ 求梯度，这样就没有二阶梯度了：
 
 $$
-g_{\text{MAML}}= L_k'(\theta_k)
+g_{\text{FOMAML}}= L_k'(\theta_k)
 $$
 
 FOMAML 算法流程为：
