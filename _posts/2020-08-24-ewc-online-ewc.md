@@ -1,7 +1,7 @@
 ---
 layout: post
-title: EWC 和它的朋友们
-subtitle: EWC / Online EWC / EWC++
+title: Regularization-based Continual Learning
+subtitle: EWC / IS / MAS ...
 author: "Renovamen"
 header-img: img/in-post/2020-08-24/header.jpg
 header-style: text
@@ -34,46 +34,45 @@ tags:
 
 - **Dynamic Expansion**：既然问题在于关于旧任务的参数会被干扰，那就不用这些参数来学习新任务了，直接搞一批新的参数来学新任务。这样模型的参数就会越来越多，所以叫 dynamic expansion。模型参数太多了之后可能会很难训练。为了让参数不要增加得太快，有些方法会加一些模型剪枝知识蒸馏一类的压缩操作进来。
 
-- **Regularization**：直觉上来说更优雅的一类方法，毕竟不用额外存储空间也不用增加模型参数。这种方法会加一些正则项来避免跟旧任务关联较大的参数更新幅度过大。这种方法存在的基础是现在的绝大多数神经网络都是过参数化（over-parameterization）的。本文要理的 EWC 算法即它的各种变种就属于这类方法。
+- **Regularization**：直觉上来说更优雅的一类方法，毕竟不用额外存储空间也不用增加模型参数。这种方法会加一些正则项来避免跟旧任务关联较大的参数更新幅度过大。这种方法存在的基础是现在的绝大多数神经网络都是过参数化（over-parameterization）的。本文要理的一些方法就属于这一类。
 
+
+## 直觉上的理解
+
+![EWC](/img/in-post/2020-08-24/ewc.png){:width="400px"}
+
+图片来源：论文 [Overcoming Catastrophic Forgetting in Neural Networks](https://arxiv.org/pdf/1612.00796.pdf){:target="_blank"}
+{:.desc}
+
+上图是参数在参数空间里的变化轨迹。蓝色的箭头相当于在任务 $$A$$（可以推广为旧任务）上训练完之后，直接拿去任务 $$B$$（可以推广为新任务）上 fine-tune。这样在学完任务 $$B$$ 之后，基本就把任务 $$A$$ 忘得差不多了。
+
+那么一个想法是加一个正则项（L2），让在任务 $$B$$ 上训练完后的参数不能离在任务 $$A$$ 上训练完后的参数太远，即绿色箭头。但直接加 L2 正则项没有考虑不同参数对任务的重要性，对任务 $$A$$ 特别重要的参数限制应该大一些，而不那么重要的参数则不用怎么限制，不然任务 $$B$$ 就学不好了。
+
+于是红色箭头就是很多 regularization-based 的方法的思想：计算一下每个参数 $$\theta_i$$ 对任务 $$A$$ 的重要性 $$\Omega_i$$，然后加了正则项的损失函数变成（$$\theta_{A,i}^\text{*}$$ 是在任务 $$A$$ 上训练完后得到的最优参数）：
+
+$$
+L(\theta) = L_B(\theta) + \frac{\lambda}{2} \sum_i \Omega_i (\theta_i - \theta_{A,i}^\text{*})^2
+$$
+
+只不过这些方法计算重要性 $$\Omega_i$$ 的方式有所不同。
 
 
 ## EWC
 
 **Overcoming Catastrophic Forgetting in Neural Networks.** *James Kirkpatrick, et al.* PNAS 2017. [[Paper]](https://arxiv.org/pdf/1612.00796.pdf){:target="_blank"}
 
-### 直觉上的理解
-
-![EWC](/img/in-post/2020-08-24/ewc.png){:width="400px"}
-
-上图是参数在参数空间里的变化轨迹。蓝色的箭头相当于在任务 $$A$$（可以推广为旧任务）上训练完之后，直接拿去任务 $$B$$（可以推广为新任务）上 fine-tune。这样在学完任务 $$B$$ 之后，基本就把任务 $$A$$ 忘得差不多了。
-
-那么一个想法是加一个正则项（L2），让在任务 $$B$$ 上训练完后的参数不能离在任务 $$A$$ 上训练完后的参数太远，即绿色箭头。但直接加 L2 正则项没有考虑不同参数对任务的重要性，对任务 $$A$$ 特别重要的参数限制应该大一些，而不那么重要的参数则不用怎么限制，不然任务 $$B$$ 就学不好了。
-
-于是红色箭头就是 **EWC（Elastic Weight Consolidation）**的思想：计算一下每个参数 $$\theta_i$$ 对任务 $$A$$ 的重要性 $$\Omega_i$$，然后加了正则项的损失函数变成：
-
-$$
-L(\theta) = L_B(\theta) + \frac{\lambda}{2} \sum_i \Omega_i (\theta_i - \theta_{A,i}^\text{*})^2
-$$
-
-其中 $$\theta_{A,i}^\text{*}$$ 是在任务 $$A$$ 上训练完后得到的最优参数。实际上这也是其他很多 regularization-based 的方法的基本思想，只是算重要性 $$\Omega_i$$ 的方式有所不同。
-
+**EWC（Elastic Weight Consolidation）**
 
 ### 参数重要性
 
-如果直接上结论的话，参数重要性 = 在最优参数位置上的梯度的平方：
+如果直接上结论的话，参数 $$\theta_i$$ 的重要性 = Fisher 信息矩阵的第 $$i$$ 个对角线元素，也即：
 
 $$
-\Omega_i = \left ( \frac{\partial L(\theta)}{\partial \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right )^2
+\Omega_i = \frac{1}{|D_A|} \sum_{x \in D_A} \left ( \frac{\partial \log p_\theta(Y = y_x^\text{*} \mid x)}{\partial \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right )^2
 $$
 
-如果用 mini-batch，那就是所有样本上的梯度的平方的平均：
+其中 $$y_x^\text{*}$$ 是模型 $$p_{\theta_A^\text{*}}(y \mid x)$$ 对 $$x$$ 的输出。
 
-$$
-\Omega_i = \frac{1}{|D_A|} \sum_{x \in D_A} \left ( \frac{\partial L(\theta, x)}{\partial \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right )^2
-$$
-
-$$L(\theta, x)$$ 是在样本 $$x$$ 上的损失值。
 
 
 ### 贝叶斯视角
@@ -162,7 +161,7 @@ $$
 $$
 \begin{aligned}
     \theta &= \arg \min_\theta L_B(\theta) - \log p(\theta \mid D_A) \\
-        &= \arg \min_\theta L_B(\theta) - \frac{(\theta - \theta_A^\text{*})^2}{2} f''(\theta_A^\text{*})
+        &= \arg \min_\theta L_B(\theta) - \frac{1}{2} (\theta - \theta_A^\text{*})^2 f''(\theta_A^\text{*})
 \end{aligned}
 $$
 
@@ -172,10 +171,10 @@ $$f(\theta_A^\text{*})$$ 是个常数所以可以省掉。相当于最大化 $$p
 
 ### Fisher 信息矩阵
 
-首先，一个结论是 Fisher 信息矩阵等于负海森矩阵的期望（[这里](https://wiseodd.github.io/techblog/2018/03/11/fisher-information/){:target="_blank"}是证明过程）：
+首先，一个结论是 Fisher 信息矩阵等于海森矩阵的期望取负（[这里](https://wiseodd.github.io/techblog/2018/03/11/fisher-information/){:target="_blank"}是证明过程）：
 
 $$
-F_{ij} = - \mathbb{E}_{p(\theta \mid D_A)} \left [ \frac{\partial^2 \log p(\theta \mid D_A)}{\partial \theta_i \theta_j} \Bigg |_{\theta = \theta_A^\text{*}} \right ]
+F_{ij} = - \mathbb{E}[f''(\theta_A^\text{*})] = - \mathbb{E}_{p(\theta \mid D_A)} \left [ \frac{\partial^2 \log p(\theta \mid D_A)}{\partial \theta_i \theta_j} \Bigg |_{\theta = \theta_A^\text{*}} \right ]
 $$
 
 为了省计算量，只取了 Fisher 信息矩阵的对角线，相当于假设各参数之间相互独立：
@@ -184,25 +183,40 @@ $$
 F_{ii} = - \mathbb{E}_{p(\theta \mid D_A)} \left [ \frac{\partial^2 \log p(\theta \mid D_A)}{\partial^2 \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right ]
 $$
 
-期望就是对每个样本上的二阶梯度求平均：
-
-$$
-F_{ii} = - \frac{1}{|D_A|} \sum_{x \in D_A} \left ( \frac{\partial^2 \log p(\theta \mid x)}{\partial^2 \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right )
-$$
-
 之所以要转成 Fisher 信息矩阵，是因为 Fisher 信息矩阵可以只靠求一阶导算出来（基本定义），一阶导的计算复杂度比二阶导要低很多：
 
 $$
+\\[1px]
 \begin{aligned}
-    F_{ii} &= \frac{1}{|D_A|} \sum_{x \in D_A} \left ( \frac{\partial \log p(\theta \mid x)}{\partial \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right )^2 \\[20pt]
-        &\approx \frac{1}{|D_A|} \sum_{x \in D_A} \left ( \frac{\partial L(\theta, x)}{\partial \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right )^2
+    F_{ii} &= - \mathbb{E}_{p(\theta \mid D_A)} \left [ \left ( \frac{\partial \log p(\theta \mid D_A)}{\partial \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right )^2 \right ] \\[20pt]
 \end{aligned}
 $$
+
+最大化 $$\log p(\theta \mid D_A)$$ 跟最大化 $$\log p(y \mid x)$$ 是一个意思，而求期望可以用蒙特卡洛采样来近似，所以：
+
+$$
+F_{ii} \approx - \mathbb{E}_{x \thicksim D_A, y \thicksim p_\theta (y \mid x)} \left [ \left ( \frac{\partial \log p(y \mid x)}{\partial \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right )^2 \right ]
+$$
+
+其中 $$x$$ 是从任务 $$A$$ 的样本里采样出来的，$$y$$ 是模型 $$p_{\theta_A^\text{*}}(y \mid x)$$ 对 $$x$$ 的输出。这是需要注意的一点，$$y$$ 是从模型里采样出来的，不是直接从数据分布里采样的。所以求 Fisher 信息矩阵时至少需要再额外来一次反向传播流程，因为需要把 $$p_{\theta_A^\text{*}}(y \mid x)$$ 的输出拿来当 ground truth，然后重新算一遍损失，然后再求一次梯度。
+
+当然的确也有直接从数据分布里采样 $$y$$ 的做法，叫 empirical Fisher，这样倒是可以把现成算好的梯度直接拿来用。
+
+论文在算期望时把每个样本都采样了一遍，所以相当于是对每个样本上的梯度的平方求平均：
+
+$$
+F_{ii} = \frac{1}{|D_A|} \sum_{x \in D_A} \left ( \frac{\partial \log p_\theta(Y = y_x^\text{*} \mid x)}{\partial \theta_i} \Bigg |_{\theta = \theta_A^\text{*}} \right )^2
+$$
+
+其中 $$y_x^\text{*}$$ 是模型 $$p_{\theta_A^\text{*}}(y \mid x)$$ 对 $$x$$ 的输出。
 
 于是最终的损失函数为：
 
 $$
-L(\theta) = L_B(\theta) + \frac{\lambda}{2} \sum_i F_i (\theta_i - \theta_{A,i}^\text{*})^2
+\begin{aligned}
+    L(\theta) &= L_B(\theta) - \frac{\lambda}{2} f''(\theta_A^\text{*}) (\theta - \theta_A^\text{*})^2 \\[5pt]
+        &= L_B(\theta) + \frac{\lambda}{2} \sum_i F_i (\theta_i - \theta_{A,i}^\text{*})^2
+\end{aligned}
 $$
 
 因为 Fisher 信息矩阵是海森矩阵的期望取负，所以这里从减号变成了加号。
@@ -216,8 +230,91 @@ $$
 
 - 只取 Fisher 信息矩阵的对角线，相当于假设各参数之间相互独立，但实际上参数之间肯定有关联
 
+- 原论文写得相当简洁，给人一种好像很快就能看明白的错觉，实际上背地里公式推导省略了一大堆 orz
 
 
+## MAS
+
+**Memory Aware Synapses: Learning What (Not) to Forget.** *Rahaf Aljundi, et al.* ECCV 2018. [[Paper]](https://arxiv.org/pdf/1711.09601.pdf){:target="_blank"} [[Code]](https://github.com/rahafaljundi/MAS-Memory-Aware-Synapses){:target="_blank"}
+
+**MAS（Memory Aware Synapses）**
+
+
+### 参数重要性
+
+对于第 $$k$$ 个输入数据点 $$x_k$$，如果对第 $$i$$ 个参数 $$\theta_i$$ 做了一个很小的改变 $$\delta$$，就让模型 $$F$$ 的输出结果有了很大的变化，就说明 $$\theta_i$$ 是很重要的。
+
+模型输出对所有参数 $$\theta = \{\theta_i\}$$ 的变化的变化量可以近似为：
+
+$$
+F(x_k;\theta + \delta) - F(x_k; \theta) \approx \sum_i g_i (x_k) \delta_i
+$$
+
+$$
+\rArr g_i(x_k) \approx \frac{\partial F(x_k)}{\partial \theta_i}
+$$
+
+$$g_i(x_k)$$ 可以被看做参数 $$\theta_i$$ 的变化对模型对样本 $$x_k$$ 的输出的影响。可以看到 $$g_i(x_k)$$ 就是模型函数对参数 $$\theta_i$$ 的偏导。
+
+重要性 $$\Omega_i$$ 为所有样本上的偏导的均值：
+
+$$
+\Omega_i = \frac{1}{N} \sum_{k=1}^N \| g_i(x_k) \|
+$$
+
+每个任务训练完后，都会算一个刚训练完的任务中每个参数的重要性，然后累加到之前的 $$\Omega_i$$ 上。一直累加可能会让 $$\Omega_i$$ 变得很大，造成梯度爆炸，于是该论文一作后来的一篇工作 [Task-Free Continual Learning](https://arxiv.org/pdf/1812.03596.pdf){:target="_blank"} 中用的是迄今为止所有 $$\Omega_i$$ 的平均值。
+
+
+### L2 范数
+
+大多数神经网络的输出 $$F(x_k;\theta)$$ 都是一个 $$n$$ 维向量，比如分类任务会输出每个类别上的概率。这样在求每个 $$g_i(x_k)$$ 的时候，算的都是向量的偏导，需要做 $$n$$ 次反向传播。
+
+为了降低计算复杂度，论文给了另一个可选的方法：对 $$F(x_k;\theta)$$ 的 [L2 范数](#l2-范数-1)（的平方）求偏导，这样算的就是标量的偏导了，只需要一次反向传播：
+
+$$
+\\[2px]
+g_i(x_k) = \frac{\partial [\ell_2^2 (F(x_k))]}{\partial \theta_i}
+$$
+
+
+## IS
+
+**Continual Learning Through Synaptic Intelligence.** *Friedemann Zenke, et al.* ICML 2017. [[Paper]](https://arxiv.org/pdf/1703.04200.pdf){:target="_blank"} [[Code]](https://github.com/ganguli-lab/pathint){:target="_blank"}
+
+**IS（Intelligent Synapses）**
+
+MAS 算的是参数改变对模型输出的影响，而 IS 算的是参数改变对损失函数的影响：
+
+$$
+L(\theta(t) + \delta(t)) - L(\theta(t)) \approx \sum_i g_i (t) \delta_i(t)
+$$
+
+$$
+\rArr g_i(t) \approx \frac{\partial L}{\partial \theta_i}
+$$
+
+其中 $$\theta(t)$$ 为任务 $$t$$ 训练完后的参数。如果算一个任务 $$\mu-1$$ 到任务 $$\mu$$ 的更新轨迹上所有微小变化的总和，即对更新开始时刻 $$t^{\mu-1}$$ 到结束时刻 $$t^\mu$$ 积分：
+
+$$
+\begin{aligned}
+    \int_{t^{\mu-1}}^{t^\mu} g(t) \delta(t) dt &= \sum_i \int_{t^{\mu-1}}^{t^\mu} g_i(t) \delta_i(t) dt \\
+        &= - \sum_i \omega_i^\mu
+\end{aligned}
+$$
+
+$$
+\rArr \omega_i^\mu = - \int_{t^{\mu-1}}^{t^\mu} g_i(t) \delta_i(t) dt
+$$
+
+$$\omega_i^\mu$$ 就是参数 $$\theta_i$$ 的变化对损失函数输出的影响。在 offline 场景下，$$\omega_i^\mu$$ 直接就能通过损失函数输出值的变化量算出来。与 EWC 和 MAS 不同的是，IS 还可以在 online 场景下计算 $$\omega_i^\mu$$，这时 $$g_i(t)$$ 可以用 $$g_i(t) = \frac{\partial L}{\partial \theta_i}$$ 来近似，而 $$\delta_i(t)$$ 就相当于 $$\delta_i(t) = \theta_i'(t) = \frac{\partial \theta_i}{\partial t}$$。
+
+最后，参数重要性的计算公式为：
+
+$$
+\Omega_i^\mu = \sum_{\nu < \mu} \frac{\omega_\nu^\mu}{(\Delta_i^\nu)^2 + \xi}
+$$
+
+其中 $$\Delta_i^\nu = \theta_i(t^\nu) - \theta_i(t^{\nu-1})$$ 是为了保证 $$\Omega_i^\mu$$ 的尺度跟损失函数输出值的尺度是差不多的。为了避免分母为 0 所以加了一个 $$\xi$$。
 
 
 ## 附录
@@ -236,15 +333,22 @@ $$
 f(x) = \frac{f(x_0)}{0!} + \frac{J_f(x_0)}{1!} \cdot (x - x_0) + (x - x_0)^\top \cdot \frac{H_f(x_0)}{2!} \cdot (x - x_0) + o(x_0) \\[2px]
 $$
 
+### L2 范数
+
+向量 $$x = [ x_1, x_2, \dots, x_n ]$$ 的 L2 范数（L2 norm）为：
+
+$$
+\| x \|_2 = \sqrt{\Big ( \sum_{i=1}^n |x_i|^2 \Big )}
+$$
 
 
 ## 参考
 
-- [Continual Lifelong Learning with Neural Networks: A Review.](https://arxiv.org/pdf/1802.07569.pdf){:target="_blank"} *German I. Parisi, et al.* Neural Networks 2019.
-
-- [Three Scenarios for Continual Learning.](https://arxiv.org/pdf/1802.07569.pdf){:target="_blank"} *Gido M. van de Ven, et al.* arXiv 2019.
+- [Three Scenarios for Continual Learning.](https://arxiv.org/pdf/1904.07734.pdf){:target="_blank"} *Gido M. van de Ven, et al.* arXiv 2019.
 
 - [Elastic Weight Consolidation (EWC): Nuts and Bolts.](https://abhishekaich27.github.io/data/WriteUps/EWC_nuts_and_bolts.pdf){:target="_blank"} *Abhishek Aich.*
+
+- [终身持续学习-可塑权重巩固（Elastic Weight Consolidation）](https://zhuanlan.zhihu.com/p/86365066){:target="_blank"}
 
 - [Fisher Information Matrix](https://wiseodd.github.io/techblog/2018/03/11/fisher-information/){:target="_blank"}
 
