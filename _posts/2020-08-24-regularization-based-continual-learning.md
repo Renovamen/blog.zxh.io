@@ -7,8 +7,8 @@ header-img: img/in-post/2020-08-24/header.jpg
 header-style: text
 catalog: true
 tags:
-  - Machine Learning
   - Deep Learning
+  - Continual Learning
   - Bayesian
 ---
 
@@ -140,7 +140,7 @@ $$
 f(\theta) = \log \frac{1}{\sqrt{2 \pi} \sigma} - \frac{(\theta - \mu)^2}{2 \sigma^2} \approx f(\theta_A^\text{*}) + \frac{1}{2} (\theta - \theta_A^\text{*})^2 f''(\theta_A^\text{*})
 $$
 
-为了方便这里就不强调矩阵了，记住 $$f''(\theta_A^\text{*})$$ 是个海森矩阵就好 2333。因为 $$\log \frac{1}{\sqrt{2 \pi} \sigma}$$ 和 $$f(\theta_A^\text{*})$$ 都是参数无关的常数，所以：
+为了方便这里就不强调矩阵了，记住 $$f''(\theta_A^\text{*})$$ 是个[海森矩阵](#海森矩阵)就好 2333。因为 $$\log \frac{1}{\sqrt{2 \pi} \sigma}$$ 和 $$f(\theta_A^\text{*})$$ 都是参数无关的常数，所以：
 
 $$
 - \frac{(\theta - \mu)^2}{2 \sigma^2} = \frac{(\theta - \theta_A^\text{*})^2}{2} f''(\theta_A^\text{*}) \\[2px]
@@ -233,6 +233,14 @@ $$
 - 原论文写得相当简洁，给人一种好像很快就能看明白的错觉，实际上背地里公式推导省略了一大堆 orz
 
 
+## Online EWC
+
+**On Quadratic Penalties in Elastic Weight Consolidation.** *Ferenc Huszár, et al.* arXiv 2017. [[Paper]](https://arxiv.org/pdf/1712.03847.pdf){:target="_blank"}
+
+**Progress & Compress: A Scalable Framework for Continual Learning.** *Jonathan Schwarz, et al.* arXiv 2018. [[Paper]](https://arxiv.org/pdf/1805.06370.pdf){:target="_blank"}
+
+
+
 ## MAS
 
 **Memory Aware Synapses: Learning What (Not) to Forget.** *Rahaf Aljundi, et al.* ECCV 2018. [[Paper]](https://arxiv.org/pdf/1711.09601.pdf){:target="_blank"} [[Code]](https://github.com/rahafaljundi/MAS-Memory-Aware-Synapses){:target="_blank"}
@@ -319,6 +327,22 @@ $$
 
 ## 附录
 
+### 海森矩阵
+
+令 $$x = (x_1, x_2, \dots, x_n)$$，多元函数 $$f(x)$$ 在 $$x=x_0$$ 处的的二阶偏导是一个海森矩阵（Hessian matrix）：
+
+$$
+f''(x_0) = H = 
+
+\begin{bmatrix}
+   \frac{\partial f}{\partial x_1 x_1} & \frac{\partial f}{\partial x_1 x_2} & \dots & \frac{\partial f}{\partial x_1 x_n} \\[5pt]
+   \frac{\partial f}{\partial x_2 x_1} & \frac{\partial f}{\partial x_2 x_2} & \dots & \frac{\partial f}{\partial x_2 x_n} \\[5pt]
+   \vdots & \vdots & \ddots & \vdots \\[5pt]
+   \frac{\partial f}{\partial x_n x_1} & \frac{\partial f}{\partial x_n x_2} & \dots & \frac{\partial f}{\partial x_n x_n} \\
+\end{bmatrix}_{x=x_0}
+$$
+
+
 ### 泰勒展开
 
 $$f(x)$$ 在 $$x = x_0$$ 处的泰勒展开公式为：
@@ -327,7 +351,7 @@ $$
 f(x) = \frac{f(x_0)}{0!} + \frac{f'(x_0)}{1!} \cdot (x - x_0) + \frac{f''(x_0)}{2!} \cdot (x - x_0)^2 + o(x_0) \\[2px]
 $$
 
-$$o(x_0)$$ 为高阶项。在 $$f(x)$$ 是多元函数的情况下，一阶导要写成雅克比矩阵（Jacobian matrix），二阶导要写成海森矩阵（Hessian matrix）：
+$$o(x_0)$$ 为高阶项。在 $$f(x)$$ 是多元函数的情况下，一阶导要写成雅克比矩阵（Jacobian matrix），二阶导要写成海森矩阵：
 
 $$
 f(x) = \frac{f(x_0)}{0!} + \frac{J_f(x_0)}{1!} \cdot (x - x_0) + (x - x_0)^\top \cdot \frac{H_f(x_0)}{2!} \cdot (x - x_0) + o(x_0) \\[2px]
