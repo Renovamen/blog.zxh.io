@@ -11,7 +11,7 @@ tags:
   - Deep Learning
 ---
 
-continual learning 方向 19 年之后的[几篇论文](https://notebook.renovamen.ink/papers/dl/continual-learning/#-meta-learning){:target="_blank"}搞出了一个套 meta learning 框架（主要是 MAML 这种 optimization-based 的方法）的新思路。这个思路<del>又可以水不少论文</del>还是很自然的，毕竟 meta learning『快速适应新任务』的思想可以看做 continual learning 的两个目标之一（学习新任务）的升级版，那么就只需要解决剩下那个目标（灾难性遗忘）就可以了。
+continual learning 方向 19 年之后的[几篇论文](https://notebook.renovamen.ink/papers/dl/continual-learning/#meta-continual-learning){:target="_blank"}搞出了一个套 meta learning 框架（主要是 MAML 这种 optimization-based 的方法）的新思路。这个思路<del>又可以水不少论文</del>还是很自然的，毕竟 meta learning『快速适应新任务』的思想可以看做 continual learning 的两个目标之一（学习新任务）的升级版，那么就只需要解决剩下那个目标（灾难性遗忘）就可以了。
 
 于是这里我决定稍微理一理背后的思想是<del>套娃</del> learning to learn 的 meta learning 的基本概念。
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Regularization-based Continual Learning
-subtitle: EWC / IS / MAS ...
+subtitle: EWC / Online EWC / IS / MAS ...
 author: "Renovamen"
 header-img: img/in-post/2020-08-24/header.jpg
 header-style: text
@@ -89,7 +89,9 @@ $$
 \end{aligned}
 $$
 
-最后一步是因为 $$D_A, D_B$$ 相互独立。那么有：
+最后一步是因为 $$D_A, D_B$$ 相互独立。这个形式实际上就是增量贝叶斯公式（incremental version of Bayes' rule）。
+
+那么有：
 
 $$
 \log p(\theta \mid D) = \log p(D_B \mid \theta) + \log p(\theta \mid D_A) - \log p(D_B)
@@ -223,6 +225,17 @@ $$
 
 我认为的另一个理解方式是，Fisher 信息矩阵也反映了我们对参数估计的不确定度。二阶导越大，说明我们对该参数的估计越确定，同时 Fisher 信息也越大，正则项就越大。于是越确定的参数在后面的任务里更新幅度就越小。
 
+### 多个任务
+
+如果任务推广到多个，那么 EWC 会为每个历史任务上训练完后的最优参数 $$\theta_1^\text{*}, \theta_2^\text{*}, \dots, \theta_{T-1}^\text{*}$$ 都维护一个惩罚项，即：
+
+$$
+L_T^\text{regularization} = \frac{1}{2} \sum_i \Bigg ( \sum_{t<T} \lambda_t F_{t, i} (\theta_i - \theta_{t,i}^\text{*})^2 \Bigg )
+$$
+
+所以惩罚项数量会随任务数量线性增长，造成较大的计算开销。而 [Online EWC](#online-ewc) 给出了一个不管有多少任务都只用维护一个惩罚项的解决方案。
+
+
 
 ### 其他
 
@@ -237,7 +250,63 @@ $$
 
 **On Quadratic Penalties in Elastic Weight Consolidation.** *Ferenc Huszár, et al.* arXiv 2017. [[Paper]](https://arxiv.org/pdf/1712.03847.pdf){:target="_blank"}
 
+EWC 会为每个历史任务上都维护一个惩罚项，所以惩罚项数量会随任务数量线性增长，造成较大的计算开销。但从直觉上来说，$$\theta_B^\text{*}$$ 本来就是在对 $$\theta_A^\text{*}$$ 加了惩罚项的情况下估计出来的，那么在估计 $$\theta_C^\text{*}$$ 的时候就只需要对 $$\theta_B^\text{*}$$ 加惩罚项就够了，就没必要再维护 $$\theta_A^\text{*}$$ 的惩罚项了。推广到多个任务，即在估计 $$\theta_T^\text{*}$$ 的时候只需要维护一个 $$\theta_{T-1}^\text{*}$$ 的惩罚项就好。
+
+考虑一下有三个任务 $$D_A, D_B, D_C$$ 的情况，这时的参数后验为：
+
+$$
+\log (\theta \mid D_A, D_B, D_C) = \log p(D_C \mid \theta) + \log (\theta \mid D_A, D_B) + \text{constant}
+$$
+
+其中 $$\log (\theta \mid D_A, D_B)$$ 已经被近似出来了：
+
+$$
+\log (\theta \mid D_A, D_B) \approx \log p(D_B \mid \theta) + \frac{1}{2} \sum_i \lambda_A F_{A, i} (\theta_i - \theta_{A,i}^\text{*})^2 + \text{constant}
+$$
+
+而最大化 $$\log p(D_B \mid \theta)$$ 跟最大化 $$\log p(\theta \mid D_B)$$ 是一个意思，$$\log p(\theta \mid D_B)$$ 又可以近似为：
+
+$$
+\log p(\theta \mid D_B) \approx \frac{1}{2} \sum_i \lambda_B F_{B, i} (\theta_i - \theta_{B,i}^\text{*})^2
+$$
+
+我们还认为 $$\theta_{B,i}^\text{*}$$ 和 $$\theta_{A,i}^\text{*}$$ 是差不多的（毕竟这就是 regularization-based 方法的目标），所以 $$(\theta_i - \theta_{B,i}^\text{*})$$ 和 $$(\theta_i - \theta_{A,i}^\text{*})$$ 也是差不多的。那么 $$\log (\theta \mid D_A, D_B, D_C)$$ 可以近似为：
+
+$$
+\log (\theta \mid D_A, D_B, D_C) \approx \log p(D_C \mid \theta) + \frac{1}{2} \sum_i (\lambda_A F_{A, i} + \lambda_B F_{B, i})(\theta_i - \theta_{B,i}^\text{*})^2 + \text{constant}
+$$
+
+推广到 $$T$$ 个任务，优化目标即为：
+
+$$
+\theta_T^{*} = \arg \min_\theta \left \{ - \log p(D_T \mid \theta) - \frac{1}{2} \sum_i \Bigg ( \sum_{t<T} \lambda_t F_{t, i} \Bigg )(\theta_i - \theta_{T-1,i}^\text{*})^2 \right \}
+$$
+
+所以可以看到，我们并不需要为每个历史任务都维护一个惩罚项，我们只需要维护上一个任务的惩罚项就好。
+
+
 **Progress & Compress: A Scalable Framework for Continual Learning.** *Jonathan Schwarz, et al.* arXiv 2018. [[Paper]](https://arxiv.org/pdf/1805.06370.pdf){:target="_blank"}
+
+
+这就是 Online EWC 的思想，其正则项为：
+
+$$
+L_T^\text{regularization} = \frac{1}{2} \sum_i \hat{F}_{T-1, i}(\theta_i - \theta_{T-1,i}^\text{*})^2
+$$
+
+其中 $$\hat{F}$$ 是 Fisher 信息矩阵 $$F$$ 的（带权）累加和：
+
+$$
+\hat{F}_t = \gamma \hat{F}_{t-1} + F_t
+$$
+
+$$
+\hat{F}_1 = F_1
+$$
+
+$$\gamma < 1$$ 是一个超参数，相当于之前的任务上的算出来的参数重要性对最终结果的贡献会逐渐降低。
+
+P.S. 讲道理我也不知道它为啥要取 online EWC 这个名字，我第一眼看到这个名字还以为它要往 online learning 上靠，结果并没有...
 
 
 
@@ -332,13 +401,14 @@ $$
 令 $$x = (x_1, x_2, \dots, x_n)$$，多元函数 $$f(x)$$ 在 $$x=x_0$$ 处的的二阶偏导是一个海森矩阵（Hessian matrix）：
 
 $$
+\\[1pt]
 f''(x_0) = H = 
 
 \begin{bmatrix}
-   \frac{\partial f}{\partial x_1 x_1} & \frac{\partial f}{\partial x_1 x_2} & \dots & \frac{\partial f}{\partial x_1 x_n} \\[5pt]
-   \frac{\partial f}{\partial x_2 x_1} & \frac{\partial f}{\partial x_2 x_2} & \dots & \frac{\partial f}{\partial x_2 x_n} \\[5pt]
-   \vdots & \vdots & \ddots & \vdots \\[5pt]
-   \frac{\partial f}{\partial x_n x_1} & \frac{\partial f}{\partial x_n x_2} & \dots & \frac{\partial f}{\partial x_n x_n} \\
+    \frac{\partial f}{\partial x_1 x_1} & \frac{\partial f}{\partial x_1 x_2} & \dots & \frac{\partial f}{\partial x_1 x_n} \\[5pt]
+    \frac{\partial f}{\partial x_2 x_1} & \frac{\partial f}{\partial x_2 x_2} & \dots & \frac{\partial f}{\partial x_2 x_n} \\[5pt]
+    \vdots & \vdots & \ddots & \vdots \\[5pt]
+    \frac{\partial f}{\partial x_n x_1} & \frac{\partial f}{\partial x_n x_2} & \dots & \frac{\partial f}{\partial x_n x_n} \\
 \end{bmatrix}_{x=x_0}
 $$
 
