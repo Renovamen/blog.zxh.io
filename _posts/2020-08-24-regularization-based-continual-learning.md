@@ -30,7 +30,7 @@ tags:
 
     - **Generative Replay**：用旧数据训练一个生成模型（如 GAN、VAE 等），然后用这个生成模型来生成旧数据。这样不需要额外的存储空间，但模型参数会变多（多了生成模型的参数）。
 
-        不过我觉得生成模型的权重你也得拿额外的存储空间存啊，假设权重一百多兆，你如果直接把它拿来存旧数据，假设一张图片几百 K（因为大多数持续学习论文的实验设置都是在做图像分类，所以这里考虑存图片），也能存几百张了。考虑到目前生成模型生成的图片质量都没有很高，在存储空间一样大的前提下它的效果能不能超过直接存几百张旧图片的效果我觉得是不一定的。我还是很希望看到有论文做这种对比实验的，不过目前似乎还没看到这样做的？
+        不过我很好奇用生成模型模拟旧数据的效果，和把生成模型的权重占的存储空间全拿去存旧数据的效果哪个更好。假设权重几十或几百兆，如果直接把它拿来存旧数据，假设一张图片几百 K（因为大多数持续学习论文的实验设置都是在做图像分类，所以这里考虑存图片），也能存几百张了。考虑到目前生成模型生成的图片质量都没有很高，在存储空间一样大的前提下它的效果能不能超过直接存几百张旧图片的效果我觉得是不一定的。我还是很希望看到有论文做这种对比实验的，不过目前似乎还没看到这样做的？虽然我也没看过多少论文就是了...
 
 - **Dynamic Expansion**：既然问题在于关于旧任务的参数会被干扰，那就不用这些参数来学习新任务了，直接搞一批新的参数来学新任务。这样模型的参数就会越来越多，所以叫 dynamic expansion。模型参数太多了之后可能会很难训练。为了让参数不要增加得太快，有些方法会加一些模型剪枝知识蒸馏一类的压缩操作进来。
 
@@ -227,7 +227,31 @@ $$
 
 ### 多个任务
 
-如果任务推广到多个，那么 EWC 会为每个历史任务上训练完后的最优参数 $$\theta_1^\text{*}, \theta_2^\text{*}, \dots, \theta_{T-1}^\text{*}$$ 都维护一个惩罚项，即：
+考虑一下有三个任务 $$D_A, D_B, D_C$$ 的情况，这时的参数后验为：
+
+$$
+\log (\theta \mid D_A, D_B, D_C) = \log p(D_C \mid \theta) + \log (\theta \mid D_A, D_B) + \text{constant}
+$$
+
+其中 $$\log (\theta \mid D_A, D_B)$$ 已经被近似出来了：
+
+$$
+\log (\theta \mid D_A, D_B) \approx \log p(D_B \mid \theta) + \frac{1}{2} \sum_i \lambda_A F_{A, i} (\theta_i - \theta_{A,i}^\text{*})^2 + \text{constant}
+$$
+
+而最大化 $$\log p(D_B \mid \theta)$$ 跟最大化 $$\log p(\theta \mid D_B)$$ 是一个意思，$$\log p(\theta \mid D_B)$$ 又可以近似为：
+
+$$
+\log p(\theta \mid D_B) \approx \frac{1}{2} \sum_i \lambda_B F_{B, i} (\theta_i - \theta_{B,i}^\text{*})^2
+$$
+
+那么 $$\log (\theta \mid D_A, D_B, D_C)$$ 可以近似为：
+
+$$
+\log (\theta \mid D_A, D_B, D_C) \approx \log p(D_C \mid \theta) + \frac{1}{2} \sum_i \Bigg (\lambda_A F_{A, i} (\theta_i - \theta_{A,i}^\text{*})^2 + \lambda_B F_{B, i} (\theta_i - \theta_{B,i}^\text{*})^2 \Bigg ) + \text{constant}
+$$
+
+相当于 EWC 会针对 $$\theta_{A,i}^\text{*}$$ 和 $$\theta_{B,i}^\text{*}$$ 各加一个惩罚项，来保证 $$\theta_{C,i}^\text{*}$$ 跟 $$\theta_{A,i}^\text{*}$$ 和 $$\theta_{B,i}^\text{*}$$ 都尽量接近。如果任务推广到多个，那么 EWC 会为每个历史任务上训练完后的最优参数 $$\theta_1^\text{*}, \theta_2^\text{*}, \dots, \theta_{T-1}^\text{*}$$ 都维护一个惩罚项，即：
 
 $$
 L_T^\text{regularization} = \frac{1}{2} \sum_i \Bigg ( \sum_{t<T} \lambda_t F_{t, i} (\theta_i - \theta_{t,i}^\text{*})^2 \Bigg )
@@ -252,25 +276,13 @@ $$
 
 EWC 会为每个历史任务上都维护一个惩罚项，所以惩罚项数量会随任务数量线性增长，造成较大的计算开销。但从直觉上来说，$$\theta_B^\text{*}$$ 本来就是在对 $$\theta_A^\text{*}$$ 加了惩罚项的情况下估计出来的，那么在估计 $$\theta_C^\text{*}$$ 的时候就只需要对 $$\theta_B^\text{*}$$ 加惩罚项就够了，就没必要再维护 $$\theta_A^\text{*}$$ 的惩罚项了。推广到多个任务，即在估计 $$\theta_T^\text{*}$$ 的时候只需要维护一个 $$\theta_{T-1}^\text{*}$$ 的惩罚项就好。
 
-考虑一下有三个任务 $$D_A, D_B, D_C$$ 的情况，这时的参数后验为：
+在[上一节](#多个任务)中我们已经得到 $$\log (\theta \mid D_A, D_B, D_C)$$ 的近似：
 
 $$
-\log (\theta \mid D_A, D_B, D_C) = \log p(D_C \mid \theta) + \log (\theta \mid D_A, D_B) + \text{constant}
+\log (\theta \mid D_A, D_B, D_C) \approx \log p(D_C \mid \theta) + \frac{1}{2} \sum_i \Bigg (\lambda_A F_{A, i} (\theta_i - \theta_{A,i}^\text{*})^2 + \lambda_B F_{B, i} (\theta_i - \theta_{B,i}^\text{*})^2 \Bigg ) + \text{constant}
 $$
 
-其中 $$\log (\theta \mid D_A, D_B)$$ 已经被近似出来了：
-
-$$
-\log (\theta \mid D_A, D_B) \approx \log p(D_B \mid \theta) + \frac{1}{2} \sum_i \lambda_A F_{A, i} (\theta_i - \theta_{A,i}^\text{*})^2 + \text{constant}
-$$
-
-而最大化 $$\log p(D_B \mid \theta)$$ 跟最大化 $$\log p(\theta \mid D_B)$$ 是一个意思，$$\log p(\theta \mid D_B)$$ 又可以近似为：
-
-$$
-\log p(\theta \mid D_B) \approx \frac{1}{2} \sum_i \lambda_B F_{B, i} (\theta_i - \theta_{B,i}^\text{*})^2
-$$
-
-我们还认为 $$\theta_{B,i}^\text{*}$$ 和 $$\theta_{A,i}^\text{*}$$ 是差不多的（毕竟这就是 regularization-based 方法的目标），所以 $$(\theta_i - \theta_{B,i}^\text{*})$$ 和 $$(\theta_i - \theta_{A,i}^\text{*})$$ 也是差不多的。那么 $$\log (\theta \mid D_A, D_B, D_C)$$ 可以近似为：
+现在我们认为 $$\theta_{B,i}^\text{*}$$ 和 $$\theta_{A,i}^\text{*}$$ 是差不多的（毕竟这就是 regularization-based 方法的目标），所以 $$(\theta_i - \theta_{B,i}^\text{*})$$ 和 $$(\theta_i - \theta_{A,i}^\text{*})$$ 也是差不多的。那么 $$\log (\theta \mid D_A, D_B, D_C)$$ 可以进一步近似为：
 
 $$
 \log (\theta \mid D_A, D_B, D_C) \approx \log p(D_C \mid \theta) + \frac{1}{2} \sum_i (\lambda_A F_{A, i} + \lambda_B F_{B, i})(\theta_i - \theta_{B,i}^\text{*})^2 + \text{constant}
@@ -282,7 +294,7 @@ $$
 \theta_T^{*} = \arg \min_\theta \left \{ - \log p(D_T \mid \theta) - \frac{1}{2} \sum_i \Bigg ( \sum_{t<T} \lambda_t F_{t, i} \Bigg )(\theta_i - \theta_{T-1,i}^\text{*})^2 \right \}
 $$
 
-所以可以看到，我们并不需要为每个历史任务都维护一个惩罚项，我们只需要维护上一个任务的惩罚项就好。
+所以可以看到，我们并不需要为每个历史任务都维护一个惩罚项，我们只需要对上一个任务训练完后的最优参数加惩罚项就好。
 
 
 **Progress & Compress: A Scalable Framework for Continual Learning.** *Jonathan Schwarz, et al.* arXiv 2018. [[Paper]](https://arxiv.org/pdf/1805.06370.pdf){:target="_blank"}

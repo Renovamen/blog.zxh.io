@@ -113,13 +113,15 @@ meta learning 主要有三类常见的方法：
 
 **Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks.** *Chelsea Finn, et al.* ICML 2017. [[Paper]](https://arxiv.org/pdf/1703.03400.pdf){:target="_blank"} [[Code]](https://github.com/cbfinn/maml){:target="_blank"} 
 
-这是 MAML 一作：[Chelsea Finn](https://ai.stanford.edu/~cbfinn/)（现在是 Stanford 的 AP），她们组有不少相关的工作。
+这是 MAML 一作：[Chelsea Finn](https://ai.stanford.edu/~cbfinn/){:target="_blank"} （现在是 Stanford 的 AP），她们组有不少相关的工作。
 
-MAML 是一种通用的优化算法，可以被用于任何基于梯度下降学习的模型。它的目标是学习出一种初始化参数的规则，对于任意 task，这个初始化的参数 $$\theta$$ 都能在一步或极少步梯度下降中就快速达到最优参数解 $$\theta_n^*$$：
+MAML（Model-Agnostic Meta-Learning）是一种通用的基于优化的算法，可以被用于任何基于梯度下降学习的模型。它的目标是学习出一组初始化参数 $$\theta$$，对于任意 task，这个初始化的参数都能在一步或极少步梯度下降中就快速达到最优参数解 $$\theta_n^*$$：
 
 ![diagram of maml](/img/in-post/2020-08-05/maml-diagram.png){:width="450px"}
 
-### 算法流程
+### Meta-Train
+
+MAML 的训练过程（一般被称为 meta-train）为：
 
 ![maml algorithm](/img/in-post/2020-08-05/maml-alg.png){:width="600px"}
 
@@ -135,6 +137,17 @@ MAML 是一种通用的优化算法，可以被用于任何基于梯度下降学
 
 图片来源：[Meta Learning，李宏毅](https://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2019/Lecture/Meta1%20(v6).pdf){:target="_blank"}
 {:.desc}
+
+### Meta-Test
+
+在测试（mete-test）时，会把经过 meta-train 训练好的模型拿去测试集（新 task）的 support set 上 fine-tune，然后在 query set 上得到测试结果。fine-tune 的过程跟 meta-train 基本上差不多，不同点主要是：
+
+- 第 1 行：meta-train 时的 $$\theta$$ 是随机初始化的，而 fine-tune 时直接用了经过 meta-train 后得到的 $$\theta$$；
+
+- 第 3 行：fine-tune 的时候就不存在 batch 了，只抽取一个 task 来学习；
+
+- 第 8 行：fine-tune 的时候不存在这一步，因为这时的 query set 是用来测试模型的，不可能给你算损失然后梯度回传。所以会直接用第 6 行得到的 $$\theta'$$ 作为最终参数。
+
 
 ### 二阶导
 
@@ -262,3 +275,5 @@ Reptile 论文里还对 Reptile 和 MAML 的原理写了一大段分析。推了
 - [Learning to Learn.](https://bair.berkeley.edu/blog/2017/07/18/learning-to-learn/){:target="_blank"} Chelsea Finn.
 
 - [First-order Meta-Learned Initialization for Faster Adaptation in Deep Reinforcement Learning.](https://www.andrew.cmu.edu/user/abhijatb/assets/Deep_RL_project.pdf){:target="_blank"} Abhijat Biswas and Shubham Agrawal.
+
+- [Model-Agnostic Meta-Learning （MAML）模型介绍及算法详解](https://zhuanlan.zhihu.com/p/57864886){:target="_blank"}
