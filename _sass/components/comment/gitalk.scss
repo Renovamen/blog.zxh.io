@@ -544,6 +544,7 @@
     
     .highlight {
         margin-bottom: 16px;
+        border-radius: 3px;
         pre {
             margin-bottom: 0;
             word-break: normal;
@@ -632,7 +633,7 @@ $gt-color-comment-txt: var(--body-color);
 $gt-color-link-active: #333333;
 $gt-color-btn: #ffffff;
 $gt-size-base: 16px; // default font-size
-$gt-size-border-radius: 5px;
+$gt-size-border-radius: 3px;
 $gt-mask-z-index: 9999;
 
 /* functions & mixins */

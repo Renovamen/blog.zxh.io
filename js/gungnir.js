@@ -103,24 +103,20 @@ function smoothTo(target) {
 function mobileNavToggle() {
     // close navbar
     if ($('.main-container').hasClass('open')) {
-        $('.main-container').css("overflow-y", "hidden") // some messy code for bettter animation effect...
         // when transition end
         setTimeout(function (){
+            $('html').toggleClass("open")
             $('body').toggleClass("open")
-            $('.main-container').css({
-                "overflow-y":"",
-                "background-color": "transparent",
-                "box-shadow": "none"
-            })
+            $('.main-container').toggleClass("open-delay")
         }, 500)
     }
     // open navbar
     else {
+        setTimeout(function (){
+            $('html').toggleClass("open")
+        }, 500)
         $('body').toggleClass("open")
-        $('.main-container').css({
-            "background-color":"var(--bg)",
-            "box-shadow": "-20px 18px 0px 0px rgba(255, 255, 255, .2)"
-        })
+        $('.main-container').toggleClass("open-delay")
     }
     $('.mobile-nav, .main-container').toggleClass('open')
 }

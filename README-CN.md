@@ -18,7 +18,7 @@
 
 ## 文档
 
-[这里](https://renovamen.ink/theme/)是本主题的文档，有中文~~和英文~~版本。
+[这里](https://renovamen.ink/theme/)是本主题的文档，有中文和英文版本。
 
 &nbsp;
 
@@ -51,7 +51,7 @@
 
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
-jekyll serve --watch # 本地预览
+jekyll serve # 本地预览
 ```
 
 &nbsp;

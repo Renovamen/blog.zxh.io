@@ -11,12 +11,26 @@ Derived from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.i
 
 
 ## Quick Start
+
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
 jekyll serve --watch # local preview
 ```
 
+To modify the theme, you may need to install [Grunt](https://gruntjs.com/){:target="_blank"}:
+
+```bash
+npm install
+```
+
+Then:
+
+```bash
+npm run dev
+```
+
 ## Configuration
+
 All the following options should be configured in `_config.yml`.
 {:.info}
 

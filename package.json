@@ -4,6 +4,7 @@
     "description": "Blog of Renovamen & Jekyll theme Gungnir",
     "version": "1.0.0",
     "author": "Renovamen <renovamenzxh@gmail.com>",
+    "license": "MIT",
     "homepage": "https://renovamen.github.io",
     "repository": {
         "type": "git",
@@ -11,10 +12,10 @@
     },
     "bugs": "https://github.com/Renovamen/renovamen.github.io/issues",
     "devDependencies": {
-        "grunt": "~1.0.4",
-        "grunt-contrib-watch": "~1.1.0",
+        "grunt": "^1.0.4",
         "grunt-banner": "~0.6.0",
-        "grunt-contrib-uglify": "~4.0.1"
+        "grunt-contrib-uglify": "~4.0.1",
+        "grunt-contrib-watch": "~1.1.0"
     },
     "scripts": {
         "start": "jekyll serve --watch --host 0.0.0.0 --port 4000",

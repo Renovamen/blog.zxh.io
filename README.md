@@ -18,7 +18,7 @@ Check out the demo [here](https://renovamen.ink/) (my blog).
 
 ## Documentation
 
-Check out the ongoing documentation [here](https://renovamen.ink/theme/). It supports Chinese ~~and English~~ now.
+Check out the documentation [here](https://renovamen.ink/theme/). It supports Chinese and English now.
 
 &nbsp;
 
@@ -51,7 +51,7 @@ Inherit from the original theme:
 
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
-jekyll serve --watch # local preview
+jekyll serve # local preview
 ```
 
 &nbsp;

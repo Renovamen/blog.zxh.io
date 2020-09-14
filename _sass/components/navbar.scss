@@ -23,7 +23,11 @@
         &.open {
             @include transform(translateX(250px) translateY(0px) scale(0.9));
             border-radius: 10px;
-            overflow-y: hidden;
+        }
+        &.open-delay {
+            background-color: var(--bg);
+            box-shadow: -20px 18px 0px 0px rgba(255, 255, 255, .2);
+            overflow: hidden;
         }
     }
     .mobile-nav {

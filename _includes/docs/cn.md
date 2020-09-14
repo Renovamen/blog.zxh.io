@@ -11,12 +11,27 @@ Github: [<i class="fas fa-link"></i> Renovamen/renovamen.github.io](https://gith
 
 
 ## 快速开始
+
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
 jekyll serve --watch # 本地预览
 ```
 
+如果想要改动代码，你可能需要安装 [Grunt](https://gruntjs.com/){:target="_blank"}：
+
+```bash
+npm install
+```
+
+然后：
+
+```bash
+npm run dev
+```
+
+
 ## 配置
+
 以下配置都在 `_config.yml` 中进行。
 {:.info}
 
