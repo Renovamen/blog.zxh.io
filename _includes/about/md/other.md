@@ -8,6 +8,6 @@
 
 - Waiting for a chance to eat the parrot in my home.
 
-- ~~Focusing on PS4 game [*Horizon: Zero Dawn*](https://www.guerrilla-games.com/play/horizon){:target="_blank"} recently. It has been released in 2017 but I still have not completed it yet.~~ I have completed it now, congratulations.
-
 - [Wu Xuanyi](https://en.wikipedia.org/wiki/Wu_Xuanyi){:target="_blank"} is the most beautiful woman in the world, so why not have a look at her on [Weibo](https://weibo.com/xuanyi0808){:target="_blank"} and [Instagram](https://www.instagram.com/w.xuanyi0126/){:target="_blank"}? :)
+
+&nbsp; &nbsp;
