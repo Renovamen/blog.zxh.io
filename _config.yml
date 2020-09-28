@@ -69,6 +69,7 @@ exclude:
   - Gruntfile.js
   - /node_modules
   - /docs
+  - /_posts/2019-07-06-last-three-years.md
 anchorjs: true                          # if you want to customize anchor. check out `anchor.html`
 # If you have timezone issue (e.g. #68) in China, uncomment to use this:
 #timezone: CN  
