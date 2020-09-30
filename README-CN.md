@@ -56,6 +56,6 @@ jekyll serve # 本地预览
 
 &nbsp;
 
-## 协议
+## 开源协议
 
-[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+Gungnir 遵守 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 开源协议，详细细节见 [LICENSE](LICENSE) 文件。
