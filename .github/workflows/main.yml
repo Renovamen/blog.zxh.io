@@ -1,6 +1,8 @@
-# This is a basic workflow to help you get started with Actions
+# refer to https://jekyllrb.com/docs/continuous-integration/github-actions/
+# and https://github.com/helaili/jekyll-action
+# for more details
 
-name: build and deploy Jekyll automatically
+name: build and deploy Jekyll to GitHub Pages automatically
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -22,26 +24,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      # Install Jekyll
-      - name: jekyll env
-        run: |
-          gem install bundler jekyll
+      # Use GitHub Actions' cache to shorten build times and decrease load on servers
+      - uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
 
-      # Build Jekyll site
-      - name: build
-        run: bundle exec jekyll build
-      
-      # Prepare git environmentt
-      - name: git env
-        run: |
-          cd site
-          git init
-          git config user.name "${{secrets.GITHUB_NAME}}"
-          git config user.email "${{secrets.GITHUB_EMAIL}}"
-          git add .
-      
-      # Deploy: push to gh-pages branch
-      - name: deploy
-        run: |
-          git commit -m "action build"
-          git push --force "https://${GITHUB_TOKEN}@github.com/renovamen.github.io.git" master:gh-pages
+      # Use helaili/jekyll-action to build Jekyll site and push it to gh-pages
+      - uses: helaili/jekyll-action@2.0.4
+        env:
+          JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
