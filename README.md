@@ -58,4 +58,4 @@ jekyll serve # local preview
 
 ## License
 
-Gungnir is [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) licensed, check out the [LICENSE](LICENSE) file for more details.
+Gungnir is [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) licensed, see the [LICENSE](LICENSE) file for details.
