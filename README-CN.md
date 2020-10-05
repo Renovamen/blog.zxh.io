@@ -51,6 +51,7 @@
 
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
+cd renovamen.github.io
 jekyll serve # 本地预览
 ```
 

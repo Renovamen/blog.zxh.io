@@ -51,6 +51,7 @@ Inherit from the original theme:
 
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
+cd renovamen.github.io
 jekyll serve # local preview
 ```
 

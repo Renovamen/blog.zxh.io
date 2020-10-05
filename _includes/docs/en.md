@@ -1,5 +1,5 @@
 
-# Maybe a Ducumentation
+# Ducumentation
 
 Github: [<i class="fas fa-link"></i> Renovamen/renovamen.github.io](https://github.com/Renovamen/renovamen.github.io){:target="_blank"}
 
@@ -10,11 +10,25 @@ Derived from [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.i
 ![theme-gungnir](../img/docs/gungnir.jpg)
 
 
-## Quick Start
+## Installation
+
+Clone the project from Github:
 
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
-jekyll serve --watch # local preview
+cd renovamen.github.io
+```
+
+To run the theme locally, Ruby and Jekyll should be installed firstly, refer to [here](https://jekyllrb.com/docs/installation/){:target="_blank"} for details. Then you could install the dependencies:
+
+```bash
+bundle install
+```
+
+Then you could start the development server and preview the blog by:
+
+```bash
+bundle exec jekyll serve --watch
 ```
 
 To modify the theme, you may need to install [Grunt](https://gruntjs.com/){:target="_blank"}:

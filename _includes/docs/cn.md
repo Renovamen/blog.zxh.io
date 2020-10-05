@@ -1,4 +1,4 @@
-# 这大概是一篇（施工中的）文档
+# 这大概是一篇文档
 
 Github: [<i class="fas fa-link"></i> Renovamen/renovamen.github.io](https://github.com/Renovamen/renovamen.github.io){:target="_blank"}
 
@@ -10,11 +10,25 @@ Github: [<i class="fas fa-link"></i> Renovamen/renovamen.github.io](https://gith
 ![theme-gungnir](../img/docs/gungnir.jpg)
 
 
-## 快速开始
+## 安装
+
+从 GitHub 克隆项目：
 
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
-jekyll serve --watch # 本地预览
+cd renovamen.github.io
+```
+
+本地运行主题需要参考[这里](https://jekyllrb.com/docs/installation/){:target="_blank"}安装 Ruby 和 Jekyll。然后安装依赖包：
+
+```bash
+bundle install
+```
+
+然后即可本地预览：
+
+```bash
+bundle exec jekyll serve --watch
 ```
 
 如果想要改动代码，你可能需要安装 [Grunt](https://gruntjs.com/){:target="_blank"}：
