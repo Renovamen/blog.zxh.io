@@ -181,7 +181,8 @@ yarn.lock
 package-lock.json
 
 # jekyll
-Gemfile.lock
+# include Gemfile.lock because Jekyll Github actions need it
+# Gemfile.lock
 package-lock.json
 _site/
 .sass-cache/
