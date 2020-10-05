@@ -21,13 +21,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      # Install dependencies for Jekyll
+      - name: jekyll env
+        run: |
+          bundle install
+          bundle list | grep "jekyll ("
 
-      # Build
+      # Build Jekyll site
       - name: build
-        run: jekyll build
+        run: bundle exec jekyll build
       
       # Prepare git environmentt
-      - name: env
+      - name: git env
         run: |
           cd site
           git init
