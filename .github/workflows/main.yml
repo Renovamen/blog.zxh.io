@@ -25,11 +25,11 @@ jobs:
       # Install Jekyll
       - name: jekyll env
         run: |
-          gem install jekyll
+          gem install bundler jekyll
 
       # Build Jekyll site
       - name: build
-        run: jekyll build
+        run: bundle exec jekyll build
       
       # Prepare git environmentt
       - name: git env
