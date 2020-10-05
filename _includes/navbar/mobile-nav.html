@@ -1,0 +1,43 @@
+<div class="mobile-nav">
+    <div class="mobile-menu-avatar">
+        <div class="avatar-container">
+            <img src="{{site.baseurl}}/img/header-avatar.jpeg">
+        </div>
+    </div>
+    <p class="mobile-menu-heading">Meow?</p>
+    {% include sns-links.html center=true %}
+    <ul>
+        {% for page in site.menus %}
+        <li>
+            {% if page.url %}
+            <a href="{{ page.url | prepend: site.baseurl }}" class="faa-parent animated-hover">
+            {% else %}
+            <a class="faa-parent animated-hover">
+            {% endif %}
+                {% if page.font %}
+                <i class="{{page.font}} fa-lg faa-wrench"></i>
+                {% endif %}
+                {{ page.title }}
+            </a>
+            {% if page.submenus %}
+            <ul class="sub-menu">
+                {% for submenu in page.submenus %}
+                <li>
+                    <a href="{{ submenu.url | prepend: site.baseurl }}" class="faa-parent animated-hover">
+                    <i class="{{submenu.font}} fa-lg faa-wrench"></i>
+                    {{ submenu.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+
+        <li>
+            <a id="mobile-search-btn" class="faa-parent animated-hover">
+                <i class="fas fa-search fa-lg faa-wrench"></i> Search
+            </a>
+        </li>
+    </ul>
+</div>

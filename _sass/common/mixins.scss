@@ -1,0 +1,137 @@
+// Mixins
+
+@mixin background-cover() {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@mixin clearfix() {
+    &:before, &:after {
+      content: " ";
+      display: table;
+    }
+    &:after { 
+        clear: both; 
+    }
+}
+
+
+// ---------------- Font ----------------
+
+@mixin serif() {
+	font-family: 'Lora', 'Times New Roman', serif;
+}
+
+@mixin sans-serif () {
+	/* Hux learn from
+     *     TypeIsBeautiful,
+     *     [This Post](http://zhuanlan.zhihu.com/ibuick/20186806) etc.
+     */
+	font-family:
+        // System Font            // https://www.webkit.org/blog/3709/using-the-system-font-in-web-content/
+        -apple-system,            // OSX ^10.11 & iOS ^9  San Francisco & 苹方 for Safari
+        BlinkMacSystemFont,       // OSX ^10.11 & iOS ^9  San Francisco & 苹方 for Blink 
+
+        // English First
+        "Helvetica Neue",         // OSX
+        "Arial",                  // Win "Helvetica"
+        //" Segoe UI",            // Win ^8
+
+        // Chinese Fallback
+        "PingFang SC",            // OSX ^10.11 & iOS ^9  苹方（华康信凭黑）
+        "Hiragino Sans GB",       // OSX ^10.6            冬青黑体
+        "STHeiti",                // OSX <10.6  & iOS <9  华文黑体
+        "Microsoft YaHei",        // Win                  微软雅黑
+        "Microsoft JhengHei",     // Win                  微软正黑
+        "Source Han Sans SC",     // SourceHan - begin    思源黑体
+        "Noto Sans CJK SC",
+        "Source Han Sans CN",
+        "Noto Sans SC",
+        "Source Han Sans TC",
+        "Noto Sans CJK TC",       // SourceHan - end
+        "WenQuanYi Micro Hei",    // Linux                文泉驿微米黑
+        SimSun,                   // Win old              中易宋体
+        sans-serif;               // System Fallback
+
+	line-height: 1.7;
+}
+
+@mixin gungnir-font() {
+	font-family: "Montserrat", sans-serif;
+}
+
+// ---------------- Animation ----------------
+
+@mixin transition($value) {
+    transition: $value;
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -o-transition: $value;
+    -ms-transition: $value;
+}
+
+@mixin transform($value) {
+    transform: $value;
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -o-transform: $value;
+    -ms-transform: $value;
+}
+
+
+// Hide scrollbar
+
+@mixin hide-scrollbar() {
+    ::-webkit-scrollbar { // Chrome, Safari
+        width: 0;
+        display: none;
+    }
+    -ms-overflow-style: none; // IE
+    scrollbar-width: none; // Firefox
+}
+
+
+// Layout
+@mixin small {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin mobile-minus {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin ipad {
+    @media (max-width: 1023px) {
+        @content;
+    }
+}
+
+@mixin wide {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (min-width: 1201px) {
+        @content;
+    }
+}

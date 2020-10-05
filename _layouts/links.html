@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<!-- Borrowed a lot from: https://github.com/mashirozx/Sakura/ -->
+
+<!-- Page Header -->
+{% include intro-header.html type='page' short=true %}
+
+<div class="links-page container"> 
+
+    <div class="row">
+
+        <div class="
+            col-lg-8 col-lg-offset-2
+            col-md-10 col-md-offset-1
+            link-list">
+
+            {% if page.links %}
+                {% for group in page.links %}
+                    <h2 class="section-title" id="{{ group.type | downcase | split: ' ' | join: '-'}}">{{group.type}}</h2>
+                    <ul>
+                        {% for item in group.items %}
+                            <li>
+                                <a href="{{ item.url }}" target="_blank">
+                                    <img src="{{ item.img | default: '../img/links/default.jpg' }}">
+                                    <span class="sitename">{{item.sitename}}</span>
+                                    <div class="desc">{{item.desc}}</div>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            {% endif %}
+
+            <hr style="visibility: hidden;">
+
+            {% if site.comment.provider and page.comment %}
+                {% include comment/container.html %}
+            {% endif %}
+        </div>  
+
+        <!-- Side Catalog Container -->
+        {% if page.catalog %}
+            {% include catalog/container.html %}
+        {% endif %}
+    </div>
+</div>
+
+<!-- comment -->
+{% if site.comment.provider and page.comment %}
+    {% include comment/script.html %}
+{% endif %}

@@ -1,0 +1,18 @@
+<div class="section projects">
+    <h3 class="about-title">Selected Projects</h3>
+    <h4>See all projects <a href="/projects">here</a>.</h4>
+    {% for proj in site.projects %}
+    <article class="item">
+        {% if proj.img %}
+        <a class="item-thumbnail" style="background-image: url({{ site.baseurl }}/{{ proj.img }})"></a>
+        {% else %}
+        {% endif %}
+        <div class="item-content">
+            <h2 class="item-title">
+                <a href="{{ proj.url }}">{{proj.title}}</a>
+            </h2>
+            <p>{{ proj.content }}</p>
+        </div>
+    </article>
+    {% endfor %}
+</div>

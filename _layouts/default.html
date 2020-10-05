@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Renovamen: add menu button -->
+    {% include menu.html %}
+
+    <div class="main-container">
+    {% include navbar/nav.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+    </div>
+
+    <!-- modify styles of navbar on mobile -->
+    {% include navbar/mobile-nav.html %}
+
+    <!-- support search -->
+    {% include search.html %}
+    
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

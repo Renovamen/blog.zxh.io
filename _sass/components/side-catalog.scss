@@ -1,0 +1,116 @@
+// catalog
+.catalog-container {
+    padding: 0px;
+}
+
+.side-catalog {
+    &.fixed {
+        position: fixed;
+        top: 50px;
+    }
+    &.fold {
+        .catalog-toggle::before {
+            content: "+";
+        }
+        .catalog-body {
+            display: none;
+        }
+    }
+    .catalog-toggle {
+        color: var(--body-gray) !important;
+        &::before {
+            content: "-";
+            position: relative;
+            margin-right: 5px;
+            bottom: 1px;
+        }
+    }
+    display: block;
+    overflow: auto;
+    height: 100%;
+    padding-bottom: 40px;
+    width: 195px;
+    .catalog-body {
+        position: relative;
+        list-style: none;
+        height: auto;
+        overflow: hidden;
+        padding-left: 0px;
+        padding-right: 5px;
+        text-indent: 0;
+        .toc-list {
+            padding-left: 10px !important;
+        }
+        li {
+            // position: relative;
+            list-style: none;
+            a {
+                &.toc-link {
+                    color: var(--body-gray) !important;
+                }
+                &.is-active-link {
+                    color: var(--primary-color) !important;
+                }
+                padding-left: 3px;
+                max-width: 180px;
+                display: inline-block;
+                vertical-align: middle;
+                height: 30px;
+                line-height: 30px;
+                overflow: hidden;
+                text-decoration: none;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .toc-link::before {
+                background-color: var(--border-color)
+            }
+            .is-active-link::before {
+                background-color: var(--primary-color) !important;
+            }
+        }
+    }
+}
+
+@include wide {
+    .side-catalog {
+        @include transition(all ease .5s);
+        transform: translateX(100%);
+        position: fixed;
+        top: 0;
+        right: -2px;
+        width: 80%;
+        background-color: var(--bg);
+        z-index: 3;
+        &.open {
+            @include transform(translateX(0));
+            box-shadow: var(--mobile-catalog-shadow);
+        }
+        .catalog-toggle {
+            display: none;
+        }
+        .catalog-body {
+            .toc-list {
+                padding-left: 15px !important;
+            }
+            li {
+                a {
+                    &.toc-link {
+                        color: var(--body-color) !important;
+                    }
+                    &.is-active-link {
+                        color: var(--primary-color) !important;
+                    }
+                    max-width: 100%;
+                }
+                .toc-link::before {
+                    opacity: 0;
+                }
+                .is-active-link::before {
+                    opacity: 1;
+                    background-color: var(--primary-color);
+                }
+            }
+        }
+    }
+}

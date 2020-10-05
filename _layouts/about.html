@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<div class="about-page">
+    <!-- the blank is used to replace intro-header -->
+    <div class="about-blank"></div> 
+    
+    {% include about/header.html %}
+
+    <!-- Publication Section -->
+    {% if site.publications.size > 0 %}
+        {% include about/publications.html %}
+    {% endif %}
+
+    <!-- Experience Section -->
+    {% if site.experiences.size > 0 %}
+        {% include about/experiences.html %}
+    {% endif %}
+
+    <!-- Projects Section -->
+    {% if site.projects.size > 0 %}
+        {% include about/projects.html %}
+    {% endif %}
+   
+    <div class="section">
+        <div class="post-container">
+            {% capture about_other %}{% include about/md/other.md %}{% endcapture %}
+            {{ about_other | markdownify }}
+        </div>
+    </div>
+</div>

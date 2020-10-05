@@ -1,0 +1,50 @@
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
+
+<!-- tocbot: https://github.com/tscanlin/tocbot -->
+
+<!-- 
+    Didn't use lazyload here because it will cause some bugs in catalog 
+    generating when swtiching between two languages. 
+    I'm trying to find a better solution.
+-->
+
+<link href="{{ _cdn.tocbot.css }}" rel="stylesheet" type="text/css">
+<script src="{{ _cdn.tocbot.js }}"></script>
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // links page
+        if('{{ page.layout }}' == 'links') {
+            _containerSelector = 'div.link-list'
+        }
+        // interop with multilangual 
+        else {
+            if ('{{ page.multilingual }}' == 'true') {
+                _containerSelector = 'div.post-container.active'
+            } 
+            else {
+                _containerSelector = 'div.post-container'
+            }
+        }
+        
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: selector,
+            // Where to grab the headings to build the table of contents.
+            contentSelector: _containerSelector,
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h2, h3, h4, h5, h6',
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+</script>

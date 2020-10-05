@@ -1,0 +1,91 @@
+.links-page {
+    margin: 0 auto;
+    h2, span, .desc {
+        @include gungnir-font();
+    }
+    .link-list {
+        .section-title {
+            font-weight: 400;
+            font-size: 18px;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary-color);
+            margin: 50px 0 20px
+        }
+        ul {
+            margin: 0;
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            display: inline-block;
+            li {
+                width: 32%;
+                height: 98px;
+                float: left;
+                border: 1px solid var(--border-color);
+                padding: 10px 30px 10px 20px;
+                margin: 4px 4px;
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+                @include transition(all .3s);
+                a {
+                    text-decoration: none;
+                }
+                img {
+                    cursor: auto;
+                    padding: 2px;
+                    border-radius: 100%;
+                    max-width: 100%;
+                    float: right;
+                    box-shadow: inset 0 0 10px var(--body-color);
+                    margin-top: 5px;
+                    margin-right: -15px;
+                    width: 65px;
+                    height: 65px;
+                    @include transition(all ease 1s);
+                }
+                &:hover {
+                    border: 1px solid transparent;
+                    // img {
+                    //     @include transform(rotate(360deg));
+                    // }
+                    @include transform(translate(0px, -2px));
+                    box-shadow: var(--item-up-shadow);
+                }
+                span.sitename {
+                    color: var(--primary-color);
+                    padding-bottom: 10px;
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -o-text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-weight: 600;
+                }
+                .desc {
+                    color: var(--body-gray);
+                    font-size: 13px;
+                    padding: 10px 0;
+                    border-top: 1px dashed #ddd;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    line-height: 15px;
+                }
+            }
+        }
+    }
+    @include small {
+        .link-list ul li {
+            width: 100% !important;
+        }
+    }
+    
+    @include ipad {
+        .link-list ul li {
+            width: 48.6%;
+            &:before {
+                display: none
+            }
+        }
+    }
+}

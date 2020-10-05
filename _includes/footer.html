@@ -1,0 +1,107 @@
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                <!-- {% include sns-links.html center=true %} -->
+                <p class="copyright">
+                    &copy; <a href="https://github.com/Renovamen" target="_blank">Renovamen</a> 2018
+                    <br>
+                    Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/Renovamen/renovamen.github.io" target="_blank">Gungnir</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<!-- Renovamen: has been included in `head.html` already -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<!-- Renovamen: Maybe don't need this anymore -->
+<!-- <script src="{{ "/js/library/bootstrap.min.js " | prepend: site.baseurl }}"></script> -->
+
+<!-- add dark / light detection -->
+{% include theme.html %}
+
+<!-- Theme JavaScript -->
+<script src="{{ "/js/gungnir.min.js" | prepend: site.baseurl }}"></script>
+
+<!-- Service Worker -->
+{% if site.service-worker %}
+<script src="{{ "/js/snackbar.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/sw-registration.js" | prepend: site.baseurl }}"></script>
+{% endif %}
+
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+{% if page.title == 'Archive' %}
+<!-- jquery.tagcloud.js -->
+<script>
+    LazyLoad.js('{{ "/js/library/jquery.tagcloud.js" | prepend: site.baseurl }}',function(){
+        $.fn.tagcloud.defaults = {
+            //size: {start: 1, end: 1, unit: 'em'},
+            color: {start: '#bbbbee', end: '#2f93b4'},
+        };
+        $('#tag_cloud a').tagcloud();
+    })
+</script>
+<script src='{{ "/js/archive.js " | prepend: site.baseurl }}'></script>
+{% endif %}
+
+
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
+<!--fastClick.js -->
+<script>
+    LazyLoad.js("{{ _cdn.fastclick }}", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+{% if site.analytics.google.ga_track_id %}
+    {% include analytics/google.html %}
+{% endif %}
+
+
+<!-- Baidu Tongji -->
+{% if site.analytics.ba_track_id %}
+    {% include analytics/baidu.html %}
+{% endif %}
+
+
+<!-- Side Catalog -->
+{% if page.catalog %}
+    {% include catalog/script.html %}
+{% endif %}
+
+
+<!-- Multi-Lingual -->
+{% if page.multilingual %}
+    {% include multilingual/script.html %}
+{% endif %}

@@ -1,0 +1,51 @@
+<div class="section work-experience">
+    <h3 class="about-title">Experience</h3>
+    <div class="row">
+        <div class="col-lg-64 col-lg-offset-0">
+            <ul class="timeline">
+                {% for exp in site.experiences %}
+                <li >
+                    <div class="timeline-image">
+                        <img class="img-circle img-responsive" src="{{ site.baseurl }}/{{exp.img}}">
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <p class="time">{{exp.time}}</p>
+                            <p class="institution">{{exp.institution}}</p>
+                            <p class="job">{{exp.job}}</p>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="job-description">{{ exp.content }}</p>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <img class="img-circle img-responsive" src="{{page.avatar}}">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
+
+<script>
+    LazyLoad.js("{{ _cdn.scrollreveal }}", function(){
+        // 时间轴上浮效果
+        window.sr = ScrollReveal();
+        sr.reveal('.timeline-panel', {
+            duration: 500,
+            distance: '80px'
+        });
+        sr.reveal('.timeline-image', {
+            duration: 500,
+            distance: '80px'
+        });
+    })
+</script>

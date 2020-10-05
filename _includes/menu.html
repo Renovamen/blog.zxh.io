@@ -1,0 +1,82 @@
+<div class="menu-btn-container">
+    <div class="menu-btn-wrapper">
+        <div class="menu-btn">
+            <div class="menu-btn-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-text"></div>
+            <svg class="menu-svg">
+                <circle class="menu-border" cx="50%" cy="50%" r="48%"></circle>
+            </svg>
+        </div>
+        <div class="menu-btn-child-wrapper">
+            <div class="menu-btn-child" id="menu-theme-btn">
+                <span class="fa icon-theme"></span>
+            </div>
+            <div class="menu-btn-child" onclick="smoothTo('bottom')">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="menu-btn-child" onclick="smoothTo('top')">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            {% if page.layout == 'post' or page.layout == 'keynote' or page.layout == 'links' %}
+            {% if page.catalog %}
+            <div class="menu-btn-child" id="menu-toc-btn">
+                <i class="fas fa-list-ul"></i>
+            </div>
+            {% endif %}
+            {% endif %}
+            <div class="menu-btn-child" id="menu-navbar-btn">
+                <i class="far fa-window-restore"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // open menu
+    $('.menu-btn').click(function() {
+        $('.menu-btn-container').toggleClass('open');
+    });
+    
+    // open navbar
+    $('#menu-navbar-btn').click(function() {
+        mobileNavToggle();
+    });
+
+    // open catalog
+    $('#menu-toc-btn').click(function() {
+        $('.side-catalog').toggleClass('open');
+    });
+
+    // set theme icon in menu
+    function setThemeIcon(newTheme) {
+        const icons = {
+            'light': '"\\f185"', 
+            'dark': '"\\f186"', 
+            'sepia': '"\\f0f4"'
+        }
+        $('#menu-theme-btn').append(
+            '<style>.icon-theme:before{content:' + icons[newTheme] + '}</style>'
+        );
+    }
+
+    function toggleTheme() {
+        const themes = ['light', 'dark', 'sepia']
+        // get current theme
+        const currentTheme = window.__theme
+        const currentIndex = themes.indexOf(currentTheme)
+        // set next theme
+        const nextIndex = (currentIndex + 1) % themes.length
+        const nextTheme = themes[nextIndex]
+        window.__setPreferredTheme(nextTheme)
+        setThemeIcon(nextTheme)
+    }
+
+    // change theme
+    $('#menu-theme-btn').click(function() {
+        toggleTheme()
+    });
+</script>

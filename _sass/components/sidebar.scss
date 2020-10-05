@@ -1,0 +1,36 @@
+// Sidebar Components
+
+@include large {
+    .sidebar-container {
+        padding-right: 5%;
+    }
+}
+
+// Container of Sidebar
+.sidebar-container{
+    color: $gray-l;
+    font-size: 14px;
+    h5 {
+        color: $gray;
+        padding-bottom: 1em;
+        a {
+            color: $gray !important;
+            text-decoration: none;
+        }
+    }
+    a {
+        color: $gray-l !important;
+        &:hover, &:active {
+            color: var(--primary-color) !important;
+        }
+    }
+    .tag s{
+        a {
+            border-color: $gray-l;
+            &:hover, &:active {
+                border-color: var(--primary-color);
+            }
+        }
+    }
+    @include hide-scrollbar();
+}

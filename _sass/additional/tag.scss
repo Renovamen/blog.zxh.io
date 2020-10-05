@@ -1,0 +1,21 @@
+.post-container {
+    code.success {
+      color: $tag-text;
+      background-color: $success;
+    }
+  
+    code.info {
+      color: $tag-text;
+      background-color: $info;
+    }
+  
+    code.warning {
+      color: $tag-text;
+      background-color: $warning;
+    }
+  
+    code.error {
+      color: $tag-text;
+      background-color: $error;
+    }
+}

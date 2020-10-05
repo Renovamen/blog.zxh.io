@@ -1,0 +1,16 @@
+.portfolio {
+    margin-top: 5em;
+
+    h1, h2, h3, h4, h5, h6, p, button, span {
+        @include gungnir-font();
+    }
+
+    .item {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        @include small {
+            -webkit-box-shadow: var(--item-shadow);
+            box-shadow: var(--item-shadow);
+        }
+    }
+}

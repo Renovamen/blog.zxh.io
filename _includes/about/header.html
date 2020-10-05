@@ -1,0 +1,117 @@
+<div class="container about-header">
+    <div class="row">
+        <div class="about-header-basic col-md-4">
+            <div class = "photo-container">
+                <img src = "{{ page.avatar }}">
+            </div>
+            <h3 class="about-title">{{ page.my-name }}</h3>
+            <p class="also-called">{{ page.also-called }}</p>
+            <div class="social-info">
+                {% if site.sns.github_username %}
+                <div class="social-link">
+                    <a href="https://github.com/{{ site.sns.github_username }}" target="_blank">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+                {% endif %}
+                {% if site.sns.facebook_username %}
+                <div class="social-link">
+                    <a href="https://www.facebook.com/{{ site.sns.facebook_username }}" target="_blank">
+                        <i class="fab fa-facebook-square fa-2x"></i>
+                    </a>
+                </div>
+                {% endif %}
+                {% if site.sns.linkedin_username %}
+                <div class="social-link">
+                    <a href="https://www.linkedin.com/in/{{ site.sns.linkedin_username }}" target="_blank">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                </div>
+                {% endif %}
+                {% if site.sns.twitter_username %}
+                <div class="social-link">
+                    <a href="https://twitter.com/{{ site.sns.twitter_username }}" target="_blank">
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </a>
+                </div>
+                {% endif %}
+                {% if site.sns.zhihu_username %}
+                <div class="social-link">
+                    <a href="https://www.zhihu.com/people/{{ site.sns.zhihu_username }}" target="_blank">
+                        <i class="fas fa-2x">知</i>
+                    </a>
+                </div>
+                {% endif %}
+                {% if site.sns.weibo_username %}
+                <div class="social-link">
+                    <a href="http://weibo.com/{{ site.sns.weibo_username }}" target="_blank">
+                        <i class="fab fa-weibo fa-2x"></i>
+                    </a>
+                </div>
+                {% endif %}
+                {% if site.sns.email_address %}
+                <div class="social-link">
+                    <a href = "mailto:{{ site.sns.email_address }}">
+                        <i class="fas fa-envelope fa-2x"></i>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="about-header-info col-md-8">
+            <h3 class="about-title">Biography</h3>
+            <div class="biography">
+                {% capture about_bio %}{% include about/md/biography.md %}{% endcapture %}
+                {{ about_bio | markdownify }}
+            </div>
+
+            <div class="personal-information">
+                <div class="row">
+                    <div class="col-md-5 interests">
+                        <p class="title">Interests</p>
+                        <ul>
+                            {% for item in page.interests %}
+                            <li><p class="interest-title">{{ item }}</p></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col-md-7 education">
+                        <p class="title">Education</p>
+                        <ul>
+                            {% for item in page.education %}
+                            <li>
+                                <p class="edu-degree">{{ item.degree }}, {{ item.year }}</p>
+                                <p class="edu-school">{{ item.school }}</p>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // about-header 高度适配
+    function headerResize() {
+        //console.log(document.body.clientWidth)
+        if(document.body.clientWidth > 1200 && $(window).height() <= 800) {
+            $('.about-header').css({
+                'height': $(window).height() + "px"
+            });
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+        headerResize();
+    })
+    window.addEventListener('load', function(){
+        headerResize();
+    })
+    window.addEventListener('resize', function(){
+        headerResize();
+    })
+
+    headerResize();
+</script>

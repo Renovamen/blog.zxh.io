@@ -1,0 +1,230 @@
+// styles for menu, borrowed a lot from https://codepen.io/tiansial/pen/JZdXLV
+
+// Variables
+$menu-btn-size: 50px;
+$menu-btn-radius: 70px;
+$menu-btn-transform-origin: $menu-btn-radius + (0.8 * $menu-btn-size / 2);
+
+// Colors
+$menu-btn-primary-color: $brand-primary;
+$menu-btn-gray: lighten(black, 35%);
+
+// Easings
+$bounce: cubic-bezier(0.5, -0.5, 0.5, 1.5);
+$bezier: cubic-bezier(0.64, 0.04, 0.35, 1);
+
+// Timings
+$delay: 400ms;
+$time: 250ms;
+$longer-time: ($time*2);
+
+.menu-btn-container {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: $menu-btn-size;
+	height: $menu-btn-size;
+	z-index: 4;
+
+	.menu-btn-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+
+	.menu-text {
+		@include gungnir-font();
+		color: white;
+		font-weight: 400;
+		text-align: center;
+		line-height: $menu-btn-size;
+		font-size: 15px;
+		display: none;
+	}
+	.menu-svg {
+		$wider: 6px;
+		position: absolute;
+		bottom: - $wider / 2;
+		right: - $wider / 2;
+		width: $menu-btn-size + $wider;
+		height: $menu-btn-size + $wider;
+		.menu-border {
+			stroke: $menu-btn-primary-color;
+			opacity: .9;
+			stroke-width: 1px;
+			fill: none;
+			@include transform(rotate(-90deg));
+			transform-origin: 50% 50%;
+			stroke-dasharray: 0% 314.15926%;
+		}
+	}
+
+	&.open {
+		.menu-btn {
+
+			span {
+				width: 3px;
+				$menu-btn-open-transition: margin $time, transform $time, border-radius $time, height $time $longer-time;
+				@include transition($menu-btn-open-transition);
+
+				&:first-child,
+				&:last-child {
+					margin: 0;
+					height: 20px;
+					border-radius: 5px;
+				}
+
+				&:first-child {
+					@include transform(translate(-50%, -50%) rotate(45deg));
+				}
+
+				&:nth-of-type(2) {
+					opacity: 0;
+				}
+
+				&:last-child {
+					@include transform(translate(-50%, -50%) rotate(-45deg));
+				}
+			}
+		}
+
+		.menu-btn-child-wrapper {
+			@include transform(translateX((-$menu-btn-radius)));
+			transition-delay: 0s;
+		}
+
+		.menu-btn-child {
+			transition-delay: $delay;
+
+			i, .icon-theme:before {
+                opacity: 1;
+                // color: $menu-btn-primary-color;
+                color: #fff;
+				visibility: visible;
+				transition-delay: $delay;
+			}
+
+			&:nth-child(2) {
+				transform: rotate(45deg);
+			}
+
+            &:nth-child(3) {
+				transform: rotate(90deg);
+            }
+
+            &:nth-child(4) {
+                transform: translateY(-($menu-btn-radius - 0.3 * $menu-btn-size)) rotate(90deg);
+            }
+            
+            &:nth-child(5) {
+                transform: translateY(-($menu-btn-radius - 0.3 * $menu-btn-size)) rotate(45deg);
+            }
+			
+			&#menu-navbar-btn {
+				display: none;
+				@include desktop {
+					display: flex;
+				}
+			}
+			
+			@include large {
+                &#menu-toc-btn {
+                    display: none;
+                }
+            }
+		}
+	}
+}
+
+.menu-btn,
+.menu-btn-child-wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.menu-btn {
+	border-radius: 50%;
+    background-color: $menu-btn-primary-color;
+	z-index: 5;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+    @include transition(all $time ease-in-out $delay);
+
+	span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		// @include transform(translate(-50%, -50%));
+
+		$menu-btn-point-size: 5px;
+		width: $menu-btn-point-size;
+		height: $menu-btn-point-size;
+		margin-left: - $menu-btn-point-size/2;
+		margin-top: - $menu-btn-point-size/2;
+        // background-color: $menu-btn-primary-color;
+        background-color: #fff;
+		border-radius: 50%;
+		$menu-btn-transition: height $time, transform $time $longer-time, margin $time $longer-time,
+								background-color $longer-time, border-radius $longer-time;
+		@include transition($menu-btn-transition);
+
+		&:first-child {
+			margin-left: -10px - $menu-btn-point-size/2;
+		}
+
+		&:last-child {
+			margin-left: 10px - $menu-btn-point-size/2;
+		}
+	}
+}
+
+.menu-btn-child-wrapper {
+	@include transition(transform 0.3s $bounce $delay);
+    z-index: 4;
+    width: 80%;
+    height: 80%;
+}
+
+.menu-btn-child {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border-radius: 50%;
+    // border: 3px solid $menu-btn-gray;
+    background-color: $menu-btn-gray;
+	transform-origin: $menu-btn-transform-origin;
+	@include transition(all $time $bezier);
+
+    &:nth-child(2),
+    &:nth-child(5) {
+		i {
+			transform: rotate(-45deg);
+		}
+	}
+
+    &:nth-child(3),
+    &:nth-child(4) {
+		i {
+			transform: rotate(-90deg);
+		}
+	}
+
+	i,
+	.icon-theme:before {
+		opacity: 0;
+		visibility: hidden;
+		@include transition(all $longer-time $bezier calc((-$delay)/2));
+	}
+}

@@ -1,0 +1,73 @@
+// Variables
+
+$gray: gray;
+$gray-l: lighten(black, 75%);
+$white-faded: rgba(white, .8);
+$gray-light: #eee;
+$brand-primary: #377bb5;
+
+// Renovamen: add variables for additional styles
+$tag-text: #fff;
+$success: #52c41a;
+$info: #1890ff;
+$warning: #fa8c16;
+$error: #f5222d;
+
+:root {
+  --body-color: rgba(0, 0, 0, .9);
+  --body-gray: #797878;
+  --primary-color: #377bb5;
+  --primary-color-dark: #2c6699;
+  --bg: #fff;
+  --bg-secondary: #f1f1f1;
+  --bg-teritary: #fafafa;
+  --bg-transparent: rgba(255, 255, 255, .9);
+  --inline-code-text: #c52950;
+  --inline-code-bg: #f9f2f4;
+  --code-bg: #0e2233;
+  --border-color: #eaeaea;
+  --border-color-dark: #dadada;
+  --dropdown-shadow: 0 1px 20px -8px rgba(0, 0, 0, .5);
+  --mobile-catalog-shadow: -1px 0px 5px 0px rgba(0, 0, 0, .2);
+  --item-shadow: 0 1px 1px 1px rgba(31, 35, 46, 0.1);
+  --item-up-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
+  --gitalk-comment-bg: #f9f9f9;
+  --gitalk-comment-admin-bg: #f6f9fe;
+
+  [data-theme="dark"] {
+    --body-color: #dfe2e1;
+    --body-gray: #b8bbba;
+    --primary-color: #74b3eb;
+    --primary-color-dark: #5493ca;
+    --bg: #2d3747;
+    --bg-secondary: #404d61;
+    --bg-teritary: #313d4e;
+    --bg-transparent: rgb(45, 55, 71, .9);
+    --inline-code-text: #96c2eb;
+    --inline-code-bg: rgba(76, 86, 128, 0.4);
+    --code-bg: #1e222b;
+    --border-color: #3c4a5f;
+    --border-color-dark: #4b5a70;
+    --dropdown-shadow: 0 1px 20px -5px rgba(83, 93, 112, 0.5);
+    --mobile-catalog-shadow: -1px 0px 5px 0px rgba(255, 255, 255, .2);
+    --item-shadow: 0 1px 1px 1px rgba(31, 35, 46, 0.3);
+    --item-up-shadow: 0 10px 30px 0px rgba(114, 117, 126, 0.3);
+    --gitalk-comment-bg: #364050;
+    --gitalk-comment-admin-bg: #404d61;
+  }
+
+  [data-theme="sepia"] {
+    --body-gray: #868174;
+    --bg: #f1e7d0;
+    --bg-secondary: #e6dcc6;
+    --bg-teritary: #ece2cd;
+    --bg-transparent: #f1e7d0E1;
+    --inline-code-text: #666154;
+    --inline-code-bg: rgba(197, 183, 153, 0.3);
+    --code-bg: #1f1f1f;
+    --border-color: #ded0bf;
+    --border-color-dark: #b8ac9d;
+    --gitalk-comment-bg: #ece1c3;
+    --gitalk-comment-admin-bg: #f7f0e1;
+  }
+}

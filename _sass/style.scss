@@ -1,0 +1,499 @@
+// Global Components
+
+html {
+  @include hide-scrollbar();
+  // prevent scrolling when mobile navbar is open
+  &.open {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+body {
+  @include sans-serif();
+  font-size: 16px;
+  // Hux mpdify to 16px (Mobile First), and increase to 20px while 768+ width
+  color: var(--body-color);
+  //-webkit-user-select:text; //对于 Blog 还是先不开启这句。
+  overflow-x: hidden;
+
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  margin: 0;
+  padding: 0;
+
+  background-color: var(--bg);
+  &.open {
+    background-color: $brand-primary;
+  }
+}
+
+// -- Typography
+
+p {
+  margin: 30px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include sans-serif();
+  line-height: 1.1;
+  font-weight: bold;
+}
+h4 {
+  font-size: 21px;
+}
+a {
+  color: var(--body-color);
+  &:hover,
+  &:focus {
+    color: var(--primary-color);
+  }
+}
+
+a img {
+  &:hover,
+  &:focus {
+    cursor: zoom-in;
+  }
+}
+
+article {
+  overflow: hidden;
+}
+blockquote {
+  color: var(--body-gray);
+  border-color: var(--bg-secondary);
+  font-style: italic;
+  font-size: 0.95em;
+  margin: 20px 0 20px;
+  p {
+    margin: 0;
+  }
+}
+
+// Utils Style Class can be used in Markdown.
+small.img-hint {
+  display: block;
+  margin-top: -20px;
+  text-align: center;
+}
+br + small.img-hint {
+  margin-top: -40px;
+}
+img.shadow {
+  box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+}
+// Utils Style End
+
+// Select
+select {
+  -webkit-appearance: none;
+  margin-top: 15px;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 0em 0.4em;
+  background: transparent;
+  outline: none;
+  border-radius: 5px;
+  &.sel-lang {
+    min-height: 28px;
+    font-size: 14px;
+  }
+}
+
+// override table style in bootstrap
+table.table > tbody, table.table > thead {
+  th,
+  td {
+    border: 1px solid var(--border-color) !important;
+  }
+}
+
+@include mobile {
+  .table-responsive {
+    border: 0;
+  }
+}
+
+
+hr.small {
+  max-width: 100px;
+  margin: 15px auto;
+  border-width: 4px;
+  border-color: white;
+}
+// add by Hux
+pre,
+.table-responsive {
+  // sometimes you should use vendor-feature.
+  -webkit-overflow-scrolling: touch;
+}
+pre code {
+  display: block;
+  width: auto;
+  white-space: pre; // save it but no-wrap;
+  word-wrap: normal; // no-wrap
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: "Fira Code", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+// In the post.
+.post-container {
+  @media (min-width: 768px) {
+    padding-right: 5%;
+  }
+  a {
+    // display: inline-block;
+    // safari has bugs on word-break on inline elements.
+    color: var(--primary-color);
+    // different to --primary-color
+    &:hover,
+    &:focus {
+      color: var(--primary-color-dark);
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 30px 0 10px;
+    line-height: 1.4;
+    outline: none;
+  }
+  h5 {
+    font-size: 19px;
+    font-weight: 600;
+    color: gray;
+    & + p {
+      margin-top: 5px;
+    }
+  }
+  h6 {
+    font-size: 16px;
+    font-weight: 600;
+    color: gray;
+    & + p {
+      margin-top: 5px;
+    }
+  }
+  // downscale the font a little bit in mobile
+  @include mobile {
+    h1 { font-size: 30px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 21px; }
+    h4 { font-size: 19px; }
+  }
+  ul,
+  ol {
+    margin-bottom: 40px;
+    @include mobile {
+      & {
+        padding-left: 30px;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      & {
+        padding-left: 20px;
+      }
+    }
+  }
+  ol ol,
+  ol ul,
+  ul ol,
+  ul ul {
+    margin-bottom: 5px;
+  }
+  li {
+    p {
+      margin: 0;
+      margin-bottom: 5px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: 2;
+      margin-top: 20px;
+    }
+  }
+  // V1.6 Hux display title by default.
+  .pager li {
+    width: 48%;
+    &.next {
+      float: right;
+    }
+    &.previous {
+      float: left;
+    }
+    > a {
+      width: 100%;
+      > span {
+        color: $gray;
+        font-weight: normal;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+  .anchorjs-link {
+    // I can not understand this but this made anchor always in the same line as title
+    position: absolute; 
+    padding-top: 1px;
+  }
+
+  // Renovamen: modify reference style
+  sup {
+    font-size: inherit;
+    position: inherit;
+    &:before {
+      content: '[';
+      margin-right: 1px;
+      color: var(--primary-color);
+    }
+    &:after {
+      content: ']';
+      margin-left: 1px;
+      color: var(--primary-color);
+    }
+  }
+}
+
+
+// Sections
+
+.section-heading {
+  font-size: 36px;
+  margin-top: 60px;
+  font-weight: 700;
+}
+
+.caption {
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  font-style: italic;
+  margin: 0;
+  display: block;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+footer {
+  font-size: 20px;
+  padding: 50px 0 35px;
+  .list-inline {
+    margin: 0;
+    padding: 0;
+  }
+  .copyright {
+    @include sans-serif();
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 0;
+    color: var(--body-gray);
+    a {
+      color: currentColor;
+      // different to @brand-primary
+      @include transition(.2s ease);
+      &:hover,
+      &:focus {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Contact Form Styles
+
+.floating-label-form-group {
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid $gray-light;
+  input,
+  textarea {
+    z-index: 1;
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+    border: none;
+    border-radius: 0;
+    font-size: 1.5em;
+    background: none;
+    box-shadow: none !important;
+    resize: none;
+  }
+  label {
+    display: block;
+    z-index: 0;
+    position: relative;
+    top: 2em;
+    margin: 0;
+    font-size: 0.85em;
+    line-height: 1.764705882em;
+    vertical-align: middle;
+    vertical-align: baseline;
+    opacity: 0;
+    -webkit-transition: top 0.3s ease, opacity 0.3s ease;
+    -moz-transition: top 0.3s ease, opacity 0.3s ease;
+    -ms-transition: top 0.3s ease, opacity 0.3s ease;
+    transition: top 0.3s ease, opacity 0.3s ease;
+  }
+  &::not(:first-child) {
+    padding-left: 14px;
+    border-left: 1px solid $gray-light;
+  }
+}
+
+.floating-label-form-group-with-value {
+  label {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.floating-label-form-group-with-focus {
+  label {
+    color: var(--primary-color);
+  }
+}
+
+form .row:first-child .floating-label-form-group {
+  border-top: 1px solid $gray-light;
+}
+
+
+// Pager Styling
+
+.pager {
+  margin: 20px 0 0 !important;
+  padding: 0px !important;
+
+  li {
+    > a,
+    > span {
+      @include sans-serif();
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 10px;
+      background-color: transparent;
+      border-radius: 3px;
+      border-color: var(--border-color-dark);
+      @include mobile {
+        font-size: 14px;
+        padding: 15px 25px;
+      }
+    }
+
+    > a {
+      color: var(--body-color);
+      > span {
+        color: var(--body-gray) !important;
+      }
+    }
+    > a:hover,
+    > a:focus {
+      color: white;
+      background-color: $brand-primary;
+      border: 1px solid $brand-primary;
+
+      // V1.6 display title
+      > span {
+        color: white !important;
+      }
+    }
+  }
+
+  .disabled {
+    > a,
+    > a:hover,
+    > a:focus,
+    > span {
+      color: $gray;
+      background-color: var(--body-color);
+      cursor: not-allowed;
+    }
+  }
+}
+
+// -- Highlight Color Customization
+
+::-moz-selection {
+  color: white;
+  text-shadow: none;
+  background: var(--primary-color);
+}
+
+::selection {
+  color: white;
+  text-shadow: none;
+  background: var(--primary-color);
+}
+
+img::selection {
+  color: white;
+  background: transparent;
+}
+
+img::-moz-selection {
+  color: white;
+  background: transparent;
+}
+
+
+/* Hux make all img responsible in post-container */
+.post-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5em auto 1.6em auto;
+}
+
+/* Renovamen: emoji img is an exception */
+.post-container .emoji,
+.post-container .emoji-plus {
+  display: inline;
+}
+
+// MathJax Overflow
+.MathJax_SVG_Display{
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Renovamen: Katex overflow
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Renovamen: diagrams created by mermaid should be in center
+.language-mermaid {
+  text-align: center;
+}
+
+hr {
+  background-color: var(--border-color);
+  border: 0;
+  height: 1px;
+}

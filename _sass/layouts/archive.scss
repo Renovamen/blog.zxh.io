@@ -1,0 +1,147 @@
+/* Hux add tags support */
+.d-none {
+    display: none !important;
+}
+
+.tags {
+    margin-bottom: -5px;
+    &.tags-sup {
+        a, .tag {
+            padding: 0 10px 0 12px;
+        }
+    }
+    a, .tag {
+        display: inline-block;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 999em;
+        padding: 0 10px 0 10px;
+        color: rgba(255, 255, 255, 1);
+        line-height: 24px;
+        font-size: 12px;
+        text-decoration: none;
+        margin: 0 1px;
+        margin-bottom: 6px;
+        margin-right: 5px;
+        cursor: pointer;
+        > sup {
+            margin-left: -2px;
+            font-weight: 700;
+        }
+        &:hover,
+        &:active {
+            color: white;
+            border-color: white;
+            background-color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+        }
+        @include mobile-minus {
+            margin-right: 1px;
+        }
+    }
+}
+  
+#tag-heading {
+    padding: 55px 0;
+    @include mobile {
+        padding: 70px 0 60px;
+    }
+}
+
+// tag_cloud
+#tag_cloud {
+    margin: 20px 0 25px 0;
+    a, .tag {
+        transition-property: all;
+        transition-duration: 0.4s;
+        transition-timing-function: ease;
+        font-size: 14px;
+        border: none;
+        line-height: 28px;
+        margin: 0 2px;
+        margin-bottom: 8px;
+        background: #f3f5f5;
+        &:hover,
+        &:active,
+        &.focus {
+            background-color: var(--primary-color) !important;
+        }
+        &.focus{
+            box-shadow: rgba(0,0,0,.117647) 0 1px 6px, rgba(0,0,0,.239216) 0 1px 4px;
+        }
+        &.tag-button--all {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            &:hover, &:active, &.focus{
+                background-color: #e4e4e4 !important;
+            }
+        }
+    }
+    @include mobile {
+        margin-bottom: 15px;
+    }
+}
+  
+.t {
+    //margin-top: 50px;
+    &:first-child {
+        margin-top: 0px;
+    }
+    hr:last-of-type {
+        //display: none;
+    }
+}
+
+.listing-seperator {
+    color: var(--primary-color);
+    font-size: 21px !important;
+    &::before {
+        margin-right: 5px;
+    }
+}
+  
+// Customize Style for Posts in Mini-Post-List
+.mini-post-list {
+    margin: 20px 0 15px 0;
+    .tag-text {
+        font-weight: 200;
+        @include sans-serif();
+    }
+    .post-preview {
+        position: relative;
+        margin-left: 20px;
+        > a {
+            .post-title {
+                font-size: 18px;
+                font-weight: 500;
+                margin-top: 20px;
+            }
+            .post-subtitle {
+                font-size: 14px;
+            }
+        }
+        > .post-meta {
+            position: absolute;
+            right: 5px;
+            bottom: 0px;
+            margin: 0px;
+            font-size: 18px;
+            line-height: 12px;
+        }
+        @include mobile-minus {
+            margin-left: 0;
+            > a {
+                > .post-title {
+                    font-size: 16px;
+                }
+                > .post-subtitle {
+                    font-size: 13px;
+                }
+            }
+            .post-meta {
+                font-size: 12px;
+            }
+        }
+    }
+}
+  
+/* Tags support End*/

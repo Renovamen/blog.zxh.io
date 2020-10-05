@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<!-- Image to hack wechat -->
+<!-- <img src="{{ site.baseurl }}/{{ page.header-img }}" width="0" height="0"> -->
+
+<!-- Post Header -->
+{% include intro-header.html type='keynote' %}
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="post-container
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1 ">
+
+                <!-- Multi-Lingual -->
+                {% if page.multilingual %}
+                    {% include multilingual/selector.html %}
+                {% endif %}
+                
+				{{ content }}
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
+                        Previous<br>
+                        <span>{{page.previous.title}}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if page.next.url %}
+                    <li class="next">
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
+                        Next<br>
+                        <span>{{page.next.title}}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <hr style="visibility: hidden;">
+
+                {% include author/container.html %}
+
+                {% if site.comment.provider %}
+                    {% include comment/container.html %}
+                {% endif %}
+            </div>
+
+            <!-- Side Catalog Container -->
+            {% if page.catalog %}
+                {% include catalog/container.html %}
+            {% endif %}
+        </div>
+    </div>
+</article>
+
+<!-- resize header to fullscreen keynotes -->
+<script>
+    var $header = document.getElementsByTagName("header")[0];
+    function resize(){
+        /*
+         * leave 85px to both
+         * - told/imply users that there has more content below
+         * - let user can scroll in mobile device, seeing the keynote-view is unscrollable
+         */
+        $header.style.height = (window.innerHeight-85) + 'px';
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+        resize();
+    })
+    window.addEventListener('load', function(){
+        resize();
+    })
+    window.addEventListener('resize', function(){
+        resize();
+    })
+    resize();
+</script>
+
+{% include post-func.html %}

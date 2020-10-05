@@ -1,0 +1,63 @@
+{%- include utils/get-cdn.html -%}
+{%- assign _cdn = __return -%}
+
+
+{% if site.comment.provider == 'disqus' %}
+<!-- disqus start -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.comment.disqus_username}}";
+    var disqus_identifier = "{{page.id}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus end -->
+
+
+<!-- Renovamen: support gitalk and valine -->
+
+{% elsif site.comment.provider == 'gitalk' %}
+
+{%- assign _admin_list = '' -%}
+{%- for _admin in site.comment.gitalk.admin -%}
+    {%- assign _admin_list = _admin_list | append: ", '" | append: _admin | append: "'" -%}
+{%- endfor -%}
+{%- assign _last = _admin_list | size | minus: 1 -%}
+{%- assign _admin_list = _admin_list | slice: 2, _last -%}
+
+<!-- Gitalk start -->
+<script type="text/javascript">
+    LazyLoad.js(['{{ "/js/library/md5.js " | prepend: site.baseurl }}', '{{ _cdn.gitalk }}'], function(){
+        var gitalk = new Gitalk({
+            clientID: '{{ site.comment.gitalk.clientID }}',
+            clientSecret: '{{ site.comment.gitalk.clientSecret }}',
+            repo: '{{ site.comment.gitalk.repo }}',
+            owner: '{{ site.comment.gitalk.owner }}',
+            admin: [{{ _admin_list }}],
+            id: md5(location.pathname),
+            distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+    })
+</script>
+<!-- Gitalk end -->
+
+
+{% elsif site.comment.provider == 'valine' %}
+<!-- Valine start -->
+<script type="text/javascript">
+    LazyLoad.js('{{ _cdn.valine }}', function(){
+        new Valine({
+            el: '#valine-container',
+            appId: '{{site.comment.valine.appID}}',
+            appKey: '{{site.comment.valine.appKey}}'
+        })
+    })
+</script>
+<!-- Valine end -->
+{% endif %}
