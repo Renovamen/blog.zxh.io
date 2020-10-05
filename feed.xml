@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Renovamen</title>
+    <description>Xiaohan Zou's blog</description>
+    <link>https://renovamen.ink/</link>
+    <atom:link href="https://renovamen.ink/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Mon, 05 Oct 2020 09:25:57 +0000</pubDate>
+    <lastBuildDate>Mon, 05 Oct 2020 09:25:57 +0000</lastBuildDate>
+    <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Bayesian MAML</title>
+        <subtitle>MAML 的贝叶斯解释</subtitle>
+        <description>&lt;h2 id=&quot;maml-回顾&quot;&gt;MAML 回顾&lt;/h2&gt;
+
+&lt;p&gt;在&lt;a href=&quot;/2020/08/05/meta-learning#maml&quot; target=&quot;_blank&quot;&gt;之前的一篇文章&lt;/a&gt;中已经介绍了 MAML（Model-Agnostic Meta-Learning），一种 gradient-based 的 meta-learning 方法。其目标是学习出一组初始化参数 ...</description>
+        <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/09/04/bayesian-meta-learning/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/09/04/bayesian-meta-learning/</guid>
+        
+        <category>Deep Learning</category>
+        
+        <category>Meta Learning</category>
+        
+        <category>Bayesian</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Regularization-based Continual Learning</title>
+        <subtitle>EWC / Online EWC / IS / MAS ...</subtitle>
+        <description>&lt;h2 id=&quot;持续学习&quot;&gt;持续学习&lt;/h2&gt;
+
+&lt;p&gt;传统的机器学习要求训练样本之间是 &lt;strong&gt;i.i.d（Independent and Identically Distributed，独立同分布）&lt;/strong&gt;的，为了达到这个目的往往会随机打乱训练数据。但如果要让模型处理分布在变化的连续数据，如果不做任何处理依然按传统方法来训练，就会出现&lt;strong&gt;灾难性遗忘（Cata...</description>
+        <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/08/24/regularization-based-continual-learning/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/08/24/regularization-based-continual-learning/</guid>
+        
+        <category>Deep Learning</category>
+        
+        <category>Continual Learning</category>
+        
+        <category>Bayesian</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>BOCD</title>
+        <subtitle>Bayesian Online Changepoint Detection</subtitle>
+        <description>&lt;p&gt;给定一个数据序列，在某个时间点，数据的某个（或某些）参数可能由于系统性因素（而非偶然性因素）而突然发生变化，那么这个时间点被称为&lt;strong&gt;变点（changepoint）&lt;/strong&gt;。&lt;strong&gt;变点检测（changepoint detection）&lt;/strong&gt;就是要估计出变点的位置。&lt;/p&gt;
+
+&lt;p&gt;本文主要打算理一下这篇论文：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;B...</description>
+        <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/08/22/bocd/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/08/22/bocd/</guid>
+        
+        <category>Machine Learning</category>
+        
+        <category>Math</category>
+        
+        <category>Bayesian</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>贝叶斯神经网络</title>
+        <subtitle>万恶的贝叶斯嗷，真的学得会吗</subtitle>
+        <description>&lt;p&gt;Radford Neal: I don’t necessarily think that the Bayesian method is the best thing to do in all cases…&lt;/p&gt;
+
+&lt;p&gt;Geoff Hinton: Sorry Radford, my prior probability for you saying this is zero, so I...</description>
+        <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/08/16/bayesian-neural-network/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/08/16/bayesian-neural-network/</guid>
+        
+        <category>Machine Learning</category>
+        
+        <category>Deep Learning</category>
+        
+        <category>Math</category>
+        
+        <category>Bayesian</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>元学习：一种套娃算法</title>
+        <subtitle>Meta Learning: Learning to Learn</subtitle>
+        <description>&lt;p&gt;continual learning 方向 19 年之后的&lt;a href=&quot;https://notebook.renovamen.ink/papers/dl/continual-learning/#meta-continual-learning&quot; target=&quot;_blank&quot;&gt;几篇论文&lt;/a&gt;搞出了一个套 meta learning 框架（主要是 MAML 这种 optimizati...</description>
+        <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/08/05/meta-learning/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/08/05/meta-learning/</guid>
+        
+        <category>Meta Learning</category>
+        
+        <category>Deep Learning</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Transformer</title>
+        <subtitle>试图理一理 Transformer</subtitle>
+        <description>&lt;p&gt;&lt;strong&gt;Attention Is All You Need.&lt;/strong&gt; &lt;em&gt;Ashish Vaswani, et al.&lt;/em&gt; NIPS 2017. &lt;a href=&quot;https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf&quot; target=&quot;_blank&quot;&gt;[Paper]&lt;/a&gt; &lt;a hr...</description>
+        <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/07/17/transformer/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/07/17/transformer/</guid>
+        
+        <category>NLP</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>乱七八糟的知识点</title>
+        <subtitle>Messy Notes (NLP)</subtitle>
+        <description>&lt;h2 id=&quot;优化器&quot;&gt;优化器&lt;/h2&gt;
+
+&lt;p&gt;损失函数通常为：&lt;/p&gt;
+
+\[L(\theta) = \frac{1}{M} \sum_{i=1}^M L(f(x_i, \theta), y_i)\]
+
+&lt;h3 id=&quot;无动量&quot;&gt;无动量&lt;/h3&gt;
+
+&lt;p&gt;每次迭代按梯度方向更新参数，\(r\) 是学习率：&lt;/p&gt;
+
+\[\theta_{t+1} = \theta_t - r \cdot...</description>
+        <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/07/10/messy-notes-nlp/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/07/10/messy-notes-nlp/</guid>
+        
+        <category>NLP</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>三月大锅烩</title>
+        <subtitle>Papers Reading: Machine Translation / Text Classification / Image Captioning</subtitle>
+        <description>&lt;h2 id=&quot;machine-translation&quot;&gt;Machine Translation&lt;/h2&gt;
+
+&lt;p&gt;给定源语言句子 \(x\)，目标是最大化其对应的目标语言翻译 \(y\) 的概率，即：&lt;/p&gt;
+
+\[\hat{y} = \arg \max_y p(y \mid x)\]
+
+&lt;h3 id=&quot;seq2seq&quot;&gt;Seq2Seq&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Sequence ...</description>
+        <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/03/17/papers-reading/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/03/17/papers-reading/</guid>
+        
+        <category>NLP</category>
+        
+        <category>CV</category>
+        
+        <category>Machine Translation</category>
+        
+        <category>Text Classification</category>
+        
+        <category>Image Captioning</category>
+        
+        <category>Image Aesthetic Captioning</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>图像美感评估</title>
+        <subtitle>A Survey on Image Aesthetic Assessment</subtitle>
+        <description>&lt;h2 id=&quot;surveys&quot;&gt;Surveys&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Algorithmic Inferencing of Aesthetics and Emotion in Natural Images: An Exposition.&lt;/strong&gt; &lt;em&gt;Ritendra Datta, Jia Li, and James Z. Wang....</description>
+        <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/02/29/image-aesthetic-assessment/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/02/29/image-aesthetic-assessment/</guid>
+        
+        <category>CV</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>「译」游戏中的游吟诗人的神秘魅力</title>
+        <subtitle>The world’s second-oldest profession has a long history of nonviolence in video games</subtitle>
+        <description>&lt;p&gt;翻译自 &lt;a href=&quot;https://egmnow.com/&quot; target=&quot;_blank&quot;&gt;EGM&lt;/a&gt; 上的文章：&lt;a href=&quot;https://egmnow.com/toss-a-coin-the-enigmatic-appeal-of-video-games-greatest-bards/&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fas fa-link&quot;...</description>
+        <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+        <link>https://renovamen.ink/2020/02/24/the-enigmatic-appeal-of-video-games-greatest-bards/</link>
+        <guid isPermaLink="true">https://renovamen.ink/2020/02/24/the-enigmatic-appeal-of-video-games-greatest-bards/</guid>
+        
+        <category>摸鱼</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Xiaohan Zou's blog">
+    <meta name="keywords"  content="">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="BOCD - Renovamen (Xiaohan Zou)">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="给定一个数据序列，在某个时间点，数据的某个（或某些）参数可能由于系统性因素（而非偶然性因素）而突然发生变化，那么这个时间点被称为变点（changepoint）。变点检测（changepoint detection）就是要估计出变点的位置。
+">
+    
+    <meta property="article:published_time" content="2020-08-22T00:00:00Z">
+    
+    
+    <meta property="article:author" content="Renovamen">
+    
+    
+    <meta property="article:tag" content="Machine Learning">
+    
+    <meta property="article:tag" content="Math">
+    
+    <meta property="article:tag" content="Bayesian">
+    
+    
+    <meta property="og:image" content="https://renovamen.inkimg/header-avatar.jpeg">
+    <meta property="og:url" content="https://renovamen.ink/2020/08/22/bocd/">
+    <meta property="og:site_name" content="Renovamen (Xiaohan Zou)">
+    
+    <title>BOCD - Renovamen (Xiaohan Zou)</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.svg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://renovamen.ink/2020/08/22/bocd/"><!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/css/bootstrap.min.css">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"/>
+
+    <!-- Custom Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- Font Awesome Animation -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/gungnir.css">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+
+    <!-- Lazyload (.js & .css)-->
+    <script>// https://github.com/rgrove/lazyload
+
+/*jslint browser: true, eqeqeq: true, bitwise: true, newcap: true, immed: true, regexp: false */
+
+/**
+LazyLoad makes it easy and painless to lazily load one or more external
+JavaScript or CSS files on demand either during or after the rendering of a web
+page.
+Supported browsers include Firefox 2+, IE6+, Safari 3+ (including Mobile
+Safari), Google Chrome, and Opera 9+. Other browsers may or may not work and
+are not officially supported.
+Visit https://github.com/rgrove/lazyload/ for more info.
+Copyright (c) 2011 Ryan Grove <ryan@wonko.com>
+All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the 'Software'), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+@module lazyload
+@class LazyLoad
+@static
+*/
+
+LazyLoad = (function (doc) {
+    // -- Private Variables ------------------------------------------------------
+  
+    // User agent and feature test information.
+    var env,
+  
+    // Reference to the <head> element (populated lazily).
+    head,
+  
+    // Requests currently in progress, if any.
+    pending = {},
+  
+    // Number of times we've polled to check whether a pending stylesheet has
+    // finished loading. If this gets too high, we're probably stalled.
+    pollCount = 0,
+  
+    // Queued requests.
+    queue = {css: [], js: []},
+  
+    // Reference to the browser's list of stylesheets.
+    styleSheets = doc.styleSheets;
+  
+    // -- Private Methods --------------------------------------------------------
+  
+    /**
+    Creates and returns an HTML element with the specified name and attributes.
+    @method createNode
+    @param {String} name element name
+    @param {Object} attrs name/value mapping of element attributes
+    @return {HTMLElement}
+    @private
+    */
+    function createNode(name, attrs) {
+        var node = doc.createElement(name), attr;
+    
+        for (attr in attrs) {
+            if (attrs.hasOwnProperty(attr)) {
+                node.setAttribute(attr, attrs[attr]);
+            }
+        }
+    
+        return node;
+    }
+  
+    /**
+    Called when the current pending resource of the specified type has finished
+    loading. Executes the associated callback (if any) and loads the next
+    resource in the queue.
+    @method finish
+    @param {String} type resource type ('css' or 'js')
+    @private
+    */
+    function finish(type) {
+        var p = pending[type],
+            callback,
+            urls;
+    
+        if (p) {
+            callback = p.callback;
+            urls     = p.urls;
+    
+            urls.shift();
+            pollCount = 0;
+    
+            // If this is the last of the pending URLs, execute the callback and
+            // start the next request in the queue (if any).
+            if (!urls.length) {
+                callback && callback.call(p.context, p.obj);
+                pending[type] = null;
+                queue[type].length && load(type);
+            }
+        }
+    }
+  
+    /**
+    Populates the <code>env</code> variable with user agent and feature test
+    information.
+    @method getEnv
+    @private
+    */
+    function getEnv() {
+        var ua = navigator.userAgent;
+    
+        env = {
+            // True if this browser supports disabling async mode on dynamically
+            // created script nodes. See
+            // http://wiki.whatwg.org/wiki/Dynamic_Script_Execution_Order
+            async: doc.createElement('script').async === true
+        };
+    
+        (env.webkit = /AppleWebKit\//.test(ua))
+            || (env.ie = /MSIE|Trident/.test(ua))
+            || (env.opera = /Opera/.test(ua))
+            || (env.gecko = /Gecko\//.test(ua))
+            || (env.unknown = true);
+    }
+  
+    /**
+    Loads the specified resources, or the next resource of the specified type
+    in the queue if no resources are specified. If a resource of the specified
+    type is already being loaded, the new request will be queued until the
+    first request has been finished.
+    When an array of resource URLs is specified, those URLs will be loaded in
+    parallel if it is possible to do so while preserving execution order. All
+    browsers support parallel loading of CSS, but only Firefox and Opera
+    support parallel loading of scripts. In other browsers, scripts will be
+    queued and loaded one at a time to ensure correct execution order.
+    @method load
+    @param {String} type resource type ('css' or 'js')
+    @param {String|Array} urls (optional) URL or array of URLs to load
+    @param {Function} callback (optional) callback function to execute when the
+      resource is loaded
+    @param {Object} obj (optional) object to pass to the callback function
+    @param {Object} context (optional) if provided, the callback function will
+      be executed in this object's context
+    @private
+    */
+    function load(type, urls, callback, obj, context) {
+        var _finish = function () { finish(type); },
+            isCSS   = type === 'css',
+            nodes   = [],
+            i, len, node, p, pendingUrls, url;
+  
+        env || getEnv();
+  
+        if (urls) {
+            // If urls is a string, wrap it in an array. Otherwise assume it's an
+            // array and create a copy of it so modifications won't be made to the
+            // original.
+            urls = typeof urls === 'string' ? [urls] : urls.concat();
+    
+            // Create a request object for each URL. If multiple URLs are specified,
+            // the callback will only be executed after all URLs have been loaded.
+            //
+            // Sadly, Firefox and Opera are the only browsers capable of loading
+            // scripts in parallel while preserving execution order. In all other
+            // browsers, scripts must be loaded sequentially.
+            //
+            // All browsers respect CSS specificity based on the order of the link
+            // elements in the DOM, regardless of the order in which the stylesheets
+            // are actually downloaded.
+            if (isCSS || env.async || env.gecko || env.opera) {
+                // Load in parallel.
+                queue[type].push({
+                    urls    : urls,
+                    callback: callback,
+                    obj     : obj,
+                    context : context
+                });
+            } 
+            else {
+                // Load sequentially.
+                for (i = 0, len = urls.length; i < len; ++i) {
+                    queue[type].push({
+                        urls    : [urls[i]],
+                        callback: i === len - 1 ? callback : null, // callback is only added to the last URL
+                        obj     : obj,
+                        context : context
+                    });
+                }
+            }
+        }
+  
+        // If a previous load request of this type is currently in progress, we'll
+        // wait our turn. Otherwise, grab the next item in the queue.
+        if (pending[type] || !(p = pending[type] = queue[type].shift())) {
+            return;
+        }
+    
+        head || (head = doc.head || doc.getElementsByTagName('head')[0]);
+        pendingUrls = p.urls.concat();
+
+        for (i = 0, len = pendingUrls.length; i < len; ++i) {
+            url = pendingUrls[i];
+    
+            if (isCSS) {
+                node = env.gecko ? createNode('style') : createNode('link', {
+                    href: url,
+                    rel : 'stylesheet'
+                });
+            } 
+            else {
+                node = createNode('script', {src: url});
+                node.async = false;
+            }
+    
+            node.className = 'lazyload';
+            node.setAttribute('charset', 'utf-8');
+    
+            if (env.ie && !isCSS && 'onreadystatechange' in node && !('draggable' in node)) {
+                node.onreadystatechange = function () {
+                    if (/loaded|complete/.test(node.readyState)) {
+                        node.onreadystatechange = null;
+                        _finish();
+                    }
+                };
+            } 
+            else if (isCSS && (env.gecko || env.webkit)) {
+                // Gecko and WebKit don't support the onload event on link nodes.
+                if (env.webkit) {
+                    // In WebKit, we can poll for changes to document.styleSheets to
+                    // figure out when stylesheets have loaded.
+                    p.urls[i] = node.href; // resolve relative URLs (or polling won't work)
+                    pollWebKit();
+                } 
+                else {
+                    // In Gecko, we can import the requested URL into a <style> node and
+                    // poll for the existence of node.sheet.cssRules. Props to Zach
+                    // Leatherman for calling my attention to this technique.
+                    node.innerHTML = '@import "' + url + '";';
+                    pollGecko(node);
+                }
+            } 
+            else {
+                node.onload = node.onerror = _finish;
+            }
+    
+            nodes.push(node);
+        }
+    
+        for (i = 0, len = nodes.length; i < len; ++i) {
+            head.appendChild(nodes[i]);
+        }
+    }
+  
+    /**
+    Begins polling to determine when the specified stylesheet has finished loading
+    in Gecko. Polling stops when all pending stylesheets have loaded or after 10
+    seconds (to prevent stalls).
+    Thanks to Zach Leatherman for calling my attention to the @import-based
+    cross-domain technique used here, and to Oleg Slobodskoi for an earlier
+    same-domain implementation. See Zach's blog for more details:
+    http://www.zachleat.com/web/2010/07/29/load-css-dynamically/
+    @method pollGecko
+    @param {HTMLElement} node Style node to poll.
+    @private
+    */
+    function pollGecko(node) {
+        var hasRules;
+    
+        try {
+            // We don't really need to store this value or ever refer to it again, but
+            // if we don't store it, Closure Compiler assumes the code is useless and
+            // removes it.
+            hasRules = !!node.sheet.cssRules;
+        } 
+        catch (ex) {
+            // An exception means the stylesheet is still loading.
+            pollCount += 1;
+
+            if (pollCount < 200) {
+                setTimeout(function () { pollGecko(node); }, 50);
+            } 
+            else {
+                // We've been polling for 10 seconds and nothing's happened. Stop
+                // polling and finish the pending requests to avoid blocking further
+                // requests.
+                hasRules && finish('css');
+            }
+            return;
+        }
+    
+        // If we get here, the stylesheet has loaded.
+        finish('css');
+    }
+    
+    /**
+    Begins polling to determine when pending stylesheets have finished loading
+    in WebKit. Polling stops when all pending stylesheets have loaded or after 10
+    seconds (to prevent stalls).
+    @method pollWebKit
+    @private
+    */
+    function pollWebKit() {
+        var css = pending.css, i;
+
+        if (css) {
+            i = styleSheets.length;
+
+            // Look for a stylesheet matching the pending URL.
+            while (--i >= 0) {
+                if (styleSheets[i].href === css.urls[0]) {
+                    finish('css');
+                    break;
+                }
+            }
+
+            pollCount += 1;
+    
+            if (css) {
+                if (pollCount < 200) {
+                    setTimeout(pollWebKit, 50);
+                } 
+                else {
+                    // We've been polling for 10 seconds and nothing's happened, which may
+                    // indicate that the stylesheet has been removed from the document
+                    // before it had a chance to load. Stop polling and finish the pending
+                    // request to prevent blocking further requests.
+                    finish('css');
+                }
+            }
+        }
+    }
+    
+    return {
+    
+        /**
+         Requests the specified CSS URL or URLs and executes the specified
+        callback (if any) when they have finished loading. If an array of URLs is
+        specified, the stylesheets will be loaded in parallel and the callback
+        will be executed after all stylesheets have finished loading.
+        @method css
+        @param {String|Array} urls CSS URL or array of CSS URLs to load
+        @param {Function} callback (optional) callback function to execute when
+        the specified stylesheets are loaded
+        @param {Object} obj (optional) object to pass to the callback function
+        @param {Object} context (optional) if provided, the callback function
+        will be executed in this object's context
+        @static
+        */
+        css: function (urls, callback, obj, context) {
+            load('css', urls, callback, obj, context);
+        },
+    
+        /**
+         Requests the specified JavaScript URL or URLs and executes the specified
+        callback (if any) when they have finished loading. If an array of URLs is
+        specified and the browser supports it, the scripts will be loaded in
+        parallel and the callback will be executed after all scripts have
+        finished loading.
+        Currently, only Firefox and Opera support parallel loading of scripts while
+        preserving execution order. In other browsers, scripts will be
+        queued and loaded one at a time to ensure correct execution order.
+        @method js
+        @param {String|Array} urls JS URL or array of JS URLs to load
+        @param {Function} callback (optional) callback function to execute when
+        the specified scripts are loaded
+        @param {Object} obj (optional) object to pass to the callback function
+        @param {Object} context (optional) if provided, the callback function
+        will be executed in this object's context
+        @static
+        */
+        js: function (urls, callback, obj, context) {
+            load('js', urls, callback, obj, context);
+        }
+    };
+})(this.document);</script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Renovamen: add menu button -->
+    <div class="menu-btn-container">
+    <div class="menu-btn-wrapper">
+        <div class="menu-btn">
+            <div class="menu-btn-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-text"></div>
+            <svg class="menu-svg">
+                <circle class="menu-border" cx="50%" cy="50%" r="48%"></circle>
+            </svg>
+        </div>
+        <div class="menu-btn-child-wrapper">
+            <div class="menu-btn-child" id="menu-theme-btn">
+                <span class="fa icon-theme"></span>
+            </div>
+            <div class="menu-btn-child" onclick="smoothTo('bottom')">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="menu-btn-child" onclick="smoothTo('top')">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            
+            
+            <div class="menu-btn-child" id="menu-toc-btn">
+                <i class="fas fa-list-ul"></i>
+            </div>
+            
+            
+            <div class="menu-btn-child" id="menu-navbar-btn">
+                <i class="far fa-window-restore"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // open menu
+    $('.menu-btn').click(function() {
+        $('.menu-btn-container').toggleClass('open');
+    });
+    
+    // open navbar
+    $('#menu-navbar-btn').click(function() {
+        mobileNavToggle();
+    });
+
+    // open catalog
+    $('#menu-toc-btn').click(function() {
+        $('.side-catalog').toggleClass('open');
+    });
+
+    // set theme icon in menu
+    function setThemeIcon(newTheme) {
+        const icons = {
+            'light': '"\\f185"', 
+            'dark': '"\\f186"', 
+            'sepia': '"\\f0f4"'
+        }
+        $('#menu-theme-btn').append(
+            '<style>.icon-theme:before{content:' + icons[newTheme] + '}</style>'
+        );
+    }
+
+    function toggleTheme() {
+        const themes = ['light', 'dark', 'sepia']
+        // get current theme
+        const currentTheme = window.__theme
+        const currentIndex = themes.indexOf(currentTheme)
+        // set next theme
+        const nextIndex = (currentIndex + 1) % themes.length
+        const nextTheme = themes[nextIndex]
+        window.__setPreferredTheme(nextTheme)
+        setThemeIcon(nextTheme)
+    }
+
+    // change theme
+    $('#menu-theme-btn').click(function() {
+        toggleTheme()
+    });
+</script>
+
+    <div class="main-container">
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <!-- navbar toggle for old mobile menu button (by Hux) -->
+            <!-- <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button> -->
+            <a class="navbar-brand" href="/">$ cd /home/</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+
+                    
+                    <li>
+                        
+                        <a href="/" class="faa-parent animated-hover">
+                        
+                            
+                            <i class="fab fa-fort-awesome fa-lg faa-wrench"></i>
+                            
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/about/" class="faa-parent animated-hover">
+                        
+                            
+                            <i class="fas fa-paw fa-lg faa-wrench"></i>
+                            
+                            About
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/archive/" class="faa-parent animated-hover">
+                        
+                            
+                            <i class="fas fa-archive fa-lg faa-wrench"></i>
+                            
+                            Archive
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/links/" class="faa-parent animated-hover">
+                        
+                            
+                            <i class="fas fa-link fa-lg faa-wrench"></i>
+                            
+                            Links
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a id="search-btn" class="faa-parent animated-hover">
+                            <i class="fas fa-search fa-lg faa-wrench"></i> Search
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Old Mobile Navbar Script (By Hux) -->
+<!-- <script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script> -->
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/in-post/2020-08-22/header.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+    
+    <style type="text/css">
+        header.intro-header{
+            position: relative;
+            background-image: url('/img/in-post/2020-08-22/header.jpg');
+            background: ;
+        }
+
+        
+    </style>
+    
+    
+
+
+
+
+
+<header class="intro-header style-text" >
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Machine+Learning" title="Machine Learning">Machine Learning</a>
+                        
+                        <a class="tag" href="/archive/?tag=Math" title="Math">Math</a>
+                        
+                        <a class="tag" href="/archive/?tag=Bayesian" title="Bayesian">Bayesian</a>
+                        
+                    </div>
+                    <h1>BOCD</h1>
+                    
+                    <h2 class="subheading">Bayesian Online Changepoint Detection</h2>
+                    
+                    <span class="meta">Posted by Renovamen on August 22, 2020</span>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+				<p>给定一个数据序列，在某个时间点，数据的某个（或某些）参数可能由于系统性因素（而非偶然性因素）而突然发生变化，那么这个时间点被称为<strong>变点（changepoint）</strong>。<strong>变点检测（changepoint detection）</strong>就是要估计出变点的位置。</p>
+
+<p>本文主要打算理一下这篇论文：</p>
+
+<p><strong>Bayesian Online Changepoint Detection.</strong> <em>Ryan Prescott Adams and David J.C. MacKay.</em> arXiv 2007. <a href="https://arxiv.org/pdf/0710.3742.pdf" target="_blank">[Paper]</a></p>
+
+<p>翻译过来大概是贝叶斯在线变点检测？“online”这个词指检测变点时只能利用当前已经观测到的数据，不能用未来数据。而很多 offline 的方法是可以拿所有的数据来做检测的。</p>
+
+<p>本文很大程度上（又）<del>抄</del>参考了一篇讲 BOCD 讲得非常清楚的博客：</p>
+
+<p><a href="http://gregorygundersen.com/blog/2019/08/13/bocd/" target="_blank"><strong>Bayesian Online Changepoint Detection</strong></a> (Gregory Gundersen)</p>
+
+<h2 id="问题定义">问题定义</h2>
+
+<p>假设有一个观测序列 \(x_1, x_2, \dots, x_T \in \Reals^d\)，我们用 \(x_{a:b}\) 来表示 \(x_a, x_{a+1}, \dots x_b\)。\(x_{1:T}\) 可以被划分成一些不重叠的 <a href="https://projecteuclid.org/download/pdf_1/euclid.aos/1176348521" target="_blank">product partitions</a>，即每个 partition 中的数据点都是 i.i.d（独立同分布）的，都服从参数为 \(\theta_p\) 的分布 \(p(x_t \mid \theta_p)\)，每个 partition 的参数 \(\theta_p \thicksim p(\phi)\) 也是 i.i.d 的：</p>
+
+<p><img src="/img/in-post/2020-08-22/product-partitions.png" alt="product partitions" width="500px" /></p>
+
+<p>而 BOCD 会估计当前时刻的 run length（距离上一个变点已经过了多少时刻）的后验分布 \(p(r_t \mid x_{1:t})\)，\(t\) 时刻的 run length 为 \(r_t\)。显然 \(r_t\) 只可能有两种情况：</p>
+
+\[x = 
+\begin{cases}
+   0 &amp;t \text{ 时刻是变点} \\
+   r_{t-1} + 1 &amp;t \text{ 时刻不是变点}
+\end{cases}\]
+
+<p>那么一个可能的 \(r_t\) 随 \(t\) 的变化图如下：</p>
+
+<p><img src="/img/in-post/2020-08-22/run_length.png" alt="run length" width="500px" /></p>
+
+<p class="desc">\(r_t = 0\) 的时刻（\(t=5, 11\)）为变点</p>
+
+<p>除了 \(p(r_t \mid x_{1:t})\) 以外，BOCD 还会估计 \(p(x_{t+1} \mid x_{1:t})\)，这样就能既预测变点（run lenght），又预测下一个数据点的值了。不过如果单纯只求变点的话，\(p(x_{t+1} \mid x_{1:t})\) 是没必要算的。</p>
+
+<h2 id="一个递推式">一个递推式</h2>
+
+<p>如果不想看推导过程，可以直接<a href="#递推流程">跳到</a>这里看结果。</p>
+
+<h3 id="下一个数据点的分布">下一个数据点的分布</h3>
+
+<p>\(p(x_{t+1} \mid x_{1:t})\) 可以由给定 \(r_t\) 时 \(x_{t+1}\) 的边缘分布算出来：</p>
+
+\[\begin{aligned}
+    p(x_{t+1} \mid x_{1:t})&amp;= \sum_{r_t} p(x_{t+1}, r_t \mid x_{1:t}) &amp; \text{(边缘概率公式)} \\
+        &amp;= \sum_{r_t} p(x_{t+1} \mid r_t, x_{1:t}) p(r_t \mid x_{1:t}) &amp; \text{(链式法则)}\\
+        &amp;= \sum_{r = 0}^t p(x_{t+1} \mid r_t = r, x_{(t - r):t}) p(r_t \mid x_{1:t}) &amp; \text{(假设 1)}\\
+        &amp;= \sum_{r_t} p(x_{t+1} \mid r_t, x_t^{(r)}) p(r_t \mid x_{1:t}) &amp; 
+\end{aligned}\]
+
+<p>其中 \(x_t^{(r)} = x_{(t - r):t}\) 为 run length \(= r\) 时当前 partion 的观测点集合，因为我们只会用当前 partion 的数据来预测 \(x_{t+1}\) 的分布（假设 1）。因为 \(r_t\) 可能为 0，所以 \(x_t^{(r)}\) 可能为空集。</p>
+
+<h3 id="run-length-的分布">run length 的分布</h3>
+
+<p>那么我们就需要计算 run length 的分布 \(p(r_t \mid x_{1:t})\)：</p>
+
+\[p(r_t \mid x_{1:t}) = \frac{p(r_t, x_{1:t})}{p(x_{1:t})}\]
+
+<p>那么我们需要算联合概率 \(p(r_t, x_{1:t})\)：</p>
+
+\[\begin{aligned}
+    p(r_t, x_{1:t})&amp;= \sum_{r_{t-1}} p(r_t, r_{t-1}, x_{1:t}) &amp; \text{(边缘概率公式)} \\
+        &amp;= \sum_{r_{t-1}} p(r_t, r_{t-1}, x_{1:t-1}, x_t) &amp; \\
+        &amp;= \sum_{r_{t-1}} p(r_t, x_t \mid r_{t-1}, x_{1:t-1}) p(r_{t-1}, x_{1:t-1}) &amp; \text{(链式法则)} \\
+        &amp;= \sum_{r_{t-1}} p(x_t \mid \cancel{r_t}, r_{t-1}, x_{1:t-1}) p(r_t \mid r_{t-1}, \cancel{x_{1:t-1}}) p(r_{t-1}, x_{1:t-1}) &amp; \text{(链式法则)} \\
+        &amp;= \sum_{r_{t-1}} p(x_t \mid r_{t-1}, x^{(r)}) p(r_t \mid r_{t-1}) p(r_{t-1}, x_{1:t-1}) &amp; \text{(假设 1, 2)}
+\end{aligned}\]
+
+<p>最后一步能成立依赖于以下两个假设：</p>
+
+<ol>
+  <li>
+    <p>前面提到的假设 1，即只用当前 partion 的数据来预测 \(x_t\) 的分布：</p>
+
+\[p(x_t \mid r_t, r_{t-1}, x_{1:t-1}) = p(x_t \mid r_{t-1}, x_{t-1}^{(r)}) \tag{\text{假设 1}}\]
+
+    <p>因为 \(r_t\) 只依赖于 \(r_{t-1}\)（假设 2），所以这里 \(r_t\) 也可以省掉。</p>
+  </li>
+  <li>
+    <p>\(r_t\) 只依赖于 \(r_{t-1}\)。即给定 \(r_{t-1}\)，\(r_t\) 对其他所有变量都条件独立：</p>
+
+\[p(r_t \mid r_{t-1}, x_{1:t-1}) = p(r_t \mid r_{t-1}) \tag{\text{假设 2}}\]
+  </li>
+</ol>
+
+<h3 id="递推流程">递推流程</h3>
+
+<p>可以看到求 \(p(x_{t+1} \mid x_{1:t})\) 的过程是一个递推的过程。在 \(t\) 时刻，\(p(r_{t-1}, x_{1:t-1})\) 已经计算出来了，现在我们要求 \(p(x_{t+1} \mid r_t, x_t^{(r)})\)，那么计算流程为：</p>
+
+<ol>
+  <li>
+    <p>计算变点的先验 \(p(r_t \mid r_{t-1})\)</p>
+  </li>
+  <li>
+    <p>计算 run length \(r_t\) 的后验分布：\(p(r_t \mid x_{1:t}) = \frac{p(r_t, x_{1:t})}{p(x_{1:t})}\)</p>
+
+    <p>其中：</p>
+
+\[p(r_t, x_{1:t}) = \sum_{r_{t-1}} \underbrace{p(x_t \mid r_{t-1}, x_{t-1}^{(r)})}_{\text{UPM}} \underbrace{p(r_t \mid r_{t-1})}_{\text{变点先验}} \underbrace{p(r_{t-1}, x_{1:t-1})}_{\text{已求得的信息}} \\[1pt]\]
+  </li>
+  <li>
+    <p>计算新数据点的分布 \(p(x_{t+1} \mid x_{1:t})\)：</p>
+
+\[p(x_{t+1} \mid x_{1:t}) = \sum_{r_t} \underbrace{p(x_{t+1} \mid r_t, x_t^{(r)})}_{\text{UPM}} \underbrace{p(r_t \mid x_{1:t})}_{\text{已求得的信息}} \\[1pt]\]
+  </li>
+</ol>
+
+<p>可以看到，我们还需要计算的两个式子是：</p>
+
+<ul>
+  <li>
+    <p>\(p(x_t \mid r_{t-1}, x_{t-1}^{(r)})\) 和 \(p(x_{t+1} \mid r_t, x_t^{(r)})\)：为了方便，我们按照本文<del>抄</del>参考的<a href="http://gregorygundersen.com/blog/2019/08/13/bocd/" target="_blank">博客</a>的叫法，把它称为 Underlying Probabilistic Model（UPM），它的求法将在<a href="#upm">这一节</a>解释</p>
+  </li>
+  <li>
+    <p>变点先验 \(p(r_t \mid r_{t-1})\)：它的求法将在<a href="#变点先验">这一节</a>解释</p>
+  </li>
+</ul>
+
+<p>这张图说明了这个递推流程：</p>
+
+<p><img src="/img/in-post/2020-08-22/message_passing.png" alt="message passing" width="400px" /></p>
+
+<p class="desc">图片来源：<a href="http://gregorygundersen.com/blog/2019/08/13/bocd/" target="_blank">Blog: Bayesian Online Changepoint Detection</a></p>
+
+<p>当然，在开始这个递推流程之前，我们需要手动定义初始值 \(p(r_0, x = \empty) = p(r_0)\)，定义方式将在<a href="#递推初始值">这一节</a>解释。</p>
+
+<h2 id="变点先验">变点先验</h2>
+
+<p>贝叶斯方法的特点就是能利用先验信息，所以我们可以把我们对变点的先验估计通过 hazard function 塞进模型里。</p>
+
+<p>我们假设：</p>
+
+\[p(r_t \mid r_{t-1}) = 
+\begin{cases}
+   H(r_{t-1} + 1) &amp;\text{if } r_t = 0 \\
+   1 - H(r_{t-1} + 1) &amp;\text{if } r_t = r_{t-1} + 1 \\
+   0 &amp;\text{otherwise}
+\end{cases}\]
+
+<p>\(H(\tau)\) 是 hazard function，描述的是个体在 \(\tau\) 时刻死亡的概率（…）。当然“死亡”这个词可以换成别的什么特殊事件，比如在这里 \(H(\tau)\) 描述的就是在 run length \(= \tau\) 时（在这之前都没出现变点）出现变点的概率。</p>
+
+<h3 id="survival-function">Survival Function</h3>
+
+<p>设 \(T \geq 0\) 是一个表示当前 run length 长度的随机变量。\(S(\tau)\) 是 survival function，表示 run length 超过 \(\tau\) 的概率：</p>
+
+\[S(\tau) = P(T \geq \tau) = 1 - F(\tau) = \sum_{\tau' = \tau}^\infty f(\tau')\]
+
+<p>其中 \(F(\tau) = P(T &lt; \tau)\)。\(f(\tau)\) 表示当前 run length \(= \tau\) 的概率，是一个概率密度函数。可以看到有：</p>
+
+\[f(\tau) = F'(\tau) = -\frac{d S(\tau)}{d \tau}\]
+
+<h3 id="hazard-function">Hazard Function</h3>
+
+<p>那么由 hazard function 的定义：</p>
+
+\[\begin{aligned}
+    H(\tau) &amp;= \lim_{\Delta \tau \rarr 0} \frac{p(\tau \leq T &lt; \tau + \Delta \tau \mid T \geq \tau)}{\Delta \tau} \\
+        &amp;= \lim_{\Delta \tau \rarr 0} \frac{p(\tau \leq T &lt; \tau + \Delta \tau)}{p(T \geq \tau) \Delta \tau} \\
+        &amp;= \frac{f(\tau)}{S(\tau)}
+\end{aligned}\]
+
+<p>这里 \(f(\tau)\) 是我们自己定的一个先验。</p>
+
+<p>当 \(f(\tau)\) 正好被定为一个指数分布（或几何分布（离散））时：</p>
+
+\[f(\tau) = \lambda e^{- \lambda \tau}\]
+
+\[F(\tau) = 1- e^{- \lambda \tau}\]
+
+\[S(\tau) = 1- F(\tau) = e^{- \lambda \tau}\]
+
+<p>此时 \(H(\tau) = \frac{f(\tau)}{S(\tau)} = \lambda\) 是一个常数（但论文里面写的是 \(\frac{1}{\lambda}\)，我也不知道我哪里推错了…）。</p>
+
+<h2 id="递推初始值">递推初始值</h2>
+
+<p>我们需要给 \(p(r_0)\) 赋一个初始值，分为两种情况：</p>
+
+<ol>
+  <li>
+    <p>第一个观测到的数据点之前（\(t=0\)）就是一个变点。论文中给的例子是对游戏数据序列建模，游戏开始的时刻一定是个变点。那么显然有：</p>
+
+\[p(r_0 = 0) = 1\]
+
+    <p>但这个假设并不总是成立。</p>
+  </li>
+  <li>
+    <p>假设我们现在有最近一段时间的历史数据，并且我们认为第一个变点会在未来某个时刻出现。论文给的例子是对气象数据建模。这时初始值为归一化后的 survival function：</p>
+
+\[p(r_0 = \tau) = \frac{1}{Z} \sum_{\tau' = \tau + 1}^\infty f(\tau')\]
+
+    <p>其中 \(Z\) 是一个归一化常数。</p>
+  </li>
+</ol>
+
+<h2 id="upm">UPM</h2>
+
+<p>好的那么现在 \(p(x_{t+1} \mid r_t, x_t^{(r)})\) 就是最后一个要算的东西了，我们把它写成边缘分布：</p>
+
+\[p(x_{t+1} \mid r_t, x_t^{(r)}) = \int \underbrace{p(x_{t+1} \mid \eta)}_{\text{EF model}} \underbrace{p(\eta_t^{(r)} = \eta \mid r_t, x_t^{(r)})}_{\text{EF posterior}} d \eta \\[1pt]\]
+
+<p>\(\eta_t^{(r)}\) 表示在 \(t\) 时刻 run length \(= r\) 时的超参数，第一项的意义是 \(x\) 服从参数为 \(\eta\) 的<strong>指数族分布（Exponential Family）</strong>，然后对这个指数族分布建模。第二项是 \(\eta\) 的后验。</p>
+
+<p>\(\eta\) 的后验并不好计算，而且这里还要对每个 \(\eta\) 求积分，也不好算。所以我们往往希望 \(\eta\) 的先验跟它的似然<strong>共轭（conjugate）</strong>，使得先验与后验的形式相同，这样就能简化计算。</p>
+
+<h3 id="共轭先验">共轭先验</h3>
+
+<p>假设 \(X\) 是已经观测到的数据，\(\hat{x}\) 是要预测的新数据点，\(\eta\) 是模型参数，\(\alpha\) 是超参数。那么：</p>
+
+\[p(\hat{x} \mid X, \alpha) = \int \underbrace{p(\hat{x} \mid \eta)}_{\text{model}} \underbrace{p(\eta \mid X, \alpha)}_{\text{posterior}} d \eta\]
+
+<p>这里 \(\eta\) 的先验跟它的似然是共轭的，所以 \(\eta\) 的后验跟它的先验的形式相同，只是超参数不同：</p>
+
+\[p(\eta \mid X, \alpha) = p(\eta \mid \alpha')\]
+
+<p>那么有：</p>
+
+\[\begin{aligned}
+    p(\hat{x} \mid X, \alpha) &amp;= \int p(\hat{x} \mid \eta) p(\eta \mid X, \alpha) d \eta \\
+        &amp;= \int p(\hat{x} \mid \eta) p(\eta \mid \alpha') d \eta \\
+        &amp;= p(\hat{x} \mid \alpha')
+\end{aligned}\]
+
+<p>也就是说 \(\hat{x}\) 的后验跟它的先验的形式也是相同的。如果我们能算出 \(\eta\) 的后验的超参数 \(\alpha'\)，就能在不直接算后验 \(p(\eta \mid X, \alpha)\) 也不算积分的情况下直接算出 \(p(\hat{x} \mid X, \alpha)\)。</p>
+
+<p>而当 \(\eta\) 的似然是指数族分布时，就一定能写出其共轭先验分布，且后验的超参数 \(\alpha'\) 能够很轻松的求出来。</p>
+
+<h3 id="指数族分布">指数族分布</h3>
+
+<p>指数族是一类分布，包括高斯分布、伯努利分布、二项分布、泊松分布、Beta 分布、Dirichlet 分布、Gamma 分布等一系列分布。指数族分布可以写为统一的形式：</p>
+
+\[\begin{aligned}
+    p(x \mid \eta) &amp;= h(x) \exp (\eta^\top U(x) - A(\eta)) \\
+        &amp;= \frac{1}{\exp(A(\eta))} h(x) \exp (\eta^\top U(x)) \\
+        &amp;= g(\eta) h(x) \exp (\eta^\top U(x))
+\end{aligned}\]
+
+<p>其中，\(h(x)\) 是 underlying measure（没找到啥合适的翻译）；\(U(x)\) 是充分统计量（sufficient statistic），包含样本集合的所有信息，如高斯分布中的均值 \(\mu\) 和方差 \(\sigma\)；\(g(\eta) = \frac{1}{\exp(A(\eta))}\) 是正则函数（normalizer）；\(A(\eta)\) 是对数正则函数（log normalizer），用于保证：</p>
+
+\[\frac{1}{\exp(A(\eta))} \int h(x) \exp (\eta^\top U(x)) dx = 1\]
+
+<p>\(A(\eta)\) 叫 log normalizer 这个名字是因为由上式可以推出：</p>
+
+\[A(\eta) = \log \int h(x) \exp (\eta^\top U(x)) dx\]
+
+<p>跟似然 \(p(x \mid \eta)\) 共轭的 \(\eta\) 的先验为：</p>
+
+\[p(\eta \mid \chi, \nu) = f(\chi, \nu) g(\eta)^{\nu} \exp ( \eta^{\top} \chi )\]
+
+<p>其中 \(\chi, \nu\) 是超参数，\(f(\chi, \nu)\) 取决于指数族分布的具体形式。</p>
+
+<p>由<a href="/2020/08/16/bayesian-neural-network/#贝叶斯估计" target="_blank">贝叶斯公式</a>，后验正比于似然 \(\times\) 先验，所以：</p>
+
+\[\begin{aligned}
+    p(\eta \mid X, \chi, \nu) &amp; \propto p(X \mid \eta) p(\eta \mid \chi, \nu) \\
+        &amp; \propto \underbrace{\vphantom{\Bigg|} \left ( \Big ( \prod_{i=1}^N h(x_n) \Big ) g(\eta)^N \exp (\eta^\top \sum_{n=1}^N u(x_n)) \right )}_{\text{似然}} \underbrace{\vphantom{\Bigg|} \Big ( f(\chi, \nu) g(\eta)^{\nu} \exp ( \eta^{\top} \chi ) \Big )}_{\text{先验}} \\
+        &amp; \propto \Big ( \prod_{i=1}^N h(x_n) \Big ) f(\chi, \nu) g(\eta)^{N + \nu} \exp \Big (\eta^\top \sum_{n=1}^N u(x_n) + \eta^{\top} \chi \Big ) \\
+        &amp; \propto g(\eta)^{N + \nu} \exp \Big (\eta^\top \sum_{n=1}^N u(x_n) + \eta^{\top} \chi \Big )
+\end{aligned}\]
+
+<p>最后一步是因为 \(\Big ( \prod_{i=1}^N h(x_n) \Big ) f(\chi, \nu)\) 是跟 \(\eta\) 无关的，所以可以去掉。</p>
+
+<p>可以看到后验 \(p(\eta \mid X, \chi, \nu)\) 跟先验 \(p(\eta \mid \chi, \nu)\) 的形式是一样的，只是超参数上有区别：</p>
+
+\[\nu' = \nu_{\text{prior}} + N\]
+
+\[\chi' = \chi_{\text{prior}} + \sum_{n=1}^N u(x_n)\]
+
+<p>所以如果似然是指数族分布，那么在先验的超参数上加一个项就可以得到后验的超参数，是种很简便的方法。</p>
+
+<h3 id="又一个递推">又一个递推</h3>
+
+<p>现在 \(p(x_{t+1} \mid r_t, x_t^{(r)})\) 可以被表示成 \(p(x_{t+1} \mid \nu_t^{(r)}, \chi_t^{(r)})\)，相当于我们的目标变成了求 \(\nu_t^{(r)}\) 和 \(\chi_t^{(r)}\)，而且要对每一个可能的 \(r_t = r \leq t\)（即 \(X = x_t^{(r)} = x_{(t-r): t}\)）都算一个 \(\nu_t^{(r)}\) 和 \(\chi_t^{(r)}\)：</p>
+
+\[\nu_t^{(r)} = \nu_{t-1}^{(r-1)} + 1\]
+
+\[\chi_t^{(r)} = \chi_{t-1}^{(r-1)} + u(x_t)\]
+
+\[\nu_t^0 = \nu_{\text{prior}}\]
+
+\[\chi_t^0 = \chi_{\text{prior}}\]
+
+<p>这个递推的过程大概是这样：</p>
+
+<p><img src="/img/in-post/2020-08-22/parameter_updates.png" alt="parameter updates" width="450px" /></p>
+
+<p class="desc">图片来源：<a href="http://gregorygundersen.com/blog/2019/08/13/bocd/" target="_blank">Blog: Bayesian Online Changepoint Detection</a></p>
+
+<h2 id="完整算法">完整算法</h2>
+
+<p>有空再说，我先摸下🐟…</p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+  <li>
+    <p><a href="https://arxiv.org/pdf/0710.3742.pdf" target="_blank">Bayesian Online Changepoint Detection.</a> <em>Ryan Prescott Adams and David J.C. MacKay.</em> arXiv 2007. (original paper)</p>
+  </li>
+  <li>
+    <p><a href="http://gregorygundersen.com/blog/2019/08/13/bocd/" target="_blank">Bayesian Online Changepoint Detection</a> (a blog by Gregory Gundersen)</p>
+  </li>
+  <li>
+    <p><a href="https://medium.com/scientya/bayesian-online-change-point-detection-an-intuitive-understanding-b2d2b9dc165b" target="_blank">Bayesian online change point detection — An intuitive understanding</a> (a blog on Medium)</p>
+  </li>
+  <li>
+    <p><a href="https://books.google.nl/books?hl=zh-CN&amp;lr=&amp;id=aO7xBwAAQBAJ&amp;oi=fnd&amp;pg=PR1&amp;ots=8jU8XPsdJP&amp;sig=BQuvnchfXc587ejQr1dpJaCFQOw#v=onepage&amp;q&amp;f=false" target="_blank">Survival Analysis: Techniques for Censored and Truncated Data.</a> <em>John P. Klein and Melvin L. Moeschberger.</em> Springer Science &amp; Business Media, 2006.</p>
+  </li>
+  <li>
+    <p><a href="https://www.yuque.com/books/share/f4031f65-70c1-4909-ba01-c47c31398466/ioggkd" target="_blank">指数族分布</a></p>
+  </li>
+</ul>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2020/08/16/bayesian-neural-network/" data-toggle="tooltip" data-placement="top" title="贝叶斯神经网络">
+                        Previous<br>
+                        <span>贝叶斯神经网络</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2020/08/24/regularization-based-continual-learning/" data-toggle="tooltip" data-placement="top" title="Regularization-based Continual Learning">
+                        Next<br>
+                        <span>Regularization-based Continual Learning</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+                
+                <section class="author-profile">
+    <div class="info"> 
+        <div class="avatar">
+            <img src="/img/header-avatar.jpeg">
+        </div>
+        <h1>Renovamen</h1>
+    </div>
+    <span>
+        <a href="https://www.jinrishici.com/" target="_blank">
+            <i class="fas fa-pencil-alt"></i>
+        </a>
+        <p id="poem-item">作诗中...</p>
+        <br><p id="poem-info"></p>
+    </span>
+</section>
+                
+                
+                    <!-- Comment container -->
+
+<!-- disqus -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+</div>
+
+<!-- Valine -->
+
+                
+            </div>  
+
+            <!-- Side Catalog Container -->
+            
+                <!-- Side Catalog Container -->
+<div class="
+    col-lg-2 col-lg-offset-0
+    sidebar-container
+    catalog-container">
+    <div class="side-catalog">
+        <hr class="hidden-sm hidden-xs">
+        <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+        </h5>
+        <ul class="catalog-body"></ul>
+    </div>
+</div>
+            
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+
+<script>
+    $("script[type='math/tex']").replaceWith(function() {
+        var tex = $(this).text();
+        return katex.renderToString(tex, {displayMode: false});
+    });
+  
+    $("script[type='math/tex; mode=display']").replaceWith(function() {
+        var tex = $(this).html();
+        return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+    });
+</script>
+    
+
+
+<!-- Renovamen: add support for chart and mermaid -->
+
+    <!-- Borrowed from: https://github.com/kitian616/jekyll-TeXt-theme -->
+<!-- Chart.js: https://www.chartjs.org/docs/latest/ -->
+<script>
+    LazyLoad.js("https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js", function(){
+        var $canvas = null, $this = null, _ctx = null, _text = '';
+        $('.language-chart').each(function(){
+            $this = $(this);
+            $canvas = $('<canvas></canvas>');
+            _text = $this.text();
+            $this.text('').append($canvas);
+            _ctx = $canvas.get(0).getContext('2d');
+            (_ctx && _text) && (new Chart(_ctx, JSON.parse(_text)) && $this.attr('data-processed', true));
+        });
+    })
+
+    $('.language-chart').parent().css({
+        "background-color": "transparent",
+        "border": "none",
+    });
+</script>
+
+
+
+
+
+    <!-- Borrowed from: https://github.com/kitian616/jekyll-TeXt-theme -->
+<!-- mermaid.js: https://mermaid-js.github.io/mermaid/ -->
+<script>
+    LazyLoad.js('https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js', function() {
+        mermaid.initialize({
+            startOnLoad: true
+        });
+        mermaid.init(undefined, '.language-mermaid');
+    });
+
+    $('.language-mermaid').parent().css({
+        "background-color": "transparent",
+        "border": "none",
+    });
+</script>
+
+
+<!-- Renovamen: add support for additional emoji -->
+
+    <script>
+$('.emoji-plus').each(function(){
+    var $this = $(this);
+    var imgURL = '/img/emoji/bilitv/' + $this.text() + '.gif';
+    var $img = $('<img class="emoji-plus" src="' + imgURL + '" height="30" width="30">');
+    $this.replaceWith($img);
+});
+</script>
+
+
+<!-- comment -->
+
+    <!-- Gitalk start -->
+<script type="text/javascript">
+    LazyLoad.js(['/js/library/md5.js ', 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js'], function(){
+        var gitalk = new Gitalk({
+            clientID: 'd6247712dc288a5a60ca',
+            clientSecret: 'ed1ec72417828343c79ed910a1b77d140fa715a7',
+            repo: 'gitalk-comments',
+            owner: 'This-is-an-Apple',
+            admin: ['Renovamen', 'This-is-an-Apple'],
+            id: md5(location.pathname),
+            distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+    })
+</script>
+<!-- Gitalk end -->
+
+
+
+
+
+
+    <!-- anchor.js: http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    LazyLoad.js("https://cdn.jsdelivr.net/npm/anchor-js@4.2.2/anchor.min.js", function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- Renovamen: add support 今日诗词: https://www.jinrishici.com/ -->
+<script type="text/javascript">
+    LazyLoad.js(['https://sdk.jinrishici.com/v2/browser/jinrishici.js'], function(){
+        jinrishici.load(function(result) {
+            var poem = document.querySelector('#poem-item');
+            var info = document.querySelector('#poem-info');
+
+            if (result.status === "success") {
+                var data = result.data
+                console.log(data)
+                poem.innerHTML = data.content;
+                info.innerHTML = '【' + data.origin.dynasty + '】' + data.origin.author + '《' + data.origin.title + '》';
+            }
+        });
+    })
+</script>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                <!-- 
+
+
+<div class="list-inline text-center">
+
+  
+  <a target="_blank" href="https://github.com/Renovamen">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github-alt fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.linkedin.com/in/xiaohan-zou-55bba0160">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.facebook.com/renovamen.zou">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://twitter.com/renovamen_zxh">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.zhihu.com/people/chao-neng-gui-su">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+  
+  
+  
+  <a href="mailto:renovamenzxh@gmail.com">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="/feed.xml">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+</div> -->
+                <p class="copyright">
+                    &copy; <a href="https://github.com/Renovamen" target="_blank">Renovamen</a> 2018
+                    <br>
+                    Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/Renovamen/renovamen.github.io" target="_blank">Gungnir</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<!-- Renovamen: has been included in `head.html` already -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<!-- Renovamen: Maybe don't need this anymore -->
+<!-- <script src="/js/library/bootstrap.min.js "></script> -->
+
+<!-- add dark / light detection -->
+<!-- dark / light detection, borrowed from gridsome.org -->
+<script>
+  (function() {
+    window.__onThemeChange = function() {};
+    function setTheme(newTheme) {
+      window.__theme = newTheme;
+      preferredTheme = newTheme;
+      document.body.setAttribute('data-theme', newTheme);
+      window.__onThemeChange(newTheme);
+      setThemeIcon(newTheme)
+    }
+
+    var preferredTheme;
+    try {
+      preferredTheme = localStorage.getItem('theme');
+    } catch (err) { }
+
+    window.__setPreferredTheme = function(newTheme) {
+      setTheme(newTheme);
+      try {
+        localStorage.setItem('theme', newTheme);
+      } catch (err) {}
+    }
+
+    var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    darkQuery.addListener(function(e) {
+      window.__setPreferredTheme(e.matches ? 'dark' : 'light');
+    });
+
+    setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+  })();
+</script>
+
+<!-- Theme JavaScript -->
+<script src="/js/gungnir.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/js/snackbar.js"></script>
+<script src="/js/sw-registration.js"></script>
+
+
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!--fastClick.js -->
+<script>
+    LazyLoad.js("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+    <!-- Google Analytics -->
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-146858305-1';
+    var _gaDomain = 'renovamen.ink';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+    <!-- Baidu Tongji -->
+<script>
+    // dynamic User by Hux
+    var _baId = '75381d210789d3eaf855fa16246860cc';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+    <!-- tocbot: https://github.com/tscanlin/tocbot -->
+
+<!-- 
+    Didn't use lazyload here because it will cause some bugs in catalog 
+    generating when swtiching between two languages. 
+    I'm trying to find a better solution.
+-->
+
+<link href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // links page
+        if('post' == 'links') {
+            _containerSelector = 'div.link-list'
+        }
+        // interop with multilangual 
+        else {
+            if ('' == 'true') {
+                _containerSelector = 'div.post-container.active'
+            } 
+            else {
+                _containerSelector = 'div.post-container'
+            }
+        }
+        
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: selector,
+            // Where to grab the headings to build the table of contents.
+            contentSelector: _containerSelector,
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h2, h3, h4, h5, h6',
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+    </div>
+
+    <!-- modify styles of navbar on mobile -->
+    <div class="mobile-nav">
+    <div class="mobile-menu-avatar">
+        <div class="avatar-container">
+            <img src="/img/header-avatar.jpeg">
+        </div>
+    </div>
+    <p class="mobile-menu-heading">Meow?</p>
+    
+
+
+<div class="list-inline text-center">
+
+  
+  <a target="_blank" href="https://github.com/Renovamen">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github-alt fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.linkedin.com/in/xiaohan-zou-55bba0160">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.facebook.com/renovamen.zou">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://twitter.com/renovamen_zxh">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.zhihu.com/people/chao-neng-gui-su">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+  
+  
+  
+  <a href="mailto:renovamenzxh@gmail.com">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="/feed.xml">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+</div>
+    <ul>
+        
+        <li>
+            
+            <a href="/" class="faa-parent animated-hover">
+            
+                
+                <i class="fab fa-fort-awesome fa-lg faa-wrench"></i>
+                
+                Home
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a href="/about/" class="faa-parent animated-hover">
+            
+                
+                <i class="fas fa-paw fa-lg faa-wrench"></i>
+                
+                About
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a href="/archive/" class="faa-parent animated-hover">
+            
+                
+                <i class="fas fa-archive fa-lg faa-wrench"></i>
+                
+                Archive
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a href="/links/" class="faa-parent animated-hover">
+            
+                
+                <i class="fas fa-link fa-lg faa-wrench"></i>
+                
+                Links
+            </a>
+            
+        </li>
+        
+
+        <li>
+            <a id="mobile-search-btn" class="faa-parent animated-hover">
+                <i class="fas fa-search fa-lg faa-wrench"></i> Search
+            </a>
+        </li>
+    </ul>
+</div>
+
+    <!-- support search -->
+    <div id="search" class="search-page">
+
+    <i class="search-close fas fa-chevron-down"></i>
+    <p class="search-title text-center"></p>
+
+    <div class="input">
+        <input 
+            id="search-input" 
+            type="text" 
+            class="search-field" 
+            placeholder="Just search ..." 
+            onkeypress="checkCode()"
+            style="background-color: transparent"
+        >
+    </div>
+    <div id="search-results" class="search-results"></div>
+
+    <img class="search-img-right" src="/img/search-right.gif"/>
+</div><script>
+    // simple-jekyll-search.js
+    LazyLoad.js("https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js", function(){
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('search-results'),
+            json: '/search.json',
+            searchResultTemplate: '<li class="result-item item"><a href="{url}" title="{desc}"><div class="result-item-title">{title}</div><div class="result-item-subtitle">{subtitle}</div></a></li>',
+            noResultsText: '<li class="result-item item"><div class="result-item-title">No Results</div></li>',
+            limit: 20,
+            fuzzy: false
+        })
+    })
+
+    // search-results 高度适配
+    $('.search-results').css({
+        'height': $(window).height() - 200 + "px"
+    });
+
+    function checkCode() {
+        if (event.keyCode == 13) {
+            getCode = $('#search-input').val();
+            if(getCode == "cd dark universe") {
+                window.location.href = "https://renovamen.gitee.io/dark-universe/";
+            }
+            else if(getCode == "cd resume") {
+                window.location.href = "https://renovamen.ink/Endless-Resume/";
+            }
+        }
+    }
+
+    function autoFocus() {
+        setTimeout(function () {
+            document.querySelector('.search-page input').focus();
+        }, 400);
+    }
+
+    // open search page
+    $('#search-btn').click(function() {
+        $('.search-page').toggleClass('open')
+        autoFocus()
+    });
+
+    // open search page (mobile)
+    $('#mobile-search-btn').click(function() {
+        $('.search-page').toggleClass('open')
+        autoFocus()
+    });
+
+    // close search page
+    $('.search-close').click(function() {
+        $('.search-page').toggleClass('open')
+    });
+</script>
+    
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Xiaohan Zou's blog">
+    <meta name="keywords"  content="">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="线性代数笔记 - Renovamen (Xiaohan Zou)">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="1. 矩阵乘法
+1.1 向量 x 向量
+">
+    
+    <meta property="article:published_time" content="2018-12-22T00:00:00Z">
+    
+    
+    <meta property="article:author" content="Renovamen">
+    
+    
+    <meta property="article:tag" content="Math">
+    
+    
+    <meta property="og:image" content="https://renovamen.inkimg/header-avatar.jpeg">
+    <meta property="og:url" content="https://renovamen.ink/2018/12/22/note-of-linear-algebra/">
+    <meta property="og:site_name" content="Renovamen (Xiaohan Zou)">
+    
+    <title>线性代数笔记 - Renovamen (Xiaohan Zou)</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.svg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://renovamen.ink/2018/12/22/note-of-linear-algebra/"><!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/css/bootstrap.min.css">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"/>
+
+    <!-- Custom Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- Font Awesome Animation -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/gungnir.css">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+
+    <!-- Lazyload (.js & .css)-->
+    <script>// https://github.com/rgrove/lazyload
+
+/*jslint browser: true, eqeqeq: true, bitwise: true, newcap: true, immed: true, regexp: false */
+
+/**
+LazyLoad makes it easy and painless to lazily load one or more external
+JavaScript or CSS files on demand either during or after the rendering of a web
+page.
+Supported browsers include Firefox 2+, IE6+, Safari 3+ (including Mobile
+Safari), Google Chrome, and Opera 9+. Other browsers may or may not work and
+are not officially supported.
+Visit https://github.com/rgrove/lazyload/ for more info.
+Copyright (c) 2011 Ryan Grove <ryan@wonko.com>
+All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the 'Software'), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+@module lazyload
+@class LazyLoad
+@static
+*/
+
+LazyLoad = (function (doc) {
+    // -- Private Variables ------------------------------------------------------
+  
+    // User agent and feature test information.
+    var env,
+  
+    // Reference to the <head> element (populated lazily).
+    head,
+  
+    // Requests currently in progress, if any.
+    pending = {},
+  
+    // Number of times we've polled to check whether a pending stylesheet has
+    // finished loading. If this gets too high, we're probably stalled.
+    pollCount = 0,
+  
+    // Queued requests.
+    queue = {css: [], js: []},
+  
+    // Reference to the browser's list of stylesheets.
+    styleSheets = doc.styleSheets;
+  
+    // -- Private Methods --------------------------------------------------------
+  
+    /**
+    Creates and returns an HTML element with the specified name and attributes.
+    @method createNode
+    @param {String} name element name
+    @param {Object} attrs name/value mapping of element attributes
+    @return {HTMLElement}
+    @private
+    */
+    function createNode(name, attrs) {
+        var node = doc.createElement(name), attr;
+    
+        for (attr in attrs) {
+            if (attrs.hasOwnProperty(attr)) {
+                node.setAttribute(attr, attrs[attr]);
+            }
+        }
+    
+        return node;
+    }
+  
+    /**
+    Called when the current pending resource of the specified type has finished
+    loading. Executes the associated callback (if any) and loads the next
+    resource in the queue.
+    @method finish
+    @param {String} type resource type ('css' or 'js')
+    @private
+    */
+    function finish(type) {
+        var p = pending[type],
+            callback,
+            urls;
+    
+        if (p) {
+            callback = p.callback;
+            urls     = p.urls;
+    
+            urls.shift();
+            pollCount = 0;
+    
+            // If this is the last of the pending URLs, execute the callback and
+            // start the next request in the queue (if any).
+            if (!urls.length) {
+                callback && callback.call(p.context, p.obj);
+                pending[type] = null;
+                queue[type].length && load(type);
+            }
+        }
+    }
+  
+    /**
+    Populates the <code>env</code> variable with user agent and feature test
+    information.
+    @method getEnv
+    @private
+    */
+    function getEnv() {
+        var ua = navigator.userAgent;
+    
+        env = {
+            // True if this browser supports disabling async mode on dynamically
+            // created script nodes. See
+            // http://wiki.whatwg.org/wiki/Dynamic_Script_Execution_Order
+            async: doc.createElement('script').async === true
+        };
+    
+        (env.webkit = /AppleWebKit\//.test(ua))
+            || (env.ie = /MSIE|Trident/.test(ua))
+            || (env.opera = /Opera/.test(ua))
+            || (env.gecko = /Gecko\//.test(ua))
+            || (env.unknown = true);
+    }
+  
+    /**
+    Loads the specified resources, or the next resource of the specified type
+    in the queue if no resources are specified. If a resource of the specified
+    type is already being loaded, the new request will be queued until the
+    first request has been finished.
+    When an array of resource URLs is specified, those URLs will be loaded in
+    parallel if it is possible to do so while preserving execution order. All
+    browsers support parallel loading of CSS, but only Firefox and Opera
+    support parallel loading of scripts. In other browsers, scripts will be
+    queued and loaded one at a time to ensure correct execution order.
+    @method load
+    @param {String} type resource type ('css' or 'js')
+    @param {String|Array} urls (optional) URL or array of URLs to load
+    @param {Function} callback (optional) callback function to execute when the
+      resource is loaded
+    @param {Object} obj (optional) object to pass to the callback function
+    @param {Object} context (optional) if provided, the callback function will
+      be executed in this object's context
+    @private
+    */
+    function load(type, urls, callback, obj, context) {
+        var _finish = function () { finish(type); },
+            isCSS   = type === 'css',
+            nodes   = [],
+            i, len, node, p, pendingUrls, url;
+  
+        env || getEnv();
+  
+        if (urls) {
+            // If urls is a string, wrap it in an array. Otherwise assume it's an
+            // array and create a copy of it so modifications won't be made to the
+            // original.
+            urls = typeof urls === 'string' ? [urls] : urls.concat();
+    
+            // Create a request object for each URL. If multiple URLs are specified,
+            // the callback will only be executed after all URLs have been loaded.
+            //
+            // Sadly, Firefox and Opera are the only browsers capable of loading
+            // scripts in parallel while preserving execution order. In all other
+            // browsers, scripts must be loaded sequentially.
+            //
+            // All browsers respect CSS specificity based on the order of the link
+            // elements in the DOM, regardless of the order in which the stylesheets
+            // are actually downloaded.
+            if (isCSS || env.async || env.gecko || env.opera) {
+                // Load in parallel.
+                queue[type].push({
+                    urls    : urls,
+                    callback: callback,
+                    obj     : obj,
+                    context : context
+                });
+            } 
+            else {
+                // Load sequentially.
+                for (i = 0, len = urls.length; i < len; ++i) {
+                    queue[type].push({
+                        urls    : [urls[i]],
+                        callback: i === len - 1 ? callback : null, // callback is only added to the last URL
+                        obj     : obj,
+                        context : context
+                    });
+                }
+            }
+        }
+  
+        // If a previous load request of this type is currently in progress, we'll
+        // wait our turn. Otherwise, grab the next item in the queue.
+        if (pending[type] || !(p = pending[type] = queue[type].shift())) {
+            return;
+        }
+    
+        head || (head = doc.head || doc.getElementsByTagName('head')[0]);
+        pendingUrls = p.urls.concat();
+
+        for (i = 0, len = pendingUrls.length; i < len; ++i) {
+            url = pendingUrls[i];
+    
+            if (isCSS) {
+                node = env.gecko ? createNode('style') : createNode('link', {
+                    href: url,
+                    rel : 'stylesheet'
+                });
+            } 
+            else {
+                node = createNode('script', {src: url});
+                node.async = false;
+            }
+    
+            node.className = 'lazyload';
+            node.setAttribute('charset', 'utf-8');
+    
+            if (env.ie && !isCSS && 'onreadystatechange' in node && !('draggable' in node)) {
+                node.onreadystatechange = function () {
+                    if (/loaded|complete/.test(node.readyState)) {
+                        node.onreadystatechange = null;
+                        _finish();
+                    }
+                };
+            } 
+            else if (isCSS && (env.gecko || env.webkit)) {
+                // Gecko and WebKit don't support the onload event on link nodes.
+                if (env.webkit) {
+                    // In WebKit, we can poll for changes to document.styleSheets to
+                    // figure out when stylesheets have loaded.
+                    p.urls[i] = node.href; // resolve relative URLs (or polling won't work)
+                    pollWebKit();
+                } 
+                else {
+                    // In Gecko, we can import the requested URL into a <style> node and
+                    // poll for the existence of node.sheet.cssRules. Props to Zach
+                    // Leatherman for calling my attention to this technique.
+                    node.innerHTML = '@import "' + url + '";';
+                    pollGecko(node);
+                }
+            } 
+            else {
+                node.onload = node.onerror = _finish;
+            }
+    
+            nodes.push(node);
+        }
+    
+        for (i = 0, len = nodes.length; i < len; ++i) {
+            head.appendChild(nodes[i]);
+        }
+    }
+  
+    /**
+    Begins polling to determine when the specified stylesheet has finished loading
+    in Gecko. Polling stops when all pending stylesheets have loaded or after 10
+    seconds (to prevent stalls).
+    Thanks to Zach Leatherman for calling my attention to the @import-based
+    cross-domain technique used here, and to Oleg Slobodskoi for an earlier
+    same-domain implementation. See Zach's blog for more details:
+    http://www.zachleat.com/web/2010/07/29/load-css-dynamically/
+    @method pollGecko
+    @param {HTMLElement} node Style node to poll.
+    @private
+    */
+    function pollGecko(node) {
+        var hasRules;
+    
+        try {
+            // We don't really need to store this value or ever refer to it again, but
+            // if we don't store it, Closure Compiler assumes the code is useless and
+            // removes it.
+            hasRules = !!node.sheet.cssRules;
+        } 
+        catch (ex) {
+            // An exception means the stylesheet is still loading.
+            pollCount += 1;
+
+            if (pollCount < 200) {
+                setTimeout(function () { pollGecko(node); }, 50);
+            } 
+            else {
+                // We've been polling for 10 seconds and nothing's happened. Stop
+                // polling and finish the pending requests to avoid blocking further
+                // requests.
+                hasRules && finish('css');
+            }
+            return;
+        }
+    
+        // If we get here, the stylesheet has loaded.
+        finish('css');
+    }
+    
+    /**
+    Begins polling to determine when pending stylesheets have finished loading
+    in WebKit. Polling stops when all pending stylesheets have loaded or after 10
+    seconds (to prevent stalls).
+    @method pollWebKit
+    @private
+    */
+    function pollWebKit() {
+        var css = pending.css, i;
+
+        if (css) {
+            i = styleSheets.length;
+
+            // Look for a stylesheet matching the pending URL.
+            while (--i >= 0) {
+                if (styleSheets[i].href === css.urls[0]) {
+                    finish('css');
+                    break;
+                }
+            }
+
+            pollCount += 1;
+    
+            if (css) {
+                if (pollCount < 200) {
+                    setTimeout(pollWebKit, 50);
+                } 
+                else {
+                    // We've been polling for 10 seconds and nothing's happened, which may
+                    // indicate that the stylesheet has been removed from the document
+                    // before it had a chance to load. Stop polling and finish the pending
+                    // request to prevent blocking further requests.
+                    finish('css');
+                }
+            }
+        }
+    }
+    
+    return {
+    
+        /**
+         Requests the specified CSS URL or URLs and executes the specified
+        callback (if any) when they have finished loading. If an array of URLs is
+        specified, the stylesheets will be loaded in parallel and the callback
+        will be executed after all stylesheets have finished loading.
+        @method css
+        @param {String|Array} urls CSS URL or array of CSS URLs to load
+        @param {Function} callback (optional) callback function to execute when
+        the specified stylesheets are loaded
+        @param {Object} obj (optional) object to pass to the callback function
+        @param {Object} context (optional) if provided, the callback function
+        will be executed in this object's context
+        @static
+        */
+        css: function (urls, callback, obj, context) {
+            load('css', urls, callback, obj, context);
+        },
+    
+        /**
+         Requests the specified JavaScript URL or URLs and executes the specified
+        callback (if any) when they have finished loading. If an array of URLs is
+        specified and the browser supports it, the scripts will be loaded in
+        parallel and the callback will be executed after all scripts have
+        finished loading.
+        Currently, only Firefox and Opera support parallel loading of scripts while
+        preserving execution order. In other browsers, scripts will be
+        queued and loaded one at a time to ensure correct execution order.
+        @method js
+        @param {String|Array} urls JS URL or array of JS URLs to load
+        @param {Function} callback (optional) callback function to execute when
+        the specified scripts are loaded
+        @param {Object} obj (optional) object to pass to the callback function
+        @param {Object} context (optional) if provided, the callback function
+        will be executed in this object's context
+        @static
+        */
+        js: function (urls, callback, obj, context) {
+            load('js', urls, callback, obj, context);
+        }
+    };
+})(this.document);</script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Renovamen: add menu button -->
+    <div class="menu-btn-container">
+    <div class="menu-btn-wrapper">
+        <div class="menu-btn">
+            <div class="menu-btn-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-text"></div>
+            <svg class="menu-svg">
+                <circle class="menu-border" cx="50%" cy="50%" r="48%"></circle>
+            </svg>
+        </div>
+        <div class="menu-btn-child-wrapper">
+            <div class="menu-btn-child" id="menu-theme-btn">
+                <span class="fa icon-theme"></span>
+            </div>
+            <div class="menu-btn-child" onclick="smoothTo('bottom')">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="menu-btn-child" onclick="smoothTo('top')">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            
+            
+            <div class="menu-btn-child" id="menu-toc-btn">
+                <i class="fas fa-list-ul"></i>
+            </div>
+            
+            
+            <div class="menu-btn-child" id="menu-navbar-btn">
+                <i class="far fa-window-restore"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // open menu
+    $('.menu-btn').click(function() {
+        $('.menu-btn-container').toggleClass('open');
+    });
+    
+    // open navbar
+    $('#menu-navbar-btn').click(function() {
+        mobileNavToggle();
+    });
+
+    // open catalog
+    $('#menu-toc-btn').click(function() {
+        $('.side-catalog').toggleClass('open');
+    });
+
+    // set theme icon in menu
+    function setThemeIcon(newTheme) {
+        const icons = {
+            'light': '"\\f185"', 
+            'dark': '"\\f186"', 
+            'sepia': '"\\f0f4"'
+        }
+        $('#menu-theme-btn').append(
+            '<style>.icon-theme:before{content:' + icons[newTheme] + '}</style>'
+        );
+    }
+
+    function toggleTheme() {
+        const themes = ['light', 'dark', 'sepia']
+        // get current theme
+        const currentTheme = window.__theme
+        const currentIndex = themes.indexOf(currentTheme)
+        // set next theme
+        const nextIndex = (currentIndex + 1) % themes.length
+        const nextTheme = themes[nextIndex]
+        window.__setPreferredTheme(nextTheme)
+        setThemeIcon(nextTheme)
+    }
+
+    // change theme
+    $('#menu-theme-btn').click(function() {
+        toggleTheme()
+    });
+</script>
+
+    <div class="main-container">
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <!-- navbar toggle for old mobile menu button (by Hux) -->
+            <!-- <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button> -->
+            <a class="navbar-brand" href="/">$ cd /home/</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+
+                    
+                    <li>
+                        
+                        <a href="/" class="faa-parent animated-hover">
+                        
+                            
+                            <i class="fab fa-fort-awesome fa-lg faa-wrench"></i>
+                            
+                            Home
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/about/" class="faa-parent animated-hover">
+                        
+                            
+                            <i class="fas fa-paw fa-lg faa-wrench"></i>
+                            
+                            About
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/archive/" class="faa-parent animated-hover">
+                        
+                            
+                            <i class="fas fa-archive fa-lg faa-wrench"></i>
+                            
+                            Archive
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        
+                        <a href="/links/" class="faa-parent animated-hover">
+                        
+                            
+                            <i class="fas fa-link fa-lg faa-wrench"></i>
+                            
+                            Links
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a id="search-btn" class="faa-parent animated-hover">
+                            <i class="fas fa-search fa-lg faa-wrench"></i> Search
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Old Mobile Navbar Script (By Hux) -->
+<!-- <script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script> -->
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/in-post/2018-12-22/header.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+    
+    <style type="text/css">
+        header.intro-header{
+            position: relative;
+            background-image: url('/img/in-post/2018-12-22/header.jpg');
+            background: ;
+        }
+
+        
+    </style>
+    
+    
+
+
+
+
+
+<header class="intro-header style-text" >
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Math" title="Math">Math</a>
+                        
+                    </div>
+                    <h1>线性代数笔记</h1>
+                    
+                    <h2 class="subheading">Note of Linear Algebra</h2>
+                    
+                    <span class="meta">Posted by Renovamen on December 22, 2018</span>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+				<h2 id="1-矩阵乘法">1. 矩阵乘法</h2>
+<h3 id="11-向量-x-向量">1.1 向量 x 向量</h3>
+
+<ol>
+  <li>
+    <p>有向量 \(x,y \in R^n\)，\(x^Ty\) 被称为<strong>向量内积（Inner Product）</strong>或<strong>点积（Dot Product）</strong>，结果为一个实数。</p>
+
+\[x^Ty \in R^n = 
+
+ \left[
+   \begin{matrix}
+     x_1 &amp; x_2 &amp; ... &amp; x_n
+   \end{matrix}
+ \right]
+
+ \left[
+   \begin{matrix}
+     y_1  \\
+     y_2  \\
+     \vdots  \\
+     y_n
+   \end{matrix}
+ \right]
+
+ = \sum_{i=1}^n x_i y_i\]
+
+    <p>注：\(x^Ty = y^Tx\) 始终成立。</p>
+  </li>
+  <li>
+    <p>有向量 \(x \in R^n, y \in R^m\)，\(xy^T \in R^{m \times n}\) 被称为<strong>向量外积（Outer Product）</strong>，结果为一个矩阵，其中 \((xy^T)_{ij} = x_i y_i\)。</p>
+
+\[xy^T \in R^{m \times n} = 
+
+ \left[
+   \begin{matrix}
+     x_1  \\
+     x_2  \\
+     ...  \\
+     x_m
+   \end{matrix}
+ \right]
+
+ \left[
+   \begin{matrix}
+     y_1 &amp; y_2 &amp; ... &amp; y_n
+   \end{matrix}
+ \right]
+
+ = 
+    
+ \left[
+   \begin{matrix}
+     x_1y_1 &amp; x_1y_2 &amp; \cdots &amp; x_1y_n \\
+     x_2y_1 &amp; x_2y_2 &amp; \cdots &amp; x_2y_n \\
+     \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+     x_my_1 &amp; x_my_2 &amp; \cdots &amp; x_my_n
+   \end{matrix}
+ \right]\]
+  </li>
+</ol>
+
+<h3 id="12-矩阵-x-向量">1.2 矩阵 x 向量</h3>
+
+<p>有矩阵 \(A \in R^{m \times n}\)，向量 \(x \in R^n\)，它们的积是一个向量 \(Ax \in R^m\)。有两种理解矩阵与向量的乘法的方式：</p>
+
+<ol>
+  <li>
+    <p>行列内积</p>
+
+    <p>如果按行写 \(A\)，可以把 \(Ax\) 表示为：</p>
+
+\[y = Ax = 
+
+ \left[
+   \begin{matrix}
+     - &amp; a_1^T  &amp; - \\
+     - &amp; a_2^T  &amp; - \\
+       &amp; \vdots &amp; \\
+     - &amp; a_m^T  &amp; -
+   \end{matrix}
+ \right]x = 
+
+ \left[
+   \begin{matrix}
+     a_1^Tx \\
+     a_2^Tx \\
+     \vdots \\
+     a_m^Tx
+   \end{matrix}
+ \right]\]
+
+    <p>可以看出 \(y\) 的第 \(i\) 行是 \(A\) 的第 \(i\) 行和 \(x\) 的内积，即 \(y_i = a_i^T x\)。</p>
+  </li>
+  <li>
+    <p>整列相乘</p>
+
+    <p>把 \(A\) 按列表示：</p>
+
+\[y = Ax = 
+
+ \left[
+   \begin{matrix}
+       | &amp;   | &amp;        &amp;   | \\
+     a_1 &amp; a_2 &amp; \cdots &amp; a_n \\
+       | &amp;   | &amp;        &amp;   |
+   \end{matrix}
+ \right]
+
+ \left[
+   \begin{matrix}
+     x_1 \\
+     x_2 \\
+     \vdots \\
+     x_n
+   \end{matrix}
+ \right] = 
+
+ [ a^1 ] x_1 + [ a^2 ] x_2 + \cdots + [ a^n ] x_n\]
+
+    <p>可以看到，\(y\) 是 \(A\) 的列的线性组合，其中线性组合的系数由 \(x\) 的元素给出。</p>
+  </li>
+</ol>
+
+<p>也可以在左侧乘以行向量，写为 \(y^T = x^T A\)，其中 \(A \in R^{m \times n}, x \in R^m, y \in R^n\)。也有两种理解方式：</p>
+
+<ol>
+  <li>
+    <p>把 \(A\) 按列表示：</p>
+
+\[y^T = x^T A = 
+
+ x^T
+
+ \left[
+   \begin{matrix}
+       | &amp;   | &amp;        &amp;   | \\
+     a_1 &amp; a_2 &amp; \cdots &amp; a_n \\
+       | &amp;   | &amp;        &amp;   |
+   \end{matrix}
+ \right]
+    
+ =
+
+ \left[
+   \begin{matrix}
+     x^T a^1 &amp; x^T a^2 &amp; \cdots &amp; x^T a^n
+   \end{matrix}
+ \right]\]
+
+    <p>可以看出 \(y^T\) 的第 \(i\) 个元素为 \(x\) 和 \(A\) 的第 \(i\) 列的内积。</p>
+  </li>
+  <li>
+    <p>整行相乘</p>
+
+    <p>把 \(A\) 按行表示：</p>
+
+\[y^T = x^T A = 
+
+ \left[
+   \begin{matrix}
+     x_1 &amp; x_2 &amp; \cdots &amp; x_n
+   \end{matrix}
+ \right]
+
+ \left[
+   \begin{matrix}
+     - a_1^T - \\
+     - a_2^T - \\
+       \vdots \\
+     - a_m^T -
+   \end{matrix}
+ \right]
+    
+ = x_1 [- a_1^T -] + x_2 [- a_2^T -] + \cdots + x_n [- a_n^T -]\]
+
+    <p>可以看出 \(y^T\) 是 \(A\) 的行的线性组合，其中线性组合的系数由 \(x\) 的元素给出。</p>
+  </li>
+</ol>
+
+<h3 id="13-矩阵-x-矩阵">1.3 矩阵 x 矩阵</h3>
+
+<p>两个矩阵相乘，其中 \(A \in R^{m \times n}, B \in R^{n \times p}\)（\(A\) 的总列数必须与 \(B\) 的总行数相等），则：</p>
+
+\[C = AB \in R^{m \times p}\]
+
+<p>其中，\(C_{ij} = \text{row}_i \times \text{column}_j = \sum_{k=1}^n A_{ik}B_{kj}\)</p>
+
+<ol>
+  <li>
+    <p>行列内积</p>
+
+    <p>显然，\(C_{ij}\) 等于 \(A\) 的第 \(i\) 行和 \(B\) 的第 \(j\) 列的内积：</p>
+
+\[C = AB = 
+
+ \left[
+   \begin{matrix}
+     - &amp; a_1^T  &amp; - \\
+     - &amp; a_2^T  &amp; - \\
+       &amp; \vdots &amp; \\
+     - &amp; a_m^T  &amp; -
+   \end{matrix}
+ \right]
+    
+ \left[
+   \begin{matrix}
+       | &amp;   | &amp;        &amp;   | \\
+     b_1 &amp; b_2 &amp; \cdots &amp; b_p \\
+       | &amp;   | &amp;        &amp;   |
+   \end{matrix}
+ \right]
+    
+ = 
+
+ \left[
+   \begin{matrix}
+     a_1^Tb_1 &amp; a_1^Tb_2 &amp; \cdots &amp; a_1^Tb_p \\
+     a_2^Tb_1 &amp; a_2^Tb_2 &amp; \cdots &amp; a_2^Tb_p \\
+       \vdots &amp;   \vdots &amp; \ddots &amp;   \vdots \\
+     a_m^Tb_1 &amp; a_m^Tb_2 &amp; \cdots &amp; a_m^Tb_p
+   \end{matrix}
+ \right]\]
+  </li>
+  <li>
+    <p>列乘以行</p>
+
+    <p>用列表示 \(A\)，用行表示 \(B\)，这时 \(C_{ij}\) 等于 \(A\) 的第 \(i\) 列和 \(B\) 的第 \(j\) 行的外积的和：</p>
+
+\[C = AB = 
+
+ \left[
+   \begin{matrix}
+       | &amp;   | &amp;        &amp;   | \\
+     a_1 &amp; a_2 &amp; \cdots &amp; a_n \\
+       | &amp;   | &amp;        &amp;   |
+   \end{matrix}
+ \right]
+
+ \left[
+   \begin{matrix}
+     - &amp; b_1^T  &amp; - \\
+     - &amp; b_2^T  &amp; - \\
+       &amp; \vdots &amp; \\
+     - &amp; b_n^T  &amp; -
+   \end{matrix}
+ \right]
+    
+ = 
+
+ \sum_{i=1}^n a_ib_i^T\]
+
+    <p>这种情况下，\(a_i \in R^m\)，\(b_i \in R^p\)，外积 \(a_ib_i^T\) 的维度是 \(m \times p\)，与 \(C\) 的维度一致。</p>
+
+    <p>如：</p>
+
+\[\left[
+   \begin{matrix}
+     2 &amp; 7 \\
+     3 &amp; 8 \\
+     4 &amp; 9
+   \end{matrix}
+ \right]
+
+ \left[
+   \begin{matrix}
+     1 &amp; 6 \\
+     0 &amp; 0
+   \end{matrix}
+ \right]
+
+ =
+
+ \left[
+   \begin{matrix}
+     2 \\
+     3 \\
+     4
+   \end{matrix}
+ \right]
+
+ \left[
+   \begin{matrix}
+     1 &amp; 6
+   \end{matrix}
+ \right]
+
+ +
+
+ \left[
+   \begin{matrix}
+     7 \\
+     8 \\
+     9
+   \end{matrix}
+ \right]
+
+ \left[
+   \begin{matrix}
+     0 &amp; 0
+   \end{matrix}
+ \right]
+
+ = 
+
+ \left[
+   \begin{matrix}
+     2 &amp; 12 \\
+     3 &amp; 18 \\
+     4 &amp; 24
+   \end{matrix}
+ \right]\]
+
+    <p>每一次都是用列向量与行向量相乘得到一个矩阵，每次得到的矩阵都有特点。如：</p>
+
+\[\begin{bmatrix}
+   2 \\
+   3 \\
+   4
+ \end{bmatrix}
+
+ \begin{bmatrix}
+   1 &amp; 6
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+   2 &amp; 12 \\
+   3 &amp; 18 \\
+   4 &amp; 24
+ \end{bmatrix}\]
+
+    <p>矩阵
+ \(\begin{bmatrix}
+   2 &amp; 12 \\
+   3 &amp; 18 \\
+   4 &amp; 24
+ \end{bmatrix}\)
+ 每一列都和向量
+ \(\begin{bmatrix}
+   2 \\
+   3 \\
+   4
+ \end{bmatrix}\)
+ 同向，即列向量都在
+ \(\begin{bmatrix}
+   2 \\
+   3 \\
+   4
+ \end{bmatrix}\)
+ 这条直线上，列空间是一条直线。同理，行向量都在
+ \(\begin{bmatrix}
+   1 &amp; 6
+ \end{bmatrix}\)
+ 这条直线上，行空间（矩阵行所有可能的线性组合）是一条直线。</p>
+  </li>
+  <li>
+    <p>整列相乘</p>
+
+    <p>把 \(B\) 用列表示，则可以将 \(C\) 的列视为 \(A\) 与 \(B\) 的列的矩阵向量积（1.2 节）：</p>
+
+\[C = AB = A
+
+ \left[
+   \begin{matrix}
+       | &amp;   | &amp;        &amp;   | \\
+     b_1 &amp; b_2 &amp; \cdots &amp; b_p \\
+       | &amp;   | &amp;        &amp;   |
+   \end{matrix}
+ \right]
+
+ =
+
+ \left[
+   \begin{matrix}
+       | &amp;   | &amp;        &amp;   | \\
+     Ab_1 &amp; Ab_2 &amp; \cdots &amp; Ab_p \\
+       | &amp;   | &amp;        &amp;   |
+   \end{matrix}
+ \right]\]
+
+    <p>\(c_j = Ab_j\)，可以看做 \(C\) 的第 \(j\) 列是 \(A\) 的列向量以 \(B\) 的第 \(j\) 列作为系数所求得的线性组合。</p>
+  </li>
+  <li>
+    <p>整行相乘</p>
+
+    <p>把 \(A\) 用行表示，则可以将 \(C\) 的行视为 \(A\) 与 \(B\) 的列的矩阵向量积（1.2 节）：</p>
+
+\[C = AB =
+
+ \left[
+   \begin{matrix}
+     - &amp; a_1^T  &amp; - \\
+     - &amp; a_2^T  &amp; - \\
+       &amp; \vdots &amp;   \\
+     - &amp; a_m^T  &amp; -
+   \end{matrix}
+ \right] B = 
+
+ \left[
+   \begin{matrix}
+     - &amp; a_1^TB &amp; - \\
+     - &amp; a_2^TB &amp; - \\
+       &amp; \vdots &amp;   \\
+     - &amp; a_m^TB &amp; -
+   \end{matrix}
+ \right]\]
+
+    <p>\(c_i^T = a_i^Tb\)，可以看做 \(C\) 的第 \(i\) 行是 \(B\) 的行向量以 \(A\) 的第 \(i\) 行作为系数所求得的线性组合。</p>
+  </li>
+  <li>
+    <p>分块乘法</p>
+
+\[\left[
+   \begin{array}{c|c}
+            A_1 &amp; A_2 \\
+     \hline A_3 &amp; A_4
+   \end{array}
+ \right]
+    
+ \left[
+   \begin{array}{c|c}
+            B_1 &amp; B_2 \\
+     \hline B_3 &amp; B_4
+   \end{array}
+ \right]
+    
+ =
+    
+ \left[
+   \begin{array}{c|c}
+            A_1B_1+A_2B_3 &amp; A_1B_2+A_2B_4 \\
+     \hline A_3B_1+A_4B_3 &amp; A_3B_2+A_4B_4
+   \end{array}
+ \right]\]
+
+    <p>在分块合适的情况下，可以简化运算。</p>
+  </li>
+</ol>
+
+<p> </p>
+<h2 id="2-矩阵消元">2. 矩阵消元</h2>
+<h3 id="21-消元法">2.1 消元法</h3>
+
+<p>三元方程组 
+\(\begin{cases}
+  x&amp; + 2y&amp; + z&amp; = 2 \\
+  3x&amp; + 8y&amp; + z&amp; = 12 \\
+  &amp;4y&amp; + z&amp; = 2
+\end{cases}\)
+对应的矩阵形式 \(Ax=b\) 为 
+\(\begin{bmatrix}
+  1 &amp; 2 &amp; 1 \\
+  3 &amp; 8 &amp; 1 \\
+  0 &amp; 4 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+  x \\
+  y \\
+  z
+\end{bmatrix}
+=
+\begin{bmatrix}
+  2 \\
+  12 \\
+  2
+\end{bmatrix}\)
+。</p>
+
+<p><strong>消元</strong>（\([A \| b]\) 为方程组的<strong>增广矩阵</strong>形式）：</p>
+
+\[[A | b] = 
+
+\left[
+  \begin{array}{c c c |c}
+    \underline{1} &amp; 2 &amp; 1 &amp; 2 \\
+    3             &amp; 8 &amp; 1 &amp; 12 \\
+    0             &amp; 4 &amp; 1 &amp; 2
+  \end{array}
+\right]
+\underrightarrow{r2-3r1}
+
+\left[
+  \begin{array}{c c c |c}
+    \underline{1} &amp; 2             &amp; 1  &amp; 2 \\
+    0             &amp; \underline{2} &amp; -2 &amp; 6 \\
+    0             &amp; 4             &amp; 1  &amp; 2
+  \end{array}
+\right]
+
+\underrightarrow{r3-2r2}
+\left[
+  \begin{array}{c c c |c}
+    \underline{1} &amp; 2             &amp; 1             &amp; 2 \\
+    0             &amp; \underline{2} &amp; -2            &amp; 6 \\
+    0             &amp; 0             &amp; \underline{5} &amp; -10
+  \end{array}
+\right]\]
+
+<p>下划线的元素为<strong>主元</strong>，主元不能为零。如果在消元时遇到主元位置为零，则需要看它的后面的行对应位置是否为 0，如果不为 0，就交换这两行，将非零数视为主元。</p>
+
+<p>消元失效：如果它后面所有行的对应位置都为 0，则该矩阵<strong>不可逆</strong>，消元法求出的解不唯一。（如：把第三个方程 \(z\) 前的系数成 -4，会导致第二步消元时最后一行全部为零，则第三个主元就不存在了，消元就不能继续进行了。）</p>
+
+<p>消元后方程组变为 
+\(\begin{cases}
+   x  &amp; +2y &amp; +z  &amp; = 2 \\
+      &amp;  2y &amp; -2z &amp; = 6 \\
+      &amp;     &amp;  5z &amp; = -10
+\end{cases}\)</p>
+
+<p>从第三个方程求出 \(z=-2\)，代入第二个方程求出 \(y=1\)，再代入第一个方程求出 \(x=2\)。</p>
+
+<h3 id="21-消元矩阵">2.1 消元矩阵</h3>
+
+<p> </p>
+<h2 id="8-求解-ax--b可解性和解的结构">8. 求解 Ax = b：可解性和解的结构</h2>
+<h3 id="81-ax--b-的解">8.1 Ax = b 的解</h3>
+
+<p>举例，同上一讲：\(3 \times 4\) 矩阵：</p>
+
+\[A=
+\left[
+  \begin{matrix}
+    1 &amp; 2 &amp; 2 &amp; 2\\
+    2 &amp; 4 &amp; 6 &amp; 8\\
+    3 &amp; 6 &amp; 8 &amp; 10
+  \end{matrix}
+\right]\]
+
+<p>求 \(Ax=b\) 的特解：</p>
+
+<p>写出其增广矩阵（augmented matrix）
+\([A | b]\)：</p>
+
+\[\left[
+\begin{array}{c c c c|c}
+1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1 \\
+2 &amp; 4 &amp; 6 &amp; 8 &amp; b_2 \\
+3 &amp; 6 &amp; 8 &amp; 10 &amp; b_3
+\end{array}
+\right]
+\underrightarrow{\text{消元}}
+\left[
+\begin{array}{c c c c|c}
+1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1 \\
+0 &amp; 0 &amp; 2 &amp; 4 &amp; b_2-2b_1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; b_3-b_2-b_1
+\end{array}
+\right]\]
+
+<p>显然，有解的必要条件为 \(b_3-b_2-b_1=0\)。</p>
+
+<h4 id="811-ax--b-可解性">8.1.1 Ax = b 可解性</h4>
+<p>讨论 \(b\) 满足什么条件才能让方程 \(Ax=b\) 有解（solvability condition on \(b\)）：</p>
+
+<ol>
+  <li>从列空间看：当且仅当 \(b\) 属于 \(A\) 的列空间时；</li>
+  <li>如果 \(A\) 的各行线性组合得到 0 行，则 \(b\) 端分量做同样的线性组合，结果也为 0 时，方程才有解。</li>
+</ol>
+
+<h4 id="812-ax--b-的解结构">8.1.2 Ax = b 的解结构</h4>
+<ol>
+  <li>
+    <p>特解</p>
+
+    <p>解法：令所有自由变量取 0，则有
+ \(\Big\lbrace
+ \begin{aligned}
+   x_1 + 2x_3 &amp; = 1 \\
+   2x_3 &amp; = 3
+ \end{aligned}\)，解得
+ \(\Big\lbrace
+ \begin{aligned}
+   x_1 &amp; = -2 \\
+   x_3 &amp; = \frac{3}{2}
+ \end{aligned}\)</p>
+
+    <p>代入 \(Ax=b\) 求得特解： 
+ \(x_p=
+ \begin{bmatrix}-2 \\ 
+   0 \\ 
+   \frac{3}{2} \\ 
+   0
+ \end{bmatrix}\)</p>
+  </li>
+  <li>
+    <p>通解</p>
+
+    <p>令 \(Ax=b\) 成立的所有解：
+ \(\Big\lbrace
+ \begin{aligned}
+   A x_p &amp; = b \\
+   A x_n &amp; = 0
+ \end{aligned}
+ \quad
+   \rightarrow{}
+ \quad
+ A(x_p+x_n)=b\)</p>
+
+    <p>即 \(Ax=b\) 的解集为其特解加上零空间。对本例有：</p>
+
+\[x_{\text{complete}}=
+ \begin{bmatrix}-2 \\ 
+   0 \\ 
+   \frac{3}{2} \\ 
+   0
+ \end{bmatrix}
+ +c_1
+ \begin{bmatrix}
+   -2\\
+   1\\
+   0\\
+   0
+ \end{bmatrix}
+ +c_2
+ \begin{bmatrix}
+   2\\
+   0\\
+   -2\\
+   1
+ \end{bmatrix}\]
+  </li>
+</ol>
+
+<h3 id="82-秩-r-与-ax--b-的解关系">8.2 秩 r 与 Ax = b 的解关系</h3>
+<p>对于 \(m \times n\) 矩阵 \(A\)，有矩阵 \(A\) 的秩 \(r \leq \min(m, n)\)。</p>
+
+<h4 id="821-列满秩">8.2.1 列满秩</h4>
+
+<p>主元变量为 \(n\)，没有自由变量。因为没有自由变量可以赋值，所以列的线性组合得不到 0（因为如果存在非零 \(x\) 使 \(Ax=0\) 成立，那么 \(A\) 中有一列是没有贡献的，既然没有贡献，那么也就不存在列满秩的情况了）。</p>
+
+<p>所以列满秩的解的情况：0 或 1 个特解。</p>
+
+<p>举例：</p>
+
+<p>列满秩 \(r=n\) 情况：</p>
+
+\[A=
+\begin{bmatrix}
+  1 &amp; 3 \\
+  2 &amp; 1 \\
+  6 &amp; 1 \\
+  5 &amp; 1
+\end{bmatrix}
+，
+R=
+\begin{bmatrix}
+  1 &amp; 0 \\
+  0 &amp; 1 \\
+  0 &amp; 0 \\
+  0 &amp; 0
+\end{bmatrix}\]
+
+<p>\(\text{rank}(A)=2\)，要使 \(Ax=b, b \neq 0\) 有非零解，\(b\) 必须取 \(A\) 中各列的线性组合，此时 \(A\) 的零空间中只有 \(0\) 向量。</p>
+
+<p><strong>P.S.</strong> 因为行向量是 2 维的，且前两行线性无关，2 维平面中有两个向量线性无关，那该平面的所有向量都可以由这两个向量线性组合得到，所以后面两行一定会是 0 行。</p>
+
+<h4 id="822-行满秩">8.2.2 行满秩</h4>
+<p>每行都有主元，不存在 0 行，那么 \(b\) 就没有要求，而且有 \(n-r\) 个自由变量，所以解有无穷多个。</p>
+
+<p>举例：</p>
+
+<p>行满秩 \(r=m\) 情况：</p>
+
+\[A=
+\begin{bmatrix}
+  1 &amp; 2 &amp; 6 &amp; 5 \\
+  3 &amp; 1 &amp; 1 &amp; 1
+\end{bmatrix},
+
+R=
+\begin{bmatrix}
+  1 &amp; 0 &amp; - &amp; - \\
+  0 &amp; 1 &amp; - &amp; -
+\end{bmatrix}\]
+
+<p>\(\text{rank}(A)=2\)，\(\forall b \in R^m\) 都有 \(x \neq 0\) 的解，因为此时 \(A\) 的列空间为 \(R^m\)，\(b \in R^m\) 恒成立，组成 \(A\) 的零空间的自由变量有 \(n-r\) 个。</p>
+
+<h4 id="823-行列满秩">8.2.3 行列满秩</h4>
+<p>代表的是满秩方阵，消元到最简形式是单位矩阵，是一个可逆矩阵，结合 \(r=m\) 和 \(r=n\) 的解的情况得出此时一定有一个解 \(b\)，\(b\) 满足是 \(A\) 向量的线性组合。</p>
+
+<p>举例：</p>
+
+<p>行列满秩情况：\(r=m=n\)，如：</p>
+
+\[A=
+\begin{bmatrix}
+  1 &amp; 2 \\
+  3 &amp; 4
+\end{bmatrix}\]
+
+<p>则 \(A\) 最终可以化简为 \(R=I\)，其零空间只包含 \(0\) 向量。</p>
+
+<h4 id="824-总结">8.2.4 总结</h4>
+
+\[\begin{array}{c|c|c|c}
+  r=m=n &amp; r=n&lt;m &amp; r=m&lt;n &amp; r&lt;m,r&lt;n \\
+
+  R=I &amp; R=\begin{bmatrix}I\\0\end{bmatrix} &amp; R=\begin{bmatrix}I&amp;F\end{bmatrix} &amp; R=\begin{bmatrix}I&amp;F\\0&amp;0\end{bmatrix} \\
+  
+  \text{1 solution} &amp; \text{0 or 1 solution} &amp; \infty \text{ solution} &amp; \text{0 or } \infty \text{ solution}
+\end{array}\]
+
+<p> </p>
+<h2 id="9-线性相关性基维数">9. 线性相关性、基、维数</h2>
+<h3 id="91-线性相关性">9.1 线性相关性</h3>
+<p>\(v_1,\ v_2,\ \cdots,\ v_n\) 是 \(m \times n\) 矩阵 \(A\) 的列向量：</p>
+
+<p>如果 \(A\) 零空间中有且仅有 \(0\) 向量，则各向量线性无关，\(\text{rank}(A)=n\)。</p>
+
+<p>如果存在非零向量 \(c\) 使得 \(Ac=0\)，则存在线性相关向量，\(\text{rank}(A)\lt n\)。</p>
+
+<h3 id="92-基">9.2 基</h3>
+<p>向量空间 \(S\) 中的一组基（basis），具有两个性质：</p>
+
+<ol>
+  <li>他们线性无关；</li>
+  <li>他们可以生成 \(S\)。</li>
+</ol>
+
+<p>对于向量空间 \(R^n\)，如果 \(n\) 个向量组成的矩阵为可逆矩阵，则这 \(n\) 个向量为该空间的一组基，而数字 \(n\) 就是该空间的维数（dimension）。</p>
+
+<h3 id="93-维数">9.3 维数</h3>
+<p>举例：</p>
+
+\[A=
+\begin{bmatrix}
+  1 &amp; 2 &amp; 3 &amp; 1 \\
+  1 &amp; 1 &amp; 2 &amp; 1 \\
+  1 &amp; 2 &amp; 3 &amp; 1
+\end{bmatrix}\]
+
+<p>\(A\) 的列向量线性相关，其零空间中有非零向量，所以：</p>
+
+\[\text{rank}(A)=2=\text{主元存在的列数}=\text{列空间维数}\]
+
+<p>可以很容易的求得 \(Ax=0\) 的两个解，如：</p>
+
+\[x_1=
+\begin{bmatrix}-1 \\
+  -1 \\
+  1 \\
+  0
+\end{bmatrix}，
+x_2=
+\begin{bmatrix}
+  -1 \\
+  0 \\
+  0 \\
+  1
+\end{bmatrix}\]
+
+<p>根据前几讲，我们知道特解的个数就是自由变量的个数，所以：</p>
+
+\[n-\text{rank}(A) = 2 = \text{自由变量存在的列数} = \text{零空间维数}\]
+
+<p>可以得到：列空间维数 \(\dim C(A)=\text{rank}(A)\)，零空间维数 \(\dim N(A)=n-\text{rank}(A)\)。</p>
+
+<h2 id="参考">参考</h2>
+
+<ol>
+  <li>
+    <p><a href="http://open.163.com/special/opencourse/daishu.html" target="_blank">MIT - 18.06 Linear Algebra</a></p>
+  </li>
+  <li>
+    <p><a href="http://cs229.stanford.edu/summer2019/cs229-linalg.pdf" target="_blank">Stanford - CS229 Machine Learning (Linear Algebra)</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/zlotus/notes-linear-algebra" target="_blank">Github - zlotus/notes-linear-algebra</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/apachecn/18.06-linalg-notes" target="_blank">Github - apachecn/18.06-linalg-notes</a></p>
+  </li>
+</ol>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/11/30/dynamo/" data-toggle="tooltip" data-placement="top" title="Dynamo 论文总结">
+                        Previous<br>
+                        <span>Dynamo 论文总结</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/02/15/rnn-with-its-friends/" data-toggle="tooltip" data-placement="top" title="RNN 和它的朋友们">
+                        Next<br>
+                        <span>RNN 和它的朋友们</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+                
+                <section class="author-profile">
+    <div class="info"> 
+        <div class="avatar">
+            <img src="/img/header-avatar.jpeg">
+        </div>
+        <h1>Renovamen</h1>
+    </div>
+    <span>
+        <a href="https://www.jinrishici.com/" target="_blank">
+            <i class="fas fa-pencil-alt"></i>
+        </a>
+        <p id="poem-item">作诗中...</p>
+        <br><p id="poem-info"></p>
+    </span>
+</section>
+                
+                
+                    <!-- Comment container -->
+
+<!-- disqus -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+</div>
+
+<!-- Valine -->
+
+                
+            </div>  
+
+            <!-- Side Catalog Container -->
+            
+                <!-- Side Catalog Container -->
+<div class="
+    col-lg-2 col-lg-offset-0
+    sidebar-container
+    catalog-container">
+    <div class="side-catalog">
+        <hr class="hidden-sm hidden-xs">
+        <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+        </h5>
+        <ul class="catalog-body"></ul>
+    </div>
+</div>
+            
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+
+<script>
+    $("script[type='math/tex']").replaceWith(function() {
+        var tex = $(this).text();
+        return katex.renderToString(tex, {displayMode: false});
+    });
+  
+    $("script[type='math/tex; mode=display']").replaceWith(function() {
+        var tex = $(this).html();
+        return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+    });
+</script>
+    
+
+
+<!-- Renovamen: add support for chart and mermaid -->
+
+    <!-- Borrowed from: https://github.com/kitian616/jekyll-TeXt-theme -->
+<!-- Chart.js: https://www.chartjs.org/docs/latest/ -->
+<script>
+    LazyLoad.js("https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js", function(){
+        var $canvas = null, $this = null, _ctx = null, _text = '';
+        $('.language-chart').each(function(){
+            $this = $(this);
+            $canvas = $('<canvas></canvas>');
+            _text = $this.text();
+            $this.text('').append($canvas);
+            _ctx = $canvas.get(0).getContext('2d');
+            (_ctx && _text) && (new Chart(_ctx, JSON.parse(_text)) && $this.attr('data-processed', true));
+        });
+    })
+
+    $('.language-chart').parent().css({
+        "background-color": "transparent",
+        "border": "none",
+    });
+</script>
+
+
+
+
+
+    <!-- Borrowed from: https://github.com/kitian616/jekyll-TeXt-theme -->
+<!-- mermaid.js: https://mermaid-js.github.io/mermaid/ -->
+<script>
+    LazyLoad.js('https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js', function() {
+        mermaid.initialize({
+            startOnLoad: true
+        });
+        mermaid.init(undefined, '.language-mermaid');
+    });
+
+    $('.language-mermaid').parent().css({
+        "background-color": "transparent",
+        "border": "none",
+    });
+</script>
+
+
+<!-- Renovamen: add support for additional emoji -->
+
+    <script>
+$('.emoji-plus').each(function(){
+    var $this = $(this);
+    var imgURL = '/img/emoji/bilitv/' + $this.text() + '.gif';
+    var $img = $('<img class="emoji-plus" src="' + imgURL + '" height="30" width="30">');
+    $this.replaceWith($img);
+});
+</script>
+
+
+<!-- comment -->
+
+    <!-- Gitalk start -->
+<script type="text/javascript">
+    LazyLoad.js(['/js/library/md5.js ', 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js'], function(){
+        var gitalk = new Gitalk({
+            clientID: 'd6247712dc288a5a60ca',
+            clientSecret: 'ed1ec72417828343c79ed910a1b77d140fa715a7',
+            repo: 'gitalk-comments',
+            owner: 'This-is-an-Apple',
+            admin: ['Renovamen', 'This-is-an-Apple'],
+            id: md5(location.pathname),
+            distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+    })
+</script>
+<!-- Gitalk end -->
+
+
+
+
+
+
+    <!-- anchor.js: http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    LazyLoad.js("https://cdn.jsdelivr.net/npm/anchor-js@4.2.2/anchor.min.js", function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- Renovamen: add support 今日诗词: https://www.jinrishici.com/ -->
+<script type="text/javascript">
+    LazyLoad.js(['https://sdk.jinrishici.com/v2/browser/jinrishici.js'], function(){
+        jinrishici.load(function(result) {
+            var poem = document.querySelector('#poem-item');
+            var info = document.querySelector('#poem-info');
+
+            if (result.status === "success") {
+                var data = result.data
+                console.log(data)
+                poem.innerHTML = data.content;
+                info.innerHTML = '【' + data.origin.dynasty + '】' + data.origin.author + '《' + data.origin.title + '》';
+            }
+        });
+    })
+</script>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                <!-- 
+
+
+<div class="list-inline text-center">
+
+  
+  <a target="_blank" href="https://github.com/Renovamen">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github-alt fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.linkedin.com/in/xiaohan-zou-55bba0160">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.facebook.com/renovamen.zou">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://twitter.com/renovamen_zxh">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.zhihu.com/people/chao-neng-gui-su">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+  
+  
+  
+  <a href="mailto:renovamenzxh@gmail.com">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="/feed.xml">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+</div> -->
+                <p class="copyright">
+                    &copy; <a href="https://github.com/Renovamen" target="_blank">Renovamen</a> 2018
+                    <br>
+                    Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/Renovamen/renovamen.github.io" target="_blank">Gungnir</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<!-- Renovamen: has been included in `head.html` already -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<!-- Renovamen: Maybe don't need this anymore -->
+<!-- <script src="/js/library/bootstrap.min.js "></script> -->
+
+<!-- add dark / light detection -->
+<!-- dark / light detection, borrowed from gridsome.org -->
+<script>
+  (function() {
+    window.__onThemeChange = function() {};
+    function setTheme(newTheme) {
+      window.__theme = newTheme;
+      preferredTheme = newTheme;
+      document.body.setAttribute('data-theme', newTheme);
+      window.__onThemeChange(newTheme);
+      setThemeIcon(newTheme)
+    }
+
+    var preferredTheme;
+    try {
+      preferredTheme = localStorage.getItem('theme');
+    } catch (err) { }
+
+    window.__setPreferredTheme = function(newTheme) {
+      setTheme(newTheme);
+      try {
+        localStorage.setItem('theme', newTheme);
+      } catch (err) {}
+    }
+
+    var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    darkQuery.addListener(function(e) {
+      window.__setPreferredTheme(e.matches ? 'dark' : 'light');
+    });
+
+    setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+  })();
+</script>
+
+<!-- Theme JavaScript -->
+<script src="/js/gungnir.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/js/snackbar.js"></script>
+<script src="/js/sw-registration.js"></script>
+
+
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!--fastClick.js -->
+<script>
+    LazyLoad.js("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+    <!-- Google Analytics -->
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-146858305-1';
+    var _gaDomain = 'renovamen.ink';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+    <!-- Baidu Tongji -->
+<script>
+    // dynamic User by Hux
+    var _baId = '75381d210789d3eaf855fa16246860cc';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+    <!-- tocbot: https://github.com/tscanlin/tocbot -->
+
+<!-- 
+    Didn't use lazyload here because it will cause some bugs in catalog 
+    generating when swtiching between two languages. 
+    I'm trying to find a better solution.
+-->
+
+<link href="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/npm/tocbot@4.10.0/dist/tocbot.min.js"></script>
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // links page
+        if('post' == 'links') {
+            _containerSelector = 'div.link-list'
+        }
+        // interop with multilangual 
+        else {
+            if ('' == 'true') {
+                _containerSelector = 'div.post-container.active'
+            } 
+            else {
+                _containerSelector = 'div.post-container'
+            }
+        }
+        
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: selector,
+            // Where to grab the headings to build the table of contents.
+            contentSelector: _containerSelector,
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h2, h3, h4, h5, h6',
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+    </div>
+
+    <!-- modify styles of navbar on mobile -->
+    <div class="mobile-nav">
+    <div class="mobile-menu-avatar">
+        <div class="avatar-container">
+            <img src="/img/header-avatar.jpeg">
+        </div>
+    </div>
+    <p class="mobile-menu-heading">Meow?</p>
+    
+
+
+<div class="list-inline text-center">
+
+  
+  <a target="_blank" href="https://github.com/Renovamen">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github-alt fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.linkedin.com/in/xiaohan-zou-55bba0160">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.facebook.com/renovamen.zou">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://twitter.com/renovamen_zxh">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="https://www.zhihu.com/people/chao-neng-gui-su">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+  
+  
+  
+  <a href="mailto:renovamenzxh@gmail.com">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+  
+  <a target="_blank" href="/feed.xml">
+    <span class="fa-stack fa-lg">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+  
+</div>
+    <ul>
+        
+        <li>
+            
+            <a href="/" class="faa-parent animated-hover">
+            
+                
+                <i class="fab fa-fort-awesome fa-lg faa-wrench"></i>
+                
+                Home
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a href="/about/" class="faa-parent animated-hover">
+            
+                
+                <i class="fas fa-paw fa-lg faa-wrench"></i>
+                
+                About
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a href="/archive/" class="faa-parent animated-hover">
+            
+                
+                <i class="fas fa-archive fa-lg faa-wrench"></i>
+                
+                Archive
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a href="/links/" class="faa-parent animated-hover">
+            
+                
+                <i class="fas fa-link fa-lg faa-wrench"></i>
+                
+                Links
+            </a>
+            
+        </li>
+        
+
+        <li>
+            <a id="mobile-search-btn" class="faa-parent animated-hover">
+                <i class="fas fa-search fa-lg faa-wrench"></i> Search
+            </a>
+        </li>
+    </ul>
+</div>
+
+    <!-- support search -->
+    <div id="search" class="search-page">
+
+    <i class="search-close fas fa-chevron-down"></i>
+    <p class="search-title text-center"></p>
+
+    <div class="input">
+        <input 
+            id="search-input" 
+            type="text" 
+            class="search-field" 
+            placeholder="Just search ..." 
+            onkeypress="checkCode()"
+            style="background-color: transparent"
+        >
+    </div>
+    <div id="search-results" class="search-results"></div>
+
+    <img class="search-img-right" src="/img/search-right.gif"/>
+</div><script>
+    // simple-jekyll-search.js
+    LazyLoad.js("https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js", function(){
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('search-results'),
+            json: '/search.json',
+            searchResultTemplate: '<li class="result-item item"><a href="{url}" title="{desc}"><div class="result-item-title">{title}</div><div class="result-item-subtitle">{subtitle}</div></a></li>',
+            noResultsText: '<li class="result-item item"><div class="result-item-title">No Results</div></li>',
+            limit: 20,
+            fuzzy: false
+        })
+    })
+
+    // search-results 高度适配
+    $('.search-results').css({
+        'height': $(window).height() - 200 + "px"
+    });
+
+    function checkCode() {
+        if (event.keyCode == 13) {
+            getCode = $('#search-input').val();
+            if(getCode == "cd dark universe") {
+                window.location.href = "https://renovamen.gitee.io/dark-universe/";
+            }
+            else if(getCode == "cd resume") {
+                window.location.href = "https://renovamen.ink/Endless-Resume/";
+            }
+        }
+    }
+
+    function autoFocus() {
+        setTimeout(function () {
+            document.querySelector('.search-page input').focus();
+        }, 400);
+    }
+
+    // open search page
+    $('#search-btn').click(function() {
+        $('.search-page').toggleClass('open')
+        autoFocus()
+    });
+
+    // open search page (mobile)
+    $('#mobile-search-btn').click(function() {
+        $('.search-page').toggleClass('open')
+        autoFocus()
+    });
+
+    // close search page
+    $('.search-close').click(function() {
+        $('.search-page').toggleClass('open')
+    });
+</script>
+    
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
