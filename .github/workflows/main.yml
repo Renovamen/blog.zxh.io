@@ -22,15 +22,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      # Install dependencies for Jekyll
+      # Install Jekyll
       - name: jekyll env
         run: |
-          bundle install
-          bundle list | grep "jekyll ("
+          gem install jekyll
 
       # Build Jekyll site
       - name: build
-        run: bundle exec jekyll build
+        run: jekyll build
       
       # Prepare git environmentt
       - name: git env
