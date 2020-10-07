@@ -11,7 +11,7 @@ pre.highlight {
     .k   { color: $highlight-purple; } // Keyword
     .l   { color: $highlight-orange; } // Literal
     .n   { color: $highlight-foreground; } // Name
-    .o   { color: $highlight-aqua; } // Operator
+    .o   { color: $highlight-purple; } // Operator
     .p   { color: $highlight-foreground; } // Punctuation
     .cm  { color: $highlight-comment; } // Comment.Multiline
     .cp  { color: $highlight-comment; } // Comment.Preproc
@@ -24,7 +24,7 @@ pre.highlight {
     .gp  { font-weight: bold; color: $highlight-comment; } // Generic.Prompt
     .gs  { font-weight: bold; } // Generic.Strong
     .gu  { font-weight: bold; color: $highlight-aqua; } // Generic.Subheading
-    .kc  { color: $highlight-purple; } // Keyword.Constant
+    .kc  { color: $highlight-orange; } // Keyword.Constant
     .kd  { color: $highlight-purple; } // Keyword.Declaration
     .kn  { color: $highlight-aqua; } // Keyword.Namespace
     .kp  { color: $highlight-purple; } // Keyword.Pseudo
@@ -33,7 +33,7 @@ pre.highlight {
     .ld  { color: $highlight-green; } // Literal.Date
     .m   { color: $highlight-orange; } // Literal.Number
     .s   { color: $highlight-green; } // Literal.String
-    .na  { color: $highlight-blue; } // Name.Attribute
+    .na  { color: $highlight-red; } // Name.Attribute
     .nb  { color: $highlight-foreground; } // Name.Builtin
     .nc  { color: $highlight-yellow; } // Name.Class
     .no  { color: $highlight-red; } // Name.Constant
@@ -114,7 +114,7 @@ pre.highlight {
     }
   }
   td.rouge-gutter {
-    width: 56px;
+    width: 53px;
   }
   .lineno {
     text-align: right;
