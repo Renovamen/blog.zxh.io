@@ -62,6 +62,21 @@
 	font-family: "Montserrat", sans-serif;
 }
 
+@mixin code-font {
+    font-family:
+        'Source Code Pro',
+        'Menlo',
+        'Consolas',
+        'DejaVu Sans Mono',
+        monospace,
+        Helvetica,
+        Tahoma, Arial,
+        STXihei,
+        'STHeiti Light',
+        'Microsoft YaHei',
+        sans-serif;
+}
+
 // ---------------- Animation ----------------
 
 @mixin transition($value) {

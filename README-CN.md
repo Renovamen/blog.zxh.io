@@ -30,7 +30,7 @@
 - 明亮和夜间模式：识别系统的外观设置并自动切换模式，也支持用户手动切换
 - 搜索（使用了 [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search)）
 - 文章目录（使用了 [Tocbot](https://github.com/tscanlin/tocbot)）
-- 多种代码高亮主题（使用了 [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme)）
+- 基于 [Highlight.js](https://github.com/highlightjs) 的代码高亮渲染，还支持代码块全屏和光标所在行高亮（从 WordPress 主题 [Sakura](https://github.com/mashirozx/Sakura) 搬过来的功能）
 - 支持在文章中使用 [Mathjax](https://github.com/mathjax/MathJax)、[Katex](https://github.com/KaTeX/KaTeX)、[Chart.js](https://github.com/chartjs/Chart.js) 和 [mermaid](https://github.com/mermaid-js/mermaid)
 - 文章中的一些附加样式（提示和标签）
 - 支持在文章中使用 emoji（使用了 [jemoji](https://github.com/jekyll/jemoji)）和其他表情（比如 B 站小电视）

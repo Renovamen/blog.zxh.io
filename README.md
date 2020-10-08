@@ -30,7 +30,7 @@ Check out the documentation [here](https://renovamen.ink/theme/). It supports Ch
 - Dark and light themes: system theme detection with a theme-switcher to set the theme as per the user preference
 - Search (based on [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search))
 - Table of contents (based on [Tocbot](https://github.com/tscanlin/tocbot))
-- Highlight themes (based on [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme))
+- Syntax highlighting based on [Highlight.js](https://github.com/highlightjs), support opening code blocks in full screen and highlighting the current line (adapted from a WordPress theme [Sakura](https://github.com/mashirozx/Sakura))
 - Support [Mathjax](https://github.com/mathjax/MathJax), [Katex](https://github.com/KaTeX/KaTeX), [Chart.js](https://github.com/chartjs/Chart.js) and [mermaid](https://github.com/mermaid-js/mermaid)
 - Additional styles (alert and tag)
 - Support Markdown emoji (based on [jemoji](https://github.com/jekyll/jemoji)) and additional emoji (for example, bilibili tv)

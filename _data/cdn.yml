@@ -18,6 +18,8 @@ jsdelivr:
     js: https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js
   simple-jekyll-search: https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
   scrollreveal: https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js
+  highlight: https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js
+  highlight-line-number: https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js
 
 bootcdn:
   bootstrap-css: https://cdn.bootcss.com/twitter-bootstrap/3.3.2/css/bootstrap.min.css
@@ -39,6 +41,8 @@ bootcdn:
     js: https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js
   simple-jekyll-search: https://cdn.bootcss.com/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
   scrollreveal: https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.min.js
+  highlight: https://cdn.bootcdn.net/ajax/libs/highlight.js/10.2.1/highlight.min.js
+  highlight-line-number: https://cdn.bootcdn.net/ajax/libs/highlightjs-line-numbers.js/2.6.0/highlightjs-line-numbers.min.js
 
 unpkg:
   bootstrap-css: https://unpkg.com/bootstrap@3.3.2/dist/css/bootstrap.min.css
@@ -60,6 +64,8 @@ unpkg:
     js: https://unpkg.com/katex@0.11.1/dist/katex.min.js
   simple-jekyll-search: https://unpkg.com/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js
   scrollreveal: https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.min.js
+  highlight: https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js
+  highlight-line-number: https://unpkg.com/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js
 
 cdnjs:
   bootstrap-css: https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css
@@ -81,3 +87,5 @@ cdnjs:
     js: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js
   simple-jekyll-search: https://cdnjs.cloudflare.com/ajax/libs/simple-jekyll-search/1.7.3/simple-jekyll-search.min.js
   scrollreveal: https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.5/scrollreveal.min.js
+  highlight: https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.1/highlight.min.js
+  highlight-line-number: https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.6.0/highlightjs-line-numbers.min.js

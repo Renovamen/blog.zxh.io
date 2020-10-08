@@ -4,27 +4,27 @@ SEOTitle: Renovamen (Xiaohan Zou)
 email: renovamenzxh@gmail.com
 description: Xiaohan Zou's blog
 keyword: ""
-url: "https://renovamen.ink"              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
-avatar: "img/header-avatar.jpeg" # the avatar showing on the homepage
+url: "https://renovamen.ink"      # your host, for absolute URL
+baseurl: ""                       # for example, '/blog' if your blog hosted on 'host/blog'
+avatar: "img/header-avatar.jpeg"  # the avatar showing on the homepage
 
 
 # Theme style settings
 theme_style: 
-  highlight: # "default" (default), "tomorrow-light", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-  alert:  # "flat" (default), "modern"
-  # Whether or not to display post's featured image on home page
+  highlight:    # "dark" (default), "light"
+  alert:        # "flat" (default), "modern"
   post_preview: # "image" (default), "text"
+                # display post's featured image on homepage or not
 
 
 # Markdown enhancements settings
 math: 
-  enable: true # false (default), true 
-               # math rendering for all posts and keynotes
-  engine: # "katex" (default), "mathjax"
-chart: true # false (default), true
-mermaid: true # false (default), true
-emoji-plus: true # false (default), true
+  enable: true    # false (default), true 
+                  # math rendering for all posts and keynotes
+  engine:         # "katex" (default), "mathjax"
+chart: true       # false (default), true
+mermaid: true     # false (default), true
+emoji-plus: true  # false (default), true
 
 
 # CDN source settings
@@ -57,7 +57,7 @@ sns:
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
-highlighter: rouge
+# highlighter: rouge
 permalink: pretty
 paginate: 10
 exclude:
@@ -70,34 +70,29 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - /node_modules
-anchorjs: true                          # if you want to customize anchor. check out `anchor.html`
+anchorjs: true  # if you want to customize anchor. check out `anchor.html`
 # If you have timezone issue (e.g. #68) in China, uncomment to use this:
-#timezone: CN  
+# timezone: CN  
 
 
 # Gems
-# from PR#40, to support local preview for Jekyll 3.0
-# make sure you have this gem installed
-# `$ gem install jekyll-paginate`
+# you have to `bundle config set path 'vendor/bundle' && bundle install` before local preview
 plugins:
   - jekyll-paginate
   - jemoji
 
 
-
 # Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
-# document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
 kramdown:
-  input: GFM                            # use Github Flavored Markdown !important
+  input: GFM                       # use Github Flavored Markdown !important
   syntax_highlighter_opts:
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
+    disable: true                  # we use highlight.js for syntax highlighting, so we disable rouge here
+    # span:
+    #   line_numbers: false
+    # block:
+    #   line_numbers: true
+    #   start_line: 1
 
 
 # Navigation menu settings

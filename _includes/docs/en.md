@@ -68,9 +68,9 @@ theme_style:
   post_preview: # style of the post list showing on home page
 ```
 
-#### Highlight Theme
+#### Highlight
 
-The default highlight theme looks like this:
+[Highlight.js](https://highlightjs.org/){:target="_blank"} instead of [Rouge](http://rouge.jneen.net/){:target="_blank"} is used as syntax highlighter. The default syntax highlighting style of this theme looks like this:
 
 ```python
 import food
@@ -92,16 +92,10 @@ while True:
     me.eat(10)
 ```
 
-[Tomorrow](https://github.com/chriskempson/tomorrow-theme){:target="_blank"} can also be chosen as highlight theme:
+Click the span in the upper-right corner to make the code block full screen.
 
-| `default` | `night` | `night-bright` | `night-eighties` | `night-blue` |
-| :--: | :--: | :--: | :--: | :--: |
-| ![highlight-default](../img/docs/highlight-default.png) | ![highlight-night](../img/docs/highlight-night.png) | ![highlight-night-bright](../img/docs/highlight-night-bright.png) | ![highlight-night-eighties](../img/docs/highlight-night-eighties.png) | ![highlight-night-blue](../img/docs/highlight-night-blue.png) |
+Highlighting stylesheets could be found [here](https://github.com/Renovamen/renovamen.github.io/tree/master/_sass/highlight){:target="_blank"}. You can also modify theme to create your own theme, or just import the [stylesheets](https://github.com/highlightjs/highlight.js/tree/master/src/styles){:target="_blank"} provided by Highlight.js.
 
-The default theme is `default`, you can also specify other themes:
-```yaml
-highlight: # "default" (default), "tomorrow-light", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-```
 
 #### Alert
 
@@ -372,7 +366,7 @@ Katex is faster than Mathjax (check it out [here](https://katex.org/){:target="_
 
 Math rendering will only be enabled for the articles with `math: true` in their Front-matter when `math.enable: false` is set in `_config.yml`:
 
-```markdown
+```yaml
 ---
 layout: post
 math: true
@@ -393,7 +387,7 @@ i\hbar\frac{\partial \psi}{\partial t} = \frac{-\hbar^2}{2m} ( \frac{\partial^2}
 $$
 
 
-```latex
+```plaintext
 $$ E = mc^2 $$
 
 $$
@@ -450,45 +444,46 @@ Example：
 }
 ```
 
-
-    ```chart
-    {
-        "type": "bar",
-        "data": {
-            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-            "datasets": [{
-                "label": "# of Votes",
-                "data": [12, 19, 3, 5, 2, 3],
-                "backgroundColor": [
-                    "rgba(255, 99, 132, 0.2)",
-                    "rgba(54, 162, 235, 0.2)",
-                    "rgba(255, 206, 86, 0.2)",
-                    "rgba(75, 192, 192, 0.2)",
-                    "rgba(153, 102, 255, 0.2)",
-                    "rgba(255, 159, 64, 0.2)"
-                ],
-                "borderColor": [
-                    "rgba(255, 99, 132, 1)",
-                    "rgba(54, 162, 235, 1)",
-                    "rgba(255, 206, 86, 1)",
-                    "rgba(75, 192, 192, 1)",
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(255, 159, 64, 1)"
-                ],
-                "borderWidth": 1
+<pre><code class="json">```chart
+{
+    "type": "bar",
+    "data": {
+        "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        "datasets": [{
+            "label": "# of Votes",
+            "data": [12, 19, 3, 5, 2, 3],
+            "backgroundColor": [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)"
+            ],
+            "borderColor": [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)"
+            ],
+            "borderWidth": 1
+        }]
+    },
+    "options": {
+        "scales": {
+            "yAxes": [{
+                "ticks": {
+                    "beginAtZero": true
+                }
             }]
-        },
-        "options": {
-            "scales": {
-                "yAxes": [{
-                    "ticks": {
-                        "beginAtZero": true
-                    }
-                }]
-            }
         }
     }
-    ```
+}
+```
+</code></pre>
+
 
 `Note`{:.warning}：the `key` in `json` should be with **quotes**, or there will be some unexpected errors...
 
@@ -600,13 +595,16 @@ Example:
 This is an image.
 {:.desc}
 
-    ![](../img/theme.jpg)
+<pre><code class="markdown">![](../img/theme.jpg)
 
     This is an image.
     {:.desc}
+</code></pre>
 
 
 ## Libraries
+
+Here are all open source libraries used by this theme.
 
 ### CSS
 
@@ -625,6 +623,8 @@ This is an image.
 - [mermaid](https://github.com/mermaid-js/mermaid){:target="_blank"} ([diagrams](#diagram-mermaid))
 - [MathJax](https://github.com/mathjax/MathJax){:target="_blank"} (math rendering)
 - [Katex](https://github.com/KaTeX/KaTeX){:target="_blank"} (math rendering)
+- [Hightlight.js](https://github.com/highlightjs/highlight.js){:target="_blank"} (syntax highlighting)
+- [hightlight-line-number.js](https://github.com/wcoder/highlightjs-line-numbers.js/){:target="_blank"} (Highlight.js line numbers plugin)
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search){:target="_blank"} (search)
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"} (remove click delays on mobile browsers)
 - [LazyLoad](https://github.com/rgrove/lazyload){:target="_blank"} (lazyload JavaScript and CSS files)

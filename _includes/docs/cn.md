@@ -71,7 +71,7 @@ theme_style:
 
 #### 代码高亮
 
-默认的代码高亮大概长这样：
+代码高亮渲染用 [Highlight.js](https://highlightjs.org/){:target="_blank"} 代替了 [Rouge](http://rouge.jneen.net/){:target="_blank"}。默认的代码高亮大概长这样：
 
 ```python
 import food
@@ -93,17 +93,10 @@ while True:
     me.eat(10)
 ```
 
-也可以选用 [Tomorrow](https://github.com/chriskempson/tomorrow-theme){:target="_blank"} 作为代码高亮主题：
+点击显示编程语言的标签可以使代码块全屏，还有光标所在行高亮效果。如果你发现这两点跟 [Sakura](https://2heng.xin/theme-sakura/){:target="_blank"} 主题很像，那么没错这部分的代码就是从它那搬过来的...
 
+代码高亮的样式文件在 [`_sass/highlight`](https://github.com/Renovamen/renovamen.github.io/tree/master/_sass/highlight){:target="_blank"} 目录下，可以自行调整样式，或者直接引用 highlight.js 自带的[一堆主题](https://github.com/highlightjs/highlight.js/tree/master/src/styles){:target="_blank"}。
 
-| `light` | `night` | `night-bright` | `night-eighties` | `night-blue` |
-| :--: | :--: | :--: | :--: | :--: |
-| ![highlight-default](../img/docs/highlight-default.png) | ![highlight-night](../img/docs/highlight-night.png) | ![highlight-night-bright](../img/docs/highlight-night-bright.png) | ![highlight-night-eighties](../img/docs/highlight-night-eighties.png) | ![highlight-night-blue](../img/docs/highlight-night-blue.png) |
-
-默认主题为 `default`，指定其他主题：
-```yaml
-highlight: # "default" (default), "tomorrow-light", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-```
 
 #### 提示
 支持在 Markdown 中使用提示样式以呈现一些警告，[这里](#提示-1)是使用方法。指定提示风格：
@@ -300,10 +293,10 @@ hitokoto: true # default: false
 ```yaml
 description: # 想在首页显示的一句话
 header-img:
-    -   url: # 首页封面图路径1
-        mask: # 封面图1的遮罩（可选），格式：rgba(40, 57, 101, .4)
-    -   url: # 首页封面图路径2
-        mask: # 封面图1的遮罩（可选）
+  - url: # 首页封面图路径1
+    mask: # 封面图1的遮罩（可选），格式：rgba(40, 57, 101, .4)
+  - url: # 首页封面图路径2
+    mask: # 封面图1的遮罩（可选）
 ```
 
 在首页点击封面图左右两边的按钮可以在多图片之间进行切换。需要按上述格式在 `header-img` 下填入每张封面图的路径和遮罩的 RGB 数值（可选）。遮罩是指在封面图上盖一层半透明的颜色，如果图片比较复杂导致文字显示得不够清楚，可以考虑加个遮罩。
@@ -363,7 +356,7 @@ Katex 渲染速度快于 Mathjax（可以参考[这里](https://katex.org/){:tar
 
 如果 `_config.yml` 中 `math.enable: false`，则只有 Front-matter 中添加了 `mathjax: true` 的文章才会开启公式渲染：
 
-```markdown
+```yaml
 ---
 layout: post
 mathjax: true
@@ -383,7 +376,7 @@ i\hbar\frac{\partial \psi}{\partial t} = \frac{-\hbar^2}{2m} ( \frac{\partial^2}
 $$
 
 
-```latex
+```plaintext
 $$ E = mc^2 $$
 
 $$
@@ -440,45 +433,45 @@ $$
 }
 ```
 
-
-    ```chart
-    {
-        "type": "bar",
-        "data": {
-            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-            "datasets": [{
-                "label": "# of Votes",
-                "data": [12, 19, 3, 5, 2, 3],
-                "backgroundColor": [
-                    "rgba(255, 99, 132, 0.2)",
-                    "rgba(54, 162, 235, 0.2)",
-                    "rgba(255, 206, 86, 0.2)",
-                    "rgba(75, 192, 192, 0.2)",
-                    "rgba(153, 102, 255, 0.2)",
-                    "rgba(255, 159, 64, 0.2)"
-                ],
-                "borderColor": [
-                    "rgba(255, 99, 132, 1)",
-                    "rgba(54, 162, 235, 1)",
-                    "rgba(255, 206, 86, 1)",
-                    "rgba(75, 192, 192, 1)",
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(255, 159, 64, 1)"
-                ],
-                "borderWidth": 1
+<pre><code class="json">```chart
+{
+    "type": "bar",
+    "data": {
+        "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        "datasets": [{
+            "label": "# of Votes",
+            "data": [12, 19, 3, 5, 2, 3],
+            "backgroundColor": [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)"
+            ],
+            "borderColor": [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)"
+            ],
+            "borderWidth": 1
+        }]
+    },
+    "options": {
+        "scales": {
+            "yAxes": [{
+                "ticks": {
+                    "beginAtZero": true
+                }
             }]
-        },
-        "options": {
-            "scales": {
-                "yAxes": [{
-                    "ticks": {
-                        "beginAtZero": true
-                    }
-                }]
-            }
         }
     }
-    ```
+}
+```
+</code></pre>
 
 `注意`{:.warning}：`json` 中的 `key` 值一定要加**引号**，否则会渲染出错。
 
@@ -491,26 +484,26 @@ $$
 
 ```mermaid
 classDiagram
-      Animal <|-- Duck
-      Animal <|-- Fish
-      Animal <|-- Zebra
-      Animal : +int age
-      Animal : +String gender
-      Animal: +isMammal()
-      Animal: +mate()
-      class Duck{
-          +String beakColor
-          +swim()
-          +quack()
-      }
-      class Fish{
-          -int sizeInFeet
-          -canEat()
-      }
-      class Zebra{
-          +bool is_wild
-          +run()
-      }
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+        +String beakColor
+        +swim()
+        +quack()
+    }
+    class Fish{
+        -int sizeInFeet
+        -canEat()
+    }
+    class Zebra{
+        +bool is_wild
+        +run()
+    }
 ```
 
     ```mermaid
@@ -536,7 +529,6 @@ classDiagram
             +run()
         }
     ```
-
 
 #### 标签
 
@@ -641,11 +633,11 @@ gem install jemoji
 这是一张图片
 {:.desc}
 
-    ![](../img/theme.jpg)
+<pre><code class="markdown">![](../img/theme.jpg)
 
-    这是一张图片
-    {:.desc}
-
+这是一张图片
+{:.desc}
+</code></pre>
 
 ## 用到的开源库
 
@@ -666,6 +658,8 @@ gem install jemoji
 - [mermaid](https://github.com/mermaid-js/mermaid){:target="_blank"}（[图表](#mermaid)）
 - [MathJax](https://github.com/mathjax/MathJax){:target="_blank"}（公式渲染）
 - [Katex](https://github.com/KaTeX/KaTeX){:target="_blank"} （公式渲染）
+- [hightlight.js](https://github.com/highlightjs/highlight.js){:target="_blank"} （代码高亮渲染）
+- [hightlight-line-number.js](https://github.com/wcoder/highlightjs-line-numbers.js/){:target="_blank"} （给 hightlight.js 生成的代码块加行号的插件）
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search){:target="_blank"}（搜索）
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"}（解决移动设备上的点击延迟问题）
 - [LazyLoad](https://github.com/rgrove/lazyload){:target="_blank"}（JavaScript 和 CSS 文件延迟加载）

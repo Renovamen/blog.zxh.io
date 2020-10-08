@@ -24,7 +24,7 @@
     "layouts/portfolio",
     "layouts/404",
 
-    "highlight/{{ site.theme_style.highlight | default: 'default' }}",
+    "highlight/{{ site.theme_style.highlight | default: 'dark' }}",
 
     "additional/alert/{{ site.theme_style.alert | default: 'flat' }}",
     "additional/tag",
