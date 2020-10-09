@@ -5,11 +5,14 @@ layout: default
 <!-- Page Header -->
 {% include intro-header.html type='page' short=true %}
 
+{%- include utils/get-assets-baseurl.html -%}
+{%- assign _assets_baseurl = __return -%}
+
 <div class="portfolio container">
     {% for proj in site.projects %}
     <article class="item">
         {% if proj.img %}
-        <a class="item-thumbnail" style="background-image: url({{ site.baseurl }}/{{ proj.img }})"></a>
+        <a class="item-thumbnail" style="background-image: url({{ _assets_baseurl }}/{{ proj.img }})"></a>
         {% else %}
         {% endif %}
         <div class="item-content">

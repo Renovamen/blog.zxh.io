@@ -1,8 +1,11 @@
+{%- include utils/get-assets-baseurl.html -%}
+{%- assign _assets_baseurl = __return -%}
+
 <div class="container about-header">
     <div class="row">
         <div class="about-header-basic col-md-4">
             <div class = "photo-container">
-                <img src = "{{ page.avatar }}">
+                <img src = "{{ _assets_baseurl }}/{{ page.avatar }}">
             </div>
             <h3 class="about-title">{{ page.my-name }}</h3>
             <p class="also-called">{{ page.also-called }}</p>

@@ -3,12 +3,15 @@
     @param {boolean} short
 {% endcomment %}
 
+{%- include utils/get-assets-baseurl.html -%}
+{%- assign _assets_baseurl = __return -%}
+
 {% if include.type == 'post' or include.type == 'page' %}
     {% if page.homepage != true %}
     <style type="text/css">
         header.intro-header{
             position: relative;
-            background-image: url('{{ site.baseurl }}/{{ page.header-img }}');
+            background-image: url('{{ _assets_baseurl }}/{{ page.header-img }}');
             background: {{ page.header-bg-css }};
         }
 
@@ -26,7 +29,7 @@
     <style type="text/css">
         header.intro-header{
             position: relative;
-            background-image: url('{{ site.baseurl }}/{{ page.header-img[0].url }}');
+            background-image: url('{{ _assets_baseurl }}/{{ page.header-img[0].url }}');
             background: {{ page.header-bg-css }};
         }
 
@@ -144,7 +147,7 @@
 
     <div class="header-avatar">
         <a href="{{site.baseurl}}" >
-            <img src="{{site.baseurl}}/{{site.avatar}}">
+            <img src="{{ _assets_baseurl }}/{{ site.avatar }}">
         </a>
     </div>
 
@@ -238,7 +241,7 @@
         for(i=0; i<len; i++) {
             if(curImgURL.indexOf(headerImgList[i].url) != -1) {
                 newImg = headerImgList[(i + n + len) % len]
-                $(".intro-header").css("background-image", 'url("{{ site.baseurl }}/' + newImg.url + '")');
+                $(".intro-header").css("background-image", 'url("{{ _assets_baseurl }}/' + newImg.url + '")');
                 
                 if(newImg.mask) $(".header-mask").css("background", newImg.mask);
                 else $(".header-mask").css("background", "rgb(0, 0, 0, 0)");

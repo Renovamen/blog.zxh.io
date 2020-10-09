@@ -7,6 +7,9 @@ layout: default
 <!-- Page Header -->
 {% include intro-header.html type='page' short=true %}
 
+{%- include utils/get-assets-baseurl.html -%}
+{%- assign _assets_baseurl = __return -%}
+
 <div class="links-page container"> 
 
     <div class="row">
@@ -16,6 +19,8 @@ layout: default
             col-md-10 col-md-offset-1
             link-list">
 
+            {% assign _default_img = "/img/links/default.jpg" | prepend: _assets_baseurl %}
+
             {% if page.links %}
                 {% for group in page.links %}
                     <h2 class="section-title" id="{{ group.type | downcase | split: ' ' | join: '-'}}">{{group.type}}</h2>
@@ -23,7 +28,12 @@ layout: default
                         {% for item in group.items %}
                             <li>
                                 <a href="{{ item.url }}" target="_blank">
-                                    <img src="{{ item.img | default: '../img/links/default.jpg' }}">
+                                    {% if item.img %}
+                                        {% assign _img = item.img | prepend: _assets_baseurl %}
+                                    {% else %}
+                                        {% assign _img = _default_img %}
+                                    {% endif %}
+                                    <img src="{{ _img }}">
                                     <span class="sitename">{{item.sitename}}</span>
                                     <div class="desc">{{item.desc}}</div>
                                 </a>
@@ -36,7 +46,7 @@ layout: default
             <hr style="visibility: hidden;">
 
             {% if site.comment.provider and page.comment %}
-                {% include comment.html %}
+                {% include comments.html %}
             {% endif %}
         </div>  
 

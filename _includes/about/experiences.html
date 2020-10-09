@@ -1,3 +1,6 @@
+{%- include utils/get-assets-baseurl.html -%}
+{%- assign _assets_baseurl = __return -%}
+
 <div class="section work-experience">
     <h3 class="about-title">Experience</h3>
     <div class="row">
@@ -6,13 +9,13 @@
                 {% for exp in site.experiences %}
                 <li >
                     <div class="timeline-image">
-                        <img class="img-circle img-responsive" src="{{ site.baseurl }}/{{exp.img}}">
+                        <img class="img-circle img-responsive" src="{{ _assets_baseurl }}/{{ exp.img }}">
                     </div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <p class="time">{{exp.time}}</p>
-                            <p class="institution">{{exp.institution}}</p>
-                            <p class="job">{{exp.job}}</p>
+                            <p class="time">{{ exp.time }}</p>
+                            <p class="institution">{{ exp.institution }}</p>
+                            <p class="job">{{ exp.job }}</p>
                         </div>
                         <div class="timeline-body">
                             <p class="job-description">{{ exp.content }}</p>
@@ -23,7 +26,7 @@
 
                 <li class="timeline-inverted">
                     <div class="timeline-image">
-                        <img class="img-circle img-responsive" src="{{page.avatar}}">
+                        <img class="img-circle img-responsive" src="{{ _assets_baseurl }}/{{ page.avatar }}">
                     </div>
                 </li>
             </ul>

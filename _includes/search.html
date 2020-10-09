@@ -1,3 +1,6 @@
+{%- include utils/get-assets-baseurl.html -%}
+{%- assign _assets_baseurl = __return -%}
+
 <div id="search" class="search-page">
 
     <i class="search-close fas fa-chevron-down"></i>
@@ -15,7 +18,7 @@
     </div>
     <div id="search-results" class="search-results"></div>
 
-    <img class="search-img-right" src="/img/search-right.gif"/>
+    <img class="search-img-right" src="{{ '/img/search-right.gif' | prepend: _assets_baseurl }}"/>
 </div>
 
 <script>

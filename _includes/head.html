@@ -41,7 +41,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-    {%- include utils/get_cdn.html -%}
+    {%- include utils/get-cdn.html -%}
     {%- assign _cdn = __return -%}
 
     <!-- Bootstrap Core CSS -->
@@ -71,7 +71,7 @@
     <script></script>
     
     
-    {%- include utils/get_assets_baseurl.html -%}
+    {%- include utils/get-assets-baseurl.html -%}
     {%- assign _assets_baseurl = __return -%}
 
     <!-- I have compressed all js dependencies into `lib.min.js` using jsDelivr -->

@@ -1,0 +1,11 @@
+{%- include utils/get-assets-baseurl.html -%}
+{%- assign _assets_baseurl = __return -%}
+
+<script>
+$('.emoji-plus').each(function(){
+    var $this = $(this);
+    var imgURL = '/img/emoji/bilitv/' + $this.text() + '.gif';
+    var $img = $('<img class="emoji-plus" src="{{ _assets_baseurl }}' + imgURL + '" height="30" width="30">');
+    $this.replaceWith($img);
+});
+</script>
