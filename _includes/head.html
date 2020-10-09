@@ -69,9 +69,11 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
-
-    <!-- I have compressed all js dependencies into `lib.min.js` using jsDelivr -->
+    
+    
     {%- include utils/get_assets_baseurl.html -%}
     {%- assign _assets_baseurl = __return -%}
+
+    <!-- I have compressed all js dependencies into `lib.min.js` using jsDelivr -->
     <script src="{{ "/js/lib.min.js" | prepend: _assets_baseurl }}"></script>
 </head>

@@ -36,18 +36,13 @@ layout: default
             <hr style="visibility: hidden;">
 
             {% if site.comment.provider and page.comment %}
-                {% include comment/container.html %}
+                {% include comment.html %}
             {% endif %}
         </div>  
 
         <!-- Side Catalog Container -->
         {% if page.catalog %}
-            {% include catalog/container.html %}
+            {% include catalog.html %}
         {% endif %}
     </div>
 </div>
-
-<!-- comment -->
-{% if site.comment.provider and page.comment %}
-    {% include comment/script.html %}
-{% endif %}

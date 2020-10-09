@@ -26,9 +26,9 @@
 
     "highlight/{{ site.theme_style.highlight | default: 'dark' }}",
 
-    "additional/alert/{{ site.theme_style.alert | default: 'flat' }}",
-    "additional/tag",
-    "additional/desc",
+    "enhancement/alert/{{ site.theme_style.alert | default: 'flat' }}",
+    "enhancement/tag",
+    "enhancement/desc",
     
     "style"
 ;

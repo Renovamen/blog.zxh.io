@@ -47,16 +47,16 @@ layout: default
                 </ul>
                 <hr style="visibility: hidden;">
 
-                {% include author/container.html %}
+                {% include poem.html %}
 
                 {% if site.comment.provider %}
-                    {% include comment/container.html %}
+                    {% include comment.html %}
                 {% endif %}
             </div>
 
             <!-- Side Catalog Container -->
             {% if page.catalog %}
-                {% include catalog/container.html %}
+                {% include catalog.html %}
             {% endif %}
         </div>
     </div>
@@ -85,4 +85,4 @@ layout: default
     resize();
 </script>
 
-{% include post-func.html %}
+{% include functions.html %}

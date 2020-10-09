@@ -1,5 +1,9 @@
 {% if site.comment.provider == 'disqus' %}
-<!-- disqus start -->
+<!----------------- disqus ----------------->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread"></div>
+</div>
+
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "{{site.comment.disqus_username}}";
@@ -12,12 +16,13 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<!-- disqus end -->
 
-
-<!-- Renovamen: support gitalk and valine -->
 
 {% elsif site.comment.provider == 'gitalk' %}
+<!----------------- Gitalk ----------------->
+<div class="comment">
+    <div id="gitalk-container"></div>
+</div>
 
 {%- assign _admin_list = '' -%}
 {%- for _admin in site.comment.gitalk.admin -%}
@@ -26,7 +31,6 @@
 {%- assign _last = _admin_list | size | minus: 1 -%}
 {%- assign _admin_list = _admin_list | slice: 2, _last -%}
 
-<!-- Gitalk start -->
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: '{{ site.comment.gitalk.clientID }}',
@@ -39,11 +43,14 @@
     });
     gitalk.render('gitalk-container');
 </script>
-<!-- Gitalk end -->
 
 
 {% elsif site.comment.provider == 'valine' %}
-<!-- Valine start -->
+<!----------------- Valine ----------------->
+<div class="comment">
+    <div id="valine-container"></div>
+</div>
+
 <script type="text/javascript">
     new Valine({
         el: '#valine-container',
@@ -51,5 +58,4 @@
         appKey: '{{site.comment.valine.appKey}}'
     })
 </script>
-<!-- Valine end -->
 {% endif %}
