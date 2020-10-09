@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于博客的碎碎念
-subtitle: Github Actions + Vercel 双线自动化部署
+subtitle: 部署、优化以及乱七八糟的事
 author: "Renovamen"
 header-img: img/in-post/2020-10-07/header.jpg
 header-style: text
@@ -10,9 +10,19 @@ tags:
   - 摸鱼
 ---
 
-“虽然研究进度堪忧，但鱼还是要摸的”，在这样的理念的驱动下，菜鸡最终折腾出了一个目前看上去还算可以的部署方案。
+“虽然研究进度堪忧，但鱼还是要摸的”，在这样的理念的驱动下，菜鸡最终折腾出了一个目前看上去还算可以的方案。总结一下大概就是：
 
-我的博客最初 fork 自 [Huxpro/huxpro.github.io](Huxpro/huxpro.github.io)，用了一段时间之后开始瞎改，把别人干净的代码改得乱七八糟...这个博客用的是 Jekyll 框架，而 Github Pages 对 Jekyll 的支持还挺友好，连 build 这一步都帮你省了。于是在很长一段时间内，作为一只懒惰的菜鸡，我并没有什么动力来折腾这些东西。而现在之所以要折腾，是因为不折腾的确不行了。
+- 双线部署：
+
+  - Github Actions 自动打包并部署到 Github Pages
+
+  - Vercel 傻瓜式自动部署
+
+- 把各种依赖库压缩合并成一个文件，减少请求次数（jsDelivr）
+
+- CDN 加速静态文件（jsDelivr）
+
+我的博客最初 fork 自 [Huxpro/huxpro.github.io](Huxpro/huxpro.github.io)，用了一段时间之后开始瞎改，把别人干净的代码改得乱七八糟。这个博客用的是 Jekyll 框架，而 Jekyll 就是 Github Pages 的默认引擎，所以在部署的时候 Github Pages 连 build 这一步都帮你省了。于是在很长一段时间内，作为一只懒惰的菜鸡，我并没有什么动力来折腾这些东西。而现在之所以要折腾，是因为不折腾的确不行了。
 
 
 ## 奇怪的起因
