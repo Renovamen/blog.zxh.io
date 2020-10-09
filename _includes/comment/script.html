@@ -1,7 +1,3 @@
-{%- include utils/get-cdn.html -%}
-{%- assign _cdn = __return -%}
-
-
 {% if site.comment.provider == 'disqus' %}
 <!-- disqus start -->
 <script type="text/javascript">
@@ -32,18 +28,16 @@
 
 <!-- Gitalk start -->
 <script type="text/javascript">
-    LazyLoad.js(['{{ "/js/library/md5.js " | prepend: site.baseurl }}', '{{ _cdn.gitalk }}'], function(){
-        var gitalk = new Gitalk({
-            clientID: '{{ site.comment.gitalk.clientID }}',
-            clientSecret: '{{ site.comment.gitalk.clientSecret }}',
-            repo: '{{ site.comment.gitalk.repo }}',
-            owner: '{{ site.comment.gitalk.owner }}',
-            admin: [{{ _admin_list }}],
-            id: md5(location.pathname),
-            distractionFreeMode: false
-        });
-        gitalk.render('gitalk-container');
-    })
+    var gitalk = new Gitalk({
+        clientID: '{{ site.comment.gitalk.clientID }}',
+        clientSecret: '{{ site.comment.gitalk.clientSecret }}',
+        repo: '{{ site.comment.gitalk.repo }}',
+        owner: '{{ site.comment.gitalk.owner }}',
+        admin: [{{ _admin_list }}],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
 </script>
 <!-- Gitalk end -->
 
@@ -51,12 +45,10 @@
 {% elsif site.comment.provider == 'valine' %}
 <!-- Valine start -->
 <script type="text/javascript">
-    LazyLoad.js('{{ _cdn.valine }}', function(){
-        new Valine({
-            el: '#valine-container',
-            appId: '{{site.comment.valine.appID}}',
-            appKey: '{{site.comment.valine.appKey}}'
-        })
+    new Valine({
+        el: '#valine-container',
+        appId: '{{site.comment.valine.appID}}',
+        appKey: '{{site.comment.valine.appKey}}'
     })
 </script>
 <!-- Valine end -->

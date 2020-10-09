@@ -89,16 +89,12 @@ header-img:
 
 
 {% if site.theme_style.post_preview != 'text' %}
-{%- include utils/get-cdn.html -%}
-{%- assign _cdn = __return -%}
 <script>
-    LazyLoad.js('{{ _cdn.scrollreveal }}', function(){
-        // 文章上浮效果
-        window.sr = ScrollReveal();
-        sr.reveal('.post-preview-img', {
-            duration: 700,
-            distance: '100px'
-        });
-    })
+    // 文章上浮效果
+    window.sr = ScrollReveal();
+    sr.reveal('.post-preview-img', {
+        duration: 700,
+        distance: '100px'
+    });
 </script>
 {% endif %}

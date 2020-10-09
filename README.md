@@ -52,7 +52,13 @@ Inherit from the original theme:
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
 cd renovamen.github.io
-jekyll serve # local preview
+
+# install denpendencies
+bundle config set path 'vendor/bundle'
+bundle install
+
+# local preview
+bundle exec jekyll serve
 ```
 
 &nbsp;

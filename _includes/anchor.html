@@ -1,16 +1,11 @@
-{%- include utils/get-cdn.html -%}
-{%- assign _cdn = __return -%}
-
 <!-- anchor.js: http://bryanbraun.github.io/anchorjs/ -->
 <script>
-    LazyLoad.js("{{ _cdn.anchor }}", function(){
-        anchors.options = {
-          visible: 'always',
-          placement: 'right',
-          icon: '#'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
+    anchors.options = {
+        visible: 'always',
+        placement: 'right',
+        icon: '#'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
 </script>
 <style>
     /* place left on bigger screen */

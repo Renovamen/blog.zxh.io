@@ -19,44 +19,46 @@
 {% include theme.html %}
 
 
-{%- include utils/get-cdn.html -%}
-{%- assign _cdn = __return -%}
-
-<!-- highlight.js -->
-<script src="{{ _cdn.highlight }}"></script>
-<script src="{{ _cdn.highlight-line-number }}"></script>
-
 <!-- Theme JavaScript -->
-<script src="{{ "/js/gungnir.min.js" | prepend: site.baseurl }}"></script>
+{%- include utils/get-jsdelivr.html path='/js/gungnir.min.js' -%}
+{%- assign _jsdelivr_path = __return -%}
+<script src="{{ _jsdelivr_path }}"></script>
+
 
 <!-- Service Worker -->
 {% if site.service-worker %}
-<script src="{{ "/js/snackbar.js" | prepend: site.baseurl }}"></script>
-<script src="{{ "/js/sw-registration.js" | prepend: site.baseurl }}"></script>
+
+{%- include utils/get-jsdelivr.html path='/js/sw-registration.js' -%}
+{%- assign _jsdelivr_path = __return -%}
+<script src="{{ _jsdelivr_path }}"></script>
+
+{%- include utils/get-jsdelivr.html path='/js/snackbar.js' -%}
+{%- assign _jsdelivr_path = __return -%}
+<script src="{{ _jsdelivr_path }}"></script>
+
 {% endif %}
 
 
 {% if page.title == 'Archive' %}
 <!-- jquery.tagcloud.js -->
 <script>
-    LazyLoad.js('{{ "/js/library/jquery.tagcloud.js" | prepend: site.baseurl }}',function(){
-        $.fn.tagcloud.defaults = {
-            //size: {start: 1, end: 1, unit: 'em'},
-            color: {start: '#bbbbee', end: '#2f93b4'},
-        };
-        $('#tag_cloud a').tagcloud();
-    })
+    $.fn.tagcloud.defaults = {
+        //size: {start: 1, end: 1, unit: 'em'},
+        color: {start: '#bbbbee', end: '#2f93b4'},
+    };
+    $('#tag_cloud a').tagcloud();
 </script>
-<script src='{{ "/js/archive.js " | prepend: site.baseurl }}'></script>
+
+{%- include utils/get-jsdelivr.html path='/js/archive.js' -%}
+{%- assign _jsdelivr_path = __return -%}
+<script src='{{ _jsdelivr_path }}'></script>
 {% endif %}
 
 
 <!--fastClick.js -->
 <script>
-    LazyLoad.js("{{ _cdn.fastclick }}", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
+    var $nav = document.querySelector("nav");
+    if($nav) FastClick.attach($nav);
 </script>
 
 

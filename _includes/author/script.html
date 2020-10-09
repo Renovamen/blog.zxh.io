@@ -1,12 +1,24 @@
 <script type="text/javascript">
-    LazyLoad.js(['https://sdk.jinrishici.com/v2/browser/jinrishici.js'], function(){
+    // async load function
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+    async('https://sdk.jinrishici.com/v2/browser/jinrishici.js', function(){
         jinrishici.load(function(result) {
             var poem = document.querySelector('#poem-item');
             var info = document.querySelector('#poem-info');
 
             if (result.status === "success") {
                 var data = result.data
-                console.log(data)
                 poem.innerHTML = data.content;
                 info.innerHTML = '【' + data.origin.dynasty + '】' + data.origin.author + '《' + data.origin.title + '》';
             }

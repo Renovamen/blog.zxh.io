@@ -15,12 +15,12 @@ const CACHE = CACHE_NAMESPACE + 'precache-then-runtime';
 const PRECACHE_LIST = [
   "./",
   "./offline.html",
-  "https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js",
   "./js/gungnir.min.js",
   "./js/snackbar.js",
   "./img/header-avatar.jpeg",
   "./img/home-bg/1.jpg",
   "./css/gungnir.css",
+  "https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js",
   "https://cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/css/bootstrap.min.css"
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3",

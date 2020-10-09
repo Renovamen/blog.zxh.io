@@ -12,7 +12,7 @@ tags:
 
 “虽然研究进度堪忧，但鱼还是要摸的”，在这样的理念的驱动下，菜鸡最终折腾出了一个目前看上去还算可以的部署方案。
 
-我的博客用的是 Jekyll 框架，而 Github Pages 对 Jekyll 的支持还挺友好，连 build 这一步都帮你省了。于是在很长一段时间内，作为一只懒惰的菜鸡，我并没有什么动力来折腾这些东西。而现在之所以要折腾，是因为不折腾的确不行了。
+我的博客最初 fork 自 [Huxpro/huxpro.github.io](Huxpro/huxpro.github.io)，用了一段时间之后开始瞎改，把别人干净的代码改得乱七八糟...这个博客用的是 Jekyll 框架，而 Github Pages 对 Jekyll 的支持还挺友好，连 build 这一步都帮你省了。于是在很长一段时间内，作为一只懒惰的菜鸡，我并没有什么动力来折腾这些东西。而现在之所以要折腾，是因为不折腾的确不行了。
 
 
 ## 奇怪的起因
@@ -69,7 +69,43 @@ $("script[type='math/tex; mode=display']").replaceWith(function() {
 
 在 repo 下建一个目录 `.github/workflow`，在这个目录下放一个 `.yaml` 格式的 workflow 文件。GitHub 只要发现 `.github/workflows` 下有 `.yaml` 文件，就会自动运行它们。[这里](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions){:target="_blank"}是 workflow 文件的详细文档。
 
-[Jekyll 官方](https://jekyllrb.com/docs/continuous-integration/github-actions/){:target="_blank"}已经给了一个现成的 [action](https://github.com/helaili/jekyll-action){:target="_blank"}，直接引用它就好。具体的配置可以参考本站的 [workflow 文件](https://github.com/Renovamen/renovamen.github.io/tree/master/.github/workflows){:target="_blank"}或我的[笔记本](https://notebook.renovamen.ink/snippets/2020/10/07/github-actions/){:target="_blank"}。
+[Jekyll 官方](https://jekyllrb.com/docs/continuous-integration/github-actions/){:target="_blank"}已经给了一个现成的 [action](https://github.com/helaili/jekyll-action){:target="_blank"}，直接引用它就好：
+
+
+```yaml
+name: build Jekyll site and deploy it to GitHub Pages
+
+# 检测 master 分支上的推送和 pr
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  jekyll-build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      # 检测 vendor/bundle 下有没有已经安装好的包
+      # 如果有的话就不用再 bundle install 了，节省时间和资源
+      - uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: runner.os−gems−{%raw%}{{ hashFiles('**/Gemfile.lock') }}{% endraw %}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      
+      # 引用 helaili/jekyll-action 来打包 Jekyll 网站
+      # 并把打包好的文件推到同一个 repo 的 gh-pages 分支
+      - uses: helaili/jekyll-action@2.0.4
+        env:
+          JEKYLL_PAT: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target_branch: 'gh-pages'
+```
+
 
 相当于这个 workflow 会自动检测 `master` 分支上的 push 和 pull_request，一旦检测就到准备环境，然后运行 `bundle exec jekyll build` 打包网站，并把打包产物扔 `gh-pages` 分支上去。
 

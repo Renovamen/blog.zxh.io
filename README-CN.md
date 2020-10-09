@@ -52,7 +52,13 @@
 ```bash
 git clone https://github.com/Renovamen/renovamen.github.io.git
 cd renovamen.github.io
-jekyll serve # 本地预览
+
+# 安装依赖
+bundle config set path 'vendor/bundle'
+bundle install
+
+# 本地预览
+bundle exec jekyll serve
 ```
 
 &nbsp;

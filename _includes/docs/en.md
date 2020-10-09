@@ -22,6 +22,7 @@ cd renovamen.github.io
 To run the theme locally, Ruby and Jekyll should be installed firstly, refer to [here](https://jekyllrb.com/docs/installation/){:target="_blank"} for details. Then you could install the dependencies:
 
 ```bash
+bundle config set path 'vendor/bundle'
 bundle install
 ```
 
@@ -31,7 +32,7 @@ Then you could start the development server and preview the blog by:
 bundle exec jekyll serve --watch
 ```
 
-To modify the theme, you may need to install [Grunt](https://gruntjs.com/){:target="_blank"}:
+To modify the source code of the theme, you may need to install [Grunt](https://gruntjs.com/){:target="_blank"} (for compressing js files):
 
 ```bash
 npm install
@@ -633,4 +634,3 @@ Here are all open source libraries used by this theme.
 - [hightlight-line-number.js](https://github.com/wcoder/highlightjs-line-numbers.js/){:target="_blank"} (Highlight.js line numbers plugin)
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search){:target="_blank"} (search)
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"} (remove click delays on mobile browsers)
-- [LazyLoad](https://github.com/rgrove/lazyload){:target="_blank"} (lazyload JavaScript and CSS files)

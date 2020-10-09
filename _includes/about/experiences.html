@@ -31,21 +31,15 @@
     </div>
 </div>
 
-
-{%- include utils/get-cdn.html -%}
-{%- assign _cdn = __return -%}
-
 <script>
-    LazyLoad.js("{{ _cdn.scrollreveal }}", function(){
-        // 时间轴上浮效果
-        window.sr = ScrollReveal();
-        sr.reveal('.timeline-panel', {
-            duration: 500,
-            distance: '80px'
-        });
-        sr.reveal('.timeline-image', {
-            duration: 500,
-            distance: '80px'
-        });
-    })
+    // 时间轴上浮效果
+    window.sr = ScrollReveal();
+    sr.reveal('.timeline-panel', {
+        duration: 500,
+        distance: '80px'
+    });
+    sr.reveal('.timeline-image', {
+        duration: 500,
+        distance: '80px'
+    });
 </script>

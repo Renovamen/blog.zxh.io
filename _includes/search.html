@@ -18,22 +18,16 @@
     <img class="search-img-right" src="/img/search-right.gif"/>
 </div>
 
-
-{%- include utils/get-cdn.html -%}
-{%- assign _cdn = __return -%}
-
 <script>
     // simple-jekyll-search.js
-    LazyLoad.js("{{ _cdn.simple-jekyll-search }}", function(){
-        SimpleJekyllSearch({
-            searchInput: document.getElementById('search-input'),
-            resultsContainer: document.getElementById('search-results'),
-            json: '/search.json',
-            searchResultTemplate: '<li class="result-item item"><a href="{url}" title="{desc}"><div class="result-item-title">{title}</div><div class="result-item-subtitle">{subtitle}</div></a></li>',
-            noResultsText: '<li class="result-item item"><div class="result-item-title">No Results</div></li>',
-            limit: 20,
-            fuzzy: false
-        })
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<li class="result-item item"><a href="{url}" title="{desc}"><div class="result-item-title">{title}</div><div class="result-item-subtitle">{subtitle}</div></a></li>',
+        noResultsText: '<li class="result-item item"><div class="result-item-title">No Results</div></li>',
+        limit: 20,
+        fuzzy: false
     })
 
     // search-results 高度适配

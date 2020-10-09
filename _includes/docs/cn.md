@@ -22,6 +22,7 @@ cd renovamen.github.io
 本地运行主题需要参考[这里](https://jekyllrb.com/docs/installation/){:target="_blank"}安装 Ruby 和 Jekyll。然后安装依赖包：
 
 ```bash
+bundle config set path 'vendor/bundle'
 bundle install
 ```
 
@@ -31,7 +32,7 @@ bundle install
 bundle exec jekyll serve --watch
 ```
 
-如果想要改动代码，你可能需要安装 [Grunt](https://gruntjs.com/){:target="_blank"}：
+如果想要改动代码，你可能需要 [Node.js](https://nodejs.org/en/)，并安装 [Grunt](https://gruntjs.com/){:target="_blank"}（用于压缩 js 文件）：
 
 ```bash
 npm install
@@ -668,7 +669,6 @@ gem install jemoji
 - [hightlight-line-number.js](https://github.com/wcoder/highlightjs-line-numbers.js/){:target="_blank"} （给 hightlight.js 生成的代码块加行号的插件）
 - [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search){:target="_blank"}（搜索）
 - [fastclick](https://github.com/ftlabs/fastclick){:target="_blank"}（解决移动设备上的点击延迟问题）
-- [LazyLoad](https://github.com/rgrove/lazyload){:target="_blank"}（JavaScript 和 CSS 文件延迟加载）
 
 
 ## 附录

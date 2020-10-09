@@ -1,16 +1,7 @@
 {%- include utils/get-cdn.html -%}
 {%- assign _cdn = __return -%}
 
-<!-- tocbot: https://github.com/tscanlin/tocbot -->
-
-<!-- 
-    Didn't use lazyload here because it will cause some bugs in catalog 
-    generating when swtiching between two languages. 
-    I'm trying to find a better solution.
--->
-
 <link href="{{ _cdn.tocbot.css }}" rel="stylesheet" type="text/css">
-<script src="{{ _cdn.tocbot.js }}"></script>
 
 <script type="text/javascript">
     function generateCatalog(selector) {

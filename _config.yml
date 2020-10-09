@@ -9,6 +9,11 @@ baseurl: ""                       # for example, '/blog' if your blog hosted on 
 avatar: "img/header-avatar.jpeg"  # the avatar showing on the homepage
 
 
+# GitHub repository (if the site is hosted by GitHub)
+repository: Renovamen/renovamen.github.io
+repository_branch: master
+
+
 # Theme style settings
 theme_style: 
   highlight:    # "dark" (default), "light"
