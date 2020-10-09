@@ -11,6 +11,9 @@
   padding-top: 0;
   padding-bottom: 0;
   padding-right: 0;
+  @include small {
+    border-radius: 4px;
+  }
   &[data-rel]:before {
     color: #fff;
     content: attr(data-rel);
@@ -19,14 +22,13 @@
     font-weight: bold;
     height: 20px;
     line-height: 20px;
-    background: #2989d8;
+    background: $highlight-lang-span;
     padding-left: 5px;
     padding-right: 5px;
     position: absolute;
     right: 0;
     margin-right: 15px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-radius: 0 0 3px 3px;
     @include small {
       font-size: 8px;
       height: 20px;
@@ -36,18 +38,22 @@
     }
   }
   code {
-    word-break: break-word;
+    @include code-font();
     font-size: 16px;
     font-weight: 500;
-    @include code-font();
+    word-break: break-word;
     padding: 2px;
-    border-radius: 0 0 5px 5px;
+    border-radius: 5px;
+    @include small {
+      font-size: 14px;
+      border-radius: 4px;
+    }
   }
 }
 
 td.hljs-ln-numbers {
   text-align: center;
-  color: $highlight-pre;
+  color: $highlight-ln-number;
   background: $highlight-background;
   position: absolute;
   left: 0;
@@ -63,7 +69,7 @@ td.hljs-ln-numbers {
   margin-left: 25px;
   padding-left: 5px;
   &:hover {
-    background-color: rgba(255, 255, 255, .1)
+    background-color: $highlight-ln-highlight
   }
 }
 

@@ -166,7 +166,7 @@ function highlightStyle() {
             $('pre:eq(' + i + ')').attr('data-rel', lang.toUpperCase());
         }
     }
-    // 
+    // enable highlight.js
     $('pre code').each(function (i, block) {
         hljs.highlightBlock(block);
     });

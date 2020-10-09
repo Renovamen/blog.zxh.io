@@ -95,6 +95,12 @@ while True:
 
 点击显示编程语言的标签可以使代码块全屏，还有光标所在行高亮效果。如果你发现这两点跟 [Sakura](https://2heng.xin/theme-sakura/){:target="_blank"} 主题很像，那么没错这部分的代码就是从它那搬过来的...
 
+代码高亮的默认主题为 `dark`，还有一个 `light` 主题可选：
+
+```yaml
+highlight: # "dark" (default), "light"
+```
+
 代码高亮的样式文件在 [`_sass/highlight`](https://github.com/Renovamen/renovamen.github.io/tree/master/_sass/highlight){:target="_blank"} 目录下，可以自行调整样式，或者直接引用 highlight.js 自带的[一堆主题](https://github.com/highlightjs/highlight.js/tree/master/src/styles){:target="_blank"}。
 
 

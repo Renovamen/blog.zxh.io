@@ -63,14 +63,14 @@ avatar: "img/header-avatar.jpeg" # path of the avatar showing on home page
 ### Theme Style
 ```yaml
 theme_style: 
-  highlight:  # highlight theme
+  highlight:  # syntax highlighting theme
   alert:  # style of alerts
   post_preview: # style of the post list showing on home page
 ```
 
 #### Highlight
 
-[Highlight.js](https://highlightjs.org/){:target="_blank"} instead of [Rouge](http://rouge.jneen.net/){:target="_blank"} is used as syntax highlighter. The default syntax highlighting style of this theme looks like this:
+[Highlight.js](https://highlightjs.org/){:target="_blank"} instead of [Rouge](http://rouge.jneen.net/){:target="_blank"} is used as syntax highlighter. The default syntax highlighting theme of this blog looks like this:
 
 ```python
 import food
@@ -94,7 +94,13 @@ while True:
 
 Click the span in the upper-right corner to make the code block full screen.
 
-Highlighting stylesheets could be found [here](https://github.com/Renovamen/renovamen.github.io/tree/master/_sass/highlight){:target="_blank"}. You can also modify theme to create your own theme, or just import the [stylesheets](https://github.com/highlightjs/highlight.js/tree/master/src/styles){:target="_blank"} provided by Highlight.js.
+The default highlighting theme is `dark`, you can also switch it to `light`:
+
+```yaml
+highlight: # "dark" (default), "light"
+```
+
+Highlighting stylesheets could be found [here](https://github.com/Renovamen/renovamen.github.io/tree/master/_sass/highlight){:target="_blank"}. You can also modify them to create your own theme, or just import the [stylesheets](https://github.com/highlightjs/highlight.js/tree/master/src/styles){:target="_blank"} provided by Highlight.js.
 
 
 #### Alert
