@@ -19,23 +19,18 @@
 {% include theme.html %}
 
 
+{%- include utils/get_assets_baseurl.html -%}
+{%- assign _assets_baseurl = __return -%}
+
+
 <!-- Theme JavaScript -->
-{%- include utils/get-jsdelivr.html path='/js/gungnir.min.js' -%}
-{%- assign _jsdelivr_path = __return -%}
-<script src="{{ _jsdelivr_path }}"></script>
+<script src="{{ "/js/gungnir/gungnir.min.js" | prepend: _assets_baseurl }}"></script>
 
 
 <!-- Service Worker -->
 {% if site.service-worker %}
-
-{%- include utils/get-jsdelivr.html path='/js/sw-registration.js' -%}
-{%- assign _jsdelivr_path = __return -%}
-<script src="{{ _jsdelivr_path }}"></script>
-
-{%- include utils/get-jsdelivr.html path='/js/snackbar.js' -%}
-{%- assign _jsdelivr_path = __return -%}
-<script src="{{ _jsdelivr_path }}"></script>
-
+<script src="{{ "/js/gungnir/sw-registration.js" | prepend: _assets_baseurl }}"></script>
+<script src="{{ "/js/gungnir/snackbar.js" | prepend: _assets_baseurl }}"></script>
 {% endif %}
 
 
@@ -48,10 +43,7 @@
     };
     $('#tag_cloud a').tagcloud();
 </script>
-
-{%- include utils/get-jsdelivr.html path='/js/archive.js' -%}
-{%- assign _jsdelivr_path = __return -%}
-<script src='{{ _jsdelivr_path }}'></script>
+<script src="{{ "/js/gungnir/archive.js" | prepend: _assets_baseurl }}"></script>
 {% endif %}
 
 

@@ -15,8 +15,8 @@ const CACHE = CACHE_NAMESPACE + 'precache-then-runtime';
 const PRECACHE_LIST = [
   "./",
   "./offline.html",
-  "./js/gungnir.min.js",
-  "./js/snackbar.js",
+  "./js/gungnir/gungnir.min.js",
+  "./js/gungnir/snackbar.js",
   "./img/header-avatar.jpeg",
   "./img/home-bg/1.jpg",
   "./css/gungnir.css",

@@ -27,13 +27,17 @@ math:
   enable: true    # false (default), true 
                   # math rendering for all posts and keynotes
   engine:         # "katex" (default), "mathjax"
+                  # only make sense when `math.engine: true`
 chart: true       # false (default), true
 mermaid: true     # false (default), true
 emoji-plus: true  # false (default), true
 
 
-# CDN source settings
-cdn: # "jsdelivr" (default), "bootcdn", "unpkg", "cdnjs"
+# CDN settings
+cdn:
+  source:       # "jsdelivr" (default), "bootcdn", "unpkg", "cdnjs"
+  enable: true  # false (default), true
+                # optimizing asset files via jsDelivr or not
 
 
 # Publish posts or collection documents with a future date.
