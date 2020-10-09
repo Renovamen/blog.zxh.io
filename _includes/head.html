@@ -71,5 +71,7 @@
     <script></script>
 
     <!-- I have compressed all js dependencies into `lib.min.js` using jsDelivr -->
-    <script src="{{ "/cdn/js/lib.min.js" | prepend: site.baseurl }}"></script>
+    {%- include utils/get-jsdelivr.html path='/cdn/lib.min.js' -%}
+    {%- assign _jsdelivr_path = __return -%}
+    <script src="{{ _jsdelivr_path }}"></script>
 </head>
