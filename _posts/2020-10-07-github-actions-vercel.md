@@ -96,11 +96,13 @@ jobs:
   jekyll-build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
       
       # 检测 vendor/bundle 下有没有已经安装好的包
       # 如果有的话就不用再 bundle install 了，节省时间和资源
-      - uses: actions/cache@v1
+      - name: check cache
+        uses: actions/cache@v1
         with:
           path: vendor/bundle
           key: runner.os−gems−{%raw%}{{ hashFiles('**/Gemfile.lock') }}{% endraw %}
@@ -109,7 +111,8 @@ jobs:
       
       # 引用 helaili/jekyll-action 来打包 Jekyll 网站
       # 并把打包好的文件推到同一个 repo 的 gh-pages 分支
-      - uses: helaili/jekyll-action@2.0.4
+      - name: build and deploy
+        uses: helaili/jekyll-action@2.0.4
         env:
           JEKYLL_PAT: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -138,8 +141,10 @@ gem 'jekyll-paginate', '~> 1.1.0'
 
 好的好的行吧双线部署我来了...
 
-那时候我所知的有境内节点的静态网站托管服务就 [Gitee Pages](https://gitee.com/help/articles/4136){:target="_blank"} 和 [Coding Pages](https://help.coding.net/docs/devops/cd/static-website.html){:target="_blank"} 俩，而 Gitee Pages 不能免费自定义域名，于是就部署到了 Coding Pages 上。然后在 DNS 解析那里把境外访问解析到 Github Pages 上，把境内访问解析到 Coding Pages 上。
+那时候我所知的有境内节点的静态网站托管服务就 Gitee Pages{:target="blank"} 和 Coding Pages{:target="blank"} 俩，而 Gitee Pages 不能免费自定义域名，于是就把境内的线路解析到了 Coding Pages 上。
 
-直到不久之前，我发现新版 Coding Pages 的静态网站合并到合并到腾讯云静态网站，并开始收费了...之前旧版的静态网站表面上看上去好像还能正常部署，实际上并不能访问了。
+直到不久之前，我发现新版 Coding Pages 的静态网站合并到腾讯云静态网站，并开始收费了...之前旧版的静态网站表面上看上去好像还能正常部署，实际上并不能访问了。
 
-然后我就发现了 Vercel 这个（至少目前）真香的托管服务，居然还有境内节点，而且是直接从 Github 仓库上拉代码然后自动给你部署。于是到目前为止，我所有网站（其实也没多少）的部署方案都变成了 Github Actions + Vercel，懒惰的菜鸡心满意足了。
+于是就手忙脚乱的把境内线路的博客扔到了 Vercel 上。只能说 Vercel 至少到目前为止的确是真香，有境内节点，而且是直接从 Github 仓库上拉代码然后自动给你部署，对菜鸡相当友好。
+
+以前为啥就没发现呢。

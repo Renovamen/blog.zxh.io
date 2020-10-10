@@ -181,7 +181,7 @@ yarn.lock
 package-lock.json
 
 # jekyll
-# include Gemfile.lock because Jekyll Github actions need it
+# include Gemfile.lock because Jekyll Github Actions need it
 # Gemfile.lock
 package-lock.json
 _site/
