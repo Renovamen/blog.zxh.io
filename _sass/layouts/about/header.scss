@@ -1,10 +1,24 @@
 /*  ------------------- Basic Info -------------------  */
 .about-page .about-header {
-    min-height: 670px;
+    height: 100vh;
     margin-bottom: -150px;
+    position: relative;
 
-    @include ipad {
+    &__content {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        margin-top: -340px;
+    }
+
+    @media (max-width: $MQIpad){
         margin-bottom: 0;
+        height: auto;
+        &__content {
+            position: relative;
+            width: auto;
+            margin-top: 0;
+        }
     }
 
     &-basic {
@@ -50,7 +64,7 @@
                         @include transform(scale(1.3));
                     }
                 }
-                @include mobile {
+                @media (max-width: $MQMobile){
                     margin-top: 20px;
                 }
             }
@@ -59,7 +73,7 @@
     &-info {
         .about-title {
             margin-top: -30px;
-            @include mobile {
+            @media (max-width: $MQMobile){
                 margin-top: 30px;
             }
         }
@@ -75,15 +89,15 @@
                 &:focus {
                   color: var(--primary-color-dark);
                 }
-              }
-            @include mobile {
+            }
+            @media (max-width: $MQMobile){
                 font-size: 18px;
             }
         }
         .personal-information {
             margin: -50px 15px auto;
             width: 100%;
-            @include mobile {
+            @media (max-width: $MQMobile){
                 width: 95%;
             }
             .title {
@@ -110,7 +124,7 @@
                     margin-top: -30px;
                     color: var(--body-gray);
                 }
-                @include mobile {
+                @media (max-width: $MQMobile){
                     margin-top: 50px;
                 }
             }

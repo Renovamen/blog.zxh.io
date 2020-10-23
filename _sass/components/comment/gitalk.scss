@@ -771,7 +771,7 @@ $gt-size-avatar-mobi: em(32px);
         width: $gt-size-avatar;
         height: $gt-size-avatar;
         margin-top: 0;
-        @include small {
+        @media (max-width: $MQSmall){
             width: $gt-size-avatar-mobi;
             height: $gt-size-avatar-mobi;
         }
@@ -785,7 +785,7 @@ $gt-size-avatar-mobi: em(32px);
             width: $gt-size-avatar - em(2px);
             height: $gt-size-avatar - em(2px);
             cursor: pointer;
-            @include small {
+            @media (max-width: $MQSmall){
                 width: $gt-size-avatar-mobi - em(2px);
                 height: $gt-size-avatar-mobi - em(2px);
             }
@@ -963,7 +963,7 @@ $gt-size-avatar-mobi: em(32px);
             -ms-flex: 1;
             flex: 1;
             margin-left: em(20px);
-            @include small {
+            @media (max-width: $MQSmall){
                 margin-left: em(14px)
             }
         }
@@ -998,7 +998,7 @@ $gt-size-avatar-mobi: em(32px);
             position: relative;
             margin: em(12px) 0 0;
             @include clearfix();
-            @include small {
+            @media (max-width: $MQSmall){
                 margin: 0;
             }
             &-tip {
@@ -1006,14 +1006,14 @@ $gt-size-avatar-mobi: em(32px);
                 color: #6190e8;
                 text-decoration: none;
                 vertical-align: sub;
-                @include small {
+                @media (max-width: $MQSmall){
                     display: none;
                 }
             }
             .gt-btn {
                 float: right;
                 margin-left: em(20px);
-                @include small {
+                @media (max-width: $MQSmall){
                     float: none;
                     width: 100%;
                     margin: em(12px) 0 0;
@@ -1084,7 +1084,7 @@ $gt-size-avatar-mobi: em(32px);
                 -webkit-box-shadow: 0 em(10px) em(60px) 0 var(--gitalk-comment-bg);
                 box-shadow:  0 em(10px) em(60px) 0 var(--gitalk-comment-bg);
             }
-            @include small {
+            @media (max-width: $MQSmall){
                 margin-left: em(14px);
                 padding: em(10px) em(12px);
             }

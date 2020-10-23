@@ -4,7 +4,6 @@
     "experience"
 ;
 
-
 .about-page {
     @include gungnir-font();
     // margin-top: 150px;
@@ -40,7 +39,7 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        @include mobile {
+        @media (max-width: $MQMobile){
             width: 85%;
         }
     }

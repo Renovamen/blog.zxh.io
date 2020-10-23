@@ -34,7 +34,7 @@
             background-color: rgba(255, 255, 255, 0.4);
             text-decoration: none;
         }
-        @include mobile-minus {
+        @media (max-width: ($MQMobile - 1px)){
             margin-right: 1px;
         }
     }
@@ -42,7 +42,7 @@
   
 #tag-heading {
     padding: 55px 0;
-    @include mobile {
+    @media (max-width: $MQMobile){
         padding: 70px 0 60px;
     }
 }
@@ -76,7 +76,7 @@
             }
         }
     }
-    @include mobile {
+    @media (max-width: $MQMobile){
         margin-bottom: 15px;
     }
 }
@@ -127,7 +127,7 @@
             font-size: 18px;
             line-height: 12px;
         }
-        @include mobile-minus {
+        @media (max-width: ($MQMobile - 1px)){
             margin-left: 0;
             > a {
                 > .post-title {

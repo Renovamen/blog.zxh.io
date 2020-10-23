@@ -11,7 +11,7 @@
   padding-top: 0;
   padding-bottom: 0;
   padding-right: 0;
-  @include small {
+  @media (max-width: $MQSmall){
     border-radius: 4px;
   }
   &[data-rel]:before {
@@ -29,7 +29,7 @@
     right: 0;
     margin-right: 15px;
     border-radius: 0 0 3px 3px;
-    @include small {
+    @media (max-width: $MQSmall){
       font-size: 8px;
       height: 20px;
       line-height: 20px;
@@ -44,7 +44,7 @@
     word-break: break-word;
     padding: 2px;
     border-radius: 5px;
-    @include small {
+    @media (max-width: $MQSmall){
       font-size: 14px;
       border-radius: 4px;
     }

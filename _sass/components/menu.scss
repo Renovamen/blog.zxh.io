@@ -122,12 +122,12 @@ $longer-time: ($time*2);
 			
 			&#menu-navbar-btn {
 				display: none;
-				@include desktop {
+				@media (max-width: $MQDesktop){
 					display: flex;
 				}
 			}
 			
-			@include large {
+			@media (min-width: ($MQLarge + 1px)){
                 &#menu-toc-btn {
                     display: none;
                 }

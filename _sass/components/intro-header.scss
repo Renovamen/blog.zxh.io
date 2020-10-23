@@ -29,7 +29,7 @@
     @include background-cover();
     // NOTE: Background images are set within the HTML using inline CSS!
     margin-bottom: 20px; /* response on desktop */
-    @include mobile {
+    @media (max-width: $MQMobile){
         margin-bottom: 0px; /* 0 on mobile, modify by Hux */
     }
     .site-heading,
@@ -37,14 +37,14 @@
     .page-heading {
         padding: 150px 0;
         color: white;
-        @include mobile {
+        @media (max-width: $MQMobile){
             padding: 85px 0 55px;
         }
     }
     // masterialize
     .site-heading {
         padding: 150px 0;
-        @include mobile-minus {
+        @media (max-width: ($MQMobile - 1px)){
             padding: 95px 0 70px;
         }
     }
@@ -54,7 +54,7 @@
         h1 {
             margin-top: 0;
             font-size: 80px;
-            @include mobile-minus {
+            @media (max-width: ($MQMobile - 1px)){
                 font-size: 50px;
             }
         }
@@ -93,7 +93,7 @@
                 color: white;
             }
         }
-        @include mobile-minus {
+        @media (max-width: ($MQMobile - 1px)){
             h1 {
                 font-size: 30px;
             }
@@ -116,7 +116,7 @@
         a {
             color: white;
         }
-        @include mobile {
+        @media (max-width: $MQMobile){
             font-size: 10px;
             bottom: 6px;
             right: 9px;
@@ -142,7 +142,7 @@
                 @include transform(rotate(360deg));
             }
         }
-        @include ipad {
+        @media (max-width: $MQIpad){
             display: none
         }
         &:hover+.header-bubble{
@@ -201,12 +201,12 @@
                 }
             }
         }
-        @include ipad {
+        @media (max-width: $MQIpad){
             display: none;
         }
     }
     // Info on home page (shows on phone only)
-    @media only screen and (min-width: 1024px) {
+    @media (min-width: ($MQIpad + 1px)){
         .phone-site-heading {
             display: none
         }
@@ -232,7 +232,7 @@
             color: #fff;
             background-color: rgba(0, 0, 0, .6);
         }
-        @include mobile {
+        @media (max-width: $MQMobile){
             display: none;
         }
     }
@@ -250,7 +250,7 @@
         left: 50%;
         margin-left: -14px;
         cursor: pointer;
-        @include ipad {
+        @media (max-width: $MQIpad){
             display: none
         }
         i {

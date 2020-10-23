@@ -1,6 +1,6 @@
 // Sidebar Components
 
-@include large {
+@media (min-width: ($MQLarge + 1px)){
     .sidebar-container {
         padding-right: 5%;
     }

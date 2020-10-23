@@ -12,7 +12,7 @@
     background-color: transparent;
 }
   
-@include desktop {
+@media (max-width: $MQDesktop){
     .main-container {
         $nav-transition: transform .5s, border-radius 1s;
         @include transition($nav-transition);
@@ -145,7 +145,7 @@
     }
 }
   
-@include desktop {
+@media (max-width: $MQDesktop){
     // Overwrite one of the bootstrap navbar breakpoints (768px->992px)
     .navbar-toggle {
         display: block;

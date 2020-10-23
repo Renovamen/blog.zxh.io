@@ -74,13 +74,13 @@
             }
         }
     }
-    @include small {
+    @media (max-width: $MQSmall){
         .link-list ul li {
             width: 100% !important;
         }
     }
     
-    @include ipad {
+    @media (max-width: $MQIpad){
         .link-list ul li {
             width: 48.6%;
             &:before {

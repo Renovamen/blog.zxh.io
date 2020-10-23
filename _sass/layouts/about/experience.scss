@@ -2,7 +2,7 @@
     width: 85%;
     margin: 0 auto;
     position: relative;
-    @include mobile {
+    @media (max-width: $MQMobile){
         width: 80%;
         margin-bottom: 0;
     }
@@ -94,7 +94,7 @@
         }
     }
 
-    @include desktop {
+    @media (max-width: $MQDesktop){
         li {
             margin-bottom: 100px;
             min-height: 100px;
@@ -110,7 +110,7 @@
         }
     }
 
-    @include mobile {
+    @media (max-width: $MQMobile){
         &:before {
             left: 40px;
         }

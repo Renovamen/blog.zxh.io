@@ -8,7 +8,7 @@
     .item {
         -webkit-box-shadow: none;
         box-shadow: none;
-        @include small {
+        @media (max-width: $MQSmall){
             -webkit-box-shadow: var(--item-shadow);
             box-shadow: var(--item-shadow);
         }

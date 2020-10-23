@@ -72,7 +72,7 @@
     }
 }
 
-@include wide {
+@media (max-width: $MQLarge) {
     .side-catalog {
         @include transition(all ease .5s);
         transform: translateX(100%);
@@ -85,6 +85,9 @@
         &.open {
             @include transform(translateX(0));
             box-shadow: var(--mobile-catalog-shadow);
+        }
+        hr {
+            display: none;
         }
         .catalog-toggle {
             display: none;

@@ -81,11 +81,11 @@
         width: 180px;
         bottom: 30px;
         right: 30px;
-        @include mobile {
+        @media (max-width: $MQMobile){
             display: none;
         }
     }
-    @include ipad {
+    @media (max-width: $MQIpad){
         .search-field,
         .search-results .result-item {
             width: 80%;

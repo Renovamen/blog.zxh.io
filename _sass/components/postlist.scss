@@ -41,7 +41,7 @@
             }
         }
     }
-    @include mobile {
+    @media (max-width: $MQMobile){
         > a {
             > .post-title {
                 font-size: 21px;
@@ -127,7 +127,7 @@
             line-height: 1.8;
         }
     }
-    @include wide {
+    @media (max-width: $MQLarge) {
         >a {
             width: 480px;
             height: 280px;
@@ -156,7 +156,7 @@
             }
         }
     }
-    @include ipad {
+    @media (max-width: $MQIpad){
         padding: 0 15px;
         width: 100%;
         margin-top: 80px;
@@ -191,7 +191,7 @@
             }
         }
     }
-    @include small {
+    @media (max-width: $MQSmall){
         margin-top: 100px;
         border-bottom: none;
         max-width: 400px;
@@ -210,9 +210,9 @@
         }
     }
     // Pager
-    &+.pager{
+    & + .pager{
         padding: 0px 40px !important;
-        @include ipad {
+        @media (max-width: $MQIpad){
             padding: 0 15px !important;
         }
     }

@@ -13,6 +13,13 @@ $info: #1890ff;
 $warning: #fa8c16;
 $error: #f5222d;
 
+// layouts
+$MQSmall: 480px;
+$MQMobile: 768px;
+$MQDesktop: 991px;
+$MQIpad: 1023px;
+$MQLarge: 1200px;
+
 :root {
   --body-color: rgba(0, 0, 0, .9);
   --body-gray: #797878;

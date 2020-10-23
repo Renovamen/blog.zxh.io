@@ -2,7 +2,7 @@
 {%- assign _assets_baseurl = __return -%}
 
 <div class="container about-header">
-    <div class="row">
+    <div class="row about-header__content">
         <div class="about-header-basic col-md-4">
             <div class = "photo-container">
                 <img src = "{{ _assets_baseurl }}/{{ page.avatar }}">
@@ -94,27 +94,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    // about-header 高度适配
-    function headerResize() {
-        //console.log(document.body.clientWidth)
-        if(document.body.clientWidth > 1200 && $(window).height() <= 800) {
-            $('.about-header').css({
-                'height': $(window).height() + "px"
-            });
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function(){
-        headerResize();
-    })
-    window.addEventListener('load', function(){
-        headerResize();
-    })
-    window.addEventListener('resize', function(){
-        headerResize();
-    })
-
-    headerResize();
-</script>
