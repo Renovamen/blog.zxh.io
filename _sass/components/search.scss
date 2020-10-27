@@ -44,7 +44,7 @@
     .search-results {
         margin-top: 20px;
         list-style-type: none;
-        height: 70%;
+        height: calc(100vh - 200px);
         overflow: auto;
         .result-item {
             width: 50%;
