@@ -4,6 +4,7 @@ My original blog, powered by [Jekyll](https://jekyllrb.com/), themed by [Gungnir
 
 I am writting the VuePress version of this blog. See [master branch](https://github.com/Renovamen/renovamen.github.io/tree/master) or [VuePress theme Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir) for more details.
 
+&nbsp;
 
 ## Usage
 
