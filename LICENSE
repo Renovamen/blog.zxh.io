@@ -201,28 +201,3 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-
-=============================================================================
-
-   Jekyll theme Gungnir is using the part of codes
-
-      Hux Blog: https://github.com/Huxpro/huxpro.github.io
-
-   write by Huxpro (@Huxpro) with Apache 2.0 License
-
-      License: https://github.com/Huxpro/huxpro.github.io/blob/master/LICENSE
-
-   Copyright 2015-2016 Huxpro
-
------------------------------------------------------------------------------
-
-   Hux Blog Subcomponents:
-
-   The Hux Blog project contains subcomponents with separate copyright
-   notices and license terms. Your use of the source code for the these
-   subcomponents is subject to the terms and conditions of the following
-   licenses.
-
-   (MIT License) Clean Blog Jekyll Theme: https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/
-   https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/blob/master/LICENSE
-   Copyright (c) 2013-2016 Blackrock Digital LLC.
