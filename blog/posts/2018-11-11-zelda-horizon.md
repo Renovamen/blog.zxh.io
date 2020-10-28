@@ -15,8 +15,8 @@ tags:
 
 <!-- more -->
 
-![img-1](/img/in-post/2018-11-11/1.jpg)
-![img-2](/img/in-post/2018-11-11/2.jpg)
-![img-3](/img/in-post/2018-11-11/3.jpg)
-![img-4](/img/in-post/2018-11-11/4.jpg)
-<img src="/img/in-post/2018-11-11/5.jpg" width="400px" />
+![img-1](~public/img/in-post/2018-11-11/1.jpg)
+![img-2](~public/img/in-post/2018-11-11/2.jpg)
+![img-3](~public/img/in-post/2018-11-11/3.jpg)
+![img-4](~public/img/in-post/2018-11-11/4.jpg)
+<img src="~public/img/in-post/2018-11-11/5.jpg" width="400px" />

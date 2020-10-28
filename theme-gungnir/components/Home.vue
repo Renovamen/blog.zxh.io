@@ -1,11 +1,18 @@
 <template>
   <div class="home-blog">
     <div class="hero" :style="{ 'background-image': bgImagePath }">
-      <div class="header-mask" v-if="$themeConfig.bgImage[this.bgImageID].mask" :style="{background: $withBase($themeConfig.bgImage[this.bgImageID].mask)}"></div>
+      <div
+        class="header-mask"
+        v-if="$themeConfig.bgImage[this.bgImageID].mask"
+        :style="{background: $themeConfig.bgImage[this.bgImageID].mask}"
+      >
+      </div>
       <div class="header-content" :style="{'opacity': headerOpacity}">
         
         <div class="hero-avatar hide-on-mobile">
-          <img :src="$withBase($themeConfig.authorAvatar)" alt="hero" />
+          <img
+            :src="$getCDNPath($themeConfig.authorAvatar)" 
+            alt="hero" />
         </div>
 
         <div v-if="$themeConfig.hitokoto" class="hero-bubble">
@@ -62,11 +69,12 @@ export default {
   computed: {
     bgImagePath () {
       if(this.$themeConfig.bgImage) {
-        var bgPath = "url(" + this.$withBase(this.$themeConfig.bgImage[this.bgImageID].path) + ")"
+        var bgPath = "url(" + this.$getCDNPath(this.$themeConfig.bgImage[this.bgImageID].path) + ")"
         return bgPath
       }
       else {
-        return 'url(/img/home-bg/default.svg)'
+        const defaultImg = require('@theme/assets/default-home-bg.svg')
+        return `url(${defaultImg})`
       }
     },
     heroHeight () {
@@ -123,7 +131,7 @@ export default {
           timer = setTimeout(func, remaining)
         }
       }
-    },
+    }
   }
 }
 </script>

@@ -35,7 +35,7 @@ $$
 
 提出了 Sequence to Sequence 框架，由一个 encoder 和一个 decoder 组成。
 
-![seq2seq](/img/in-post/2020-03-17/machine-translation/seq2seq.png)
+![seq2seq](~public/img/in-post/2020-03-17/machine-translation/seq2seq.png)
 
 
 #### Encoder
@@ -521,7 +521,7 @@ $$
 
 #### Experiments
 
-![Result](/img/in-post/2020-03-17/show-attend-tell/attention-result.png)
+![Result](~public/img/in-post/2020-03-17/show-attend-tell/attention-result.png)
 
 
 ### Adaptive Attention
@@ -657,7 +657,7 @@ $$
 
 #### Experiments
 
-![result](/img/in-post/2020-03-17/adaptive-attention/adaptive-attention-result.png)
+![result](~public/img/in-post/2020-03-17/adaptive-attention/adaptive-attention-result.png)
 
 
 ### Self-critical
@@ -771,7 +771,7 @@ $$
 \frac{\partial L(\theta)}{\partial s_t} \approx (r(w^s) - r(\hat{w}))(p_{\theta}(w_t \mid h_t) - 1_{w_t^s})
 $$
 
-![self-critical](/img/in-post/2020-03-17/self-critical/self-critical.png)
+![self-critical](~public/img/in-post/2020-03-17/self-critical/self-critical.png)
 
 论文认为这样做的优点是：
 

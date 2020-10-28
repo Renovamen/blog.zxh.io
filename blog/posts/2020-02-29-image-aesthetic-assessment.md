@@ -35,7 +35,7 @@ tags:
 
 共 20,278 张图片（[Deng et al. 2017](https://arxiv.org/pdf/1610.00838.pdf)），平均每张图片 12 个评分，评分范围为 0-7，分越高说明图片质量越高。所有图片的平均得分的峰值在分布右侧，说明整体评价偏高。
 
-![photo-net-distribution](/img/in-post/2020-02-29/photo-net-distribution.png)
+![photo-net-distribution](~public/img/in-post/2020-02-29/photo-net-distribution.png)
 
 <p class="desc">PN 数据集的图片平均得分分布</p>
 
@@ -52,7 +52,7 @@ tags:
 共 16,509 张图片，平均每张图片 205 个评分，评分范围为 0-10，分越高说明图片质量越高。
 
 
-![dpchallenge-distribution](/img/in-post/2020-02-29/dpchallenge-distribution.png)
+![dpchallenge-distribution](~public/img/in-post/2020-02-29/dpchallenge-distribution.png)
 
 <p class="desc">DPChallenge 数据集的图片平均得分分布</p>
 
@@ -80,7 +80,7 @@ tags:
 
 该论文比较了 AVA 与其他数据集：
 
-![compare](/img/in-post/2020-02-29/ava-compare.png)
+![compare](~public/img/in-post/2020-02-29/ava-compare.png)
 
 <p class="desc">AVA 与其他数据集的比较</p>
 
@@ -101,7 +101,7 @@ tags:
 
 该论文还比较了 AADB 与其他数据集：
 
-![compare](/img/in-post/2020-02-29/aadb-compare.png)
+![compare](~public/img/in-post/2020-02-29/aadb-compare.png)
 
 <p class="desc">AADB 与其他数据集的比较</p>
 
@@ -127,7 +127,7 @@ $$
 
 该论文还比较了 AROD 和 AVA 与 AADB：
 
-![compare](/img/in-post/2020-02-29/arod-compare.png)
+![compare](~public/img/in-post/2020-02-29/arod-compare.png)
 
 <p class="desc">AROD 与其他数据集的比较</p>
 
@@ -256,19 +256,19 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
     首次用神经网络搞图片美感评估。用了双列 CNN，把全局图像和随机提取出的一个局部 patch 各输入一列 CNN，输出的特征会被联合起来输入分类层进行二分类：
     
 
-    ![rapid-dcnn](/img/in-post/2020-02-29/rapid-dcnn.png)
+    ![rapid-dcnn](~public/img/in-post/2020-02-29/rapid-dcnn.png)
     
     
     因为数据集用的是有 style 标注的 AVA，该论文还把 style 属性也输入了一列 CNN，相当于最后是 3 列 CNN：
 
-    ![rapid-style-cnn](/img/in-post/2020-02-29/rapid-style-cnn.png)
+    ![rapid-style-cnn](~public/img/in-post/2020-02-29/rapid-style-cnn.png)
 
 
 - **Deep Multi-Patch Aggregation Network for Image Style, Aesthetics, and Quality Estimation.** *Xin Lu, et al.* ICCV 2015. [[IEEE]](https://ieeexplore.ieee.org/abstract/document/7410476/) [[Paper]](http://infolab.stanford.edu/~wangz/project/imsearch/Aesthetics/ICCV15/lu.pdf)
 
     只用了 patch 作为输入。从图片中随机提取一些 patch，用一组 CNN 对每个 patch 提取特征，然后把所有 patch 的特征聚合起来，最后把特征输进 soft-max 层进行二分类。
 
-    ![dma-net](/img/in-post/2020-02-29/dma-net.png)
+    ![dma-net](~public/img/in-post/2020-02-29/dma-net.png)
 
 
 - **A-Lamp: Adaptive Layout-Aware Multi-Patch Deep Convolutional Neural.** *Shuang Ma, et al.* CVPR 2017. [[Paper]](http://openaccess.thecvf.com/content_cvpr_2017/papers/Ma_A-Lamp_Adaptive_Layout-Aware_CVPR_2017_paper.pdf) [[arxiv]](https://arxiv.org/pdf/1704.00248.pdf)
@@ -278,7 +278,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
     同时该论文还用了另一个显著性模型来提取出图片中的主要物体，从而利用了图片中的物体布局信息。
 
-    ![alamp](/img/in-post/2020-02-29/alamp.png)
+    ![alamp](~public/img/in-post/2020-02-29/alamp.png)
 
 - **Attention-based Multi-Patch Aggregation for Image Aesthetic Assessment.** *Kekai Sheng, et al.* ACM MM 2018. [[Paper]](http://chongyangma.com/publications/am/2018_am_paper.pdf) [[Code]](https://github.com/Openning07/MPADA)
 
@@ -297,7 +297,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
     然后还用了另外一个 CNN 来提取图片的场景特征，跟上述特征一起扔进聚合层聚合。
 
-    ![mna](/img/in-post/2020-02-29/mna.png)
+    ![mna](~public/img/in-post/2020-02-29/mna.png)
 
     跟 SPP 有点像：
 
@@ -351,7 +351,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
     搞了一个比 PCCD 大得多的数据集，跑了一个浮夸的模型，输出指定角度的描述。
 
-    ![aman](/img/in-post/2020-02-29/aman.png)
+    ![aman](~public/img/in-post/2020-02-29/aman.png)
 
 
 - **Neural Aesthetic Image Reviewer.** *Wenshan Wang, et al.* IET Computer Vision 2019. [[arxiv]](https://arxiv.org/pdf/1802.10240.pdf)

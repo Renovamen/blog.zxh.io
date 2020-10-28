@@ -28,6 +28,7 @@ module.exports = {
     codeTheme: "gungnir-dark",
     hitokoto: true,  // Enable hitokoto (一言) or not?
     comment: true,  // Enable comment system or not?
+    cdn: 'https://cdn.jsdelivr.net/gh/Renovamen/renovamen.github.io@gh-pages/',
     nav: [
       {
         text: "Home",
@@ -168,5 +169,29 @@ module.exports = {
       md.use(require('@liradb2000/markdown-it-katex'))
     },
     extractHeaders: [ 'h2', 'h3', 'h4', 'h5' ]
+  },
+  configureWebpack: () => {
+    const NODE_ENV = process.env.NODE_ENV
+    if(NODE_ENV === 'production'){
+      return {
+        output: {
+          publicPath: 'https://cdn.jsdelivr.net/gh/Renovamen/renovamen.github.io@gh-pages/'
+        },
+        resolve: {
+          alias: {
+            'public': path.resolve(__dirname, './public') 
+          }
+        }
+      }
+    }
+    else{
+      return {
+        resolve: {
+          alias: {
+            'public': path.resolve(__dirname, './public') 
+          }
+        }
+      }
+    }
   }
 }

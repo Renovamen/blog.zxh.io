@@ -252,13 +252,13 @@ export default {
             background transparent
             color var(--text-color)
             &::-webkit-input-placeholder
-                color var(--text-color)
+                color var(--text-color-sub)
             &::-moz-placeholder
-                color var(--text-color)
+                color var(--text-color-sub)
             &:-moz-placeholder
-                color var(--text-color)
+                color var(--text-color-sub)
             &:-ms-input-placeholder
-                color var(--text-color)
+                color var(--text-color-sub)
         .suggestions
             gungnir-font()
             height 70%

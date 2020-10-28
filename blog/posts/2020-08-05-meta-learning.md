@@ -34,7 +34,7 @@ continual learning 方向 19 年之后的[几篇论文](https://notebook.renovam
 
 但不同的相似任务之间是有联系的。比如人类学会分类新的物体并不需要很多的样本作为支撑，人类可以做到只观看一个物体的一张或几张图片，就在之后的照片中准确地识别。这就是利用了不同任务之间的联系，基于过往的经验快速地学习。比如下面这个例子，训练数据中每个类别就三个样本，然后让你判断测试数据是哪个画家的作品：
 
-![which painter](/img/in-post/2020-08-05/paint.png)
+![which painter](~public/img/in-post/2020-08-05/paint.png)
 
 <p class="desc">图片来源：<a href="https://drive.google.com/file/d/1DuHyotdwEAEhmuHQWwRosdiVBVGm8uYx/view" target="_blank">Slides for ICML 2019 Meta-Learning Tutorial</a></p>
 
@@ -63,7 +63,7 @@ $$
 
 数据集 $D$ 通常还会被划分为训练集 support set $S$ 和测试集 query set $B$，即 $D = \lang S,B \rang$。相当于 meta learning 的训练阶段会**模拟传统训练中的测试过程**。
 
-![datasets for meta-learning](/img/in-post/2020-08-05/meta-dataset.png)
+![datasets for meta-learning](~public/img/in-post/2020-08-05/meta-dataset.png)
 
 <p class="desc">图片来源：<a href="https://www.dropbox.com/s/sm68skkkbxbob0i/metalearning.pdf?dl=0" target="_blank">Generalizing from Few Examples with Meta-Learning</a></p>
 
@@ -71,7 +71,7 @@ $$
 一个需要解释一下的术语是 N-way K-shot，指 support set 中有 N 类数据，每类数据有 K 个带有标注的样本。
 
 
-![few shot classification](/img/in-post/2020-08-05/few-shot-classification.png)
+![few shot classification](~public/img/in-post/2020-08-05/few-shot-classification.png)
 
 <p class="desc">2-way 4-shot 图像分类示例。我们希望模型在知道了如何区分『猫和鸟』以及『花和自行车』后，能快速学会区分『狗和水獭』。图片来源：<a href="https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html#a-simple-view" target="_blank">Meta-Learning: Learning to Learn Fast</a></p>
 
@@ -204,7 +204,7 @@ $$
 
 FOMAML 算法流程为：
 
-![fomaml](/img/in-post/2020-08-05/fomaml.png)
+![fomaml](~public/img/in-post/2020-08-05/fomaml.png)
 
 <p class="desc">图片来源：<a href="https://www.andrew.cmu.edu/user/abhijatb/assets/Deep_RL_project.pdf" target="_blank">First-order Meta-Learned Initialization for Faster Adaptation in Deep Reinforcement Learning</a></p>
 
@@ -218,11 +218,11 @@ FOMAML 算法流程为：
 
 Reptile 是另一种一阶的 meta learning 算法，它的流程为：
 
-![reptile](/img/in-post/2020-08-05/reptile.png)
+![reptile](~public/img/in-post/2020-08-05/reptile.png)
 
 带 batch 的版本就是每次采样多个 task：
 
-![batched reptile](/img/in-post/2020-08-05/reptile-batch.png)
+![batched reptile](~public/img/in-post/2020-08-05/reptile-batch.png)
 
 Reptile 与 FOMAML 的区别在于：
 

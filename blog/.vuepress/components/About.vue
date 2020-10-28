@@ -4,7 +4,7 @@
         <div class="header__content">
           <div class="header__basic col-md-4">
             <div class="avatar">
-              <img :src="$page.frontmatter.avatar">
+              <img :src="$getCDNPath($page.frontmatter.avatar)">
             </div>
             <h3 class="title">{{ $page.frontmatter.name }}</h3>
             <p class="subname">{{ $page.frontmatter.subname }}</p>

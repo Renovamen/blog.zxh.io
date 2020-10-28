@@ -35,7 +35,7 @@ Transformer 整体结构如下：
 
 Transformer 扔掉了 RNN，对输入句子的所有单词都是同时处理的，所以失去了捕捉单词的排序和位置信息的能力。如果不解决词序的问题，那即使把一句话打乱，attention 出来的结果也是一样的，相当于这就只是一个词袋模型。为了解决这个问题，论文引入 position embedding 来对单词的位置信息进行编码。最终的输入词向量 = word embedding + position embedding：
 
-![Positional Embedding](/img/in-post/2020-07-17/positional-embedding.png)
+![Positional Embedding](~public/img/in-post/2020-07-17/positional-embedding.png)
 
 <p class="desc">图片来源：<a href="http://jalammar.github.io/illustrated-transformer#representing-the-order-of-the-sequence-using-positional-encoding" target="_blank">The Illustrated Transformer</a></p>
 
@@ -64,7 +64,7 @@ $$
 
 其中 $d_{\text{model}}$ 为词嵌入维度（论文中为 512），pos 为该单词在序列中的位置，$2i$ 为词向量的偶数维度（用第一个公式），$2i+1$ 指词向量的奇数维度（用第二个公式）。波的频率和偏移对于每个维度是不同的：
 
-![wave](/img/in-post/2020-07-17/wave.png)
+![wave](~public/img/in-post/2020-07-17/wave.png)
 
 <p class="desc">图片来源：<a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html#positional-encoding" target="_blank">The Annotated Transformer</a></p>
 
@@ -121,7 +121,7 @@ $$
 
 而 multi-head attention 就是通过 $h=8$ 个不同的线性变换得到不同的 $Q, V, K$，最后将这 $h$ 个 attention 结果拼接起来：
 
-![multi-head sekf-attention](/img/in-post/2020-07-17/multi-head-self-attention.png)
+![multi-head sekf-attention](~public/img/in-post/2020-07-17/multi-head-self-attention.png)
 
 <p class="desc">图片来源：<a href="http://jalammar.github.io/illustrated-transformer#the-beast-with-many-heads" target="_blank">The Illustrated Transformer</a></p>
 
@@ -134,7 +134,7 @@ $$
 
 注意：这里跟 $V$ 是**矩阵相乘**，不是 element-wise 相乘。
 
-![attention](/img/in-post/2020-07-17/attention.png)
+![attention](~public/img/in-post/2020-07-17/attention.png)
 
 其中 $d_k = d_{\text{model}} / h = 512 / 8 = 64$。除以 $\sqrt{d_k}$ 是因为，$d_k$ 越大 $QK^T$ 就会越大，可能就会将 softmax 函数推入梯度极小的区域，所以要用 $\sqrt{d_k}$ 对 $QK^T$ 进行缩放。
 
@@ -154,7 +154,7 @@ $$
 
 encoder-decoder 结构：
 
-![encoder-decoder](/img/in-post/2020-07-17/encoder-decoder.png)
+![encoder-decoder](~public/img/in-post/2020-07-17/encoder-decoder.png)
 
 <p class="desc">图片来源：<a href="http://jalammar.github.io/illustrated-transformer#the-residuals" target="_blank">The Illustrated Transformer</a></p>
 
@@ -195,7 +195,7 @@ mask 是一个下三角矩阵，对角线以及对角线左下都是1，其余�
 
 - 相比其他方法，当序列长度 $n$ 小于词向量维度 $d$ 时，每层的计算复杂度（complexity per layer）更低：
 
-    ![complexity](/img/in-post/2020-07-17/complexity.png)
+    ![complexity](~public/img/in-post/2020-07-17/complexity.png)
 
 - 更好的并行性，符合目前的硬件（GPU）环境
 
