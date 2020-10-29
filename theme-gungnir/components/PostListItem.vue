@@ -5,7 +5,7 @@
 
   <div class="post-item-img">
     <div class="post-item-img__img" @click="$router.push(item.path)">
-      <img :src="$getCDNPath(item.frontmatter.header_img)" class="cover" />
+      <img :src="$withBase(item.frontmatter.header_img)" class="cover" />
     </div>
     <div class="else">
       <p v-if="item.frontmatter.date" class="post-item-img__date">{{ item.frontmatter.date | formatDateValue }}</p>

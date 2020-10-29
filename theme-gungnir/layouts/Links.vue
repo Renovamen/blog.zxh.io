@@ -20,7 +20,7 @@
                                 rel="noopener noreferrer"
                             >
                                 <img :src="item.img
-                                            ? $getCDNPath(item.img)
+                                            ? $withBase(item.img)
                                             : require('@theme/assets/default-link-avatar.jpg')">
                                 <span class="sitename">{{ item.sitename }}</span>
                                 <div class="desc">{{ item.desc }}</div>

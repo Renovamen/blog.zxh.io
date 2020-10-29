@@ -11,7 +11,7 @@
         
         <div class="hero-avatar hide-on-mobile">
           <img
-            :src="$getCDNPath($themeConfig.authorAvatar)" 
+            :src="$withBase($themeConfig.authorAvatar)" 
             alt="hero" />
         </div>
 
@@ -63,13 +63,13 @@ export default {
       currentPage: 1,
       tags: [],
       bgImageID: 0,
-      headerOpacity: 1,
+      headerOpacity: 1
     }
   },
   computed: {
     bgImagePath () {
       if(this.$themeConfig.bgImage) {
-        var bgPath = "url(" + this.$getCDNPath(this.$themeConfig.bgImage[this.bgImageID].path) + ")"
+        var bgPath = `url(${this.$withBase(this.$themeConfig.bgImage[this.bgImageID].path)})`
         return bgPath
       }
       else {

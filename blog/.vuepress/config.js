@@ -28,7 +28,6 @@ module.exports = {
     codeTheme: "gungnir-dark",
     hitokoto: true,  // Enable hitokoto (一言) or not?
     comment: true,  // Enable comment system or not?
-    cdn: 'https://cdn.jsdelivr.net/gh/Renovamen/renovamen.github.io@gh-pages/',
     nav: [
       {
         text: "Home",
