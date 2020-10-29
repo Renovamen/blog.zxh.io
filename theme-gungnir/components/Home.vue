@@ -335,6 +335,8 @@ export default {
   .home-blog
     .hero
       padding 80px 0 60px
+      .header-mask
+        margin-top -1.2rem
       .hero-info__text h1
         font-size 50px !important
 </style>

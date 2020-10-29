@@ -64,15 +64,6 @@ module.exports = (options, ctx) => {
         }
       ],
       [
-        '@vssue/vuepress-plugin-vssue', {
-          platform: 'github',
-          owner: 'This-is-an-Apple',
-          repo: 'gitalk-comments',
-          clientId: 'd6247712dc288a5a60ca',
-          clientSecret: 'ed1ec72417828343c79ed910a1b77d140fa715a7',
-        }
-      ],
-      [
         'container', {
           type: 'tip',
           defaultTitle: {
