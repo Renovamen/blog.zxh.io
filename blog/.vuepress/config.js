@@ -36,7 +36,7 @@ module.exports = {
       },
       {
         text: "About",
-        link: '/about',
+        link: '/about/',
         icon: 'fas fa-paw'
       },
       {
@@ -46,7 +46,7 @@ module.exports = {
       },
       {
         text: "Links",
-        link: '/links',
+        link: '/links/',
         icon: 'fas fa-satellite-dish'
       },
       {
