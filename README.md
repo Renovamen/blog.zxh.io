@@ -20,13 +20,13 @@ Any way, just have fun with this blog: https://renovamen.ink
 
 ```bash
 # install dependencies
-npm install
+yarn install
 
 # serve with hot reload
-npm run dev  # vuepress dev blog
+yarn run dev  # vuepress dev blog
 
 # build for production with minification
-npm run build  # vuepress build blog
+yarn run build  # vuepress build blog
 ```
 
 
