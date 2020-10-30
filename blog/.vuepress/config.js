@@ -141,6 +141,9 @@ module.exports = {
       repo: 'gitalk-comments',
       clientId: 'd6247712dc288a5a60ca',
       clientSecret: 'ed1ec72417828343c79ed910a1b77d140fa715a7',
+    },
+    '@vuepress/google-analytics': {
+      'ga': 'UA-146858305-1'
     }
   },
   chainMarkdown(config) {
