@@ -88,7 +88,7 @@ module.exports = {
       },
       {
         "path": "/img/home-bg/2.jpg",
-        "mask": "rgba(31, 64, 87, .2)"
+        "mask": "rgb(251, 170, 152, .2)"
       },
       {
         "path": "/img/home-bg/3.jpg",
