@@ -1,12 +1,7 @@
-# Hi! 🐺
+# Hi! 🧐
 
-<p>
-   <a href="https://renovamen.ink" target="_blank"><img alt="Blog" src="https://img.shields.io/badge/Blog-Renovamen-red?style=flat-square&logo=read-the-docs"></a>
-   <a href="https://github.com/SigureMo/notev" target="_blank"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-renovamen.github.io-black?style=flat-square&logo=github"></a>
-   <a href="https://github.com/vuejs/vuepress" target="_blank"><img alt="vuepress" src="https://img.shields.io/badge/Vuepress-build-1aad19?style=flat-square&logo=vue.js"></a>
-   <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank"><img alt="vuepress-theme-gungnir" src="https://img.shields.io/badge/Gungnir-theme-26a2ff?style=flat-square&logo=vue.js"></a>
-   <a href="LICENSE"><img alt="LICENSE" src="https://img.shields.io/badge/License-Apache--2.0-orange?style=flat-square"></a>
-</p>
+[![blog](https://img.shields.io/badge/Blog-Renovamen-red?style=flat-square&logo=read-the-docs&logoColor=ffffff)](https://renovamen.ink) [![renovamen's blog](https://img.shields.io/badge/GitHub-renovamen.github.io-6A7EC2?style=flat-square&logo=github)](https://github.com/Renovamen/renovamen.github.io) [![VuePress](https://img.shields.io/badge/VuePress-build-1aad19?style=flat-square&logo=vue.js&logoColor=ffffff)](https://github.com/vuejs/vuepress) [![vuepress-theme-gungnir](https://img.shields.io/badge/Gungnir-theme-26a2ff?style=flat-square&logo=grav)](https://github.com/Renovamen/vuepress-theme-gungnir) [![license](https://img.shields.io/badge/License-Apache--2.0-orange?style=flat-square)](LICENSE)
+
 
 This is my blog, it is powered by [VuePress](https://vuepress.vuejs.org/) and themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir).
 
