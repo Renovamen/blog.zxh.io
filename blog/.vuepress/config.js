@@ -77,7 +77,7 @@ module.exports = {
       "facebook": "renovamen.zou",
       "twitter": "renovamen_zxh",
       "zhihu": "chao-neng-gui-su",
-      "email": "renovamenzxh@gmail.com",
+      "email": "renovamenzxh@gmail.com"
     },
     tagline: "いつか、私がヒトじゃなくなっても",
     heroImage: "/hero.png",

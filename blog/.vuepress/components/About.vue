@@ -19,6 +19,15 @@
                   {{ snsIcon(platform) }}
                 </a>
               </div>
+              <div
+                v-if="$page.frontmatter.cv"
+                class="sns__item">
+                <a
+                  target="_blank"
+                  :href="$page.frontmatter.cv">
+                  <i class='ai ai-cv' />
+                </a>
+              </div>
             </div>
           </div>
           <div class="header__info col-md-8">
@@ -101,6 +110,31 @@ export default {
 <style lang="stylus">
 @require '../styles/mixins.styl'
 
+@font-face
+  font-family 'Academicons'
+  font-style normal
+  font-weight 400
+  font-display block
+  src url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.eot')
+  src url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.eot') format('embedded-opentype'),
+      url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.ttf') format('truetype'),
+      url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.woff') format('woff'),
+      url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.svg') format('svg')
+
+.ai
+  font-family 'Academicons'
+  font-weight 400
+  -moz-osx-font-smoothing grayscale
+  -webkit-font-smoothing antialiased
+  display inline-block
+  font-style normal
+  font-variant normal
+  text-rendering auto
+  line-height 1
+
+.ai-cv:before
+  content "\e9a5"
+
 .about-wrapper
   .col-md-4
     width 35%
@@ -160,7 +194,7 @@ export default {
         text-align center
         margin 55px 0
         &__item
-          width 11%
+          width 10%
           display inline-block
           > a
             text-decoration none
@@ -168,6 +202,8 @@ export default {
             i
               font-size 33px
               transition(transform .1s)
+              &.ai
+                font-size 36px
             .icon-zhihu
               font-style normal
               font-weight bold
@@ -219,6 +255,10 @@ export default {
     a.header-anchor
       display none
 
+  @media (max-width: $MQLarge)
+    .header__basic .sns__item
+      width 11%
+
   @media (max-width: $MQIpad)
     .header
       height auto
@@ -232,6 +272,8 @@ export default {
         position relative
       &__basic
         padding-left 0
+        .sns__item
+          width 10%
       &__info
         .title, .bio-info
           max-width 100%
