@@ -23,7 +23,6 @@
                 v-if="$page.frontmatter.cv"
                 class="sns__item">
                 <a
-                  target="_blank"
                   :href="$page.frontmatter.cv">
                   <i class='ai ai-cv' />
                 </a>
