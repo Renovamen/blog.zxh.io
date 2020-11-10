@@ -7844,10 +7844,8 @@ vuepress-plugin-mailchimp@^1.4.1:
     jsonp "^0.2.1"
     query-string "^6.9.0"
 
-vuepress-plugin-rss@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-rss/download/vuepress-plugin-rss-2.0.0.tgz#9e08479703f5d426305ae4e686d65ba7de562255"
-  integrity sha1-nghHlwP11CYwWuTmhtZbp95WIlU=
+vuepress-plugin-rss@./packages/vuepress-plugin-rss:
+  version "0.0.1"
   dependencies:
     chalk "^2.4.1"
     fs-extra "^5.0.0"

@@ -11,7 +11,7 @@ module.exports = {
     ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css"}],
     ["meta", { name: "viewport", content: "width=device-width,initial-scale=1,user-scalable=no"}]
   ],
-  theme: path.resolve(__dirname, '../../theme-gungnir'),
+  theme: path.resolve(__dirname, '../../packages/theme-gungnir'),
   themeConfig: {
     search: true,
     searchMaxSuggestions: 10,
