@@ -28,6 +28,7 @@ module.exports = {
     codeTheme: "gungnir-dark",
     hitokoto: true,  // Enable hitokoto (一言) or not?
     comment: true,  // Enable comment system or not?
+    rss: true, // Enable RSS or not?
     nav: [
       {
         text: "Home",
@@ -128,6 +129,11 @@ module.exports = {
     },
     '@vuepress/google-analytics': {
       'ga': 'UA-146858305-1'
+    },
+    'vuepress-plugin-rss': {
+      site_url: 'https://renovamen.ink',
+      copyright: 'Renovamen 2018-2020',
+      count: 20
     }
   },
   chainMarkdown(config) {

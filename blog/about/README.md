@@ -35,5 +35,3 @@ education:
 - 🌭 My dream: `while(sleeping){money++;}`
 
 - 🐤 Waiting for a chance to eat the parrot in my home.
-
-- 😄 [Wu Xuanyi](https://en.wikipedia.org/wiki/Wu_Xuanyi) is the most beautiful woman in the world, so why not have a look at her on [Weibo](https://weibo.com/xuanyi0808) and [Instagram](https://www.instagram.com/w.xuanyi0126/)?
