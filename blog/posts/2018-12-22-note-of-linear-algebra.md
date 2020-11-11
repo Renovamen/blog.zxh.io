@@ -136,7 +136,7 @@ MIT 18.06 / Stanford CS229 (Linear Algebra 部分)
 
     可以看到，$y$ 是 $A$ 的列的线性组合，其中线性组合的系数由 $x$ 的元素给出。
   
-也可以在左侧乘以行向量，写为 $y^T = x^T A$，其中 $ A \in R^{m \times n}, x \in R^m, y \in R^n $。也有两种理解方式：
+也可以在左侧乘以行向量，写为 $y^T = x^T A$，其中 $A \in R^{m \times n}, x \in R^m, y \in R^n$。也有两种理解方式：
 
 1. 把 $A$ 按列表示：
 

@@ -14,7 +14,7 @@ tags:
 
 <!-- more -->
 
-我的博客最初 fork 自 [Huxpro/huxpro.github.io](Huxpro/huxpro.github.io)，用了一段时间之后开始瞎改，把别人干净的代码改得乱七八糟。博客用的是 Jekyll 框架，而 Jekyll 就是 Github Pages 的默认引擎，所以在部署的时候 Github Pages 连 build 这一步都帮你省了。于是在很长一段时间内，作为一只懒惰的菜鸡，我并没有什么动力来折腾这些东西。而现在之所以要折腾，是因为不折腾的确不行了。
+我的博客最初 fork 自 [Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io)，用了一段时间之后开始瞎改，把别人干净的代码改得乱七八糟。博客用的是 Jekyll 框架，而 Jekyll 就是 Github Pages 的默认引擎，所以在部署的时候 Github Pages 连 build 这一步都帮你省了。于是在很长一段时间内，作为一只懒惰的菜鸡，我并没有什么动力来折腾这些东西。而现在之所以要折腾，是因为不折腾的确不行了。
 
 ::: warning WARNING
 不过这版博客已经是用 VuePress 重写过后的版本了...
