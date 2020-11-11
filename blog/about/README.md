@@ -24,7 +24,7 @@ education:
 
 ## Miscellaneous
 
-- 🔍 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [Jekyll](https://jekyllrb.com/) and [VuePress](https://vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/) and [Vercel](https://vercel.com).
+- 🔍 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress](https://vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/) and [Vercel](https://vercel.com).
 
 - 🎃 *Renovamen* is an Latin word means *renewal*.
 
