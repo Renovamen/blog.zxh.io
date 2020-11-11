@@ -5,7 +5,7 @@ module.exports = {
   description: "Renovamen's blog, powered by VuePress, themed by Gungnir.",
   head: [
     ["link", { rel: "icon", href: "/img/logo.svg"}],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css' }],
+    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css' }],
     ["link", { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Montserrat:200,400,500,700"}],
     ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css"}],
     ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css"}],
@@ -118,6 +118,12 @@ module.exports = {
         }
       }
     },
+    footer: `
+      &copy; <a href="https://github.com/Renovamen" target="_blank">Renovamen</a> 2018-2020
+      <br>
+      Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a> &
+      <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
+    `
   },
   plugins: {
     '@vssue/vuepress-plugin-vssue': {
@@ -167,7 +173,7 @@ module.exports = {
       md.set({
         html: true
       })
-      md.use(require('@liradb2000/markdown-it-katex'))
+      md.use(require('markdown-it-katex'))
     },
     extractHeaders: [ 'h2', 'h3', 'h4', 'h5' ]
   },
