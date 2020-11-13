@@ -5,10 +5,6 @@ module.exports = {
   description: "Renovamen's blog, powered by VuePress, themed by Gungnir.",
   head: [
     ["link", { rel: "icon", href: "/img/logo.svg"}],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css' }],
-    ["link", { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Montserrat:200,400,500,700"}],
-    ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css"}],
-    ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css"}],
     ["meta", { name: "viewport", content: "width=device-width,initial-scale=1,user-scalable=no"}]
   ],
   theme: path.resolve(__dirname, '../../packages/theme-gungnir'),
@@ -147,41 +143,10 @@ module.exports = {
         count: 20
       }
     ],
-    ['vuepress-plugin-reading-time']
+    '@renovamen/vuepress-plugin-katex'
   ],
-  chainMarkdown(config) {
-    const { PLUGINS } = require('@vuepress/markdown')
-    const originalLinkPlugin = require('@vuepress/markdown/lib/link.js');
-
-    config
-      .plugins
-        .delete(PLUGINS.CONVERT_ROUTER_LINK)
-
-    const linkPlugin = function (md) {
-      const result = originalLinkPlugin.apply(this, arguments);
-      const close = md.renderer.rules.link_close;
-      md.renderer.rules.link_close = function() {
-        return close.apply(this, arguments).replace('<OutboundLink/>', '');
-      }
-      return result;
-    };
-
-    config
-      .plugin(PLUGINS.CONVERT_ROUTER_LINK)
-        .use(linkPlugin, [{
-          // The config.markdown.externalLinks options https://vuepress.vuejs.org/config/#markdown-externallinks
-          target: '_blank',
-          rel: 'noopener noreferrer'
-        }])
-  },
   markdown: {
     // lineNumbers: true,
-    extendMarkdown: md => {
-      md.set({
-        html: true
-      })
-      md.use(require('markdown-it-katex'))
-    },
     extractHeaders: [ 'h2', 'h3', 'h4', 'h5' ]
   },
   configureWebpack: () => {
