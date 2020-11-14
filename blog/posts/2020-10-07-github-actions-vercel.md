@@ -248,7 +248,7 @@ jobs:
 
 那时候我所知的有境内节点的静态网站托管服务就 [Gitee Pages](https://gitee.com/help/articles/4136) 和 [Coding Pages](https://help.coding.net/docs/devops/cd/static-website.html) 俩，而 Gitee Pages 不能免费自定义域名，于是就把境内的线路解析到了 Coding Pages 上。
 
-直到不久之前，我发现新版 Coding Pages 的静态网站合并到腾讯云静态网站，并开始收费了...之前旧版的静态网站表面上看上去好像还能正常部署，实际上并不能访问了。
+直到不久之前，我发现新版 Coding Pages 的静态网站合并到腾讯云静态网站，并开始收费了...~~之前旧版的静态网站表面上看上去好像还能正常部署，实际上并不能访问了~~现在似乎又可以用了 orz...
 
 于是就手忙脚乱的把境内线路的博客扔到了 Vercel 上。只能说 Vercel 至少到目前为止还没发现什么毛病，有境内节点（不过感觉还是没有 Coding Pages 快就是了），而且是直接自动从 Github 仓库上拉代码然后打包加部署，对菜鸡相当友好。
 
