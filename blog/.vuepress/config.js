@@ -7,7 +7,7 @@ module.exports = {
     ["link", { rel: "icon", href: "/img/logo.svg"}],
     ["meta", { name: "viewport", content: "width=device-width,initial-scale=1,user-scalable=no"}]
   ],
-  theme: path.resolve(__dirname, '../../packages/theme-gungnir'),
+  theme: 'gungnir',
   themeConfig: {
     search: true,
     searchMaxSuggestions: 10,
@@ -47,27 +47,6 @@ module.exports = {
         icon: 'fas fa-satellite-dish'
       }
     ],
-    sidebar: {
-      "/docs/jekyll-theme-gungnir/": [
-        {
-          title: '基础',
-          collapsable: false,
-          children: [
-            '',
-            'basic/installation',
-          ],
-        }
-      ],
-      "/docs/vuepress-theme-gungnir/": [
-        {
-          title: '基础',
-          collapsable: false,
-          children: [
-            '',
-          ],
-        }
-      ]
-    },
     SNS: {
       "github": "Renovamen",
       "linkedin": "xiaohan-zou-55bba0160",  
@@ -137,13 +116,23 @@ module.exports = {
       }
     ],
     [
-      'vuepress-plugin-rss', {
+      '@renovamen/vuepress-plugin-baidu-tongji', {
+        'ba': '75381d210789d3eaf855fa16246860cc'
+      }
+    ],
+    [
+      '@renovamen/vuepress-plugin-rss', {
         site_url: 'https://renovamen.ink',
         copyright: 'Renovamen 2018-2020',
         count: 20
       }
     ],
-    '@renovamen/vuepress-plugin-katex'
+    [
+      '@renovamen/vuepress-plugin-md-plus', {
+        all: true
+      }
+    ],
+    '@renovamen/vuepress-plugin-katex',
   ],
   markdown: {
     // lineNumbers: true,
