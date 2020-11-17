@@ -2,7 +2,7 @@
     <Common class="post-container">
         <ArticleHeader
             v-show="$page.title"
-            class="article-header"
+            class="post-header"
             :articleInfo="$page"
             :class="{ 'style-img': $page.frontmatter.header_style == 'image' }"
             :style="pageHeaderStyle">
@@ -14,7 +14,6 @@
         </ArticleHeader>
         <Page :pageStyle="pageStyle" />
         <Catalog
-            class="side-catalog"
             :class="{ 'fixed': isFixed }"
             :style="{ 'top': `${catalogTop}px !important` }" />
     </Common>
@@ -50,7 +49,7 @@ export default {
     },
     mounted () {
         this.navHeight = this.$children[0].$children[0].$refs.navbar.offsetHeight
-        this.headerHeight = document.querySelector('.article-header').offsetHeight
+        this.headerHeight = document.querySelector('.post-header').offsetHeight
         this.screenWidth = document.body.clientWidth
         if (this.screenWidth <= 719) this.catalogTop = -15  // $MQMobile
         else this.catalogTop = this.headerHeight + catalogTopAbsolute
@@ -58,7 +57,7 @@ export default {
         const that = this
         window.onresize = () => {
             return (() => {
-                that.headerHeight = document.querySelector('.article-header').offsetHeight
+                that.headerHeight = document.querySelector('.post-header').offsetHeight
                 that.screenWidth = document.body.clientWidth
                 that.handleScroll()
             })()
@@ -71,8 +70,7 @@ export default {
     computed: {
         pageStyle () {
             return this.$showCatalog ? {} : { 
-                paddingRight: '0',
-                margin: '0 auto !important'
+                paddingRight: '0'
             }
         },
         pageHeaderStyle () {
@@ -107,9 +105,9 @@ export default {
 @require '../styles/wrapper.styl'
 
 .post-container
-    .side-catalog
+    .catalog-wrapper
         position absolute
-        right 2rem
+        right 1rem
         height 100%
         overflow-y scroll
         &.fixed
@@ -119,22 +117,18 @@ export default {
         &::-webkit-scrollbar
             width 0
             height 0
-    .article-header
-        margin-top -2rem
-        padding-top 8rem
+    .post-header
+        max-width 100%
         position relative
-        padding-right $catalogWidth
+        padding-top 6rem
         background-repeat no-repeat
         background-position center
         background-size cover
         .header-content
-            max-width $contentWidth
-            margin-left $catalogWidth !important
             z-index 2
             position relative
             .title, .subtitle, .tags, .icons
-                padding-left 2.5rem
-                padding-right 2.5rem
+                padding 0 2.5rem
             .title
                 font-size 50px
                 font-weight bold
@@ -143,24 +137,21 @@ export default {
                 font-weight 400
                 font-size 30px
         &.style-img
-            padding-top 150px
-            padding-bottom 150px
-            .title,
-            .subtitle,
-            .page-tag, 
-            i
+            padding-top 7.5rem
+            padding-bottom 9rem
+            .title, .subtitle, .tag, i
                 color #fff
                 border-color #fff
         .header-mask
             width 100%
             height 100%
             position absolute
-            margin-top -9.4rem
+            margin-top -7.6rem
             z-index 1
 
     .page
         max-width $contentWidth
-        margin-left $catalogWidth !important
+        margin 0 auto !important
         padding-bottom 5rem
         padding-top 1rem
         h1
@@ -181,6 +172,13 @@ export default {
             color var(--text-color-sub)
         a.header-anchor
             opacity 1
+        .pager
+            padding 0rem 2.5rem
+            margin-top 30px
+            a
+                text-align center
+                width 45%
+                padding 10px 5px
         .vssue-comment-wrapper
             @extend $wrapper
             margin-top 10rem
@@ -189,34 +187,36 @@ export default {
                 padding 1rem
                 margin-top 13rem
                 margin-bottom -5rem
-
-@media (max-width: ($MQIpad + 1px))
-    .post-container
-        .page, .article-header .header-content
-            max-width auto
-            margin 0 auto !important
+  
+@media (max-width: $MQLarge)
+    .post-container 
+        .page
+            padding-right $catalogWidth
+        .page
+            max-width 100%
+        .post-header .header-content
+            max-width 100%
+            .title, .subtitle, .tags, .icons
+                padding 0
 
 @media (max-width: $MQMobile)
     .post-container
-        .article-header
-            padding-top 6rem
+        .post-header
+            padding-top 4rem
             padding-bottom 0
-            padding-right 0
             .header-content
-                .title, .subtitle, .tags, .icons
-                    padding-left 1rem
-                    padding-right 1rem
                 .title
                     font-size 30px
                 .subtitle
                     font-size 16px
                     margin-top -5px
             &.style-img
-                padding-top 85px
-                padding-bottom 45px
+                padding-top 3rem
+                padding-bottom 4rem
             .header-mask
-                margin-top -5.4rem
+                margin-top -3.1rem
         .page
+            padding-right 0
             h1
                 font-size 30px
             h2
@@ -229,13 +229,14 @@ export default {
                 font-size 19px
             h6
                 font-size 16px
-        .side-catalog
+            .pager
+                padding 0 2rem
+        .catalog-wrapper
             transition(transform .5s)
             transform(translateX(calc(100% + 2rem)))
             position fixed
             right -2px
             padding-top 2rem
-            width 15rem !important
             height 100%
             background-color var(--bg-color)
             z-index 5
@@ -248,5 +249,10 @@ export default {
                 border-left none
                 &.active
                     border-left 2px solid var(--accent-color)
+
+@media (max-width: $MQMobileNarrow)
+    .post-container
+        .page .pager
+            padding 0 1rem
 </style>
 <style src="../styles/theme.styl" lang="stylus"></style>

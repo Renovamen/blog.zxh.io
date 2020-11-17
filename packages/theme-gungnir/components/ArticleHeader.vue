@@ -6,7 +6,7 @@
         <span
           v-for="(subItem, subIndex) in articleInfo.frontmatter.tags"
           :key="subIndex"
-          class="page-tag"
+          class="tag"
           :class="{ 'active': currentTag == subItem }"
           @click.stop="goTags(subItem)">{{subItem}}</span>
       </div>
@@ -88,30 +88,37 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.icons
-  i
-    display inline-block
-    line-height 1.5rem
-    color var(--text-color-sub)
-    &:not(:last-child)
-      margin-right 1rem
-    span
-      margin-left 0.5rem
-      font-size 13px
-      font-weight normal
-.tags
-  margin-bottom -20px
-  .page-tag
-    border 1px solid var(--text-color)
-    color var(--text-color)
-    background-color transparent
-    font-size 12px
-    line-height 24px
-    padding 0 10px
-    &.active, &:hover
-      background-color rgba(0, 0, 0, 0.05) !important
-@media (max-width: $MQMobile)
+@require '../styles/wrapper.styl'
+
+.header-content
+  @extend $wrapper
+  padding-top 0
+  padding-bottom 0
+  .icons
+    i
+      display inline-block
+      line-height 1.5rem
+      color var(--text-color-sub)
+      &:not(:last-child)
+        margin-right 1rem
+      span
+        margin-left 0.5rem
+        font-size 13px
+        font-weight normal
   .tags
-    margin-left 0 !important
-    margin-bottom 0
+    margin-bottom -20px
+    .tag
+      border 1px solid var(--text-color)
+      color var(--text-color)
+      background-color transparent
+      font-size 12px
+      line-height 24px
+      padding 0 10px
+      &.active, &:hover
+        background-color rgba(0, 0, 0, 0.05) !important
+
+  @media (max-width: $MQMobile)
+    .tags
+      margin-left 0 !important
+      margin-bottom 0
 </style>
