@@ -218,6 +218,8 @@ export default {
         text-align left
         margin 20px 10px 75px
         font-weight 400
+        a:hover
+          text-decoration underline
       .personal-info
         margin -50px 15px auto
         width 100%

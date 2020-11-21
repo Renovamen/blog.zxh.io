@@ -185,7 +185,7 @@ $$
 
 ### 气氛突然贝叶斯了起来
 
-而在**贝叶斯神经网络（Bayesian Neural Network，BNN）**中，$w$ 和 $b$ 由确定的值变为了分布，因此概率模型就变为了：
+而在**贝叶斯神经网络**（Bayesian Neural Network，BNN）中，$w$ 和 $b$ 由确定的值变为了分布，因此概率模型就变为了：
 
 $$
 p(y \mid x) = \mathbb{E}_{p(w \mid D)} [p(y \mid x, w)]
