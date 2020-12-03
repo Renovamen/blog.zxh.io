@@ -161,8 +161,11 @@ export default {
     &__content
       position absolute
       width 98.5%
-      margin-top -250px
+      max-width 1400px
       top 50%
+      left 0
+      right 0
+      margin -250px auto 0
     &__basic
       position absolute
       top 50%
