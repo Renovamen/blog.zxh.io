@@ -16,6 +16,6 @@
   },
   "devDependencies": {
     "vuepress": "^1.6.0",
-    "vuepress-theme-gungnir": "^0.0.1"
+    "vuepress-theme-gungnir": "^0.1.1"
   }
 }
