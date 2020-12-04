@@ -29,22 +29,22 @@ module.exports = {
       {
         text: "Home",
         link: "/",
-        icon: 'fab fa-fort-awesome'
+        icon: 'fa/brands/fort-awesome'
       },
       {
         text: "About",
         link: '/about/',
-        icon: 'fas fa-paw'
+        icon: 'fa/paw'
       },
       {
         text: "Tags",
         link: '/tags/',
-        icon: 'fas fa-tag'
+        icon: 'fa/tag'
       },
       {
         text: "Links",
         link: '/links/',
-        icon: 'fas fa-satellite-dish'
+        icon: 'fa/satellite-dish'
       }
     ],
     SNS: {
@@ -73,6 +73,9 @@ module.exports = {
       {
         "path": "/img/home-bg/4.jpg",
         "mask": "rgba(19, 75, 50, .2)"
+      },
+      {
+        "path": "/img/home-bg/5.jpg"
       }
     ],
     pageConfig: {

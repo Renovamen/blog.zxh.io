@@ -12,11 +12,8 @@
               <div
                 v-for="(user, platform) in $themeConfig.SNS"
                 class="sns__item">
-                <a
-                  v-html="snsIcon(platform)"
-                  target="_blank"
-                  :href="snsLink(user, platform)">
-                  {{ snsIcon(platform) }}
+                <a target="_blank" :href="snsLink(user, platform)">
+                  <v-icon :name="snsIcon(platform)" scale="2.2"/>
                 </a>
               </div>
               <div
@@ -24,7 +21,7 @@
                 class="sns__item">
                 <a
                   :href="$page.frontmatter.cv">
-                  <i class='ai ai-cv' />
+                  <v-icon name="ai/cv" scale="2.2"/>
                 </a>
               </div>
             </div>
@@ -72,6 +69,15 @@
 
 <script>
 import Common from '@theme/components/Common.vue'
+// icons
+import 'oh-vue-icons/icons/ri/github-fill'
+import 'oh-vue-icons/icons/ri/linkedin-box-fill'
+import 'oh-vue-icons/icons/ri/facebook-box-fill'
+import 'oh-vue-icons/icons/ri/twitter-fill'
+import 'oh-vue-icons/icons/ri/zhihu-line'
+import 'oh-vue-icons/icons/ri/weibo-fill'
+import 'oh-vue-icons/icons/ri/mail-line'
+import 'oh-vue-icons/icons/ai/cv'
 
 const platform_links = {
   "github": "https://github.com/",
@@ -84,13 +90,13 @@ const platform_links = {
 }
 
 const platform_icons = {
-  "github": "<i class='fab fa-github' />",
-  "linkedin": "<i class='fab fa-linkedin' />",
-  "facebook": "<i class='fab fa-facebook-square' />",
-  "twitter": "<i class='fab fa-twitter' />",
-  "zhihu": "<i class='fas icon-zhihu'>知</i>",
-  "weibo": "<i class='fab fa-weibo' />",
-  "email": "<i class='fas fa-envelope' />"
+  "github": "ri/github-fill",
+  "linkedin": "ri/linkedin-box-fill",
+  "facebook": "ri/facebook-box-fill",
+  "twitter": "ri/twitter-fill",
+  "zhihu": "ri/zhihu-line",
+  "weibo": "ri/weibo-fill",
+  "email": "ri/mail-line"
 }
 
 export default {
@@ -108,31 +114,6 @@ export default {
 
 <style lang="stylus">
 @require '../styles/mixins.styl'
-
-@font-face
-  font-family 'Academicons'
-  font-style normal
-  font-weight 400
-  font-display block
-  src url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.eot')
-  src url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.eot') format('embedded-opentype'),
-      url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.ttf') format('truetype'),
-      url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.woff') format('woff'),
-      url('//cdn.jsdelivr.net/gh/jpswalsh/academicons@1/fonts/academicons.svg') format('svg')
-
-.ai
-  font-family 'Academicons'
-  font-weight 400
-  -moz-osx-font-smoothing grayscale
-  -webkit-font-smoothing antialiased
-  display inline-block
-  font-style normal
-  font-variant normal
-  text-rendering auto
-  line-height 1
-
-.ai-cv:before
-  content "\e9a5"
 
 .about-wrapper
   .col-md-4
@@ -196,20 +177,14 @@ export default {
         text-align center
         margin 55px 0
         &__item
-          width 10%
+          width 9.5%
           display inline-block
           > a
             text-decoration none
             color var(--accent-color)
-            i
-              font-size 33px
+            .v-icon
               transition(transform .1s)
-              &.ai
-                font-size 36px
-            .icon-zhihu
-              font-style normal
-              font-weight bold
-            &:hover i
+            &:hover .v-icon
               transform(scale(1.3))
 
     &__info
