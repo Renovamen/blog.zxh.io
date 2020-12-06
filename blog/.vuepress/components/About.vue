@@ -13,7 +13,7 @@
                 v-for="(user, platform) in $themeConfig.SNS"
                 class="sns__item">
                 <a target="_blank" :href="snsLink(user, platform)">
-                  <v-icon :name="snsIcon(platform)" scale="2.2"/>
+                  <v-icon :name="snsIcon(platform)" scale="1.82"/>
                 </a>
               </div>
               <div
@@ -21,7 +21,7 @@
                 class="sns__item">
                 <a
                   :href="$page.frontmatter.cv">
-                  <v-icon name="ai/cv" scale="2.2"/>
+                  <v-icon name="ai/cv" scale="2.2" />
                 </a>
               </div>
             </div>
@@ -175,10 +175,11 @@ export default {
         margin-top -30px
       .sns
         text-align center
-        margin 55px 0
+        margin 50px 0
         &__item
           width 9.5%
           display inline-block
+          vertical-align middle
           > a
             text-decoration none
             color var(--accent-color)
