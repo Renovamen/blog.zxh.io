@@ -136,7 +136,9 @@ gem 'jekyll-paginate', '~> 1.1.0'
 
 ### Node.js
 
-所有能用 Node.js 搞定的东西（比如这个基于 VuePress 的博客）都能用这个工作流处理：
+所有能用 Node.js 搞定的东西（比如这个基于 VuePress 的博客）都能用以下工作流处理：
+
+#### npm
 
 ```yaml
 name: build and deploy
@@ -158,7 +160,7 @@ jobs:
 
       # Node.js 环境
       - name: Setup Node
-        uses: actions/setup-node@v2.1.0
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '12.x'
 
@@ -187,12 +189,14 @@ jobs:
 
 其中 [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) 也是一个别人写好的 action，能把指定路径的文件推到 `gh-pages` 分支。
 
-也可以用 [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action)，它是一个能把指定路径的文件推到指定分支的 action：
+
+#### yarn
+
+如果包管理工具用的 `yarn`：
 
 ```yaml
 name: build and deploy
 
-# 检测 master 分支上的推送和 pr
 on:
   push:
     branches: [ master ]
@@ -200,44 +204,42 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build-and-deploy-vuepress:
     runs-on: ubuntu-latest
-    steps:
 
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
 
-      # 检测 node_modules 下有没有已经安装好的包
-      # 如果有的话就不用再 npm install 了，节省时间和资源
-      - name: Check Cache
-        uses: actions/cache@v1
-        id: cache-dependencies
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.2
         with:
-          path: node_modules
-          key: runner.OS−{{ hashFiles('**/package-lock.json') }}
+          node-version: '12'
 
-      # 如果没有缓存，就 npm install
-      - name: Install Dependencies
-        if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: |
-          npm install
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       
-      # npm run build
       - name: Build
-        run: npm run build
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
       
-      # 推送到同一个 repo 的 gh-pages 分支
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist  # npm run build 的输出文件夹
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          cname: renovamen.ink
 ```
-
-不过虽然作者在[表示](https://github.com/JamesIves/github-pages-deploy-action#additional-build-files-)在 `gh-pages` 分支手动 commit 一个 `CNAME` 之后，`CNAME` 不会在后面的部署中被清掉，但我不管怎么试都会被清掉，所以就没用了...大概是我的方式不太对...
 
 
 ## Vercel
