@@ -21,7 +21,7 @@
                 class="sns__item">
                 <a
                   :href="$page.frontmatter.cv">
-                  <v-icon name="ai/cv" scale="2.2" />
+                  <v-icon name="ai-cv" scale="2.2" />
                 </a>
               </div>
             </div>
@@ -69,15 +69,6 @@
 
 <script>
 import Common from '@theme/components/Common.vue'
-// icons
-import 'oh-vue-icons/icons/ri/github-fill'
-import 'oh-vue-icons/icons/ri/linkedin-box-fill'
-import 'oh-vue-icons/icons/ri/facebook-box-fill'
-import 'oh-vue-icons/icons/ri/twitter-fill'
-import 'oh-vue-icons/icons/ri/zhihu-line'
-import 'oh-vue-icons/icons/ri/weibo-fill'
-import 'oh-vue-icons/icons/ri/mail-line'
-import 'oh-vue-icons/icons/ai/cv'
 
 const platform_links = {
   "github": "https://github.com/",
@@ -90,13 +81,13 @@ const platform_links = {
 }
 
 const platform_icons = {
-  "github": "ri/github-fill",
-  "linkedin": "ri/linkedin-box-fill",
-  "facebook": "ri/facebook-box-fill",
-  "twitter": "ri/twitter-fill",
-  "zhihu": "ri/zhihu-line",
-  "weibo": "ri/weibo-fill",
-  "email": "ri/mail-line"
+  "github": "ri-github-fill",
+  "linkedin": "ri-linkedin-box-fill",
+  "facebook": "ri-facebook-box-fill",
+  "twitter": "ri-twitter-fill",
+  "zhihu": "ri-zhihu-line",
+  "weibo": "ri-weibo-fill",
+  "email": "ri-mail-line"
 }
 
 export default {

@@ -1,5 +1,13 @@
-import 'oh-vue-icons/icons/fa/brands/fort-awesome'
-import 'oh-vue-icons/icons/fa/paw'
-import 'oh-vue-icons/icons/fa/tag'
-import 'oh-vue-icons/icons/fa/satellite-dish'
-import 'oh-vue-icons/icons/ri/link-m'
+import VueIcon from 'oh-vue-icons/components/Icon'
+
+import {
+    FaFortAwesome, FaPaw, FaTag, FaSatelliteDish, RiLinkM,
+    RiGithubFill, RiLinkedinBoxFill, RiFacebookBoxFill, RiTwitterFill,
+    RiZhihuLine, RiWeiboFill, RiMailLine, AiCv
+} from 'oh-vue-icons/icons'
+
+VueIcon.add([
+    FaFortAwesome, FaPaw, FaTag, FaSatelliteDish, RiLinkM,
+    RiGithubFill, RiLinkedinBoxFill, RiFacebookBoxFill, RiTwitterFill,
+    RiZhihuLine, RiWeiboFill, RiMailLine, AiCv
+])
