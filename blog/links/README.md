@@ -32,4 +32,14 @@ links:
         url: https://cube.renovamen.ink
         img: /img/links/cube.svg
         desc: 玩魔方吗朋友
+  - title: 我自己能用就完事了
+    items:
+      - sitename: Oh, Vue Icons!
+        url: https://oh-vue-icons.vercel.app
+        img: /img/links/icon.svg
+        desc: Vue 图标组件
+      - sitename: Gungnir
+        url: https://vuepress-theme-gungnir.vercel.app/
+        img: /img/links/gungnir.svg
+        desc: VuePress 主题
 ---
