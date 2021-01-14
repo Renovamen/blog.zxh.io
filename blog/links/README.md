@@ -20,6 +20,10 @@ links:
         url: https://midgard.renovamen.ink
         img: /img/links/resume.svg
         desc: 来找简历吗勇士！
+      - sitename: Fishmail
+        url: https://fishmail.vercel.app
+        img: /img/links/fishmail.svg
+        desc: 上班摸鱼！
       - sitename: 荒野之息
         url: https://zelda.renovamen.ink
         img: /img/links/zelda.jpg
