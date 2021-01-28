@@ -46,4 +46,8 @@ links:
         url: https://vuepress-theme-gungnir.vercel.app/
         img: /img/links/gungnir.svg
         desc: VuePress 主题
+      - sitename: TinyArk
+        url: https://github.com/Renovamen/tinyark
+        img: /img/links/tinyark.svg
+        desc: 没啥用的深度学习框架
 ---
