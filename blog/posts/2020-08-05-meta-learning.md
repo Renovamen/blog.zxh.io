@@ -161,7 +161,7 @@ $$
 那么 outer loop 中：
 
 $$
-\theta_0 \leftarrow \theta_0 - \beta g_{\text{MAML}} \\[10pt]
+\theta_0 \leftarrow \theta_0 - \beta g_{\text{MAML}}
 $$
 
 $$
