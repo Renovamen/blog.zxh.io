@@ -24,11 +24,11 @@
         <div class="personal-info-wrapper">
           <div class="mobile-hero-avatar">
             <img
-              :src="$withBase($themeConfig.authorAvatar)" 
+              :src="$withBase($themeConfig.personalInfo.avatar)" 
               alt="hero"
             />
           </div>
-          <p class="mobile-heading">{{ $themeConfig.author }}</p>
+          <p class="mobile-heading">{{ $themeConfig.personalInfo.name }}</p>
           <SNS />
           <hr>
         </div>
@@ -39,7 +39,7 @@
     <slot></slot>
 
     <SearchPage
-      v-if="$themeConfig.search !== false && $frontmatter.search !== false"
+      v-if="$themeConfig.search && $frontmatter.search !== false"
       @toggle-search="toggleSearch(false)"
     />
     <Menu
@@ -130,6 +130,7 @@ export default {
       this.isSearchOpen = false
       // this.isCatalogOpen = false
     })
+    console.log(this.$themeConfig)
   },
 
   methods: {
@@ -184,11 +185,16 @@ export default {
 @require '../styles/mode.styl'
 
 .theme-container
-  .hide
+  .sidebar-mask
+    position fixed
+    z-index 9
+    top 0
+    left 0
+    width 100vw
     height 100vh
-    overflow hidden
+    display none
+    background-color rgba(0,0,0,.65)
   .sidebar
-    gungnir-font()
     .mobile-hero-avatar
       margin 0 auto
       width 90px
@@ -213,4 +219,28 @@ export default {
         min-width 25px
         .icon-sns
           color var(--text-color)
+  &.sidebar-open
+    .sidebar-mask
+      display block
+  &.search-open
+    .search-page
+      transform(translateY(0))
+  &.no-navbar
+    .sidebar
+      top 0
+
+@media (min-width: ($MQMobile + 1px))
+  .theme-container.no-sidebar
+    .sidebar
+      display none
+      
+@media (max-width: $MQMobile)
+  .theme-container
+    &.sidebar-open .sidebar
+      transform(translateX(0))
+    &.no-navbar .sidebar
+      padding-top 0
+    &.catalog-open .catalog-wrapper
+      transform(translateX(0))
+      box-shadow var(--box-shadow)
 </style>

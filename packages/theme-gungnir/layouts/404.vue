@@ -3,7 +3,7 @@
     <div class="error-container">
       <article class="error-content">
         <h2 class="error-emoji">{{ getEmoji() }}</h2>
-        <h2>404 - Page Not Found</h2>
+        <h2>404 - {{ $themeLocales.notFound }}</h2>
         <router-link to="/">
           <h2>$ cd /home/</h2>
         </router-link>
@@ -59,13 +59,13 @@ export default {
       :hover
         color var(--accent-color)
 
-  @media (max-width: $MQMobileNarrow)
+@media (max-width: $MQMobileNarrow)
+  .error-container
     .error-content
       h2
         font-size 25px
       .error-emoji
         font-size 45px
-
 </style>
 
 <style src="../styles/theme.styl" lang="stylus"></style>

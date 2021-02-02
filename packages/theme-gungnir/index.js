@@ -4,33 +4,40 @@ const path = require('path')
 module.exports = (options, ctx) => {
   const { themeConfig, siteConfig } = ctx
 
-  // resolve algolia
-  const isAlgoliaSearch = (
-    themeConfig.algolia
-    || Object
-      .keys(siteConfig.locales && themeConfig.locales || {})
-      .some(base => themeConfig.locales[base].algolia)
-  )
+  // default theme config
+  Object.assign(options, Object.assign({
+    search: true,
+    searchMaxSuggestions: 10,
+    searchPlaceholder: '$ grep ...',
+    editLinks: true,
+    lastUpdated: true,
+    smoothScroll: true,
+    sidebarDepth: 5,
+    codeTheme: 'default',
+    hitokoto: false,
+    comment: false,
+    analytics: false,
+    rss: false,
+    katex: false,
+    mermaid: false,
+    chartjs: false,
+    roughviz: false,
+    mdPlus: false,
+    personalInfo: {},
+    homeHeaderImages: {},
+    pages: {},
+    footer: ''
+  }, options))
 
-  const enableSmoothScroll = themeConfig.smoothScroll === true
+  const { comment, analytics } = options
 
   return {
-    alias() {
-      return {
-        '@AlgoliaSearchBox': isAlgoliaSearch
-          ? path.resolve(__dirname, 'components/AlgoliaSearchBox.vue')
-          : path.resolve(__dirname, 'noopModule.js')
-      }
-    },
-
+    name: 'vuepress-theme-gungnir',
     plugins: [
       '@vuepress/search',
       '@vuepress/plugin-nprogress',
-      ['smooth-scroll', enableSmoothScroll],
-      [
-        '@vuepress/active-header-links', 
-        options.activeHeaderLinks
-      ],
+      ['smooth-scroll', options.smoothScroll === true],
+      ['@vuepress/active-header-links', options.activeHeaderLinks],
       [
         '@vuepress/plugin-blog', {
           permalink: '/:regular',
@@ -102,10 +109,34 @@ module.exports = (options, ctx) => {
         }
       ],
       [
+        '@vssue/vuepress-plugin-vssue', 
+        comment ? Object.assign({
+          platform: 'github',
+        }, comment) : false
+      ],
+      [
         '@renovamen/vuepress-plugin-reading-time', {
           excludes: ['/about', '/tags/.*', '/links']
         }
-      ]
+      ],
+      [
+        '@vuepress/google-analytics',
+        analytics && analytics.ga
+          ? { 'ga': analytics.ga }
+          : false
+      ],
+      [
+        '@renovamen/vuepress-plugin-baidu-tongji',
+        analytics && analytics.ba
+          ? { 'ba': analytics.ba }
+          : false
+      ],
+      ['@renovamen/vuepress-plugin-rss', options.rss ? options.rss : false],
+      ['@renovamen/vuepress-plugin-md-plus', options.mdPlus ? options.mdPlus : false],
+      ['@renovamen/vuepress-plugin-katex', options.katex],
+      ['@renovamen/vuepress-plugin-mermaid', options.mermaid],
+      ['vuepress-plugin-chart', options.chartjs],
+      ['vuepress-plugin-roughviz', options.roughviz]
     ],
 
     chainMarkdown(config) {

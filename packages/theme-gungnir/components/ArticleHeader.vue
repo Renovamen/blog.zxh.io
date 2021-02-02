@@ -29,10 +29,10 @@
       <div class="icons">
         <div
           class="icon"
-          v-if="articleInfo.frontmatter.author || $themeConfig.author || $site.title"
+          v-if="articleInfo.frontmatter.author || $themeConfig.personalInfo.name || $site.title"
         >
           <v-icon name="fa-regular-user" />
-          <span>{{ articleInfo.frontmatter.author || $themeConfig.author || $site.title }}</span>
+          <span>{{ articleInfo.frontmatter.author || $themeConfig.personalInfo.name || $site.title }}</span>
         </div>
 
         <div
@@ -144,7 +144,8 @@ export default {
       &.active, &:hover
         background-color rgba(0, 0, 0, 0.05) !important
 
-  @media (max-width: $MQMobile)
+@media (max-width: $MQMobile)
+  .header-content
     .tags
       margin-left 0 !important
       margin-bottom 0

@@ -9,22 +9,31 @@ module.exports = {
   ],
   theme: 'gungnir',
   themeConfig: {
-    search: true,
-    searchMaxSuggestions: 10,
-    searchPlaceholder: "$ grep ...",
-    author: "Renovamen",
-    authorAvatar: "/img/avatar.jpeg",
-    smoothScroll: true,
-    sidebarDepth: 5,
     repo: 'Renovamen/renovamen.github.io',
     docsDir: 'blog',
     editLinks: true,
-    editLinkText: 'Edit this page on GitHub',
-    lastUpdated: "Last Updated",
-    codeTheme: "gungnir-dark",
+    lastUpdated: true,
     hitokoto: true,  // Enable hitokoto (一言) or not?
-    comment: true,  // Enable comment system or not?
-    rss: true, // Enable RSS or not?
+    codeTheme: "gungnir-dark",
+    rss: {
+      site_url: 'https://renovamen.ink',
+      copyright: 'Renovamen 2018-2021',
+      count: 20
+    },
+    comment: {
+      owner: 'This-is-an-Apple',
+      repo: 'gitalk-comments',
+      clientId: 'd6247712dc288a5a60ca',
+      clientSecret: 'ed1ec72417828343c79ed910a1b77d140fa715a7',
+    },
+    analytics: {
+      ga: 'UA-146858305-1',
+      ba: '75381d210789d3eaf855fa16246860cc'
+    },
+    katex: true,
+    mdPlus: {
+      all: true
+    },
     nav: [
       {
         text: "Home",
@@ -47,17 +56,20 @@ module.exports = {
         icon: 'fa-satellite-dish'
       }
     ],
-    SNS: {
-      "github": "Renovamen",
-      "linkedin": "xiaohan-zou-55bba0160",  
-      "facebook": "renovamen.zou",
-      "twitter": "renovamen_zxh",
-      "zhihu": "chao-neng-gui-su",
-      "email": "renovamenzxh@gmail.com"
+    personalInfo: {
+      name: 'Renovamen',
+      avatar: '/img/avatar.jpeg',
+      description: 'いつか、私がヒトじゃなくなっても',
+      sns: {
+        "github": "Renovamen",
+        "linkedin": "xiaohan-zou-55bba0160",  
+        "facebook": "renovamen.zou",
+        "twitter": "renovamen_zxh",
+        "zhihu": "chao-neng-gui-su",
+        "email": "renovamenzxh@gmail.com"
+      }
     },
-    tagline: "いつか、私がヒトじゃなくなっても",
-    heroImage: "/hero.png",
-    bgImage: [
+    homeHeaderImages: [
       {
         "path": "/img/home-bg/1.jpg",
         "mask": "rgba(40, 57, 101, .4)"
@@ -78,7 +90,7 @@ module.exports = {
         "path": "/img/home-bg/5.jpg"
       }
     ],
-    pageConfig: {
+    pages: {
       tags: {
         title: 'Tags',
         subtitle: 'Black Sheep Wall',
@@ -103,40 +115,6 @@ module.exports = {
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
     `
   },
-  plugins: [
-    [
-      '@vssue/vuepress-plugin-vssue', {
-        platform: 'github',
-        owner: 'This-is-an-Apple',
-        repo: 'gitalk-comments',
-        clientId: 'd6247712dc288a5a60ca',
-        clientSecret: 'ed1ec72417828343c79ed910a1b77d140fa715a7',
-      }
-    ],
-    [
-      '@vuepress/google-analytics', {
-        'ga': 'UA-146858305-1'
-      }
-    ],
-    [
-      '@renovamen/vuepress-plugin-baidu-tongji', {
-        'ba': '75381d210789d3eaf855fa16246860cc'
-      }
-    ],
-    [
-      '@renovamen/vuepress-plugin-rss', {
-        site_url: 'https://renovamen.ink',
-        copyright: 'Renovamen 2018-2021',
-        count: 20
-      }
-    ],
-    [
-      '@renovamen/vuepress-plugin-md-plus', {
-        all: true
-      }
-    ],
-    '@renovamen/vuepress-plugin-katex',
-  ],
   markdown: {
     // lineNumbers: true,
     extractHeaders: [ 'h2', 'h3', 'h4', 'h5' ]
@@ -155,7 +133,7 @@ module.exports = {
         }
       }
     }
-    else{
+    else {
       return {
         resolve: {
           alias: {

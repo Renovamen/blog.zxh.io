@@ -1,0 +1,28 @@
+{
+  "name": "@renovamen/vuepress-plugin-reading-time",
+  "version": "0.1.1",
+  "description": "A plugin for displaying the number of words and how long a post takes to read in VuePress.",
+  "author": "Renovamen <renovamenzxh@gmail.com>",
+  "main": "index.js",
+  "keywords": [
+    "vue",
+    "vuepress",
+    "vuepress-plugin",
+    "read",
+    "time",
+    "read time",
+    "reading time",
+    "word count",
+    "words per minute"
+  ],
+  "homepage": "https://github.com/Renovamen/vuepress-theme-gungnir/tree/main/packages/plugins/reading-time",
+  "bugs": {
+    "url": "https://github.com/Renovamen/vuepress-theme-gungnir/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Renovamen/vuepress-theme-gungnir.git",
+    "directory": "packages/plugins/reading-time"
+  },
+  "license": "MIT"
+}
