@@ -10,7 +10,7 @@
             <p class="subname">{{ $page.frontmatter.subname }}</p>
             <div class="sns">
               <div
-                v-for="(user, platform) in $themeConfig.SNS"
+                v-for="(user, platform) in $themeConfig.personalInfo.sns"
                 class="sns__item">
                 <a target="_blank" :href="snsLink(user, platform)">
                   <v-icon :name="snsIcon(platform)" scale="1.82"/>
@@ -41,7 +41,7 @@
                 <p class="subtitle">Interests</p>
                 <ul>
                   <li
-                    v-for="(item, index) in $page.frontmatter.interests" 
+                    v-for="(item, index) in $page.frontmatter.interests"
                     :key="`interests-${index}`">
                     <p v-html="item" class="item">{{ item }}</p>
                   </li>
@@ -213,7 +213,7 @@ export default {
             line-height 24px
             margin-top -15px
             color var(--text-color-sub)
-  
+
   .theme-content
     min-height 80vh
     gungnir-font()
@@ -252,7 +252,7 @@ export default {
       min-height auto
       padding-top 300px !important
       padding-bottom 100px !important
-  
+
   @media (max-width: $MQMobileNarrow)
     .header
       padding 0 .8rem
@@ -265,7 +265,7 @@ export default {
     .theme-content
       padding-top 550px !important
       padding-bottom 50px !important
-      
+
 </style>
 
 <style src="@theme/styles/theme.styl" lang="stylus"></style>

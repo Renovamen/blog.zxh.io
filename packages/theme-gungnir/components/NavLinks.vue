@@ -1,7 +1,7 @@
 <template>
   <nav
-    class="nav-links"
     v-if="userLinks.length"
+    class="nav-links"
   >
     <!-- navbar link buttons -->
     <div
@@ -13,7 +13,10 @@
         v-if="item.type === 'links'"
         :item="item"
       />
-      <NavLink v-else :item="item"/>
+      <NavLink
+        v-else
+        :item="item"
+      />
     </div>
 
     <!-- search button -->
@@ -23,15 +26,15 @@
     >
       <a
         class="nav-link v-parent v-hover"
-        @click="$emit('toggle-search')"
         style="cursor: pointer;"
+        @click="$emit('toggle-search')"
       >
         <v-icon
           name="fa-search"
           animation="wrench"
           hover
         />
-        Search
+        {{ $themeLocales.search }}
       </a>
     </div>
   </nav>
