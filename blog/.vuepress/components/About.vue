@@ -1,106 +1,125 @@
 <template>
-    <Common class="about-wrapper">
-      <div class="header">
-        <div class="header__content">
-          <div class="header__basic col-md-4">
-            <div class="avatar">
-              <img :src="$withBase($page.frontmatter.avatar)">
+  <Common class="about-wrapper">
+    <div class="header">
+      <div class="header__content">
+        <div class="header__basic col-md-4">
+          <div class="avatar">
+            <img :src="$withBase($page.frontmatter.avatar)" />
+          </div>
+          <h3 class="title">{{ $page.frontmatter.name }}</h3>
+          <p class="subname">{{ $page.frontmatter.subname }}</p>
+          <div class="sns">
+            <div
+              v-for="(user, platform) in $themeConfig.personalInfo.sns"
+              class="sns__item"
+            >
+              <a target="_blank" :href="snsLink(user, platform)">
+                <v-icon :name="snsIcon(platform)" scale="1.82" />
+              </a>
             </div>
-            <h3 class="title">{{ $page.frontmatter.name }}</h3>
-            <p class="subname">{{ $page.frontmatter.subname }}</p>
-            <div class="sns">
-              <div
-                v-for="(user, platform) in $themeConfig.personalInfo.sns"
-                class="sns__item">
-                <a target="_blank" :href="snsLink(user, platform)">
-                  <v-icon :name="snsIcon(platform)" scale="1.82"/>
-                </a>
-              </div>
-              <div
-                v-if="$page.frontmatter.cv"
-                class="sns__item">
-                <a
-                  :href="$page.frontmatter.cv">
-                  <v-icon name="ai-cv" scale="2.2" />
-                </a>
-              </div>
+            <div v-if="$page.frontmatter.cv" class="sns__item">
+              <a :href="$page.frontmatter.cv">
+                <v-icon name="ai-cv" scale="2.2" />
+              </a>
             </div>
           </div>
-          <div class="header__info col-md-8">
-            <h3 class="title">Biography</h3>
-            <div class="bio-info">
-              Xiaohan is <del>a dragon lost in human world</del> now a research assistant
-              supervised by <a href="http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm" target="_blank">Prof. Tong Lin</a>.
-              Before that, she got her bachelor's degree in <a href="http://sse.tongji.edu.cn" target="_blank">Software Engineering</a>
-              at <a href="https://www.tongji.edu.cn" target="_blank">Tongji University</a>.
-              Her main research interests include Continual Learning and Meta Learning with deep architectures.
-              Besides, she is also interested in Natural Language Processing.
+        </div>
+        <div class="header__info col-md-8">
+          <h3 class="title">Biography</h3>
+          <div class="bio-info">
+            Xiaohan is <del>a dragon lost in human world</del> now a research
+            assistant supervised by
+            <a
+              href="http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm"
+              target="_blank"
+            >
+              Prof. Tong Lin
+            </a>.
+            Before that, she got her bachelor's degree in
+            <a
+              href="http://sse.tongji.edu.cn"
+              target="_blank"
+            >
+              Software Engineering
+            </a>
+            at
+            <a
+              href="https://www.tongji.edu.cn"
+              target="_blank"
+            >
+              Tongji University
+            </a>.
+            Her main research interests include Continual Learning and Meta
+            Learning with deep architectures. Besides, she is also interested in
+            Natural Language Processing.
+          </div>
+          <div class="personal-info">
+            <div class="col-md-5 interests">
+              <p class="subtitle">Interests</p>
+              <ul>
+                <li
+                  v-for="(item, index) in $page.frontmatter.interests"
+                  :key="`interests-${index}`"
+                >
+                  <p v-html="item" class="item">{{ item }}</p>
+                </li>
+              </ul>
             </div>
-            <div class="personal-info">
-              <div class="col-md-5 interests">
-                <p class="subtitle">Interests</p>
-                <ul>
-                  <li
-                    v-for="(item, index) in $page.frontmatter.interests"
-                    :key="`interests-${index}`">
-                    <p v-html="item" class="item">{{ item }}</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-7 education">
-                <p class="subtitle">Education</p>
-                <ul>
-                  <li
-                    v-for="(item, index) in $page.frontmatter.education"
-                    :key="`education-${index}`">
-                    <p class="degree">{{ item.degree }}, {{ item.year }}</p>
-                    <p class="school">{{ item.school }}</p>
-                  </li>
-                </ul>
-              </div>
+            <div class="col-md-7 education">
+              <p class="subtitle">Education</p>
+              <ul>
+                <li
+                  v-for="(item, index) in $page.frontmatter.education"
+                  :key="`education-${index}`"
+                >
+                  <p class="degree">{{ item.degree }}, {{ item.year }}</p>
+                  <p class="school">{{ item.school }}</p>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <Content class="theme-content" />
-    </Common>
+    <Content class="theme-content" />
+  </Common>
 </template>
 
 <script>
-import Common from '@theme/components/Common.vue'
+import Common from "@theme/components/Common.vue";
 
 const platform_links = {
-  "github": "https://github.com/",
-  "linkedin": "https://www.linkedin.com/in/",
-  "facebook": "https://www.facebook.com/",
-  "twitter": "https://www.twitter.com/",
-  "zhihu": "https://www.zhihu.com/people/",
-  "weibo": "http://weibo.com/",
-  "email": "mailto:"
-}
+  github: "https://github.com/",
+  linkedin: "https://www.linkedin.com/in/",
+  facebook: "https://www.facebook.com/",
+  twitter: "https://www.twitter.com/",
+  zhihu: "https://www.zhihu.com/people/",
+  weibo: "http://weibo.com/",
+  email: "mailto:"
+};
 
 const platform_icons = {
-  "github": "ri-github-fill",
-  "linkedin": "ri-linkedin-box-fill",
-  "facebook": "ri-facebook-box-fill",
-  "twitter": "ri-twitter-fill",
-  "zhihu": "ri-zhihu-line",
-  "weibo": "ri-weibo-fill",
-  "email": "ri-mail-line"
-}
+  github: "ri-github-fill",
+  linkedin: "ri-linkedin-box-fill",
+  facebook: "ri-facebook-box-fill",
+  twitter: "ri-twitter-fill",
+  zhihu: "ri-zhihu-line",
+  weibo: "ri-weibo-fill",
+  email: "ri-mail-line"
+};
 
 export default {
   components: { Common },
   methods: {
     snsLink(user, platform) {
-      return platform_links[platform] + user
+      return platform_links[platform] + user;
     },
     snsIcon(platform) {
-      return platform_icons[platform]
+      return platform_icons[platform];
     }
   }
-}
+};
 </script>
 
 <style lang="stylus">
@@ -265,7 +284,6 @@ export default {
     .theme-content
       padding-top 550px !important
       padding-bottom 50px !important
-
 </style>
 
 <style src="@theme/styles/theme.styl" lang="stylus"></style>
