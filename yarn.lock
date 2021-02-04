@@ -864,47 +864,6 @@
   resolved "https://registry.npm.taobao.org/@nodelib/fs.stat/download/@nodelib/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha1-K1o6s/kYzKSKjHVMCBaOPwPrphs=
 
-"@renovamen/vuepress-plugin-baidu-tongji@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.npm.taobao.org/@renovamen/vuepress-plugin-baidu-tongji/download/@renovamen/vuepress-plugin-baidu-tongji-0.1.1.tgz#363480fc6745e48249650411bfdc7f4e5f7be915"
-  integrity sha1-NjSA/GdF5IJJZQQRv9x/Tl976RU=
-
-"@renovamen/vuepress-plugin-katex@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.npm.taobao.org/@renovamen/vuepress-plugin-katex/download/@renovamen/vuepress-plugin-katex-0.1.1.tgz#8be683ec2eb396e795e2b65d984ffb13132db728"
-  integrity sha1-i+aD7C6zlueV4rZdmE/7ExMttyg=
-  dependencies:
-    katex "^0.12.0"
-
-"@renovamen/vuepress-plugin-md-plus@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.npm.taobao.org/@renovamen/vuepress-plugin-md-plus/download/@renovamen/vuepress-plugin-md-plus-0.1.1.tgz#3c30e5a6e2f0bd84c695f0613f0498a42eab8b9b"
-  integrity sha1-PDDlpuLwvYTGlfBhPwSYpC6ri5s=
-  dependencies:
-    markdown-it-footnote "^3.0.2"
-    markdown-it-mark "^3.0.0"
-
-"@renovamen/vuepress-plugin-mermaid@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.npm.taobao.org/@renovamen/vuepress-plugin-mermaid/download/@renovamen/vuepress-plugin-mermaid-0.1.0.tgz#24eb1391b54de5ab6ae2090440bf357ca04a4584"
-  integrity sha1-JOsTkbVN5atq4gkEQL81fKBKRYQ=
-  dependencies:
-    mermaid "^8.9.0"
-
-"@renovamen/vuepress-plugin-reading-time@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.npm.taobao.org/@renovamen/vuepress-plugin-reading-time/download/@renovamen/vuepress-plugin-reading-time-0.1.1.tgz#cab45fa50bb0fc949815b63447219454e45b489b"
-  integrity sha1-yrRfpQuw/JSYFbY0RyGUVORbSJs=
-
-"@renovamen/vuepress-plugin-rss@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.npm.taobao.org/@renovamen/vuepress-plugin-rss/download/@renovamen/vuepress-plugin-rss-0.1.1.tgz#93325b719a11af913fb2ad7aac5efb50518a0d13"
-  integrity sha1-kzJbcZoRr5E/sq16rF77UFGKDRM=
-  dependencies:
-    chalk "^4.1.0"
-    fs-extra "^9.1.0"
-    rss "^1.2.2"
-
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.npm.taobao.org/@sindresorhus/is/download/@sindresorhus/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -8408,13 +8367,6 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-vuepress-plugin-chart@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-chart/download/vuepress-plugin-chart-0.1.1.tgz#3712b66db7edbb972b3da5d392303b0ca37c5a7f"
-  integrity sha1-NxK2bbftu5crPaXTkjA7DKN8Wn8=
-  dependencies:
-    chart.js "^2.9.4"
-
 vuepress-plugin-container@^2.0.2, vuepress-plugin-container@^2.1.5:
   version "2.1.5"
   resolved "https://registry.npm.taobao.org/vuepress-plugin-container/download/vuepress-plugin-container-2.1.5.tgz#37fff05662fedbd63ffd3a5463b2592c7a7f3133"
@@ -8450,13 +8402,6 @@ vuepress-plugin-mailchimp@^1.4.1:
   dependencies:
     jsonp "^0.2.1"
     query-string "^6.9.0"
-
-vuepress-plugin-roughviz@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-roughviz/download/vuepress-plugin-roughviz-0.1.0.tgz#3c9c9bfb3db5032cae365770afb0469a7ed655ed"
-  integrity sha1-PJyb+z21AyyuNldwr7BGmn7WVe0=
-  dependencies:
-    rough-viz "^1.0.6"
 
 vuepress-plugin-sitemap@^2.3.1:
   version "2.3.1"

@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/@renovamen/*",
+    "packages/plugins/*",
     "packages/theme-gungnir"
   ],
   "useWorkspaces": true,
