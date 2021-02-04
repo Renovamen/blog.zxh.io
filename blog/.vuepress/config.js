@@ -34,6 +34,9 @@ module.exports = {
     mdPlus: {
       all: true
     },
+    readingTime: {
+      excludes: ['/about', '/tags/.*', '/links']
+    },
     nav: [
       {
         text: "Home",
@@ -62,7 +65,7 @@ module.exports = {
       description: 'いつか、私がヒトじゃなくなっても',
       sns: {
         "github": "Renovamen",
-        "linkedin": "xiaohan-zou-55bba0160",  
+        "linkedin": "xiaohan-zou-55bba0160",
         "facebook": "renovamen.zou",
         "twitter": "renovamen_zxh",
         "zhihu": "chao-neng-gui-su",
@@ -128,7 +131,7 @@ module.exports = {
         },
         resolve: {
           alias: {
-            'public': path.resolve(__dirname, './public') 
+            'public': path.resolve(__dirname, './public')
           }
         }
       }
@@ -137,7 +140,7 @@ module.exports = {
       return {
         resolve: {
           alias: {
-            'public': path.resolve(__dirname, './public') 
+            'public': path.resolve(__dirname, './public')
           }
         }
       }
