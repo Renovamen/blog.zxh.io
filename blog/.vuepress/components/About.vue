@@ -27,15 +27,15 @@
         <div class="header__info col-md-8">
           <h3 class="title">Biography</h3>
           <div class="bio-info">
-            Xiaohan is <del>a dragon lost in human world</del> now a research
-            assistant supervised by
+            I am <del>a dragon lost in human world</del> now an intern at CETC
+            and a research assistant at Peking University supervised by
             <a
               href="http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm"
               target="_blank"
             >
               Prof. Tong Lin
             </a>.
-            Before that, she got her bachelor's degree in
+            Before that, I got my bachelor's degree in
             <a
               href="http://sse.tongji.edu.cn"
               target="_blank"
@@ -49,9 +49,9 @@
             >
               Tongji University
             </a>.
-            Her main research interests include Continual Learning and Meta
-            Learning with deep architectures. Besides, she is also interested in
-            Natural Language Processing.
+            I am currently working on topics related to exploring the capability
+            of machines to develop intelligent behavior upon what they have learned,
+            like meta-learning and continual learning.
           </div>
           <div class="personal-info">
             <div class="col-md-5 interests">
@@ -127,10 +127,10 @@ export default {
 
 .about-wrapper
   .col-md-4
-    width 35%
+    width 33%
     float left
   .col-md-8
-    width: 63%
+    width: 65%
     float right
   .col-md-5
     width 36%
@@ -156,11 +156,11 @@ export default {
       top 50%
       left 0
       right 0
-      margin -250px auto 0
+      margin -255px auto 0
     &__basic
       position absolute
       top 50%
-      margin-top -190px
+      margin-top -185px
       padding-left 1.5rem
       .avatar
         width 140px
@@ -187,7 +187,7 @@ export default {
         text-align center
         margin 50px 0
         &__item
-          width 9.5%
+          width 10%
           display inline-block
           vertical-align middle
           > a
@@ -200,17 +200,16 @@ export default {
 
     &__info
       .title
-        max-width 720px
+        max-width 750px
       .bio-info
-        max-width 720px
+        max-width 750px
         font-size 19px
         text-align left
-        margin 20px 10px 75px
         font-weight 400
         a:hover
           text-decoration underline
       .personal-info
-        margin -50px 15px auto
+        margin 20px 15px auto
         width 100%
         .subtitle
           margin 15px 0 -10px 0

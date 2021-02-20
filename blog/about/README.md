@@ -34,4 +34,4 @@ education:
 
 - 🌭 My dream: `while(sleeping){money++;}`
 
-- 🐤 Waiting for a chance to eat the parrot in my home.
+- 🎃 I'm currently interested in constructing buildings in Minecraft.
