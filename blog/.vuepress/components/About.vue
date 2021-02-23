@@ -27,7 +27,7 @@
         <div class="header__info col-md-8">
           <h3 class="title">Biography</h3>
           <div class="bio-info">
-            I am <del>a dragon lost in human world</del> now an intern at CETC
+            Xiaohan is <del>a dragon lost in human world</del> now an intern at CETC
             and a research assistant at Peking University supervised by
             <a
               href="http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm"
@@ -35,7 +35,7 @@
             >
               Prof. Tong Lin
             </a>.
-            Before that, I got my bachelor's degree in
+            Before that, she got her bachelor's degree in
             <a
               href="http://sse.tongji.edu.cn"
               target="_blank"
@@ -49,7 +49,7 @@
             >
               Tongji University
             </a>.
-            I am currently working on topics related to exploring the capability
+            She is currently working on topics related to exploring the capability
             of machines to develop intelligent behavior upon what they have learned,
             like meta-learning and continual learning.
           </div>
