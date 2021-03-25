@@ -1,4 +1,4 @@
-import VueIcon from 'oh-vue-icons/components/Icon'
+import OhVueIcon from "oh-vue-icons/dist-css/v2/icon.umd.min";
 
 import {
   FaFortAwesome,
@@ -14,9 +14,9 @@ import {
   RiWeiboFill,
   RiMailLine,
   AiCv
-} from 'oh-vue-icons/icons'
+} from "oh-vue-icons/icons";
 
-VueIcon.add([
+OhVueIcon.add([
   FaFortAwesome,
   FaPaw,
   FaTag,
@@ -30,4 +30,4 @@ VueIcon.add([
   RiWeiboFill,
   RiMailLine,
   AiCv
-])
+]);

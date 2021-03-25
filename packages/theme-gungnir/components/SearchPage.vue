@@ -1,16 +1,14 @@
 <template>
   <div class="search-page">
-    <v-icon
-      name="fa-chevron-down"
-      scale="1.8"
-      @click="$emit('toggle-search')"
-    />
+    <span class="search-close" @click="$emit('toggle-search')">
+      <v-icon name="fa-chevron-down" scale="1.8" />
+    </span>
     <div class="search-box">
       <input
         ref="input"
         aria-label="Search"
         :value="query"
-        :class="{ 'focused': focused }"
+        :class="{ focused: focused }"
         :placeholder="placeholder"
         autocomplete="off"
         spellcheck="false"
@@ -20,7 +18,7 @@
         @keyup.enter="go(focusIndex)"
         @keyup.up="onUp"
         @keyup.down="onDown"
-      >
+      />
       <ul
         v-if="showSuggestions"
         class="suggestions"
@@ -35,17 +33,11 @@
           @mousedown="go(i)"
           @mouseenter="focus(i)"
         >
-          <a
-            :href="s.path"
-            @click.prevent
-          >
+          <a :href="s.path" @click.prevent>
             <span class="page-title">
               {{ s.title || s.path }}
             </span>
-            <span 
-              v-if="s.frontmatter.subtitle"
-              class="header"
-            >
+            <span v-if="s.frontmatter.subtitle" class="header">
               {{ s.frontmatter.subtitle }}
             </span>
           </a>
@@ -56,171 +48,176 @@
 </template>
 
 <script>
-import matchQuery from '@vuepress/plugin-search/match-query'
+import matchQuery from "@vuepress/plugin-search/match-query";
 
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
 export default {
-  name: 'SearchBox',
+  name: "SearchBox",
 
-  data () {
+  data() {
     return {
-      query: '',
+      query: "",
       focused: false,
       focusIndex: 0,
       placeholder: undefined
-    }
+    };
   },
 
   computed: {
-    showSuggestions () {
-      return (
-        this.suggestions
-        && this.suggestions.length
-      )
+    showSuggestions() {
+      return this.suggestions && this.suggestions.length;
     },
 
-    suggestions () {
-      const query = this.query.trim().toLowerCase()
+    suggestions() {
+      const query = this.query.trim().toLowerCase();
       if (!query) {
-        return
+        return;
       }
 
-      const { pages } = this.$site
-      const max = this.$site.themeConfig.searchMaxSuggestions || SEARCH_MAX_SUGGESTIONS
-      const localePath = this.$localePath
-      const res = []
+      const { pages } = this.$site;
+      const max =
+        this.$site.themeConfig.searchMaxSuggestions || SEARCH_MAX_SUGGESTIONS;
+      const localePath = this.$localePath;
+      const res = [];
       for (let i = 0; i < pages.length; i++) {
-        if (res.length >= max) break
-        const p = pages[i]
+        if (res.length >= max) break;
+        const p = pages[i];
 
         // we only search posts
-        if (p.id != 'posts') {
-          continue
+        if (p.id != "posts") {
+          continue;
         }
 
         // filter out results that do not match current locale
         if (this.getPageLocalePath(p) !== localePath) {
-          continue
+          continue;
         }
 
         // filter out results that do not match searchable paths
         if (!this.isSearchable(p)) {
-          continue
+          continue;
         }
 
         // title and tags
         if (matchQuery(query, p)) {
-          res.push(p)
+          res.push(p);
         }
         // subtitle
         else if (
-          p.frontmatter.subtitle
-          && matchQuery(query, p, p.frontmatter.subtitle)
+          p.frontmatter.subtitle &&
+          matchQuery(query, p, p.frontmatter.subtitle)
         ) {
-          res.push(p)
+          res.push(p);
         }
         // headers
         else if (p.headers) {
           for (let j = 0; j < p.headers.length; j++) {
-            if (res.length >= max) break
-            const h = p.headers[j]
+            if (res.length >= max) break;
+            const h = p.headers[j];
             if (h.title && matchQuery(query, p, h.title)) {
-              res.push(p)
-              break
+              res.push(p);
+              break;
             }
           }
         }
       }
-      return res
+      return res;
     },
 
     // make suggestions align right when there are not enough items
-    alignRight () {
-      const navCount = (this.$site.themeConfig.nav || []).length
-      const repo = this.$site.repo ? 1 : 0
-      return navCount + repo <= 2
+    alignRight() {
+      const navCount = (this.$site.themeConfig.nav || []).length;
+      const repo = this.$site.repo ? 1 : 0;
+      return navCount + repo <= 2;
     }
   },
 
-  mounted () {
-    this.placeholder = this.$site.themeConfig.searchPlaceholder || ''
-    document.addEventListener('keydown', this.onHotkey)
+  mounted() {
+    this.placeholder = this.$site.themeConfig.searchPlaceholder || "";
+    document.addEventListener("keydown", this.onHotkey);
   },
 
-  beforeDestroy () {
-    document.removeEventListener('keydown', this.onHotkey)
+  beforeDestroy() {
+    document.removeEventListener("keydown", this.onHotkey);
   },
 
   methods: {
-    getPageLocalePath (page) {
+    getPageLocalePath(page) {
       for (const localePath in this.$site.locales || {}) {
-        if (localePath !== '/' && page.path.indexOf(localePath) === 0) {
-          return localePath
+        if (localePath !== "/" && page.path.indexOf(localePath) === 0) {
+          return localePath;
         }
       }
-      return '/'
+      return "/";
     },
 
-    isSearchable (page) {
-      let searchPaths = SEARCH_PATHS
+    isSearchable(page) {
+      let searchPaths = SEARCH_PATHS;
 
       // all paths searchables
-      if (searchPaths === null) { return true }
+      if (searchPaths === null) {
+        return true;
+      }
 
-      searchPaths = Array.isArray(searchPaths) ? searchPaths : new Array(searchPaths)
+      searchPaths = Array.isArray(searchPaths)
+        ? searchPaths
+        : new Array(searchPaths);
 
-      return searchPaths.filter(path => {
-        return page.path.match(path)
-      }).length > 0
+      return (
+        searchPaths.filter((path) => {
+          return page.path.match(path);
+        }).length > 0
+      );
     },
 
-    onHotkey (event) {
-      if (event.srcElement === document.body && SEARCH_HOTKEYS.includes(event.key)) {
-        this.$refs.input.focus()
-        event.preventDefault()
+    onHotkey(event) {
+      if (
+        event.srcElement === document.body &&
+        SEARCH_HOTKEYS.includes(event.key)
+      ) {
+        this.$refs.input.focus();
+        event.preventDefault();
       }
     },
 
-    onUp () {
+    onUp() {
       if (this.showSuggestions) {
         if (this.focusIndex > 0) {
-          this.focusIndex--
-        }
-        else {
-          this.focusIndex = this.suggestions.length - 1
+          this.focusIndex--;
+        } else {
+          this.focusIndex = this.suggestions.length - 1;
         }
       }
     },
 
-    onDown () {
+    onDown() {
       if (this.showSuggestions) {
         if (this.focusIndex < this.suggestions.length - 1) {
-          this.focusIndex++
-        }
-        else {
-          this.focusIndex = 0
+          this.focusIndex++;
+        } else {
+          this.focusIndex = 0;
         }
       }
     },
 
-    go (i) {
+    go(i) {
       if (!this.showSuggestions) {
-        return
+        return;
       }
-      this.$router.push(this.suggestions[i].path)
-      this.query = ''
-      this.focusIndex = 0
+      this.$router.push(this.suggestions[i].path);
+      this.query = "";
+      this.focusIndex = 0;
     },
 
-    focus (i) {
-      this.focusIndex = i
+    focus(i) {
+      this.focusIndex = i;
     },
 
-    unfocus () {
-      this.focusIndex = -1
+    unfocus() {
+      this.focusIndex = -1;
     }
   }
-}
+};
 </script>
 
 <style lang="stylus">
@@ -239,7 +236,7 @@ export default {
   z-index 50
   transition(transform .25s)
   transform(translateY(100%))
-  .v-icon
+  .search-close
     float right
     margin-right 25px
     margin-top 25px

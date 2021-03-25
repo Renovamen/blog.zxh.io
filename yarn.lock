@@ -1152,10 +1152,10 @@
     vuepress-plugin-mailchimp "^1.4.1"
     vuepress-plugin-sitemap "^2.3.1"
 
-"@vuepress/plugin-google-analytics@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.npm.taobao.org/@vuepress/plugin-google-analytics/download/@vuepress/plugin-google-analytics-1.8.0.tgz#99752be07867730df27e830a15c95b3f25b04741"
-  integrity sha1-mXUr4Hhncw3yfoMKFclbPyWwR0E=
+"@vuepress/plugin-google-analytics@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.npm.taobao.org/@vuepress/plugin-google-analytics/download/@vuepress/plugin-google-analytics-1.8.2.tgz#96cf65f1f0ecbb3bcf6b0d10089dafe2aea875bc"
+  integrity sha1-ls9l8fDsuzvPaw0QCJ2v4q6odbw=
 
 "@vuepress/plugin-last-updated@1.8.0":
   version "1.8.0"
@@ -2352,6 +2352,11 @@ commander@2.17.x:
   resolved "https://registry.npm.taobao.org/commander/download/commander-2.17.1.tgz?cache=0&sync_timestamp=1610702246648&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
   integrity sha1-vXerfebelCBc6sxy8XFtKfIKd78=
 
+commander@^6.0.0:
+  version "6.2.1"
+  resolved "https://registry.npm.taobao.org/commander/download/commander-6.2.1.tgz?cache=0&sync_timestamp=1616364569946&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
+  integrity sha1-B5LraC37wyWZm7K4T93duhEKxzw=
+
 commander@~2.19.0:
   version "2.19.0"
   resolved "https://registry.npm.taobao.org/commander/download/commander-2.19.0.tgz?cache=0&sync_timestamp=1610702246648&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
@@ -2513,7 +2518,7 @@ core-js-compat@^3.6.5, core-js-compat@^3.8.0:
     browserslist "^4.16.1"
     semver "7.0.0"
 
-core-js@^3.4.4, core-js@^3.6.4, core-js@^3.6.5:
+core-js@^3.6.4, core-js@^3.6.5:
   version "3.8.3"
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.8.3.tgz?cache=0&sync_timestamp=1611038902573&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-3.8.3.tgz#c21906e1f14f3689f93abcc6e26883550dd92dd0"
   integrity sha1-whkG4fFPNon5OrzG4miDVQ3ZLdA=
@@ -5072,12 +5077,12 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-katex@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.npm.taobao.org/katex/download/katex-0.12.0.tgz#2fb1c665dbd2b043edcf8a1f5c555f46beaa0cb9"
-  integrity sha1-L7HGZdvSsEPtz4ofXFVfRr6qDLk=
+katex@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.npm.taobao.org/katex/download/katex-0.13.0.tgz?cache=0&sync_timestamp=1615259073330&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fkatex%2Fdownload%2Fkatex-0.13.0.tgz#62900e56c1ad8fdf7da23399e50d7a7b690b39ab"
+  integrity sha1-YpAOVsGtj999ojOZ5Q16e2kLOas=
   dependencies:
-    commander "^2.19.0"
+    commander "^6.0.0"
 
 keyv@^3.0.0:
   version "3.1.0"
@@ -5370,7 +5375,7 @@ markdown-it-footnote@^3.0.2:
   resolved "https://registry.npm.taobao.org/markdown-it-footnote/download/markdown-it-footnote-3.0.2.tgz#1575ee7a093648d4e096aa33386b058d92ac8bc1"
   integrity sha1-FXXuegk2SNTglqozOGsFjZKsi8E=
 
-markdown-it-mark@^3.0.0:
+markdown-it-mark@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npm.taobao.org/markdown-it-mark/download/markdown-it-mark-3.0.1.tgz#51257db58787d78aaf46dc13418d99a9f3f0ebd3"
   integrity sha1-USV9tYeH14qvRtwTQY2ZqfPw69M=
@@ -5462,10 +5467,10 @@ merge2@^1.2.3:
   resolved "https://registry.npm.taobao.org/merge2/download/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha1-Q2iJL4hekHRVpv19xVwMnUBJkK4=
 
-mermaid@^8.9.0:
-  version "8.9.0"
-  resolved "https://registry.npm.taobao.org/mermaid/download/mermaid-8.9.0.tgz#e569517863ab903aa5389cd746b68ca958a8ca7c"
-  integrity sha1-5WlReGOrkDqlOJzXRraMqVioynw=
+mermaid@^8.9.2:
+  version "8.9.2"
+  resolved "https://registry.npm.taobao.org/mermaid/download/mermaid-8.9.2.tgz#40bb2052cc6c4feaf5d93a5e527a8d06d0bacea7"
+  integrity sha1-QLsgUsxsT+r12TpeUnqNBtC6zqc=
   dependencies:
     "@braintree/sanitize-url" "^3.1.0"
     d3 "^5.7.0"
@@ -5933,12 +5938,10 @@ obuf@^1.0.0, obuf@^1.1.2:
   resolved "https://registry.npm.taobao.org/obuf/download/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha1-Cb6jND1BhZ69RGKS0RydTbYZCE4=
 
-oh-vue-icons@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.npm.taobao.org/oh-vue-icons/download/oh-vue-icons-0.1.8.tgz#eecba4c3b3651b8af1d54d5cc620f5e69aa72d05"
-  integrity sha1-7sukw7NlG4rx1U1cxiD15pqnLQU=
-  dependencies:
-    core-js "^3.4.4"
+oh-vue-icons@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.npm.taobao.org/oh-vue-icons/download/oh-vue-icons-0.3.0.tgz?cache=0&sync_timestamp=1616564363103&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Foh-vue-icons%2Fdownload%2Foh-vue-icons-0.3.0.tgz#3134b83601d8bd043f8a82afa8bdcde23fd672c8"
+  integrity sha1-MTS4NgHYvQQ/ioKvqL3N4j/Wcsg=
 
 on-finished@~2.3.0:
   version "2.3.0"

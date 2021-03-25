@@ -11,6 +11,7 @@
           <div class="sns">
             <div
               v-for="(user, platform) in $themeConfig.personalInfo.sns"
+              :key="`about-${platform}-${user}`"
               class="sns__item"
             >
               <a target="_blank" :href="snsLink(user, platform)">
@@ -27,31 +28,23 @@
         <div class="header__info col-md-8">
           <h3 class="title">Biography</h3>
           <div class="bio-info">
-            Xiaohan is <del>a dragon lost in human world</del> now an intern at CETC
-            and a research assistant at Peking University supervised by
+            Xiaohan is <del>a dragon lost in human world</del> now an intern at
+            CETC and a research assistant at Peking University supervised by
             <a
               href="http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm"
               target="_blank"
             >
-              Prof. Tong Lin
-            </a>.
-            Before that, she got her bachelor's degree in
-            <a
-              href="http://sse.tongji.edu.cn"
-              target="_blank"
-            >
+              Prof. Tong Lin </a
+            >. Before that, she got her bachelor's degree in
+            <a href="http://sse.tongji.edu.cn" target="_blank">
               Software Engineering
             </a>
             at
-            <a
-              href="https://www.tongji.edu.cn"
-              target="_blank"
-            >
-              Tongji University
-            </a>.
-            She is currently working on topics related to exploring the capability
-            of machines to develop intelligent behavior upon what they have learned,
-            like meta-learning and continual learning.
+            <a href="https://www.tongji.edu.cn" target="_blank">
+              Tongji University </a
+            >. She is currently working on topics related to exploring the
+            capability of machines to develop intelligent behavior upon what
+            they have learned, like meta-learning and continual learning.
           </div>
           <div class="personal-info">
             <div class="col-md-5 interests">
@@ -193,9 +186,9 @@ export default {
           > a
             text-decoration none
             color var(--accent-color)
-            .v-icon
+            .ov-icon
               transition(transform .1s)
-            &:hover .v-icon
+            &:hover .ov-icon
               transform(scale(1.3))
 
     &__info

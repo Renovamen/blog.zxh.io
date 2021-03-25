@@ -1,9 +1,10 @@
-import postMixin from '@theme/mixins/posts'
-import localMixin from '@theme/mixins/locales'
-import { registerCodeThemeCss, registerLinks } from '@theme/utils/other'
+import postMixin from "@theme/mixins/posts";
+import localMixin from "@theme/mixins/locales";
+import { registerCodeThemeCss, registerLinks } from "@theme/utils/other";
 
 // icons
-import VueIcon from 'oh-vue-icons/components/Icon'
+import OhVueIcon from "oh-vue-icons/dist-css/v2/icon.umd.min";
+import "oh-vue-icons/dist-css/v2/icon.css";
 
 import {
   FaRegularUser,
@@ -30,9 +31,9 @@ import {
   FaWeibo,
   FaEnvelope,
   RiEarthFill
-} from 'oh-vue-icons/icons'
+} from "oh-vue-icons/icons";
 
-VueIcon.add([
+OhVueIcon.add([
   FaRegularUser,
   FaRegularCalendar,
   RiTimerLine,
@@ -57,18 +58,14 @@ VueIcon.add([
   FaWeibo,
   FaEnvelope,
   RiEarthFill
-])
+]);
 
-export default ({
-  Vue,
-  siteData,
-  isServer
-}) => {
-  Vue.mixin(postMixin)
-  Vue.mixin(localMixin)
-  Vue.component('VIcon', VueIcon)
+export default ({ Vue, siteData, isServer }) => {
+  Vue.mixin(postMixin);
+  Vue.mixin(localMixin);
+  Vue.component("VIcon", OhVueIcon);
   if (!isServer) {
-    registerCodeThemeCss(siteData.themeConfig.codeTheme)
-    registerLinks()
+    registerCodeThemeCss(siteData.themeConfig.codeTheme);
+    registerLinks();
   }
-}
+};
