@@ -12,7 +12,7 @@ import {
   RiTwitterFill,
   RiZhihuLine,
   RiWeiboFill,
-  RiMailLine,
+  HiMail,
   AiCv
 } from "oh-vue-icons/icons";
 
@@ -28,6 +28,6 @@ OhVueIcon.add([
   RiTwitterFill,
   RiZhihuLine,
   RiWeiboFill,
-  RiMailLine,
+  HiMail,
   AiCv
 ]);

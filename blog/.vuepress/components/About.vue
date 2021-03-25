@@ -3,9 +3,7 @@
     <div class="header">
       <div class="header__content">
         <div class="header__basic col-md-4">
-          <div class="avatar">
-            <img :src="$withBase($page.frontmatter.avatar)" />
-          </div>
+          <img class="avatar" :src="$withBase($page.frontmatter.avatar)" />
           <h3 class="title">{{ $page.frontmatter.name }}</h3>
           <p class="subname">{{ $page.frontmatter.subname }}</p>
           <div class="sns">
@@ -99,7 +97,7 @@ const platform_icons = {
   twitter: "ri-twitter-fill",
   zhihu: "ri-zhihu-line",
   weibo: "ri-weibo-fill",
-  email: "ri-mail-line"
+  email: "hi-mail"
 };
 
 export default {
@@ -156,19 +154,17 @@ export default {
       margin-top -185px
       padding-left 1.5rem
       .avatar
-        width 140px
-        height 140px
         margin 0 auto
+        display block
+        width 150px
+        height 150px
+        cursor auto
+        padding 5px
         border-radius 100%
-        img
-          cursor auto
-          padding 5px
-          border-radius 100%
-          max-width 100%
-          transition(transform 1s)
-          box-shadow inset 0 0 10px rgba(179, 179, 179, 0.6)
-          &:hover
-            transform(rotate(360deg))
+        transition(transform 1s)
+        box-shadow inset 0 0 10px rgba(179, 179, 179, 0.6)
+        &:hover
+          transform(rotate(360deg))
       .title
         margin-top 65px
       .subname
