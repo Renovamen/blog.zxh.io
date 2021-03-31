@@ -2,9 +2,7 @@ import postMixin from "@theme/mixins/posts";
 import localMixin from "@theme/mixins/locales";
 import { registerCodeThemeCss, registerLinks } from "@theme/utils/other";
 
-// icons
-import OhVueIcon from "oh-vue-icons/dist-css/v2/icon.umd.min";
-import "oh-vue-icons/dist-css/v2/icon.css";
+import OhVueIcon from "oh-vue-icons";
 
 import {
   FaRegularUser,
@@ -19,7 +17,6 @@ import {
   FaChevronDown,
   FaListUl,
   BiLayoutSidebarInset,
-  FaSearch,
   FaPencilAlt,
   FaCircle,
   FaRss,
@@ -29,11 +26,10 @@ import {
   FaTwitter,
   RiZhihuLine,
   FaWeibo,
-  FaEnvelope,
-  RiEarthFill
+  FaEnvelope
 } from "oh-vue-icons/icons";
 
-OhVueIcon.add([
+OhVueIcon.add(
   FaRegularUser,
   FaRegularCalendar,
   RiTimerLine,
@@ -46,7 +42,6 @@ OhVueIcon.add([
   FaChevronDown,
   FaListUl,
   BiLayoutSidebarInset,
-  FaSearch,
   FaPencilAlt,
   FaCircle,
   FaRss,
@@ -56,9 +51,8 @@ OhVueIcon.add([
   FaTwitter,
   RiZhihuLine,
   FaWeibo,
-  FaEnvelope,
-  RiEarthFill
-]);
+  FaEnvelope
+);
 
 export default ({ Vue, siteData, isServer }) => {
   Vue.mixin(postMixin);

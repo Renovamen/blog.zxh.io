@@ -124,10 +124,10 @@ export default {
     width: 65%
     float right
   .col-md-5
-    width 36%
+    width 40%
     float left
   .col-md-7
-    width 62%
+    width 58%
     float right
 
   .header
@@ -198,8 +198,8 @@ export default {
         a:hover
           text-decoration underline
       .personal-info
+        max-width 750px
         margin 20px 15px auto
-        width 100%
         .subtitle
           margin 15px 0 -10px 0
           font-weight bold
@@ -255,9 +255,10 @@ export default {
       &__info
         .title, .bio-info
           max-width 100%
+        .personal-info .education
+          padding-bottom 50px
     .theme-content
       min-height auto
-      padding-top 300px !important
       padding-bottom 100px !important
 
   @media (max-width: $MQMobileNarrow)
@@ -270,7 +271,6 @@ export default {
       .education
         margin-top 20px
     .theme-content
-      padding-top 550px !important
       padding-bottom 50px !important
 </style>
 

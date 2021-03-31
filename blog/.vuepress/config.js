@@ -19,7 +19,8 @@ module.exports = {
     docsDir: "blog",
     editLinks: true,
     lastUpdated: true,
-    hitokoto: true, // Enable hitokoto (一言) or not?
+    hitokoto: true,
+    searchIcon: "ri-search-2-line",
     codeTheme: "gungnir-dark",
     rss: {
       site_url: "https://renovamen.ink",

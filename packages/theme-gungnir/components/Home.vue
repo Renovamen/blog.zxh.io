@@ -7,12 +7,11 @@
         :style="{ background: $themeConfig.homeHeaderImages[bgImageID].mask }"
       />
       <div class="header-content" :style="{ opacity: headerOpacity }">
-        <!-- <div class="hero-avatar hide-on-mobile"> -->
-          <img
-            class="hero-avatar hide-on-mobile"
-            :src="$withBase($themeConfig.personalInfo.avatar)" alt="hero"
-          />
-        <!-- </div> -->
+        <img
+          class="hero-avatar hide-on-mobile"
+          :src="$withBase($themeConfig.personalInfo.avatar)"
+          alt="hero"
+        />
 
         <div v-if="$themeConfig.hitokoto" class="hero-bubble">
           <div class="hero-bubble__body">
@@ -47,9 +46,9 @@
           <v-icon name="fa-chevron-right" />
         </button>
 
-        <div class="arrow hide-on-mobile" @click="scrollToPost()">
-          <v-icon name="fa-chevron-down" scale="1.7" />
-        </div>
+        <span class="arrow-down hide-on-mobile" @click="scrollToPost()">
+          <v-icon name="fa-chevron-down" animation="float" scale="1.7" />
+        </span>
       </div>
     </div>
 
@@ -286,14 +285,13 @@ export default {
         right 0
         border-radius 3px 0 0 3px
 
-      .arrow
+      .arrow-down
         position absolute
-        bottom 50px
+        bottom 20px
         left 50%
-        margin-left -18px
+        margin-left -17px
         cursor pointer
         .ov-icon
-          font-size 28px
           color #ffffff
           transition(.4s ease)
           &:active,
