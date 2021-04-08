@@ -105,7 +105,7 @@ $$
 
 ### 最大后验估计
 
-贝叶斯估计估计的是 $\theta$ 的后验分布，而**最大后验估计（Maximum a Posteriori，MAP）**考虑的是后验分布极大化时 $\theta$ 的取值：
+贝叶斯估计估计的是 $\theta$ 的后验分布，而**最大后验估计**（Maximum a Posteriori，MAP）考虑的是后验分布极大化时 $\theta$ 的取值：
 
 $$
 \begin{aligned}
