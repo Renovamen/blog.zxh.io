@@ -795,7 +795,7 @@ x_1=
   -1 \\
   1 \\
   0
-\end{bmatrix}，
+\end{bmatrix},
 x_2=
 \begin{bmatrix}
   -1 \\

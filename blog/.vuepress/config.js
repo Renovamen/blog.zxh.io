@@ -68,7 +68,7 @@ module.exports = {
     ],
     personalInfo: {
       name: "Renovamen",
-      avatar: "/img/avatar.jpeg",
+      avatar: "/img/avatar.jpg",
       description: "いつか、私がヒトじゃなくなっても",
       sns: {
         github: "Renovamen",
