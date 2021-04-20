@@ -2,6 +2,28 @@
 layout: Links
 title: Links
 links:
+  - title: 我自己能用就完事了
+    items:
+      - sitename: Flint
+        url: https://github.com/Renovamen/flint
+        img: /img/links/flint.svg
+        desc: 山寨版 PyTorch
+      - sitename: Metallic
+        url: https://github.com/Renovamen/metallic
+        img: /img/links/meta.svg
+        desc: 准元学习工具包
+      - sitename: Alkaid
+        url: https://github.com/Renovamen/alkaid
+        img: /img/links/rl.svg
+        desc: 准强化学习工具包
+      - sitename: Oh, Vue Icons!
+        url: https://oh-vue-icons.netlify.app
+        img: /img/links/icon.svg
+        desc: Vue 图标组件
+      - sitename: Gungnir
+        url: https://vuepress-theme-gungnir.vercel.app/
+        img: /img/links/gungnir.svg
+        desc: VuePress 主题
   - title: 咸鱼翻滚
     items:
       - sitename: What If?
@@ -36,18 +58,4 @@ links:
         url: https://cube.renovamen.ink
         img: /img/links/cube.svg
         desc: 玩魔方吗朋友
-  - title: 我自己能用就完事了
-    items:
-      - sitename: Oh, Vue Icons!
-        url: https://oh-vue-icons.vercel.app
-        img: /img/links/icon.svg
-        desc: Vue 图标组件
-      - sitename: Gungnir
-        url: https://vuepress-theme-gungnir.vercel.app/
-        img: /img/links/gungnir.svg
-        desc: VuePress 主题
-      - sitename: Flint
-        url: https://github.com/Renovamen/flint
-        img: /img/links/flint.svg
-        desc: 没啥用的深度学习框架
 ---

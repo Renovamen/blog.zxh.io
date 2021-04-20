@@ -1,8 +1,8 @@
 <template>
   <Common class="about-wrapper">
-    <div class="header">
-      <div class="header__content">
-        <div class="header__basic col-md-4">
+    <div class="profile">
+      <div class="profile__content">
+        <div class="profile__basic col-md-4">
           <img class="avatar" :src="$withBase($page.frontmatter.avatar)" />
           <h3 class="title">{{ $page.frontmatter.name }}</h3>
           <p class="subname">{{ $page.frontmatter.subname }}</p>
@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        <div class="header__info col-md-8">
+        <div class="profile__info col-md-8">
           <h3 class="title">Biography</h3>
           <div class="bio-info">
             Xiaohan is <del>a dragon lost in human world</del> now an intern at
@@ -130,7 +130,7 @@ export default {
     width 58%
     float right
 
-  .header
+  .profile
     height 100vh
     position relative
     gungnir-font()
@@ -234,11 +234,11 @@ export default {
       display none
 
   @media (max-width: $MQLarge)
-    .header__basic .sns__item
+    .profile__basic .sns__item
       width 11%
 
   @media (max-width: $MQIpad)
-    .header
+    .profile
       height auto
       min-height 670px
       padding 0 1rem
@@ -262,7 +262,7 @@ export default {
       padding-bottom 100px !important
 
   @media (max-width: $MQMobileNarrow)
-    .header
+    .profile
       padding 0 .8rem
       .sns__item
         min-width 13%
