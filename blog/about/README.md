@@ -4,7 +4,7 @@ title: About
 avatar: /img/about-avatar.png
 name: Xiaohan Zou
 subname: 邹笑寒
-cv: /files/cv/en.pdf
+cv: /files/cv/brief/en.pdf
 
 interests:
   - Continual Learning
@@ -28,7 +28,7 @@ education:
 
 - 🎃 *Renovamen* is an Latin word means *renewal*.
 
-- 🧐 My Curriculum Vitae can be found [here](/files/cv/en.pdf).
+- 🧐 My full version of Curriculum Vitae can be found [here](/files/cv/full/en.pdf).
 
 - 🥎 I used to be a member of the softball team and the vice president of the baseball and softball association (Jiading branch) of Tongji University.
 
