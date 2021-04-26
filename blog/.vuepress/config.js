@@ -17,6 +17,7 @@ module.exports = {
   themeConfig: {
     repo: "Renovamen/renovamen.github.io",
     docsDir: "blog",
+    docsBranch: "master",
     editLinks: true,
     lastUpdated: true,
     hitokoto: true,
