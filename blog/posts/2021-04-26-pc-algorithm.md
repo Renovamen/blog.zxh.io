@@ -167,13 +167,13 @@ $$
 为了判断 $\rho$ 是否为 0，需要将 $\rho$ 通过 Fisher Z 变换[^fisher-z-transformation]转换成正态分布：
 
 $$
-Z(i, j \mid K) = \frac{1}{2} \log (\frac{1 + \hat{\rho}_{i,j \mid k}}{1 - \hat{\rho}_{i,j \mid k}})
+Z(i, j \mid K) = \frac{1}{2} \log (\frac{1 + \hat{\rho}_{i,j \mid K}}{1 - \hat{\rho}_{i,j \mid K}})
 $$
 
 定义零假设和对立假设：
 
-- 零假设：$H_0(i,j \mid k):  \rho_{i,j \mid k} \not= 0$
-- 对立假设：$H_1(i,j \mid k):  \rho_{i,j \mid k} = 0$
+- 零假设：$H_0(i,j \mid K):  \rho_{i,j \mid K} \not= 0$
+- 对立假设：$H_1(i,j \mid K):  \rho_{i,j \mid K} = 0$
 
 然后给定一个显著性水平 $\alpha \in (0, 1)$，那么（双侧）检验的规则为，如果有：
 
@@ -212,6 +212,12 @@ $d$ 分隔的结论为：对于有向无环图 $E$，有两个节点 $X, Y$ 和�
 
 但很显然这种情况是矛盾的，不可能存在，所以不用考虑。
 
+总结一下：
+
+![extend-to-cpdag](/img/in-post/2021-04-26/extend-to-cpdag.png)
+
+<p class="desc"><a href="https://www.jmlr.org/papers/volume8/kalisch07a/kalisch07a.pdf" target="_blank">Estimating High-Dimensional Directed Acyclic Graphs with the PC-Algorithm</a>. Markus Kalisch and Peter Buhlmann. JMLR 2007.</p>
+
 这样我们就可以得到一个完全部分有向无环图。
 
 
@@ -227,6 +233,14 @@ $d$ 分隔的结论为：对于有向无环图 $E$，有两个节点 $X, Y$ 和�
 
 ::: info 完全部分有向无环图
 假设 $G = (V, E)$ 是一个部分有向无环图，若 $E$ 中的有向边都是不可逆的，并且 $E$ 中的无向边都是可逆的，则称 $G$ 是一个完全部分有向无环图。
+:::
+
+关于可逆和不可逆：
+
+::: info 可逆 / 不可逆
+对于有向无环图 $G = (V, E)$ 中的任意有向边 $V_i \rightarrow V_j \in E$，如果存在图 $G' = (V, E')$ 与 $G$ 等价，且 $V_j \rightarrow V_i \in E'$，则称有向边 $V_i \rightarrow V_j$ 在 $G$ 中是可逆的，否则是不可逆的。
+
+同理，对任意无向边 $V_i - V_j \in E$，若存在 $G_1 = (V, E_1)$、$G_2 = (V, E_2)$ 均与 $G$ 等价，且 $V_i \rightarrow V_j \in E_1$、$V_j \rightarrow V_i \in E_2$，则称无向边 $V_i - V_j$ 在 $G$ 中是可逆的，否则是不可逆的。
 :::
 
 换句话说用 PC 算法得到的图是含有无向边的。这是因为依据 $d$ 分隔确定的条件独立性所构造的网络
