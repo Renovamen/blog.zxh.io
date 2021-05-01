@@ -24,7 +24,7 @@ module.exports = {
     searchIcon: "ri-search-2-line",
     codeTheme: "gungnir-dark",
     rss: {
-      site_url: "https://renovamen.ink",
+      site_url: "https://zxh.io",
       copyright: "Renovamen 2018-2021",
       count: 20
     },
