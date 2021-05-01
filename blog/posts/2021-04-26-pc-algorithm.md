@@ -101,7 +101,7 @@ $$
 
       而在深度学习大行其道的今天，你可能会想到用神经网络去拟合这个后验不就完事儿了，是的这就是**变分自编码器**（Variational Auto-Encoder，VAE）的思想，去学它吧朋友。
 
-    本文不讨论参数学习问题，但我在我的[笔记本](https://notebook.renovamen.ink/ai/ml/pcg/parameters-learning-no-latent.html)上写了一些参数学习相关的东西，有兴趣的话可以看一看。
+    本文不讨论参数学习问题，但我在我的[笔记本](https://note.zxh.io/ai/ml/pcg/parameters-learning-no-latent.html)上写了一些参数学习相关的东西，有兴趣的话可以看一看。
 
 - **推断问题**：在已知部分变量时，计算其他变量的条件概率分布
 

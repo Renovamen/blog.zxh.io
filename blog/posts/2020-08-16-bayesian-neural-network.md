@@ -143,7 +143,7 @@ MAP 提供了一个直观的方法来设计复杂但可解释的正则化项，�
 
 **Weight Uncertainty in Neural Networks.** *Charles Blundell, et al.* ICML 2015. [[Paper]](https://arxiv.org/pdf/1505.05424.pdf)
 
-在看这一节之前，或许先去看看[概率图模型](https://notebook.renovamen.ink/ai/ml/pcg/)中的贝叶斯网络部分比较好。
+在看这一节之前，或许先去看看[概率图模型](https://note.zxh.io/ai/ml/pcg/)中的贝叶斯网络部分比较好。
 
 优点：
 
@@ -212,7 +212,7 @@ $$
 
 ### 变分推断
 
-对于第一个问题求后验 $p(w \mid D)$，可以用变分推断（variational inference）来解决。变分推断可以参考[这里](https://notebook.renovamen.ink/ai/ml/pcg/variational-inference/)，其思想是用一个由参数 $\theta$ 控制的分布 $q(w \mid \theta)$ 来近似 $p(w \mid D)$，这两个分布之间的 KL 散度要尽可能小：
+对于第一个问题求后验 $p(w \mid D)$，可以用变分推断（variational inference）来解决。变分推断可以参考[这里](https://note.zxh.io/ai/ml/pcg/variational-inference.html)，其思想是用一个由参数 $\theta$ 控制的分布 $q(w \mid \theta)$ 来近似 $p(w \mid D)$，这两个分布之间的 KL 散度要尽可能小：
 
 $$
 \begin{aligned}
@@ -257,7 +257,7 @@ $$
 
 ### 重参数化
 
-**重参数化**（reparameterization）是[变分自编码器（Variational Auto-Encoder, VAE）](https://notebook.renovamen.ink/ai/dl/generative-models/vae/)引入的操作。先引入一个分布为 $p(\epsilon)$ 的随机变量 $\epsilon$，然后把期望 $\mathbb{E}_{q(w \mid \theta)} [\log p(D \mid w)]$ 重写为：
+**重参数化**（reparameterization）是[变分自编码器（Variational Auto-Encoder, VAE）](https://note.zxh.io/ai/dl/generative-models/vae.html)引入的操作。先引入一个分布为 $p(\epsilon)$ 的随机变量 $\epsilon$，然后把期望 $\mathbb{E}_{q(w \mid \theta)} [\log p(D \mid w)]$ 重写为：
 
 $$
 \mathbb{E}_{q(w \mid \theta)} [\log p(D \mid w)] = \mathbb{E}_{p(\epsilon)} [\log p(D \mid t(\theta, \epsilon))]
@@ -306,7 +306,7 @@ $$
 
 ### 梯度下降
 
-为了计算方便，论文用了平均场近似（mean-field approximation）。即令变分后验 $q(w \mid \theta)$ 为一个[平均场分布族](https://notebook.renovamen.ink/ai/ml/pcg/variational-inference/#平均场分布族)，即认为各个参数 $w_i$ 之间相互独立，每个参数 $w_i$ 都服从高斯分布（也即协方差矩阵除了对角线以外都为 0，所以原文用的是 diagonal Gaussian distribution 这个词），那么有：
+为了计算方便，论文用了平均场近似（mean-field approximation）。即令变分后验 $q(w \mid \theta)$ 为一个[平均场分布族](https://note.zxh.io/ai/ml/pcg/variational-inference.html#平均场分布族)，即认为各个参数 $w_i$ 之间相互独立，每个参数 $w_i$ 都服从高斯分布（也即协方差矩阵除了对角线以外都为 0，所以原文用的是 diagonal Gaussian distribution 这个词），那么有：
 
 $$
 q(w \mid \theta) = \prod_i q_i(w_i \mid \theta) = \prod_i \mathcal{N}(w_i \mid \mu_i, \sigma_i^2)

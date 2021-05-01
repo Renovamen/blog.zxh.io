@@ -27,7 +27,7 @@ links:
   - title: 咸鱼翻滚
     items:
       - sitename: What If?
-        url: https://notebook.renovamen.ink
+        url: https://note.zxh.io
         img: /img/links/me.svg
         desc: 乱七八糟的笔记
       - sitename: OI & ACM
@@ -39,7 +39,7 @@ links:
         img: /img/links/leetcode.svg
         desc: 失学失业少年的忧虑
       - sitename: Midgard
-        url: https://midgard.renovamen.ink
+        url: https://resume.zxh.io
         img: /img/links/resume.svg
         desc: 来找简历吗勇士！
       - sitename: Fishmail
@@ -47,15 +47,15 @@ links:
         img: /img/links/fishmail.svg
         desc: 上班摸鱼！
       - sitename: 荒野之息
-        url: https://zelda.renovamen.ink
+        url: https://zelda.zxh.io
         img: /img/links/zelda.jpg
         desc: 仿 Ori 的荒野之息主页
       - sitename: 小游戏合集
-        url: https://galaxy-voyager.renovamen.ink
+        url: https://galaxy.zxh.io
         img: /img/links/game.svg
         desc: 虽然其实也就俩游戏
       - sitename: Cube
-        url: https://cube.renovamen.ink
+        url: https://cube.zxh.io
         img: /img/links/cube.svg
         desc: 玩魔方吗朋友
 ---
