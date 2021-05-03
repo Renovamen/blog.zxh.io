@@ -14,7 +14,8 @@ import {
   RiZhihuLine,
   RiWeiboFill,
   HiMail,
-  AiCv
+  AiCv,
+  GiJumpingDog
 } from "oh-vue-icons/icons";
 
 OhVueIcon.add(
@@ -31,5 +32,6 @@ OhVueIcon.add(
   RiZhihuLine,
   RiWeiboFill,
   HiMail,
-  AiCv
+  AiCv,
+  GiJumpingDog
 );

@@ -30,6 +30,10 @@ links:
         url: https://note.zxh.io
         img: /img/links/me.svg
         desc: 乱七八糟的笔记
+      - sitename: Portfolio-macOS
+        url: https://portfolio.zxh.io/
+        img: /img/links/portfolio.png
+        desc: 仿 masOS 的个人主页
       - sitename: OI & ACM
         url: https://oi.renovamen.ink
         img: /img/links/acm.svg

@@ -65,6 +65,11 @@ module.exports = {
         text: "Links",
         link: "/links/",
         icon: "fa-satellite-dish"
+      },
+      {
+        text: "Portfolio",
+        link: "https://portfolio.zxh.io/",
+        icon: "gi-jumping-dog"
       }
     ],
     personalInfo: {
