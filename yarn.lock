@@ -1148,12 +1148,19 @@
     date-fns "^1.29.0"
     qs "^6.6.0"
 
-"@vssue/vuepress-plugin-vssue@^1.2.0", "@vssue/vuepress-plugin-vssue@^1.4.7":
+"@vssue/vuepress-plugin-vssue@^1.2.0":
   version "1.4.7"
   resolved "https://registry.npm.taobao.org/@vssue/vuepress-plugin-vssue/download/@vssue/vuepress-plugin-vssue-1.4.7.tgz#0dae37fb8cc5329859b8af0a57b62ebcf81bebb8"
   integrity sha1-Da43+4zFMphZuK8KV7YuvPgb67g=
   dependencies:
     vssue "^1.4.7"
+
+"@vssue/vuepress-plugin-vssue@^1.4.8":
+  version "1.4.8"
+  resolved "https://registry.nlark.com/@vssue/vuepress-plugin-vssue/download/@vssue/vuepress-plugin-vssue-1.4.8.tgz#37b8ada338c1222a143eb648555372d2959f4624"
+  integrity sha1-N7itozjBIioUPrZIVVNy0pWfRiQ=
+  dependencies:
+    vssue "^1.4.8"
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.2.1":
   version "1.2.1"
@@ -1855,11 +1862,6 @@ asynckit@^0.4.0:
   resolved "https://registry.npm.taobao.org/asynckit/download/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
-at-least-node@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/at-least-node/download/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
-  integrity sha1-YCzUtG6EStTv/JKoARo8RuAjjcI=
-
 atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.npm.taobao.org/atob/download/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
@@ -2374,10 +2376,10 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.npm.taobao.org/chalk/download/chalk-4.1.0.tgz?cache=0&sync_timestamp=1592843133653&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fchalk%2Fdownload%2Fchalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
-  integrity sha1-ThSHCmGNni7dl92DRf2dncMVZGo=
+chalk@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.nlark.com/chalk/download/chalk-4.1.1.tgz?cache=0&sync_timestamp=1618995297666&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
+  integrity sha1-yAs/qyi/Y3HmhjMl7uZ+YYt35q0=
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
@@ -4229,6 +4231,15 @@ from2@^2.1.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
 
+fs-extra@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.nlark.com/fs-extra/download/fs-extra-10.0.0.tgz#9ff61b655dde53fb34a82df84bb214ce802e17c1"
+  integrity sha1-n/YbZV3eU/s0qC34S7IUzoAuF8E=
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
+
 fs-extra@^7.0.1:
   version "7.0.1"
   resolved "https://registry.npm.taobao.org/fs-extra/download/fs-extra-7.0.1.tgz?cache=0&sync_timestamp=1611075413359&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffs-extra%2Fdownload%2Ffs-extra-7.0.1.tgz#4f189c44aa123b895f722804f55ea23eadc348e9"
@@ -4237,16 +4248,6 @@ fs-extra@^7.0.1:
     graceful-fs "^4.1.2"
     jsonfile "^4.0.0"
     universalify "^0.1.0"
-
-fs-extra@^9.1.0:
-  version "9.1.0"
-  resolved "https://registry.npm.taobao.org/fs-extra/download/fs-extra-9.1.0.tgz?cache=0&sync_timestamp=1611075413359&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffs-extra%2Fdownload%2Ffs-extra-9.1.0.tgz#5954460c764a8da2094ba3554bf839e6b9a7c86d"
-  integrity sha1-WVRGDHZKjaIJS6NVS/g55rmnyG0=
-  dependencies:
-    at-least-node "^1.0.0"
-    graceful-fs "^4.2.0"
-    jsonfile "^6.0.1"
-    universalify "^2.0.0"
 
 fs-write-stream-atomic@^1.0.8:
   version "1.0.10"
@@ -5391,10 +5392,10 @@ katex@^0.12.0:
   dependencies:
     commander "^2.19.0"
 
-katex@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.npm.taobao.org/katex/download/katex-0.13.0.tgz?cache=0&sync_timestamp=1615259073330&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fkatex%2Fdownload%2Fkatex-0.13.0.tgz#62900e56c1ad8fdf7da23399e50d7a7b690b39ab"
-  integrity sha1-YpAOVsGtj999ojOZ5Q16e2kLOas=
+katex@^0.13.10:
+  version "0.13.10"
+  resolved "https://registry.nlark.com/katex/download/katex-0.13.10.tgz?cache=0&sync_timestamp=1620783499568&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fkatex%2Fdownload%2Fkatex-0.13.10.tgz#2a30dc4ca9f47ff343a7f37062abec96897b56a6"
+  integrity sha1-KjDcTKn0f/NDp/NwYqvslol7VqY=
   dependencies:
     commander "^6.0.0"
 
@@ -5851,10 +5852,10 @@ merge2@^1.2.3:
   resolved "https://registry.npm.taobao.org/merge2/download/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha1-Q2iJL4hekHRVpv19xVwMnUBJkK4=
 
-mermaid@^8.9.2:
-  version "8.9.2"
-  resolved "https://registry.npm.taobao.org/mermaid/download/mermaid-8.9.2.tgz#40bb2052cc6c4feaf5d93a5e527a8d06d0bacea7"
-  integrity sha1-QLsgUsxsT+r12TpeUnqNBtC6zqc=
+mermaid@^8.10.1:
+  version "8.10.1"
+  resolved "https://registry.nlark.com/mermaid/download/mermaid-8.10.1.tgz#9573f702024e2173f4aa07d9b207d750507cf838"
+  integrity sha1-lXP3AgJOIXP0qgfZsgfXUFB8+Dg=
   dependencies:
     "@braintree/sanitize-url" "^3.1.0"
     d3 "^5.7.0"
@@ -6334,10 +6335,10 @@ obuf@^1.0.0, obuf@^1.1.2:
   resolved "https://registry.npm.taobao.org/obuf/download/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha1-Cb6jND1BhZ69RGKS0RydTbYZCE4=
 
-oh-vue-icons@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.npm.taobao.org/oh-vue-icons/download/oh-vue-icons-0.4.1.tgz#a2b820bdc619e9891bb595a2b9a3d5f6a4927279"
-  integrity sha1-orggvcYZ6YkbtZWiuaPV9qSScnk=
+oh-vue-icons@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.nlark.com/oh-vue-icons/download/oh-vue-icons-0.4.3.tgz#c80cc19f65e56d719f1c67f08a228ca7bf2815ec"
+  integrity sha1-yAzBn2XlbXGfHGfwiiKMp78oFew=
 
 on-finished@^2.3.0, on-finished@~2.3.0:
   version "2.3.0"
@@ -8686,6 +8687,17 @@ vssue@^1.4.7:
   version "1.4.7"
   resolved "https://registry.npm.taobao.org/vssue/download/vssue-1.4.7.tgz#d8b6fc3ddd6995ac1848ff7c99c281e079da30e4"
   integrity sha1-2Lb8Pd1plawYSP98mcKB4HnaMOQ=
+  dependencies:
+    "@vssue/utils" "^1.4.7"
+    github-markdown-css "^3.0.1"
+    vue "^2.6.10"
+    vue-i18n "^8.11.2"
+    vue-property-decorator "^8.1.1"
+
+vssue@^1.4.8:
+  version "1.4.8"
+  resolved "https://registry.nlark.com/vssue/download/vssue-1.4.8.tgz#e0de059d16bf870dd7d72735d71761dfedfcfeb5"
+  integrity sha1-4N4FnRa/hw3X1yc11xdh3+38/rU=
   dependencies:
     "@vssue/utils" "^1.4.7"
     github-markdown-css "^3.0.1"
