@@ -78,7 +78,7 @@ module.exports = {
       description: "いつか、私がヒトじゃなくなっても",
       sns: {
         github: "Renovamen",
-        linkedin: "xiaohan-zou-55bba0160",
+        linkedin: "xiaohan-zou",
         facebook: "renovamen.zou",
         twitter: "renovamen_zxh",
         zhihu: "chao-neng-gui-su",
