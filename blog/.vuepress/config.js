@@ -20,7 +20,9 @@ module.exports = {
     docsBranch: "master",
     editLinks: true,
     lastUpdated: true,
-    hitokoto: true,
+    hitokoto: {
+      api: "https://v1.hitokoto.cn/?c=c&c=d&c=h&c=i&c=j&c=k"
+    },
     searchIcon: "ri-search-2-line",
     codeTheme: "gungnir-dark",
     rss: {
@@ -92,7 +94,7 @@ module.exports = {
       },
       {
         path: "/img/home-bg/2.jpg",
-        mask: "rgb(251, 170, 152, .2)"
+        mask: "rgba(196, 176, 131, .1)"
       },
       {
         path: "/img/home-bg/3.jpg",
