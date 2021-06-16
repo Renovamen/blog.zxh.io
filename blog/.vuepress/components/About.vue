@@ -26,8 +26,8 @@
         <div class="profile__info col-md-8">
           <h3 class="title">Biography</h3>
           <div class="bio-info">
-            Xiaohan is <del>a dragon lost in human world</del> now an intern at
-            CETC and a research assistant at Peking University supervised by
+            Xiaohan is <del>a dragon lost in human world</del> now a research
+            assistant at Peking University supervised by
             <a
               href="http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm"
               target="_blank"

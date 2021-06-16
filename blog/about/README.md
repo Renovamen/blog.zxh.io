@@ -9,7 +9,7 @@ cv: /files/cv/brief/en.pdf
 interests:
   - Continual Learning
   - Meta Learning
-  - Natural Language Processing
+  - Machine Learning
   - <s>Sleeping and Eating</s>
 
 education:
