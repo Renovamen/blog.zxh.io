@@ -26,23 +26,38 @@
         <div class="profile__info col-md-8">
           <h3 class="title">Biography</h3>
           <div class="bio-info">
-            Xiaohan is <del>a dragon lost in human world</del> now a research
-            assistant at Peking University supervised by
+            Xiaohan is <del>a dragon lost in human world</del> now an incoming
+            <a
+              href="https://www.bu.edu/cs/"
+              target="_blank"
+            >
+              Computer Science
+            </a>
+            master student at
+            <a
+              href="https://www.bu.edu/"
+              target="_blank"
+            >
+              Boston University
+            </a>
+            and a research assistant at Peking University supervised by
             <a
               href="http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm"
               target="_blank"
             >
-              Prof. Tong Lin </a
-            >. Before that, she got her bachelor's degree in
+              Prof. Tong Lin</a
+            >.
+            Before that, she got her bachelor's degree in
             <a href="http://sse.tongji.edu.cn" target="_blank">
               Software Engineering
             </a>
             at
             <a href="https://www.tongji.edu.cn" target="_blank">
-              Tongji University </a
-            >. She is currently working on topics related to exploring the
-            capability of machines to develop intelligent behavior upon what
-            they have learned, like meta-learning and continual learning.
+              Tongji University</a
+            >.
+            She is currently focusing on topics related to exploring the
+            capability of machines to be continual and efficient, like continual
+            learning, meta-learning and few-shot learning.
           </div>
           <div class="personal-info">
             <div class="col-md-5 interests">

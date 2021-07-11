@@ -8,17 +8,17 @@ cv: /files/cv/brief/en.pdf
 
 interests:
   - Continual Learning
-  - Meta Learning
+  - Meta-Learning
   - Machine Learning
   - <s>Sleeping and Eating</s>
 
 education:
+  - degree: M.S. in Computer Science
+    year: 2023
+    school: Boston University
   - degree: B.Eng in Software Engineering
     year: 2020
     school: Tongji University
-  - degree: Wizard, Gryffindor
-    year: 2016
-    school: Hogwarts School of Witchcraft and Wizardry
 ---
 
 
