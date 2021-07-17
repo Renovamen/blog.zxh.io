@@ -35,11 +35,11 @@ links:
         img: /img/links/portfolio.png
         desc: 仿 masOS 的个人主页
       - sitename: OI & ACM
-        url: https://oi.renovamen.ink
+        url: https://oi.zxh.io
         img: /img/links/acm.svg
         desc: 退役蒟蒻的人生回顾
       - sitename: Leetcode
-        url: https://leetcode.renovamen.ink
+        url: https://leetcode.zxh.io
         img: /img/links/leetcode.svg
         desc: 失学失业少年的忧虑
       - sitename: Midgard
