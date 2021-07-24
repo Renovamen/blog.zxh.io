@@ -87,27 +87,29 @@ module.exports = {
         email: "renovamenzxh@gmail.com"
       }
     },
-    homeHeaderImages: [
-      {
-        path: "/img/home-bg/1.jpg",
-        mask: "rgba(40, 57, 101, .4)"
-      },
-      {
-        path: "/img/home-bg/2.jpg",
-        mask: "rgba(196, 176, 131, .1)"
-      },
-      {
-        path: "/img/home-bg/3.jpg",
-        mask: "rgba(68, 74, 83, .1)"
-      },
-      {
-        path: "/img/home-bg/4.jpg",
-        mask: "rgba(19, 75, 50, .2)"
-      },
-      {
-        path: "/img/home-bg/5.jpg"
-      }
-    ],
+    homeHeaderImages: {
+      local: [
+        {
+          path: "/img/home-bg/1.jpg",
+          mask: "rgba(40, 57, 101, .4)"
+        },
+        {
+          path: "/img/home-bg/2.jpg",
+          mask: "rgba(196, 176, 131, .1)"
+        },
+        {
+          path: "/img/home-bg/3.jpg",
+          mask: "rgba(68, 74, 83, .1)"
+        },
+        {
+          path: "/img/home-bg/4.jpg",
+          mask: "rgba(19, 75, 50, .2)"
+        },
+        {
+          path: "/img/home-bg/5.jpg"
+        }
+      ]
+    },
     pages: {
       tags: {
         title: "Tags",

@@ -33,7 +33,7 @@
             >
               Computer Science
             </a>
-            master student at
+            master's student at
             <a
               href="https://www.bu.edu/"
               target="_blank"

@@ -16,7 +16,7 @@ education:
   - degree: M.S. in Computer Science
     year: 2023
     school: Boston University
-  - degree: B.Eng in Software Engineering
+  - degree: B.Eng. in Software Engineering
     year: 2020
     school: Tongji University
 ---
