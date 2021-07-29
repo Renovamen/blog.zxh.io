@@ -29,6 +29,23 @@ $$
 F = \mathbb{E}_{p(x \mid \theta)} \Big [ s(\theta)^2 \Big ] = \mathbb{E}_{p(x \mid \theta)} \Big [ \nabla \log p(x \mid \theta) \nabla \log p(x \mid \theta)^{\top} \Big ]
 $$
 
+考虑监督学习的场景，模型为 $p_{\theta}(y \mid x)$，真实数据分布为 $p_D(y \mid x)$，那么上式可以写为：
+
+$$
+F = \mathbb{E}_{p_{\theta}(y \mid x)} \Big [ \nabla \log p_{\theta}(y \mid x) \nabla \log p_{\theta}(y \mid x)^{\top} \Big ]
+$$
+
+因为 $p_{\theta}(y \mid x)$ 是 intractable 的，所以在算这个分布时会用蒙特卡洛采样来近似。需要注意的是，反向传播算出来梯度是 $\nabla p_D(y \mid x)$，而在 true Fisher 中，$y$ 是从模型 $p_{\theta}(y \mid x)$ 中采样的，这时的 $\nabla \log p_{\theta}(y \mid x)$ 并不是我们在反向传播时算出来的梯度，而是需要额外计算。
+
+但在 empirical Fisher 中，上式变为了：
+
+$$
+F = \mathbb{E}_{p_D(y \mid x)} \Big [ \nabla \log p_D(y \mid x) \nabla \log p_D(y \mid x)^{\top} \Big ]
+$$
+
+即 $y$ 是从直接数据分布 $p_D(y \mid x)$ 中采样的，这时就可以直接使用反向传播算出来的梯度，从而减小计算量。当数据量足够大，模型已经可以很好地拟合数据分布时，empirical Fisher 和 true Fisher 的差距不会很大。
+
+
 
 ## 数学意义
 
@@ -73,7 +90,7 @@ $$
 
 ### 海森矩阵的期望
 
-::: warning 断言
+::: info 断言
 Fisher 信息矩阵等于对数似然函数的海森矩阵（Hessian Metrix）的期望取负，即：
 
 $$
