@@ -25,40 +25,7 @@
         </div>
         <div class="profile__info col-md-8">
           <h3 class="title">Biography</h3>
-          <div class="bio-info">
-            Xiaohan is <del>a dragon lost in human world</del> now an incoming
-            <a
-              href="https://www.bu.edu/cs/"
-              target="_blank"
-            >
-              Computer Science
-            </a>
-            master's student at
-            <a
-              href="https://www.bu.edu/"
-              target="_blank"
-            >
-              Boston University
-            </a>
-            and a research assistant at Peking University supervised by
-            <a
-              href="http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm"
-              target="_blank"
-            >
-              Prof. Tong Lin</a
-            >.
-            Before that, she got her bachelor's degree in
-            <a href="http://sse.tongji.edu.cn" target="_blank">
-              Software Engineering
-            </a>
-            at
-            <a href="https://www.tongji.edu.cn" target="_blank">
-              Tongji University</a
-            >.
-            She is currently focusing on topics related to exploring the
-            capability of machines to be continual and efficient, like continual
-            learning, meta-learning and few-shot learning.
-          </div>
+          <div class="bio-info" v-html="this.bio" />
           <div class="personal-info">
             <div class="col-md-5 interests">
               <p class="subtitle">Interests</p>
@@ -94,8 +61,11 @@
 
 <script>
 import Common from "@theme/components/Common.vue";
+import MarkdownIt from "markdown-it";
 
-const platform_links = {
+const md = new MarkdownIt();
+
+const PLATFORM_LINKS = {
   github: "https://github.com/",
   linkedin: "https://www.linkedin.com/in/",
   facebook: "https://www.facebook.com/",
@@ -105,7 +75,7 @@ const platform_links = {
   email: "mailto:"
 };
 
-const platform_icons = {
+const PLATFORM_ICONS = {
   github: "ri-github-fill",
   linkedin: "ri-linkedin-box-fill",
   facebook: "ri-facebook-box-fill",
@@ -115,14 +85,30 @@ const platform_icons = {
   email: "hi-mail"
 };
 
+const BIO_PATH = "/md/about.md";
+
 export default {
   components: { Common },
+
+  data() {
+    return {
+      bio: ""
+    };
+  },
+
+  mounted() {
+    fetch(BIO_PATH)
+      .then((response) => response.text())
+      .then((result) => this.bio = md.render(result))
+      .catch((error) => console.error(error));
+  },
+
   methods: {
     snsLink(user, platform) {
-      return platform_links[platform] + user;
+      return PLATFORM_LINKS[platform] + user;
     },
     snsIcon(platform) {
-      return platform_icons[platform];
+      return PLATFORM_ICONS[platform];
     }
   }
 };
@@ -210,6 +196,8 @@ export default {
         font-size 19px
         text-align left
         font-weight 400
+        p
+          line-height 1.7
         a:hover
           text-decoration underline
       .personal-info
