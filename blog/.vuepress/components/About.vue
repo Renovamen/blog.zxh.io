@@ -65,6 +65,26 @@ import MarkdownIt from "markdown-it";
 
 const md = new MarkdownIt();
 
+// Remember old renderer, if overridden, or proxy to default renderer
+const defaultRender = md.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+  return self.renderToken(tokens, idx, options);
+};
+
+md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+  // If you are sure other plugins can't add `target` - drop check below
+  const aIndex = tokens[idx].attrIndex("target");
+
+  if (aIndex < 0) {
+    tokens[idx].attrPush(["target", "_blank"]); // add new attribute
+  } else {
+    tokens[idx].attrs[aIndex][1] = "_blank";    // replace value of existing attr
+  }
+
+  // pass token to default renderer.
+  return defaultRender(tokens, idx, options, env, self);
+};
+
+
 const PLATFORM_LINKS = {
   github: "https://github.com/",
   linkedin: "https://www.linkedin.com/in/",
@@ -115,7 +135,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '../styles/mixins.styl'
+@require "../styles/mixins.styl"
 
 .about-wrapper
   .col-md-4
@@ -148,11 +168,10 @@ export default {
       top 50%
       left 0
       right 0
-      margin -255px auto 0
+      margin -275px auto 0
     &__basic
       position absolute
-      top 50%
-      margin-top -185px
+      margin-top 100px
       padding-left 1.5rem
       .avatar
         margin 0 auto
@@ -197,7 +216,7 @@ export default {
         text-align left
         font-weight 400
         p
-          line-height 1.7
+          line-height 1.6
         a:hover
           text-decoration underline
       .personal-info
@@ -249,10 +268,11 @@ export default {
         width 100%
         position relative
       &__content
-        margin-top 350px
+        margin-top 165px
         position relative
       &__basic
         padding-left 0
+        margin-top 0
         .sns__item
           width 10%
       &__info
