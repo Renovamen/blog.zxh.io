@@ -22,7 +22,7 @@ tags:
 
 ### Self-Attenion
 
-**Attention Is All You Need.** *Ashish Vaswani, et al.* NIPS 2017. [[Paper]](https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf) [[Code]](https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/transformer.py)
+**Attention Is All You Need.** *Ashish Vaswani, et al.* NIPS 2017. [[Paper]](https://arxiv.org/abs/1706.03762) [[Code]](https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/transformer.py)
 
 <img src="~public/img/in-post/2021-08-31/self-attention.png" width="300px" alt="self-attention" />
 
@@ -61,7 +61,7 @@ Self Attention 是在计算任意两个位置之间的相关性，得到一个 $
 
 **Self-Attention Generative Adversarial Networks.** *Han Zhang, et al.* ICML 2019. [[Paper]](https://arxiv.org/abs/1805.08318) [[Code]](https://github.com/brain-research/self-attention-gan)
 
-SAGAN 是一个用 self attention 来替代了卷积层的 GAN，它跟原始 self attention 的不同在于：
+SAGAN 是一个用 self-attention 来替代了卷积层的 GAN，它的 self-attention 跟原始 transformer 的 self-attention 的不同在于：
 
 - 在将 $F$ 通过线性变换得到 $Q$ 和 $K$ 时，进行了降维（$d \to d / 8$）
 - 在残差连接之前，对 $F_{\text{out}}$ 进行了缩放：$\gamma F_{\text{out}}$，其中 $\gamma$ 是一个可学习的参数
@@ -159,6 +159,26 @@ $$
 - 但只在 block 里做 self-attention 也是不合适的，周边共享的元素多少也要考虑一些，因此论文在每个窗口边上都 pad 了一圈（上图中的 neighborhood windows 周边那圈五颜六色的东西），以增加感受野。因为 pad 的这一圈看上去很像光环，所以论文管这个操作叫 haloing
 
 
+### Linformer
+
+**Linformer: Self-Attention with Linear Complexity.** *Sinong Wang, et al.* arXiv 2020. [[Paper]](https://arxiv.org/abs/2006.04768)
+
+<img src="~public/img/in-post/2021-08-31/linformer.png" width="250px" alt="linformer" />
+
+<p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/2006.04768.pdf" target="_blank">Linformer: Self-Attention with Linear Complexity</a></p>
+
+从实现上来看，和原始 Transformer 的区别就是，对 $K, V$ 用 $E, F \in \Reals^{N \times k}$ 进行了降维（上图中的 Projection），即：
+
+$$
+F_{\text{out}} = \underbrace{\text{softmax} \left ( \frac{Q (E K)^T}{\sqrt{d_k}} \right)}_{\overline{P}: N \times k} \cdot \underbrace{F V}_{k \times d}
+$$
+
+$k$ 是一个超参常数，所以时间复杂度降到 $Q(Nkd)$。同时它还使用了一些参数共享的 trick 来进一步降低计算量。
+
+但论文还证明了为什么可以用 $\overline{P}$ 来近似原始的 attention map $P$（虽然我觉得略显强行）。原文的 Theorem 2 先证明了当 $k = 5 \log(nd) / (\epsilon^2 - \epsilon^3)$ 时，一定存在 $E, F$ 使得 $\overline{P}$ 可以近似 $P$。这里 $k$ 的取值与 $n$ 有关，复杂度还不是线性。但如果考虑到 $\text{rank}(A) = d$ 这一点（我还没搞明白这一点是怎么来的），$k$ 的选择就可以独立于 $n$，从而变为线性复杂度。
+
+
+
 ## Convolution
 
 ### Selective Kernel
@@ -212,7 +232,7 @@ $$
 
 - 由于通道数量 $C_i, C_o$ 往往成百上千，所以为了限制参数量和计算量，$K$ 的取值往往较小，从而限制了感受野大小
 - 空间不变的特征可能会剥夺卷积核适应不同空间位置的能力
-- 卷积核在通道维度往往存在冗余，即很多卷积核是近似线性相关的。更直观一点，把每个输出通道对应的卷积核铺成一个 $C_i \times K^2$ 大小的矩阵，那么矩阵的秩不会超过 $K^2$。所以缩减卷积核的通道维度可能并不会明显影响效果
+- 卷积核在通道维度往往存在冗余，即很多卷积核是近似线性相关的。也就是说，如果把每个输出通道对应的卷积核铺成一个 $C_i \times K^2$ 大小的矩阵，那么矩阵的秩不会超过 $K^2$。所以缩减卷积核的通道维度可能并不会明显影响效果
 
 因此论文提出了一种跟卷积相反的 involution 操作：空间特异（不同空间位置对应不同的卷积核）和通道不变（不同通道共享同一个卷积核），参数数量为 $H \times W \times K \times K \times G$，$G$ 表示 $C_i$ 个输入通道分成 $G$ 组（每组 $C_i / G$ 个通道），每组通道共享同一个卷积核。
 
