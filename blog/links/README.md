@@ -12,10 +12,10 @@ links:
         url: https://github.com/Renovamen/metallic
         img: /img/links/meta.svg
         desc: 准元学习工具包
-      - sitename: Alkaid
-        url: https://github.com/Renovamen/alkaid
-        img: /img/links/rl.svg
-        desc: 准强化学习工具包
+      - sitename: torchop
+        url: https://github.com/Renovamen/torchop
+        img: /img/links/torchop.svg
+        desc: 一些注意力/卷积算子
       - sitename: Oh, Vue Icons!
         url: https://oh-vue-icons.netlify.app
         img: /img/links/icon.svg
@@ -24,6 +24,10 @@ links:
         url: https://vuepress-theme-gungnir.vercel.app/
         img: /img/links/gungnir.svg
         desc: VuePress 主题
+      - sitename: Alkaid
+        url: https://github.com/Renovamen/alkaid
+        img: /img/links/rl.svg
+        desc: 强化学习工具包
   - title: 咸鱼翻滚
     items:
       - sitename: What If?
