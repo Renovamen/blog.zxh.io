@@ -97,15 +97,16 @@ module.exports = {
         link: "/",
         icon: "fort-awesome"
       },
-      // {
-      //   text: "About",
-      //   link: "/about/",
-      //   icon: "fa-paw"
-      // },
+      {
+        text: "About",
+        link: "/about/",
+        icon: "paw"
+      },
       {
         text: "Tags",
         link: "/tags/",
-        icon: "tag"
+        icon: "tag",
+        iconSize: 0.95
       },
       {
         text: "Links",
