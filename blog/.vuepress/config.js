@@ -6,13 +6,9 @@ module.exports = {
 
   head: [["link", { rel: "icon", href: "/img/logo.svg" }]],
 
-  theme: "vuepress-theme-gungnir",
+  bundler: "@vuepress/vite",
 
-  bundler:
-    // specify bundler via environment variable
-    process.env.DOCS_BUNDLER ??
-    // use vite by default
-    "@vuepress/vite",
+  theme: "vuepress-theme-gungnir",
 
   themeConfig: {
     repo: "Renovamen/renovamen.github.io",
