@@ -1,12 +1,12 @@
 ---
-layout: post
-title: "对过去三年的碎碎念"
-subtitle: '像样的麻婆豆腐是这个令人讨厌的世界上的唯一的光'
-author: "Renovamen"
+layout: Post
+title: 对过去三年的碎碎念
+subtitle: 像样的麻婆豆腐是这个令人讨厌的世界上的唯一的光
+author: Renovamen
 date: 2019-07-06
-header_style: image
-header_img: /img/in-post/2019-07-06/header.jpg
-header_mask: rgb(119, 145, 168, .2)
+useHeaderImage: true
+headerImage: /img/in-post/2019-07-06/header.jpg
+headerMask: rgb(119, 145, 168, .2)
 tags:
   - 摸鱼
 ---

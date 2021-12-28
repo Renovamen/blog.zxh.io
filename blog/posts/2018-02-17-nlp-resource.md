@@ -1,10 +1,10 @@
 ---
-layout: post
-title: "NLP 不入门直接放弃"
-subtitle: "How to give up NLP"
-author: "Renovamen"
+layout: Post
+title: NLP 不入门直接放弃
+subtitle: How to give up NLP
+author: Renovamen
 date: 2018-02-17
-header_img: /img/in-post/2018-02-17/header.jpg
+headerImage: /img/in-post/2018-02-17/header.jpg
 catalog: true
 tags:
   - NLP

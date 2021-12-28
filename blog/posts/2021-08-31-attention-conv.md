@@ -1,16 +1,16 @@
 ---
-layout: post
+layout: Post
 title: Attention / Conv 大锅烩
 subtitle: Self-Attentions and Convolutions
-author: "Renovamen"
+author: Renovamen
 date: 2021-08-31
-header_img: /img/in-post/2021-08-31/header.jpg
+headerImage: /img/in-post/2021-08-31/header.jpg
 catalog: true
 tags:
   - Deep Learning
 ---
 
-长期记录和实现看过的各种论文里的自注意力和卷积机制，咕咕咕，实现地址在：[<v-icon name="ri-link-m" scale="0.9"/> Github](https://github.com/Renovamen/torchop)
+长期记录和实现看过的各种论文里的自注意力和卷积机制，咕咕咕，实现地址在：[<v-icon name="link" scale="0.8"/> Github](https://github.com/Renovamen/torchop)
 
 <!-- more -->
 
@@ -24,7 +24,7 @@ tags:
 
 **Attention Is All You Need.** *Ashish Vaswani, et al.* NIPS 2017. [[Paper]](https://arxiv.org/abs/1706.03762) [[Code]](https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/transformer.py)
 
-<img src="~public/img/in-post/2021-08-31/self-attention.png" width="300px" alt="self-attention" />
+<img src="/img/in-post/2021-08-31/self-attention.png" width="300px" alt="self-attention" />
 
 <p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/2105.02358.pdf" target="_blank">Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks</a></p>
 
@@ -43,7 +43,7 @@ $$
 
 一个简化版本是，把线性变换扔掉，直接用 $F$ 计算 attention，即 $Q = K = V = F$，从而省掉那三个线性层的计算量：
 
-<img src="~public/img/in-post/2021-08-31/simplified-self-attention.png" width="300px" alt="simplified-self-attention" />
+<img src="/img/in-post/2021-08-31/simplified-self-attention.png" width="300px" alt="simplified-self-attention" />
 
 <p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/2105.02358.pdf" target="_blank">Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks</a></p>
 
@@ -71,7 +71,7 @@ SAGAN 是一个用 self-attention 来替代了卷积层的 GAN，它的 self-att
 
 **Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks.** *Han Zhang, et al.* arXiv 2021. [[Paper]](https://arxiv.org/abs/2105.02358) [[Code]](https://github.com/MenghaoGuo/EANet)
 
-![external-attention](~public/img/in-post/2021-08-31/external-attention.png)
+![external-attention](/img/in-post/2021-08-31/external-attention.png)
 
 <p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/2105.02358.pdf" target="_blank">Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks</a></p>
 
@@ -112,7 +112,7 @@ $$
 
 又是『XXX is all you need』系列的题目，让人审美疲劳。虽然这个题目包含了它应该包含的信息：“比原始 Transformer 快，因为我们用了 additive attention”，但还是让人审美疲劳。
 
-<img src="~public/img/in-post/2021-08-31/fastformer.png" width="500px" alt="fastformer" />
+<img src="/img/in-post/2021-08-31/fastformer.png" width="500px" alt="fastformer" />
 
 <p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/2108.09084.pdf" target="_blank">Fastformer: Additive Attention Can Be All You Need</a></p>
 
@@ -148,7 +148,7 @@ $$
 
 **Scaling Local Self-Attention for Parameter Efficient Visual Backbones.** *Ashish Vaswani, et al.* CVPR 2019. [[Paper]](https://arxiv.org/abs/2103.12731)
 
-![halo](~public/img/in-post/2021-08-31/halo.png)
+![halo](/img/in-post/2021-08-31/halo.png)
 
 <p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/2103.12731.pdf" target="_blank">Scaling Local Self-Attention for Parameter Efficient Visual Backbones</a></p>
 
@@ -163,7 +163,7 @@ $$
 
 **Linformer: Self-Attention with Linear Complexity.** *Sinong Wang, et al.* arXiv 2020. [[Paper]](https://arxiv.org/abs/2006.04768)
 
-<img src="~public/img/in-post/2021-08-31/linformer.png" width="250px" alt="linformer" />
+<img src="/img/in-post/2021-08-31/linformer.png" width="250px" alt="linformer" />
 
 <p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/2006.04768.pdf" target="_blank">Linformer: Self-Attention with Linear Complexity</a></p>
 
@@ -187,7 +187,7 @@ $k$ 是一个超参常数，所以时间复杂度降到 $Q(Nkd)$。同时它还�
 
 希望能够自适应地调整感受野的大小，为了做到这一点，论文采取的方式是用多个大小不同的卷积核生成特征图，然后把这些特征图融合在一起。
 
-![selective kernel](~public/img/in-post/2021-08-31/sk.png)
+![selective kernel](/img/in-post/2021-08-31/sk.png)
 
 <p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/1903.06586.pdf" target="_blank">Selective Kernel Networks</a></p>
 
@@ -204,7 +204,7 @@ $k$ 是一个超参常数，所以时间复杂度降到 $Q(Nkd)$。同时它还�
 
 赋予不同通道不同的权重，这样就可以加强重要的通道特征。
 
-![squeeze and excitation](~public/img/in-post/2021-08-31/se.png)
+![squeeze and excitation](/img/in-post/2021-08-31/se.png)
 
 <p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/1709.01507.pdf" target="_blank">Squeeze-and-Excitation Networks</a></p>
 
@@ -236,7 +236,7 @@ $k$ 是一个超参常数，所以时间复杂度降到 $Q(Nkd)$。同时它还�
 
 因此论文提出了一种跟卷积相反的 involution 操作：空间特异（不同空间位置对应不同的卷积核）和通道不变（不同通道共享同一个卷积核），参数数量为 $H \times W \times K \times K \times G$，$G$ 表示 $C_i$ 个输入通道分成 $G$ 组（每组 $C_i / G$ 个通道），每组通道共享同一个卷积核。
 
-<img src="~public/img/in-post/2021-08-31/involution.png" width="500px" alt="involution" />
+<img src="/img/in-post/2021-08-31/involution.png" width="500px" alt="involution" />
 
 <p class="desc">图片来源：论文 <a href="https://arxiv.org/pdf/2103.06255.pdf" target="_blank">Involution: Inverting the Inherence of Convolution for Visual Recognition</a></p>
 

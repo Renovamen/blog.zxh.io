@@ -1,79 +1,27 @@
-const path = require("path");
+const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   title: "Renovamen (Xiaohan Zou)",
-  description: "Renovamen's blog, powered by VuePress, themed by Gungnir.",
-  head: [
-    ["link", { rel: "icon", href: "/img/logo.svg" }],
-    [
-      "meta",
-      {
-        name: "viewport",
-        content: "width=device-width,initial-scale=1,user-scalable=no"
-      }
-    ]
-  ],
-  theme: "gungnir",
+  description: "Renovamen's blog, powered by VuePress 2, themed by Gungnir.",
+
+  head: [["link", { rel: "icon", href: "/img/logo.svg" }]],
+
+  theme: "vuepress-theme-gungnir",
+
+  bundler:
+    // specify bundler via environment variable
+    process.env.DOCS_BUNDLER ??
+    // use vite by default
+    "@vuepress/vite",
+
   themeConfig: {
     repo: "Renovamen/renovamen.github.io",
     docsDir: "blog",
     docsBranch: "master",
-    editLinks: true,
-    lastUpdated: true,
-    hitokoto: {
-      api: "https://v1.hitokoto.cn/?c=c&c=d&c=h&c=i&c=j&c=k"
-    },
-    searchIcon: "ri-search-2-line",
-    codeTheme: "gungnir-dark",
-    rss: {
-      site_url: "https://zxh.io",
-      copyright: "Renovamen 2018-2021",
-      count: 20
-    },
-    comment: {
-      owner: "This-is-an-Apple",
-      repo: "gitalk-comments",
-      clientId: "d6247712dc288a5a60ca",
-      clientSecret: "ed1ec72417828343c79ed910a1b77d140fa715a7"
-    },
-    analytics: {
-      ga: "UA-146858305-1",
-      ba: "75381d210789d3eaf855fa16246860cc"
-    },
-    katex: true,
-    mdPlus: {
-      all: true
-    },
-    readingTime: {
-      excludes: ["/about", "/tags/.*", "/links"]
-    },
-    nav: [
-      {
-        text: "Home",
-        link: "/",
-        icon: "fa-fort-awesome"
-      },
-      {
-        text: "About",
-        link: "/about/",
-        icon: "fa-paw"
-      },
-      {
-        text: "Tags",
-        link: "/tags/",
-        icon: "fa-tag"
-      },
-      {
-        text: "Links",
-        link: "/links/",
-        icon: "fa-satellite-dish"
-      },
-      {
-        text: "Portfolio",
-        link: "https://portfolio.zxh.io/",
-        icon: "ri-space-ship-fill"
-      }
-    ],
+
+    hitokoto: "https://v1.hitokoto.cn?c=d&c=i", // enable hitokoto (一言) or not?
+
+    // personal information
     personalInfo: {
       name: "Renovamen",
       avatar: "/img/avatar.jpg",
@@ -87,32 +35,33 @@ module.exports = {
         email: "renovamenzxh@gmail.com"
       }
     },
-    homeHeaderImages: {
-      local: [
-        {
-          path: "/img/home-bg/1.jpg",
-          mask: "rgba(40, 57, 101, .4)"
-        },
-        {
-          path: "/img/home-bg/2.jpg",
-          mask: "rgba(196, 176, 131, .1)"
-        },
-        {
-          path: "/img/home-bg/3.jpg",
-          mask: "rgba(68, 74, 83, .1)"
-        },
-        {
-          path: "/img/home-bg/4.jpg",
-          mask: "rgba(19, 75, 50, .2)"
-        },
-        {
-          path: "/img/home-bg/5.jpg"
-        }
-      ]
-    },
+
+    // header images on home page
+    homeHeaderImages: [
+      {
+        path: "/img/home-bg/1.jpg",
+        mask: "rgba(40, 57, 101, .4)"
+      },
+      {
+        path: "/img/home-bg/2.jpg",
+        mask: "rgba(196, 176, 131, .1)"
+      },
+      {
+        path: "/img/home-bg/3.jpg",
+        mask: "rgba(68, 74, 83, .1)"
+      },
+      {
+        path: "/img/home-bg/4.jpg",
+        mask: "rgba(19, 75, 50, .2)"
+      },
+      {
+        path: "/img/home-bg/5.jpg"
+      }
+    ],
+
+    // other pages
     pages: {
       tags: {
-        title: "Tags",
         subtitle: "Black Sheep Wall",
         bgImage: {
           path: "/img/pages/tags.jpg",
@@ -120,7 +69,6 @@ module.exports = {
         }
       },
       links: {
-        title: "Links",
         subtitle:
           "When you are looking at the stars, please put the brightest star shining night sky as my soul.",
         bgImage: {
@@ -129,46 +77,70 @@ module.exports = {
         }
       }
     },
+
+    themePlugins: {
+      // only enable git plugin in production mode
+      git: isProd,
+      katex: true,
+      giscus: {
+        repo: "This-is-an-Apple/blog-giscus-comments",
+        repoId: "R_kgDOGl2SjQ",
+        category: "Announcements",
+        categoryId: "DIC_kwDOGl2Sjc4CAcxK"
+      },
+      mdPlus: {
+        all: true
+      },
+      ga: "G-HCQSX53XFG",
+      ba: "75381d210789d3eaf855fa16246860cc"
+    },
+
+    navbar: [
+      {
+        text: "Home",
+        link: "/",
+        icon: "fort-awesome"
+      },
+      // {
+      //   text: "About",
+      //   link: "/about/",
+      //   icon: "fa-paw"
+      // },
+      {
+        text: "Tags",
+        link: "/tags/",
+        icon: "tag"
+      },
+      {
+        text: "Links",
+        link: "/links/",
+        icon: "satellite-dish"
+      },
+      {
+        text: "Portfolio",
+        link: "https://portfolio.zxh.io/",
+        icon: "rocket"
+      }
+    ],
+
+    sidebar: {
+
+    },
+
     footer: `
       &copy; <a href="https://github.com/Renovamen" target="_blank">Renovamen</a> 2018-2021
       <br>
-      Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a> &
+      Powered by <a href="https://v2.vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
     `
   },
+
   markdown: {
-    // lineNumbers: true,
-    extractHeaders: ["h2", "h3", "h4", "h5"]
-  },
-  configureWebpack: () => {
-    return {
-      resolve: {
-        alias: {
-          public: path.resolve(__dirname, "./public")
-        }
-      }
-    };
-    // const NODE_ENV = process.env.NODE_ENV;
-    // if (NODE_ENV === "production") {
-    //   return {
-    //     output: {
-    //       publicPath:
-    //         "https://cdn.jsdelivr.net/gh/Renovamen/renovamen.github.io@gh-pages/"
-    //     },
-    //     resolve: {
-    //       alias: {
-    //         public: path.resolve(__dirname, "./public")
-    //       }
-    //     }
-    //   };
-    // } else {
-    //   return {
-    //     resolve: {
-    //       alias: {
-    //         public: path.resolve(__dirname, "./public")
-    //       }
-    //     }
-    //   };
-    // }
+    extractHeaders: {
+      level: [2, 3, 4, 5]
+    },
+    code: {
+      lineNumbers: false
+    }
   }
 };

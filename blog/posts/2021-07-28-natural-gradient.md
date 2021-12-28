@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: Post
 title: 自然梯度下降
 subtitle: Natural Gradient Decent
-author: "Renovamen"
+author: Renovamen
 date: 2021-07-28
-header_img: /img/in-post/2021-07-28/header.jpeg
+headerImage: /img/in-post/2021-07-28/header.jpeg
 catalog: true
 tags:
   - Machine Learning

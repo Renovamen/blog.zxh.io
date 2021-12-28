@@ -1,11 +1,11 @@
 ---
-layout: post
+layout: Post
 title: PC 算法
 subtitle: 贝叶斯网络与其结构学习算法
-author: "Renovamen"
+author: Renovamen
 date: 2021-04-26
-header_img: /img/in-post/2021-04-26/header.jpg
-header_style: image
+headerImage: /img/in-post/2021-04-26/header.jpg
+useHeaderImage: true
 catalog: true
 tags:
   - Machine Learning
@@ -16,7 +16,7 @@ tags:
 
 <!-- more -->
 
-这里是当时写的 PC 算法的 Python 实现：[<v-icon name="ri-link-m" scale="0.9"/> Renovamen/pcalg-py](https://github.com/Renovamen/pcalg-py)
+这里是当时写的 PC 算法的 Python 实现：[<v-icon name="link" scale="0.8"/> Renovamen/pcalg-py](https://github.com/Renovamen/pcalg-py)
 
 
 ## 概率图模型

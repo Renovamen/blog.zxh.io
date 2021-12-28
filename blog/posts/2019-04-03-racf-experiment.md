@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: Post
 title: "RACF 实验"
 subtitle: 'RACF Experiments'
-author: "Renovamen"
+author: Renovamen
 date: 2019-04-03
-header_img: /img/in-post/2019-04-03/header.png
+headerImage: /img/in-post/2019-04-03/header.png
 catalog: true
 tags:
   - 主机
@@ -20,7 +20,7 @@ tags:
 
 ### 1.1 组的结构
 
-![](~public/img/in-post/2019-04-03/racf-2.1.png)
+![](/img/in-post/2019-04-03/racf-2.1.png)
 
 
 
@@ -121,7 +121,7 @@ SEARCH CLASS(GROUP) MASK(DIV16)
 &nbsp;
 ## 2. 用户管理
 
-![](~public/img/in-post/2019-04-03/racf-3.1.png)
+![](/img/in-post/2019-04-03/racf-3.1.png)
 
 ### 2.1 新建用户
 
@@ -256,9 +256,9 @@ LG FUN16TST
 &nbsp;
 ## 3. 分散式 RACF 安全管理
 
-**目的：**实现 RACF 中的管理权限下放（Delegation）
+**目的**：实现 RACF 中的管理权限下放（Delegation）
 
-**内容：**新建几个管理员用户，其中一个管理员负责用户安全的管理，一个管理员负 责将用户连接到功能组，另外一个管理员管控制对数据集资源的访问：
+**内容**：新建几个管理员用户，其中一个管理员负责用户安全的管理，一个管理员负 责将用户连接到功能组，另外一个管理员管控制对数据集资源的访问：
 
 |USER|AUTHORITY|
 |-------|----------------|
@@ -268,7 +268,7 @@ LG FUN16TST
 
 
 
-![](~public/img/in-post/2019-04-03/racf-4.1.png)
+![](/img/in-post/2019-04-03/racf-4.1.png)
 
 
 
@@ -326,9 +326,9 @@ LG FUN16TST
 &nbsp;
 ## 4. 数据集保护 I
 
-**目的：**实现对用户数据集和组数据集的保护。
+**目的**：实现对用户数据集和组数据集的保护。
 
-**内容：**首先保护用户数据集，然后对生产数据集和测试数据集进行保护，然后进行授权后的验证。
+**内容**：首先保护用户数据集，然后对生产数据集和测试数据集进行保护，然后进行授权后的验证。
 
 为了简化实验，RES16PRD 和 RES16TST 组既是 Data Control Group，也是 Resource Onwership Group。 
 
@@ -588,7 +588,7 @@ LISTDSD DATASET('RES16PRD.**') DSNS
 
 组结构：
 
-![](~public/img/in-post/2019-04-03/racf-7.1.png)
+![](/img/in-post/2019-04-03/racf-7.1.png)
 
 
 

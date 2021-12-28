@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: Post
 title: Regularization-based Continual Learning
 subtitle: EWC / Online EWC / IS / MAS ...
-author: "Renovamen"
+author: Renovamen
 date: 2020-08-24
-header_img: /img/in-post/2020-08-24/header.jpg
+headerImage: /img/in-post/2020-08-24/header.jpg
 catalog: true
 tags:
   - Deep Learning

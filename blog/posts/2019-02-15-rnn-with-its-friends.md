@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: Post
 title: RNN 和它的朋友们
 subtitle: RNN, LSTM, GRU ...
-author: "Renovamen"
+author: Renovamen
 date: 2019-02-15
-header_img: /img/in-post/2019-02-15/header.jpg
+headerImage: /img/in-post/2019-02-15/header.jpg
 catalog: true
 tags:
   - Deep Learning

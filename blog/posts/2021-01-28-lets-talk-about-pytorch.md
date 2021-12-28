@@ -1,12 +1,12 @@
 ---
-layout: post
+layout: Post
 title: 凌乱的 PyTorch 笔记
 subtitle: PyTorch 能有什么坏心思呢
-author: "Renovamen"
+author: Renovamen
 date: 2021-01-28
-header_img: /img/in-post/2021-01-28/header.jpg
-header_style: image
-header_mask: rgb(30, 77, 121, .3)
+headerImage: /img/in-post/2021-01-28/header.jpg
+useHeaderImage: true
+headerMask: rgb(30, 77, 121, .3)
 catalog: true
 tags:
   - Deep Learning

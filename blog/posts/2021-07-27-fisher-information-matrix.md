@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: Post
 title: Fisher 信息矩阵
 subtitle: Fisher Information Matrix
-author: "Renovamen"
+author: Renovamen
 date: 2021-07-27
-header_img: /img/in-post/2021-07-27/header.jpeg
+headerImage: /img/in-post/2021-07-27/header.jpeg
 catalog: true
 tags:
   - Machine Learning

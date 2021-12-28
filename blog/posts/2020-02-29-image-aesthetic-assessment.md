@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: Post
 title: 图像美感评估
 subtitle: A Survey on Image Aesthetic Assessment
-author: "Renovamen"
+author: Renovamen
 date: 2020-02-29
-header_img: /img/in-post/2020-02-29/header.jpeg
+headerImage: /img/in-post/2020-02-29/header.jpeg
 catalog: true
 tags:
   - CV
@@ -35,7 +35,7 @@ tags:
 
 共 20,278 张图片（[Deng et al. 2017](https://arxiv.org/pdf/1610.00838.pdf)），平均每张图片 12 个评分，评分范围为 0-7，分越高说明图片质量越高。所有图片的平均得分的峰值在分布右侧，说明整体评价偏高。
 
-![photo-net-distribution](~public/img/in-post/2020-02-29/photo-net-distribution.png)
+![photo-net-distribution](/img/in-post/2020-02-29/photo-net-distribution.png)
 
 <p class="desc">PN 数据集的图片平均得分分布</p>
 
@@ -52,7 +52,7 @@ tags:
 共 16,509 张图片，平均每张图片 205 个评分，评分范围为 0-10，分越高说明图片质量越高。
 
 
-![dpchallenge-distribution](~public/img/in-post/2020-02-29/dpchallenge-distribution.png)
+![dpchallenge-distribution](/img/in-post/2020-02-29/dpchallenge-distribution.png)
 
 <p class="desc">DPChallenge 数据集的图片平均得分分布</p>
 
@@ -69,7 +69,7 @@ tags:
 
 现在有 30,000 左右张图片，每张图片被按内容分为了 7 个类别。美学标注只有“高质量”和“低质量”两个，高低质量图片比例约为 1:3（[Deng et al. 2017](https://arxiv.org/pdf/1610.00838.pdf)）。所以该数据集很难被用来进行评分任务的训练，而且分类难度不算大。因为是直接把从专业摄影网站（dpchallenge.com）和从业余摄影师处收集到的图片混在了一起，所以可能不能代表真实场景（[Murray et al. 2012](http://refbase.cvc.uab.es/files/MMP2012a.pdf)）。
 
-下载：[<v-icon name="ri-link-m" scale="0.9"/>  Multimedia Laboratory, CUHK](http://mmlab.ie.cuhk.edu.hk/archive/CUHKPQ/Dataset.htm)
+下载：[<v-icon name="link" scale="0.8"/>  Multimedia Laboratory, CUHK](http://mmlab.ie.cuhk.edu.hk/archive/CUHKPQ/Dataset.htm)
 
 ### AVA
 
@@ -79,7 +79,7 @@ tags:
 
 该论文比较了 AVA 与其他数据集：
 
-![compare](~public/img/in-post/2020-02-29/ava-compare.png)
+![compare](/img/in-post/2020-02-29/ava-compare.png)
 
 <p class="desc">AVA 与其他数据集的比较</p>
 
@@ -87,7 +87,7 @@ tags:
 
 但 AVA 的很多图片后期处理痕迹太重。且绝大多数图片来自于专业摄影者而非普通人，所以 AVA 有较大的 bias（[Kone et al. 2016](https://arxiv.org/pdf/1606.01621.pdf)）。
 
-下载：[<v-icon name="ri-link-m" scale="0.9"/> Github](https://github.com/mtobeiyf/ava_downloader)
+下载：[<v-icon name="link" scale="0.8"/> Github](https://github.com/mtobeiyf/ava_downloader)
 
 
 ### AADB
@@ -100,13 +100,13 @@ tags:
 
 该论文还比较了 AADB 与其他数据集：
 
-![compare](~public/img/in-post/2020-02-29/aadb-compare.png)
+![compare](/img/in-post/2020-02-29/aadb-compare.png)
 
 <p class="desc">AADB 与其他数据集的比较</p>
 
 但 AADB 的数据量过小，且标注人员过少。
 
-下载：[<v-icon name="ri-link-m" scale="0.9"/> Google Drive](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM)
+下载：[<v-icon name="link" scale="0.8"/> Google Drive](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM)
 
 
 ### AROD
@@ -126,11 +126,11 @@ $$
 
 该论文还比较了 AROD 和 AVA 与 AADB：
 
-![compare](~public/img/in-post/2020-02-29/arod-compare.png)
+![compare](/img/in-post/2020-02-29/arod-compare.png)
 
 <p class="desc">AROD 与其他数据集的比较</p>
 
-下载：[<v-icon name="ri-link-m" scale="0.9"/> Github](https://github.com/cgtuebingen/will-people-like-your-image)，`arod/list.txt` 中给出了图片的 URL，格式为 `url;faves;views`。
+下载：[<v-icon name="link" scale="0.8"/> Github](https://github.com/cgtuebingen/will-people-like-your-image)，`arod/list.txt` 中给出了图片的 URL，格式为 `url;faves;views`。
 
 ### GPA
 
@@ -138,7 +138,7 @@ $$
 
 一个用于食物图片美感评估的数据集。从社交媒体和食物分类数据集中收集了共 24,000 张图片，然后人工标注（二分类）。
 
-下载：[<v-icon name="ri-link-m" scale="0.9"/> Github](https://github.com/Openning07/GPA)
+下载：[<v-icon name="link" scale="0.8"/> Github](https://github.com/Openning07/GPA)
 
 
 
@@ -150,7 +150,7 @@ $$
 
 但数据量过少。
 
-~~我并没有找到这个数据集，该论文的 [Github 主页](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17)上似乎也没有。~~ 不久前似乎开源了：[<v-icon name="ri-link-m" scale="0.9"/> Github](https://github.com/ivclab/DeepPhotoCritic-ICCV17)
+~~我并没有找到这个数据集，该论文的 [Github 主页](https://github.com/kunghunglu/DeepPhotoCritic-ICCV17)上似乎也没有。~~ 不久前似乎开源了：[<v-icon name="link" scale="0.8"/> Github](https://github.com/ivclab/DeepPhotoCritic-ICCV17)
 
 我也不明白为啥 2017 年的论文 2020 年才开源数据集...
 
@@ -161,7 +161,7 @@ $$
 
 把 AVA 中图片的评论都爬了下来，并按角度分成了 6 类，分类的标准基于从 PCCD 中统计出来的信息。比 PCCD 数据量大得多，但没有每个角度的评分，标注要弱一些。
 
-下载：[<v-icon name="ri-link-m" scale="0.9"/> Github](https://github.com/BestiVictory/DPC-Captions)
+下载：[<v-icon name="link" scale="0.8"/> Github](https://github.com/BestiVictory/DPC-Captions)
 
 
 
@@ -255,19 +255,19 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
     首次用神经网络搞图片美感评估。用了双列 CNN，把全局图像和随机提取出的一个局部 patch 各输入一列 CNN，输出的特征会被联合起来输入分类层进行二分类：
     
 
-    ![rapid-dcnn](~public/img/in-post/2020-02-29/rapid-dcnn.png)
+    ![rapid-dcnn](/img/in-post/2020-02-29/rapid-dcnn.png)
     
     
     因为数据集用的是有 style 标注的 AVA，该论文还把 style 属性也输入了一列 CNN，相当于最后是 3 列 CNN：
 
-    ![rapid-style-cnn](~public/img/in-post/2020-02-29/rapid-style-cnn.png)
+    ![rapid-style-cnn](/img/in-post/2020-02-29/rapid-style-cnn.png)
 
 
 - **Deep Multi-Patch Aggregation Network for Image Style, Aesthetics, and Quality Estimation.** *Xin Lu, et al.* ICCV 2015. [[IEEE]](https://ieeexplore.ieee.org/abstract/document/7410476/) [[Paper]](http://infolab.stanford.edu/~wangz/project/imsearch/Aesthetics/ICCV15/lu.pdf)
 
     只用了 patch 作为输入。从图片中随机提取一些 patch，用一组 CNN 对每个 patch 提取特征，然后把所有 patch 的特征聚合起来，最后把特征输进 soft-max 层进行二分类。
 
-    ![dma-net](~public/img/in-post/2020-02-29/dma-net.png)
+    ![dma-net](/img/in-post/2020-02-29/dma-net.png)
 
 
 - **A-Lamp: Adaptive Layout-Aware Multi-Patch Deep Convolutional Neural.** *Shuang Ma, et al.* CVPR 2017. [[Paper]](http://openaccess.thecvf.com/content_cvpr_2017/papers/Ma_A-Lamp_Adaptive_Layout-Aware_CVPR_2017_paper.pdf) [[arxiv]](https://arxiv.org/pdf/1704.00248.pdf)
@@ -277,7 +277,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
     同时该论文还用了另一个显著性模型来提取出图片中的主要物体，从而利用了图片中的物体布局信息。
 
-    ![alamp](~public/img/in-post/2020-02-29/alamp.png)
+    ![alamp](/img/in-post/2020-02-29/alamp.png)
 
 - **Attention-based Multi-Patch Aggregation for Image Aesthetic Assessment.** *Kekai Sheng, et al.* ACM MM 2018. [[Paper]](http://chongyangma.com/publications/am/2018_am_paper.pdf) [[Code]](https://github.com/Openning07/MPADA)
 
@@ -296,7 +296,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
     然后还用了另外一个 CNN 来提取图片的场景特征，跟上述特征一起扔进聚合层聚合。
 
-    ![mna](~public/img/in-post/2020-02-29/mna.png)
+    ![mna](/img/in-post/2020-02-29/mna.png)
 
     跟 SPP 有点像：
 
@@ -350,7 +350,7 @@ Aesthetics.** *Subhabrata Bhattacharya, et al.* ACM MM 2010. [[Paper]](http://ww
 
     搞了一个比 PCCD 大得多的数据集，跑了一个浮夸的模型，输出指定角度的描述。
 
-    ![aman](~public/img/in-post/2020-02-29/aman.png)
+    ![aman](/img/in-post/2020-02-29/aman.png)
 
 
 - **Neural Aesthetic Image Reviewer.** *Wenshan Wang, et al.* IET Computer Vision 2019. [[arxiv]](https://arxiv.org/pdf/1802.10240.pdf)

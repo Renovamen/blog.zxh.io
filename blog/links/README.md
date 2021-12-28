@@ -21,9 +21,9 @@ links:
         img: /img/links/icon.svg
         desc: Vue 图标组件
       - sitename: Gungnir
-        url: https://vuepress-theme-gungnir.vercel.app/
+        url: https://v2-vuepress-theme-gungnir.vercel.app/
         img: /img/links/gungnir.svg
-        desc: VuePress 主题
+        desc: VuePress 1/2 主题
       - sitename: Alkaid
         url: https://github.com/Renovamen/alkaid
         img: /img/links/rl.svg

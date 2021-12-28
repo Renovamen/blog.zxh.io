@@ -1,17 +1,17 @@
 ---
-layout: post
+layout: Post
 title: "「译」游戏中的游吟诗人的神秘魅力"
 subtitle: "The world’s second-oldest profession has a long history of nonviolence in video games"
-author: "Renovamen"
+author: Renovamen
 date: 2020-02-24
-header_style: image
-header_img: /img/in-post/2020-02-24/header.jpg
-header_mask: rgb(46, 86, 90, .4)
+useHeaderImage: true
+headerImage: /img/in-post/2020-02-24/header.jpg
+headerMask: rgb(46, 86, 90, .4)
 tags:
   - 摸鱼
 ---
 
-翻译自 [EGM](https://egmnow.com/) 上的文章：[<v-icon name="ri-link-m" scale="0.9"/> *Toss a Coin: The Enigmatic Appeal of Gaming’s Greatest Bards*](https://egmnow.com/toss-a-coin-the-enigmatic-appeal-of-video-games-greatest-bards/)。
+翻译自 [EGM](https://egmnow.com/) 上的文章：[<v-icon name="link" scale="0.8"/> *Toss a Coin: The Enigmatic Appeal of Gaming’s Greatest Bards*](https://egmnow.com/toss-a-coin-the-enigmatic-appeal-of-video-games-greatest-bards/)。
 
 <!-- more -->
 
@@ -19,7 +19,7 @@ tags:
 
 本文的封面图是《塞尔达传说：荒野之息》中的利特族游吟诗人卡西瓦（Kass）。原文的封面图是这张（《巫师》系列里的游吟诗人丹德里恩）：
 
-![Original Header Image](~public/img/in-post/2020-02-24/the-witcher-dandelion-header.jpg)
+![Original Header Image](/img/in-post/2020-02-24/the-witcher-dandelion-header.jpg)
 
 ---
 
@@ -27,7 +27,7 @@ tags:
 
 “游吟诗人（bard）”这个词最初被用来称呼来自爱尔兰、苏格兰和威尔士的凯尔特部落（Celtic tribal）的歌手，这些歌手通过演奏竖琴（harp）或[克鲁斯琴（crwth）](https://en.wikipedia.org/wiki/Crwth)来为富有的顾客进行歌颂或讽刺。他们的歌曲的共同主题通常是富人的冷漠、英雄事迹、宗教民谣以及对恩人的颂歌。但如今这个词的范围已经被扩大，它还可以用来指许多类似的文化习俗，包括南欧（minstrel）和挪威（skald）的游吟诗人。
 
-![Skyrim Sven](~public/img/in-post/2020-02-24/skyrim-sven.jpg)
+![Skyrim Sven](/img/in-post/2020-02-24/skyrim-sven.jpg)
 
 <p class="desc">《上古卷轴》中的游吟诗人从挪威的游吟诗人身上汲取了灵感——虽然并没有确切的证据表明历史上挪威的诗人会演奏乐器</p>
 
@@ -35,7 +35,7 @@ tags:
 
 游吟诗人和咒语、魔法的结合很可能起源于他们和[德鲁伊（druids）](https://en.wikipedia.org/wiki/Druid)的接近。例如威尔士编年史家 Elis Gruffydd 曾描写过一个据说拥有预知未来的能力威尔士吟游诗人 Taliesin。然而，随着把游吟诗人描绘成预言家和先知的前浪漫主义和浪漫主义诗人，如 [Thomas Gray](https://en.wikipedia.org/wiki/Thomas_Gray)、[Felicia Hemans](https://en.wikipedia.org/wiki/Felicia_Hemans) 和 [William Blake](https://en.wikipedia.org/wiki/William_Blake)，的到来，公众把游吟诗人当做魔法师的想象很可能被发酵了。你可以在 Thomas Gray 的[《The Bard: A Pindaric Ode》](https://www.poetryfoundation.org/poems/44298/the-bard-a-pindaric-ode)中看到这一点，其中一个威尔士吟游诗人在斯诺登山上诅咒英格兰国王爱德华一世和他对威尔士的征服：“*Ruin seize thee, ruthless King!*”，然后他预言了双方的毁灭：“*The different doom our Fates assign. Be thine Despair, and scept’red Care, / To triumph, and to die, are mine.*”
 
-![The Bard's Tale](~public/img/in-post/2020-02-24/the-bards-tale.jpg)
+![The Bard's Tale](/img/in-post/2020-02-24/the-bards-tale.jpg)
 
 <p class="desc">《冰城传奇》重制版截图</p>
 
@@ -63,7 +63,7 @@ Greg Lobanov 在他们 2018 年发售的游戏《Wandersong》中进一步利用
 
 最近，甚至在很多并不需要游吟诗人的游戏中也出现了游吟诗人。例如在《雷霆一击》中，有玩家用游戏里的鲁特琴来配置了一套自己的打法，他们通过[演奏流行音乐来](https://youtu.be/E_zzJiWJQ08)[^5]来暂时迫使战斗停止。因为通常在这个游戏中，杀死游吟诗人的行为是不被赞同的，双方一般都不会选择对游吟诗人动手，否则可能会被标记为“bard killer”。
 
-![Mordhau Bard](~public/img/in-post/2020-02-24/mordhau-bard.jpg)
+![Mordhau Bard](/img/in-post/2020-02-24/mordhau-bard.jpg)
 
 <p class="desc">《雷霆一击》中的游吟诗人</p>
 

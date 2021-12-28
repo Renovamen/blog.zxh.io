@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: Post
 title: 乱七八糟的知识点
 subtitle: "Messy Notes (NLP)"
-author: "Renovamen"
+author: Renovamen
 date: 2020-07-10
-header_img: /img/in-post/2020-07-10/header.jpg
+headerImage: /img/in-post/2020-07-10/header.jpg
 catalog: true
 tags:
   - NLP
@@ -611,7 +611,7 @@ GloVe 的特点：
 
 ## 预训练模型
 
-![Pre-trained Models](~public/img/in-post/2020-07-10/PTMs.jpg)
+![Pre-trained Models](/img/in-post/2020-07-10/PTMs.jpg)
 
 <p class="desc">预训练模型分类（来源：<a href="https://zhuanlan.zhihu.com/p/115014536" target="_blank">PTMs：NLP预训练模型的全面总结</a>）</p>
 
@@ -674,7 +674,7 @@ $f_{\text{enc}}(\cdot)$ 就是下图中的 contextual encoder：
 
 自回归语言模型。编码器是双层双向 LSTM，每层的两个单向 LSTM（前向和后向）直接拼接。并未进行双向信息的融合，所以不会出现标签泄漏。（[这里](https://www.zhihu.com/question/322034410/answer/794201004)是对标签泄漏的更详细的解释）
 
-![ELMo](~public/img/in-post/2020-07-10/elmo.png)
+![ELMo](/img/in-post/2020-07-10/elmo.png)
 
 <p class="desc">图片来源：<a href="https://www.aclweb.org/anthology/N19-1423.pdf" target="_blank">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></p>
 
@@ -704,7 +704,7 @@ ELMo 中每一层的输出向量都有不同的含义：E1 是单词特征，E2 
 
 自编码语言模型。编码器是 Transformer 的 encoder 部分，更够利用双向信息。
 
-![BERT](~public/img/in-post/2020-07-10/bert.png)
+![BERT](/img/in-post/2020-07-10/bert.png)
 
 BERT 还在 Transformer-Encoder 的基础上做了 mask 操作（Masked Language Model，MLM），即随机 mask 掉输入序列的部分 tokens，然后只预测被 mask 掉的 tokens。MLM 能够更好的获取双向上下文特征表示，也能解决深度 Transformer 带来的标签泄露（see itself）的问题。标签泄露指，Transformer 自带的全局 self-attention 会将上下文的词编码到当前模型里，所以在预测其他词的时候，该词的信息已经包含在了前一层的网络参数里：
 

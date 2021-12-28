@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: Post
 title: 贝叶斯神经网络
 subtitle: "万恶的贝叶斯嗷，真的学得会吗"
-author: "Renovamen"
+author: Renovamen
 date: 2020-08-16
-header_img: /img/in-post/2020-08-16/header.png
+headerImage: /img/in-post/2020-08-16/header.png
 catalog: true
 tags:
   - Machine Learning
