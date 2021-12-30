@@ -4261,10 +4261,10 @@ vuepress-plugin-giscus@2.0.0-alpha.4:
   resolved "https://registry.yarnpkg.com/vuepress-plugin-giscus/-/vuepress-plugin-giscus-2.0.0-alpha.4.tgz#c84ccf10939b5686ae17f2c5d2960483306c0bdc"
   integrity sha512-7la26jI3Dodl+Rh8v76zJvIP2zAYXC3//n4kgGYpkZmmmYHAFyZSSDOqsvlBuoydMeQNoeykeW6OuQbiAN5qkw==
 
-vuepress-theme-gungnir@2.0.0-alpha.7:
-  version "2.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/vuepress-theme-gungnir/-/vuepress-theme-gungnir-2.0.0-alpha.7.tgz#a2f22c8287d6ffebd4e23464633663dc00507fe5"
-  integrity sha512-gCsqrPb6UGR7fSvUPrprYMfTfd48A+cwTyl9jOSL828kqmQqPecFn3+GxVMg3aynGmHS6ZJJ1rslVr2xcIGhFA==
+vuepress-theme-gungnir@2.0.0-alpha.8:
+  version "2.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/vuepress-theme-gungnir/-/vuepress-theme-gungnir-2.0.0-alpha.8.tgz#aff5121524dc2f62a0ff8316db1bd67a8f7d9ce3"
+  integrity sha512-capONDH3W60gPgIz/Bc319dPsDTAE7nr6P39FtcdVOWHT8aewiyuBFXTr0J4ovCXp1X8uFmL94SfJWlu4hTC1w==
   dependencies:
     "@renovamen/vuepress-plugin-baidu-tongji" "2.0.0-alpha.5"
     "@renovamen/vuepress-plugin-katex" "2.0.0-alpha.2"
