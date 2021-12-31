@@ -28,7 +28,8 @@ module.exports = {
         facebook: "renovamen.zou",
         twitter: "renovamen_zxh",
         zhihu: "chao-neng-gui-su",
-        email: "renovamenzxh@gmail.com"
+        email: "renovamenzxh@gmail.com",
+        rss: "/rss.xml"
       }
     },
 
@@ -88,7 +89,11 @@ module.exports = {
         all: true
       },
       ga: "G-HCQSX53XFG",
-      ba: "75381d210789d3eaf855fa16246860cc"
+      ba: "75381d210789d3eaf855fa16246860cc",
+      rss: {
+        siteURL: "https://zxh.io",
+        copyright: "Renovamen 2018-2022"
+      }
     },
 
     navbar: [
