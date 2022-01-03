@@ -4,7 +4,7 @@
       <div class="about-wrapper">
         <div class="profile">
           <div class="profile__content">
-            <div class="profile__basic col-md-4">
+            <div class="profile__basic">
               <img class="avatar" :src="$withBase(pageData.frontmatter.avatar)" />
 
               <h3 class="title">{{ pageData.frontmatter.name }}</h3>
@@ -23,19 +23,19 @@
 
                 <div v-if="pageData.frontmatter.cv" class="sns__item">
                   <a :href="pageData.frontmatter.cv">
-                    <v-icon name="cv" scale="1.75" />
+                    <v-icon name="cv" scale="1.8" />
                   </a>
                 </div>
               </div>
             </div>
 
-            <div class="profile__info col-md-8">
+            <div class="profile__info">
               <h3 class="title">Biography</h3>
 
               <div class="bio-info" v-html="bioMarkdown" />
 
               <div class="personal-info">
-                <div class="col-md-5 interests">
+                <div class="interests">
                   <p class="subtitle">Interests</p>
                   <ul>
                     <li
@@ -47,7 +47,7 @@
                   </ul>
                 </div>
 
-                <div class="col-md-7 education">
+                <div class="education">
                   <p class="subtitle">Education</p>
                   <ul>
                     <li

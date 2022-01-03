@@ -3,23 +3,6 @@
 .about-wrapper {
   font-family: sans-serif;
 
-  .col-md-4 {
-    width: 33%;
-    float: left;
-  }
-  .col-md-8 {
-    width: 66%;
-    float: right;
-  }
-  .col-md-5 {
-    width: 45%;
-    float: left;
-  }
-  .col-md-7 {
-    width: 54%;
-    float: right;
-  }
-
   .profile {
     height: 100vh;
     position: relative;
@@ -34,7 +17,9 @@
 
     &__content {
       position: absolute;
-      width: 98.5%;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
       max-width: 1400px;
       top: 50%;
       left: 0;
@@ -43,8 +28,8 @@
     }
 
     &__basic {
-      position: absolute;
-      margin-top: 100px;
+      padding-top: 100px;
+      width: 33%;
 
       .avatar {
         margin: 0 auto;
@@ -99,15 +84,17 @@
     }
 
     &__info {
-      .title {
+      flex-grow: 1;
+
+      .title,
+      .bio-info {
         max-width: 750px;
       }
 
       .bio-info {
-        max-width: 750px;
         font-size: 18px;
-        text-align: left;
         font-weight: 400;
+        text-align: left;
 
         p {
           line-height: 1.6;
@@ -119,6 +106,8 @@
       }
 
       .personal-info {
+        display: flex;
+        flex-direction: row;
         max-width: 750px;
         margin: 20px 15px auto;
 
@@ -133,15 +122,21 @@
           padding-left: 19px;
         }
 
-        .interests li {
-          margin-bottom: -10px;
+        .interests {
+          width: 45%;
 
-          .item {
-            font-size: 16px;
+          li {
+            margin-bottom: -10px;
+
+            .item {
+              font-size: 16px;
+            }
           }
         }
 
         .education {
+          flex-grow: 1;
+
           .degree {
             font-size: 16px;
             line-height: 30px;
@@ -182,61 +177,60 @@
 }
 
 @media (max-width: $MQLarge) {
-  .about-wrapper {
+  .about-wrapper .profile__info {
     padding-right: 20px;
-    .profile__basic .sns__item {
-      width: 11%;
-    }
+  }
+
+  .about-wrapper .profile__basic .sns__item {
+    width: 11%;
   }
 }
 
 @media (max-width: $MQIpad) {
-  .about-wrapper {
-    padding-right: 0;
+  .about-wrapper .profile {
+    height: auto;
+    min-height: 670px;
+    padding: 0 1rem;
 
-    .profile {
-      height: auto;
-      min-height: 670px;
-      padding: 0 1rem;
+    &__content {
+      margin-top: 80px;
+      position: relative;
+      display: block;
+    }
 
-      .col-md-4, .col-md-8, .col-md-5, .col-md-7 {
-        width: 100%;
-        position: relative;
-      }
+    &__basic {
+      width: 100%;
+      padding-left: 0;
+      margin-top: 0;
 
-      &__content {
-        margin-top: 165px;
-        position: relative;
-      }
-
-      &__basic {
-        padding-left: 0;
-        margin-top: 0;
-
-        .sns__item {
-          width: 10%;
-        }
-      }
-
-      &__info {
-        .title, .bio-info {
-          max-width: 100%;
-        }
-
-        .personal-info {
-          margin: 20px 0 auto;
-
-          .education {
-            padding-bottom: 50px;
-          }
-        }
+      .sns__item {
+        width: 10%;
       }
     }
 
-    .theme-gungnir-content {
-      min-height: auto;
-      padding-bottom: 100px !important;
+    &__info {
+      padding-right: 0;
+      margin-top: 80px;
+
+      .title, .bio-info {
+        max-width: 100%;
+      }
+
+      .personal-info {
+        display: block;
+        margin: 40px 0 50px;
+
+        .interests {
+          width: 100%;
+          margin-bottom: 50px;
+        }
+      }
     }
+  }
+
+  .about-wrapper .theme-gungnir-content {
+    min-height: auto;
+    padding-bottom: 100px !important;
   }
 }
 
