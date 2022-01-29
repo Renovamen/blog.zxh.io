@@ -11,7 +11,7 @@
     "serve": "anywhere -h localhost -d dist"
   },
   "dependencies": {
-    "vuepress-theme-gungnir": "2.0.0-alpha.11"
+    "vuepress-theme-gungnir": "2.0.0-alpha.12"
   },
   "devDependencies": {
     "anywhere": "^1.5.0",
