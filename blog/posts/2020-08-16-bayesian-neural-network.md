@@ -6,6 +6,7 @@ author: Renovamen
 date: 2020-08-16
 headerImage: /img/in-post/2020-08-16/header.png
 catalog: true
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Machine Learning
   - Deep Learning

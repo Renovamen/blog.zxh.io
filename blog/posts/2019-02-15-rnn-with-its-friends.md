@@ -6,6 +6,7 @@ author: Renovamen
 date: 2019-02-15
 headerImage: /img/in-post/2019-02-15/header.jpg
 catalog: true
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Deep Learning
 ---

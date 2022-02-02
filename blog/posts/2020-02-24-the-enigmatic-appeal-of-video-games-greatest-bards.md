@@ -7,6 +7,7 @@ date: 2020-02-24
 useHeaderImage: true
 headerImage: /img/in-post/2020-02-24/header.jpg
 headerMask: rgb(46, 86, 90, .4)
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - 摸鱼
 ---

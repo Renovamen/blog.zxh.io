@@ -6,6 +6,7 @@ author: Renovamen
 date: 2020-03-17
 headerImage: /img/in-post/2020-03-17/header.jpg
 catalog: true
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - NLP
   - CV

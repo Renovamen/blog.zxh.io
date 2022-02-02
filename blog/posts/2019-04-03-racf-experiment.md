@@ -6,6 +6,7 @@ author: Renovamen
 date: 2019-04-03
 headerImage: /img/in-post/2019-04-03/header.png
 catalog: true
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - 主机
 ---

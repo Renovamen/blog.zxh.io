@@ -8,6 +8,7 @@ headerImage: /img/in-post/2021-01-28/header.jpg
 useHeaderImage: true
 headerMask: rgb(30, 77, 121, .3)
 catalog: true
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Deep Learning
 ---

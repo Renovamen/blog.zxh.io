@@ -7,6 +7,7 @@ date: 2018-11-11
 useHeaderImage: true
 headerImage: /img/in-post/2018-11-11/header.jpg
 headerMask: rgb(71, 108, 152, .2)
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - 摸鱼
 ---

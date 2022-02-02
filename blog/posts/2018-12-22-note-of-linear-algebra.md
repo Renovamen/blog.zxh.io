@@ -6,6 +6,7 @@ author: Renovamen
 date: 2018-12-22
 headerImage: /img/in-post/2018-12-22/header.jpg
 catalog: true
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Math
 ---

@@ -6,6 +6,7 @@ author: Renovamen
 date: 2020-09-04
 headerImage: /img/in-post/2020-09-04/header.jpg
 catalog: true
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Deep Learning
   - Meta Learning

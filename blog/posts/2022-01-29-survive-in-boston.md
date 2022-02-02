@@ -8,6 +8,7 @@ useHeaderImage: true
 headerImage: /img/in-post/2022-01-29/header.jpeg
 headerMask: rgb(65, 48, 30, .2)
 catalog: true
+permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - 摸鱼
 ---
@@ -17,10 +18,6 @@ tags:
 <!-- more -->
 
 ## 申请
-
-<!-- 2020 年申了一堆学校，全是 CS 项目，除了 BU 以外全拒。当时我爸妈还略有不满：“你怎么会只申到了 BU 呢？”。我倒没有什么不满，就我这个 GPA 有学校读就不错了。
-
-BU 来录取的时候，我已经因为 COVID-19 居家隔离几个月了。 -->
 
 简单来说：
 
@@ -44,7 +41,6 @@ BU 来录取的时候，我已经因为 COVID-19 居家隔离几个月了。 -->
 关于我为什么 Fall 2021 要上网课的官方说法一直是“签证被 check 没来得及办下来”。这的确是事实，但很大程度上也是因为我 7 月才去签证，如果我 5、6 月就去签证，时间也是来得及的。而不早点去签证是因为我本来就不太想 fall 就去美国 in-person，那时对美国的形势还摸不着头脑所以打算再观望一学期，反正学校允许 Fall 2021 上网课，我就打算 Spring 2022 的时候再去。因此我其实在去签证之前就已经在找未来半年的实习了...
 
 然后我研究了一下 remote 一学期对 CPT 和 OPT 的影响。虽然当时嚷嚷着要读博所以最后 CPT 和 OPT 可能都用不上，但想着有总比没有好。BU MSCS 毕业要求是 32 个学分，大多数课是 4 个学分，也就是说要修 8 门课。主流修法是 332，前两学期每学期 3 门（full-time），最后一学期 2 门（part-time），三学期（一年半）毕业：
-
 
 - CPT 要求是 full-time 一学年，同时 ISSO 在邮件里表示不管你 remote 还是 in-person 都无所谓，只要 full-time 一年就能申 CPT，所以 CPT 没啥问题
 - OPT 要求是 in-person 一学年，part-time 还是 full-time 无所谓。而我 remote 一学期以后就会去美国 in-person 上一年课（一学期 full-time 一学期 part-time），所以 OPT 也没啥问题
