@@ -100,28 +100,27 @@ module.exports = {
       {
         text: "Home",
         link: "/",
-        icon: "fort-awesome"
+        icon: "fa-fort-awesome"
       },
       {
         text: "About",
         link: "/about/",
-        icon: "paw"
+        icon: "fa-paw"
       },
       {
         text: "Tags",
         link: "/tags/",
-        icon: "tag",
-        iconSize: 0.95
+        icon: "fa-tag"
       },
       {
         text: "Links",
         link: "/links/",
-        icon: "satellite-dish"
+        icon: "fa-satellite-dish"
       },
       {
         text: "Portfolio",
         link: "https://portfolio.zxh.io/",
-        icon: "rocket"
+        icon: "oi-rocket"
       }
     ],
 

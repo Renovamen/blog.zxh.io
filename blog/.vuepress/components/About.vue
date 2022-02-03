@@ -17,13 +17,13 @@
                   class="sns__item"
                 >
                   <a target="_blank" :href="link">
-                    <v-icon :name="snsIcon(platform)" :scale="snsIconSize(platform)" />
+                    <v-icon :name="snsIcon(platform)" scale="1.82" />
                   </a>
                 </div>
 
                 <div v-if="pageData.frontmatter.cv" class="sns__item">
                   <a :href="pageData.frontmatter.cv">
-                    <v-icon name="cv" scale="1.8" />
+                    <v-icon name="ai-cv" scale="2" />
                   </a>
                 </div>
               </div>
@@ -88,16 +88,12 @@ const LINKS = {
 };
 
 const ICONS = {
-  github: "github-fill",
-  linkedin: "linkedin-box-fill",
-  facebook: "facebook-box-fill",
-  twitter: "twitter",
-  zhihu: "zhihu",
-  email: "mail"
-};
-
-const ICON_SIZES = {
-  twitter: 0.9
+  github: "ri-github-fill",
+  linkedin: "ri-linkedin-box-fill",
+  facebook: "ri-facebook-box-fill",
+  twitter: "ri-twitter-fill",
+  zhihu: "ri-zhihu-line",
+  email: "hi-mail"
 };
 
 const BIO_PATH = "/md/about.md";
@@ -137,5 +133,4 @@ onMounted(() => {
 });
 
 const snsIcon = (platform) => ICONS[platform];
-const snsIconSize = (platform) => 1.82 * (ICON_SIZES[platform] || 1)
 </script>

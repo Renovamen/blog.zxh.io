@@ -9,7 +9,7 @@ cv: /files/cv/brief/en.pdf
 interests:
   - Continual Learning
   - Meta-Learning
-  - Multi-modal Learning
+  - Vision-Language Learning
   - <s>Sleeping and Eating</s>
 
 education:
@@ -24,7 +24,7 @@ education:
 
 ## Miscellaneous
 
-- 🔍 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress 2](https://v2.vuepress.vuejs.org/) and [Vite](https://vitejs.dev/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/) and [Vercel](https://vercel.com)
+- 🔍 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress 2](https://v2.vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/) and [Vercel](https://vercel.com)
 
 - 🧐 My full version of Curriculum Vitae can be found [here](/files/cv/full/en.pdf)
 
