@@ -21,7 +21,7 @@ links:
         img: /img/links/meta.svg
         desc: 准元学习工具包
       - sitename: Oh, Vue Icons!
-        url: https://oh-vue-icons.netlify.app
+        url: https://oh-vue-icons.js.org
         img: /img/links/icon.svg
         desc: Vue 图标组件
       - sitename: Gungnir

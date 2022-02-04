@@ -7,7 +7,7 @@
             <div class="profile__basic">
               <img class="avatar" :src="$withBase(pageData.frontmatter.avatar)" />
 
-              <h3 class="title">{{ pageData.frontmatter.name }}</h3>
+              <h2 class="title">{{ pageData.frontmatter.name }}</h2>
               <p class="subname">{{ pageData.frontmatter.subname }}</p>
 
               <div class="sns">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="profile__info">
-              <h3 class="title">Biography</h3>
+              <h2 class="title">Biography</h2>
 
               <div class="bio-info" v-html="bioMarkdown" />
 
@@ -81,6 +81,7 @@ import MarkdownIt from "markdown-it";
 const LINKS = {
   github: "https://github.com/Renovamen",
   linkedin: "https://www.linkedin.com/in/xiaohan-zou",
+  googleScholar: "https://scholar.google.com/citations?user=RuW6xgMAAAAJ",
   facebook: "https://www.facebook.com/renovamen.zou",
   twitter: "https://www.twitter.com/renovamen_zxh",
   zhihu: "https://www.zhihu.com/people/chao-neng-gui-su",
@@ -90,6 +91,7 @@ const LINKS = {
 const ICONS = {
   github: "ri-github-fill",
   linkedin: "ri-linkedin-box-fill",
+  googleScholar: "ai-google-scholar-square",
   facebook: "ri-facebook-box-fill",
   twitter: "ri-twitter-fill",
   zhihu: "ri-zhihu-line",
