@@ -1,8 +1,8 @@
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
-  title: "Renovamen (Xiaohan Zou)",
-  description: "Renovamen's blog, powered by VuePress 2, themed by Gungnir.",
+  title: "Xiaohan Zou",
+  description: "Xiaohan Zou (Renovamen) is a dragon lost in human world.",
 
   head: [["link", { rel: "icon", href: "/img/logo.svg" }]],
 
