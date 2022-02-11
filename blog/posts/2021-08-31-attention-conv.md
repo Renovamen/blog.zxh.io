@@ -11,7 +11,7 @@ tags:
   - Deep Learning
 ---
 
-长期记录和实现看过的各种论文里的自注意力和卷积机制，咕咕咕，实现地址在：[<v-icon name="link" scale="0.8"/> Github](https://github.com/Renovamen/torchop)
+长期记录和实现看过的各种论文里的自注意力和卷积机制，咕咕咕，实现地址在：[<v-icon name="ri-link-m" scale="0.9"/> Github](https://github.com/Renovamen/torchop)
 
 <!-- more -->
 

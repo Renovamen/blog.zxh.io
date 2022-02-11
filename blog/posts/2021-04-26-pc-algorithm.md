@@ -17,7 +17,7 @@ tags:
 
 <!-- more -->
 
-这里是当时写的 PC 算法的 Python 实现：[<v-icon name="link" scale="0.8"/> Renovamen/pcalg-py](https://github.com/Renovamen/pcalg-py)
+这里是当时写的 PC 算法的 Python 实现：[<v-icon name="ri-link-m" scale="0.9"/> Renovamen/pcalg-py](https://github.com/Renovamen/pcalg-py)
 
 
 ## 概率图模型
