@@ -85,10 +85,10 @@ External Attention 主要考虑了以下问题：
 因此 External Attention 提出用 external memory unit $M_k$ 和 $M_v$（都是可学习的参数）来代替 $K$ 和 $V$：
 
 $$
-\begin{gather}
+\begin{gathered}
   A = \text{Norm}(Q M_k^T) \\
   F_{\text{out}} = A M_v
-\end{gather}
+\end{gathered}
 $$
 
 其中 $M \in \Reals^{S \times d}$，$S$ 是一个超参。

@@ -4,7 +4,38 @@ module.exports = {
   title: "Xiaohan Zou",
   description: "Xiaohan Zou (Renovamen) is a dragon lost in human world.",
 
-  head: [["link", { rel: "icon", href: "/img/logo.svg" }]],
+  head: [
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        href: `/img/logo/favicon-16x16.png`
+      }
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: `/img/logo/favicon-32x32.png`
+      }
+    ],
+    ["meta", { name: "application-name", content: "Xiaohan Zou" }],
+    ["meta", { name: "apple-mobile-web-app-title", content: "Xiaohan Zou" }],
+    [
+      "meta",
+      { name: "apple-mobile-web-app-status-bar-style", content: "black" }
+    ],
+    [
+      "link",
+      { rel: "apple-touch-icon", href: `/images/icons/apple-touch-icon.png` }
+    ],
+    ["meta", { name: "theme-color", content: "#377bb5" }],
+    ["meta", { name: "msapplication-TileColor", content: "#377bb5" }]
+  ],
 
   bundler: "@vuepress/vite",
 
