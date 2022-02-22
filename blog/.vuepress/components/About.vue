@@ -82,7 +82,7 @@ const LINKS = {
   github: "https://github.com/Renovamen",
   linkedin: "https://www.linkedin.com/in/xiaohan-zou",
   googleScholar: "https://scholar.google.com/citations?user=RuW6xgMAAAAJ",
-  facebook: "https://www.facebook.com/renovamen.zou",
+  // facebook: "https://www.facebook.com/renovamen.zou",
   twitter: "https://www.twitter.com/renovamen_zxh",
   zhihu: "https://www.zhihu.com/people/chao-neng-gui-su",
   email: "mailto:renovamenzxh@gmail.com"
@@ -92,7 +92,7 @@ const ICONS = {
   github: "ri-github-fill",
   linkedin: "ri-linkedin-box-fill",
   googleScholar: "ai-google-scholar-square",
-  facebook: "ri-facebook-box-fill",
+  // facebook: "ri-facebook-box-fill",
   twitter: "ri-twitter-fill",
   zhihu: "ri-zhihu-line",
   email: "hi-mail"

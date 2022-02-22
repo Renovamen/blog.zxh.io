@@ -5,3 +5,9 @@ p.desc {
   font-size: 14px;
   margin-top: -20px !important;
 }
+
+.theme-gungnir-content:not(.custom) video {
+  max-width: 100%;
+  margin: 1.5em auto 1.6em auto;
+  display: block;
+}

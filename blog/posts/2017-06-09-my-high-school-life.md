@@ -6,7 +6,7 @@ author: Renovamen
 date: 2017-06-09
 useHeaderImage: true
 headerImage: /img/in-post/2017-06-09/header.jpeg
-headerMask: rgb(67,65,47, .2)
+headerMask: rgb(14, 21, 5, .2)
 permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - 摸鱼

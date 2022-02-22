@@ -56,7 +56,7 @@ module.exports = {
       sns: {
         github: "Renovamen",
         linkedin: "xiaohan-zou",
-        facebook: "renovamen.zou",
+        // facebook: "renovamen.zou",
         twitter: "renovamen_zxh",
         zhihu: "chao-neng-gui-su",
         email: "renovamenzxh@gmail.com",
