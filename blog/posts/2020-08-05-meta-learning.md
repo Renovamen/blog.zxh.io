@@ -5,7 +5,6 @@ subtitle: 'Meta Learning: Learning to Learn'
 author: Renovamen
 date: 2020-08-05
 headerImage: /img/in-post/2020-08-05/header.jpg
-catalog: true
 permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Meta Learning

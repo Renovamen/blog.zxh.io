@@ -7,7 +7,6 @@ date: 2022-01-29
 useHeaderImage: true
 headerImage: /img/in-post/2022-01-29/header.jpeg
 headerMask: rgb(65, 48, 30, .2)
-catalog: true
 permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - 摸鱼
@@ -420,8 +419,6 @@ BU 5xx 和 6xx 的课都是 graduate level 的课程，但 6xx 只要研究生�
 所以我还是睡了几天地板。我去超市买了一块最便宜的像毯子的东西，还挺厚的，很适合铺地上睡觉。在被子到之前只能调高暖气盖着衣服睡。这样睡了几天我觉得睡地板还不错，~~好像没有床也行~~。
 
 然后去超市买了一些生活必需品。一些中国特色的东西如酱醋老干妈饺子包子等需要去 Super88 买，Super88 离我住的地方还挺远的得坐绿线。去了两趟后发现可以网购，遂没再去过。
-
-然后就还没有买过什么别的东西了。
 
 
 ## 吃

@@ -5,7 +5,6 @@ subtitle: EWC / Online EWC / IS / MAS ...
 author: Renovamen
 date: 2020-08-24
 headerImage: /img/in-post/2020-08-24/header.jpg
-catalog: true
 permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Deep Learning

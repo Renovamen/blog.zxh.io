@@ -5,7 +5,6 @@ subtitle: "万恶的贝叶斯嗷，真的学得会吗"
 author: Renovamen
 date: 2020-08-16
 headerImage: /img/in-post/2020-08-16/header.png
-catalog: true
 permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Machine Learning

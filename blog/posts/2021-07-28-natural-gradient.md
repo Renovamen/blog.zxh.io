@@ -5,7 +5,6 @@ subtitle: Natural Gradient Decent
 author: Renovamen
 date: 2021-07-28
 headerImage: /img/in-post/2021-07-28/header.jpeg
-catalog: true
 permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Machine Learning

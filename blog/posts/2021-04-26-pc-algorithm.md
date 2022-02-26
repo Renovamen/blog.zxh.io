@@ -6,7 +6,6 @@ author: Renovamen
 date: 2021-04-26
 headerImage: /img/in-post/2021-04-26/header.jpg
 useHeaderImage: true
-catalog: true
 permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Machine Learning

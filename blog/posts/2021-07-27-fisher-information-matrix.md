@@ -5,7 +5,6 @@ subtitle: Fisher Information Matrix
 author: Renovamen
 date: 2021-07-27
 headerImage: /img/in-post/2021-07-27/header.jpeg
-catalog: true
 permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Machine Learning

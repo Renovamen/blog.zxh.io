@@ -5,7 +5,6 @@ subtitle: Self-Attentions and Convolutions
 author: Renovamen
 date: 2021-08-31
 headerImage: /img/in-post/2021-08-31/header.jpg
-catalog: true
 permalinkPattern: /post/:year/:month/:day/:slug/
 tags:
   - Deep Learning
