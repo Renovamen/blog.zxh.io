@@ -972,10 +972,10 @@
     markdown-it-footnote "^3.0.3"
     markdown-it-mark "^3.0.1"
 
-"@renovamen/vuepress-plugin-mermaid@2.0.0-alpha.15":
-  version "2.0.0-alpha.15"
-  resolved "https://registry.yarnpkg.com/@renovamen/vuepress-plugin-mermaid/-/vuepress-plugin-mermaid-2.0.0-alpha.15.tgz#e55887332f2850731cb0f3e97b24111e72977a11"
-  integrity sha512-aRMzklXUcZ8wDTBq0EKL/0fA8RxzDiAt/EUyUDKFFUkU/XbtUc6d/ivOyqWqlZX53XzN4hgPeONUFMaqcpFT0A==
+"@renovamen/vuepress-plugin-mermaid@2.0.0-alpha.16":
+  version "2.0.0-alpha.16"
+  resolved "https://registry.yarnpkg.com/@renovamen/vuepress-plugin-mermaid/-/vuepress-plugin-mermaid-2.0.0-alpha.16.tgz#c043fa5eb1e0e33a83523bc3ae60fe226f4df24d"
+  integrity sha512-zVH2Wz56mHrrJc0Hk5Dg4lfOA05TL1VLs7yCnptHwR1EXjIbX+lZUSLtV2M2/Hx7ASAPelbrBFg54YuDB64huw==
   dependencies:
     mermaid "^8.14.0"
 
@@ -2230,6 +2230,11 @@ chalk@^4.1.0, chalk@^4.1.2:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chart.js@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.7.1.tgz#0516f690c6a8680c6c707e31a4c1807a6f400ada"
+  integrity sha512-8knRegQLFnPQAheZV8MjxIXc5gQEfDFD897BJgv/klO/vtIyFFmgMXrNfgrXpbTr/XbTturxRgxIXx/Y+ASJBA==
 
 "chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.2, chokidar@^3.5.3:
   version "3.5.3"
@@ -5996,25 +6001,34 @@ vue@^3.2.24, vue@^3.2.28, vue@^3.2.31:
     "@vue/server-renderer" "3.2.31"
     "@vue/shared" "3.2.31"
 
+vuepress-plugin-chart@2.0.0-alpha.16:
+  version "2.0.0-alpha.16"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-chart/-/vuepress-plugin-chart-2.0.0-alpha.16.tgz#f2402f1097cf0eb876c24b55c2fb3673123e590b"
+  integrity sha512-5Ngx5TDbg0yrAVYvQBUaKboeqOQizDemmiEi/s9xO2XLsnnJlxyEP2aXvEkgiJ9XPA7xM5W4cR8YYL+6jtJuSw==
+  dependencies:
+    chart.js "^3.7.1"
+
 vuepress-plugin-code-enhance@2.0.0-alpha.10:
   version "2.0.0-alpha.10"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-code-enhance/-/vuepress-plugin-code-enhance-2.0.0-alpha.10.tgz#a39a04798826e3a32ff8d8dc16d9306ab38e1f65"
   integrity sha512-ybib9fOIzEmy1AqmjQ2m/iZKvz/QB35y/SRu2c+GMVGINRLmxMkC0wWuZMYs1/0dRqtqMEaL6vHO/765x5Du9A==
 
-vuepress-plugin-giscus@2.0.0-alpha.10:
-  version "2.0.0-alpha.10"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-giscus/-/vuepress-plugin-giscus-2.0.0-alpha.10.tgz#87e65f0037b10210e4365883c21296e734902492"
-  integrity sha512-kGdJUVEzIGMcQ/Sg6rQEpXwrDEplJXND7uZPWYgFvubwXvVijR1QZTe4dPf8PY06UK6VIwrJ1kgpJ0rsPwj5Zw==
+vuepress-plugin-giscus@2.0.0-alpha.16:
+  version "2.0.0-alpha.16"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-giscus/-/vuepress-plugin-giscus-2.0.0-alpha.16.tgz#3ddcb52d4a281041bc2a1057d84bab7c1543c5fc"
+  integrity sha512-Hgm0/kIkygnMlei77lrs7ZzitSoCCsYBjALaidBKJWqHOjyeDt2ISjz+wEU52EfMcgqY9MX/ZyGP5TxFibHsEg==
+  dependencies:
+    "@vuepress/client" "2.0.0-beta.35"
 
-vuepress-theme-gungnir@2.0.0-alpha.15:
-  version "2.0.0-alpha.15"
-  resolved "https://registry.yarnpkg.com/vuepress-theme-gungnir/-/vuepress-theme-gungnir-2.0.0-alpha.15.tgz#dd7d749b1bc9d8552e69b1534c32943dda199d56"
-  integrity sha512-4KzSlkWrWDm1kbhUfGwUS8APm6dYmwQ5/if932pgNx0rZhk+llZuJ468pMmKBCKYi7PRIHDui4cdhmtGRl7SpA==
+vuepress-theme-gungnir@2.0.0-alpha.16:
+  version "2.0.0-alpha.16"
+  resolved "https://registry.yarnpkg.com/vuepress-theme-gungnir/-/vuepress-theme-gungnir-2.0.0-alpha.16.tgz#f9629f7895f70d37efa26c30836994353eb45442"
+  integrity sha512-zLzepyGeYU/iLS6ccUGpYjI04nF1PVssfXZl18jkHRpQPhdi4cT/+KxlJaPO/Z3IwGf1WKeP9QXFezY3nkgnzw==
   dependencies:
     "@renovamen/vuepress-plugin-baidu-tongji" "2.0.0-alpha.15"
     "@renovamen/vuepress-plugin-katex" "2.0.0-alpha.15"
     "@renovamen/vuepress-plugin-md-plus" "2.0.0-alpha.5"
-    "@renovamen/vuepress-plugin-mermaid" "2.0.0-alpha.15"
+    "@renovamen/vuepress-plugin-mermaid" "2.0.0-alpha.16"
     "@renovamen/vuepress-plugin-reading-time" "2.0.0-alpha.10"
     "@renovamen/vuepress-plugin-rss" "2.0.0-alpha.9"
     "@renovamen/vuepress-plugin-search" "2.0.0-alpha.15"
@@ -6039,8 +6053,9 @@ vuepress-theme-gungnir@2.0.0-alpha.15:
     sass-loader "^12.6.0"
     vue "^3.2.31"
     vue-router "^4.0.12"
+    vuepress-plugin-chart "2.0.0-alpha.16"
     vuepress-plugin-code-enhance "2.0.0-alpha.10"
-    vuepress-plugin-giscus "2.0.0-alpha.10"
+    vuepress-plugin-giscus "2.0.0-alpha.16"
 
 vuepress-vite@2.0.0-beta.35:
   version "2.0.0-beta.35"
