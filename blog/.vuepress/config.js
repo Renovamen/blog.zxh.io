@@ -114,7 +114,8 @@ module.exports = {
         repo: "This-is-an-Apple/blog-giscus-comments",
         repoId: "R_kgDOGl2SjQ",
         category: "Announcements",
-        categoryId: "DIC_kwDOGl2Sjc4CAcxK"
+        categoryId: "DIC_kwDOGl2Sjc4CAcxK",
+        darkTheme: "https://zxh.io/giscus/dark.css"
       },
       mdPlus: {
         all: true
@@ -154,10 +155,6 @@ module.exports = {
         icon: "oi-rocket"
       }
     ],
-
-    sidebar: {
-
-    },
 
     footer: `
       &copy; <a href="https://github.com/Renovamen" target="_blank">Renovamen</a> 2018-2022
