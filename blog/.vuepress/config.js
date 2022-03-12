@@ -115,7 +115,7 @@ module.exports = {
         repoId: "R_kgDOGl2SjQ",
         category: "Announcements",
         categoryId: "DIC_kwDOGl2Sjc4CAcxK",
-        darkTheme: "https://zxh.io/giscus/dark.css"
+        darkTheme: "https://zxh.io/styles/giscus-dark.css"
       },
       mdPlus: {
         all: true
