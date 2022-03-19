@@ -11,12 +11,11 @@
     "serve": "anywhere -h localhost -d dist"
   },
   "dependencies": {
-    "vuepress-theme-gungnir": "2.0.0-alpha.17"
+    "vuepress-theme-gungnir": "2.0.0-alpha.18"
   },
   "devDependencies": {
     "anywhere": "^1.5.0",
     "rimraf": "^3.0.2",
-    "vuepress": "^2.0.0-beta.36",
-    "vuepress-vite": "2.0.0-beta.36"
+    "vuepress": "^2.0.0-beta.36"
   }
 }
