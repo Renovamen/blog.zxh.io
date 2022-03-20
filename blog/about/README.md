@@ -5,21 +5,19 @@ avatar: /img/avatar.jpg
 name: Xiaohan Zou
 subname: 邹笑寒
 cv: /files/cv/en/brief.pdf
-
-interests:
-  - Continual Learning
-  - Meta-Learning
-  - Vision-Language Learning
-  - <s>Sleeping and Eating</s>
-
-education:
-  - degree: M.S. in Computer Science
-    year: 2023
-    school: Boston University
-  - degree: B.Eng. in Software Engineering
-    year: 2020
-    school: Tongji University
 ---
+
+Xiaohan is currently a ~~dragon lost in human world~~ [Computer Science](https://www.bu.edu/cs/) master's student at [Boston University](https://www.bu.edu/) and a machine learning engineer intern at [Kuaishou](https://www.kuaishou.com/). Prior to that, she received her bachelor's degree in [Software Engineering](http://sse.tongji.edu.cn/) at [Tongji University](https://www.tongji.edu.cn/), where she worked with [Prof. Qinpei Zhao](http://sse.tongji.edu.cn/zhaoqinpei) for her undergraduate thesis. She has also luckily worked in [Peking University](https://english.pku.edu.cn/) as a research intern with [Prof. Tong Lin](http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm).
+
+Her current research interests lie primarily in topics related to exploring the capability of machines to be continual, generalizable and data-efficient, like continual learning, meta-learning and few-shot learning. She is also working on vision-language learning and video understanding for her internship.
+
+
+## Education
+
+|   |   |
+|---|---|
+| **M.S. in Computer Science**, Boston University | 2021-2023 |
+| **B.Eng. in Software Engineering**, Tongji University <p style="margin-top: 5px">Thesis: *Food Image Aesthetic Assessment and Captioning*</p> <p>Advisor: [Prof. Qinpei Zhao](http://sse.tongji.edu.cn/zhaoqinpei)</p> | 2016-2020 |
 
 
 ## Publications
@@ -40,7 +38,9 @@ education:
 
   **Xiaohan Zou**, Cheng Lin, Yinjia Zhang, and Qinpei Zhao
 
-  International Conference on Tools with Artificial Intelligence **(ICTAI)**, 2020 **(Oral)**
+  International Conference on Tools with Artificial Intelligence **(ICTAI)**, 2020 
+  
+  **Oral Presentation**
 
   [[Paper]](https://ieeexplore.ieee.org/document/9288208) [[Code]](https://github.com/Renovamen/Food-IAC) [[Slide]](/files/papers/ictai2020/food-iac-slide.pdf)
 
@@ -55,11 +55,13 @@ education:
 
 ## Experience
 
-- 07/2021 – Present: Machine Learning Engineer Intern, [Kuaishou](https://www.kuaishou.com/en), Beijing
-- 10/2020 – 06/2021: Software Engineer Intern, China Electronics Technology Group Corporation, Chongqing
-- 08/2020 – Present: Research Intern, [Peking University](https://english.pku.edu.cn/), Beijing
-- 10/2019 – 05/2020: Game Engineer Intern, [Banana Interactive](https://banana.games/), Shanghai
-- 07/2018 – 08/2018: Research Intern, [Peking University](https://english.pku.edu.cn/), Beijing
+|   |   |
+|---|---|
+| **Machine Learning Engineer Intern**, *[Kuaishou](https://www.kuaishou.com/en)*, Beijing | 2021–Present |
+| **Research Intern**, *[Peking University](https://english.pku.edu.cn/)*, Beijing (with [Prof. Tong Lin](http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm)) | 2020–2022 |
+| **Software Engineer Intern**, *China Electronics Technology Group Corporation*, Chongqing | 2020–2021 |
+| **Game Engineer Intern**, *[Banana Interactive](https://banana.games/)*, Shanghai | 2019–2020 |
+| **Research Intern**, *[Peking University](https://english.pku.edu.cn/)*, Beijing (with [Prof. Tong Lin](http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm)) | 2018 |
 
 
 ## Open-Source Projects
@@ -107,15 +109,11 @@ education:
 
 ## Miscellaneous
 
-- 🔍 I'm actively seeking research opportunities for Spring & Summer 2022
-
-- 🚀 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress 2](https://v2.vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/) and [Vercel](https://vercel.com)
-
-- 🧐 My full version of Curriculum Vitae can be found [here](/files/cv/en/full.pdf)
+- 🚀 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress 2](https://v2.vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/)
 
 - 🕹️ Here are two "interesting" versions of my portfolio/cv: [portfolio.zxh.io](https://portfolio.zxh.io/) & [resume.zxh.io](https://resume.zxh.io/)
 
-- 🎃 *Renovamen* is an Latin word means *renewal*
+- 🎃 *Renovamen* is a Latin word means *renewal*
 
 - 🖥 Ex-OIer/ACMer
 
@@ -126,3 +124,5 @@ education:
 - 🌭 My dream: `while(sleeping){money++;}`
 
 - 🎃 Currently interested in constructing buildings in Minecraft
+
+- 🦖 在中文社交平台上的 ID 有较大可能为“西伯利亚大恶龙”
