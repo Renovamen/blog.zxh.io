@@ -28,6 +28,10 @@ links:
         url: https://v2-vuepress-theme-gungnir.vercel.app/
         img: /img/links/gungnir.svg
         desc: VuePress 1/2 主题
+      - sitename: Oh, Resume!
+        url: https://oh-resume.zxh.io
+        img: /img/links/resume.jpg
+        desc: 用 Markdown 写简历
       - sitename: Wordle Helper
         url: https://wordle.zxh.io
         img: /img/links/wordle.jpg

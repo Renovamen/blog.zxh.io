@@ -46,7 +46,7 @@ module.exports = {
     docsDir: "blog",
     docsBranch: "master",
 
-    hitokoto: "https://v1.hitokoto.cn?c=d&c=i", // enable hitokoto (一言) or not?
+    hitokoto: "https://v1.hitokoto.cn?c=i", // enable hitokoto (一言) or not?
 
     // personal information
     personalInfo: {
@@ -125,7 +125,8 @@ module.exports = {
       rss: {
         siteURL: "https://zxh.io",
         copyright: "Renovamen 2018-2022"
-      }
+      },
+      pwa: false
     },
 
     navbar: [

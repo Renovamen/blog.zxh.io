@@ -22,15 +22,15 @@ Her current research interests lie primarily in topics related to exploring the 
 
 ## Publications
 
-- **Efficient Meta-Learning for Continual Learning with Taylor Expansion Approximation**
+- **TokenFlow: Rethinking Fine-grained Cross-modal Alignment in Vision-Language Retrieval**
 
-  **Xiaohan Zou**, and Tong Lin
+  **Xiaohan Zou**, Changqiao Wu, Lele Cheng, and Zhongyuan Wang
 
   In submission, 2022
 
-- **Rethinking Fine-grained Semantic Alignment in Video-Text Retrieval**
+- **Efficient Meta-Learning for Continual Learning with Taylor Expansion Approximation**
 
-  **Xiaohan Zou**, Changqiao Wu, Lele Cheng, and Zhongyuan Wang
+  **Xiaohan Zou**, and Tong Lin
 
   In submission, 2022
 
@@ -89,9 +89,11 @@ Her current research interests lie primarily in topics related to exploring the 
 
 - [playground-macos](https://github.com/Renovamen/playground-macos): My portfolio website simulating macOS's GUI, developed with React and Tailwind CSS (2.5k+ stars)
 
+- [vuepress-theme-gungnir](https://github.com/Renovamen/vuepress-theme-gungnir): A blog theme for VuePress 2 (150+ stars)
+
 - [oh-vue-icons](https://github.com/Renovamen/oh-vue-icons): A Vue component for importing inline SVG icons from different popular icon packs easily (100+ stars)
 
-- [vuepress-theme-gungnir](https://github.com/Renovamen/vuepress-theme-gungnir): A blog theme for VuePress 2 (150+ stars)
+- [oh-resume](https://github.com/Renovamen/oh-resume): Write your resume in Markdown online
 
 - [midgard](https://github.com/Renovamen/midgard): Hey adventurer! Why not help me with retrieving my resume fragments back!
 
