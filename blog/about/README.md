@@ -57,7 +57,7 @@ Her current research interests lie primarily in topics related to exploring the 
 
 |   |   |
 |---|---|
-| **Machine Learning Engineer Intern**, *[Kuaishou](https://www.kuaishou.com/en)*, Beijing | 2021–Present |
+| **Machine Learning Engineer Intern**, *[Kuaishou](https://www.kuaishou.com/en)*, Beijing | 2021–2022 |
 | **Research Intern**, *[Peking University](https://english.pku.edu.cn/)*, Beijing (with [Prof. Tong Lin](http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm)) | 2020–2022 |
 | **Software Engineer Intern**, *China Electronics Technology Group Corporation*, Chongqing | 2020–2021 |
 | **Game Engineer Intern**, *[Banana Interactive](https://banana.games/)*, Shanghai | 2019–2020 |
@@ -113,6 +113,8 @@ Her current research interests lie primarily in topics related to exploring the 
 
 - 🚀 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress 2](https://v2.vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/)
 
+- 🧐 My complete curriculum vitae can be found [here](/files/cv/en/full.pdf)
+
 - 🕹️ Here are two "interesting" versions of my portfolio/cv: [portfolio.zxh.io](https://portfolio.zxh.io/) & [resume.zxh.io](https://resume.zxh.io/)
 
 - 🎃 *Renovamen* is a Latin word means *renewal*
@@ -121,7 +123,7 @@ Her current research interests lie primarily in topics related to exploring the 
 
 - 🛠 Like to contribute to open-source machine learning and frontend projects in spare time
 
-- 🥎 Used to be a member of the softball team and the vice president of the baseball and softball association (Jiading branch) of Tongji University
+- 🥎 Used to be a member of the softball team and the vice president of the baseball and softball association of Tongji University (Jiading campus)
 
 - 🌭 My dream: `while(sleeping){money++;}`
 

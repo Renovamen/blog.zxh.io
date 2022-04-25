@@ -1,4 +1,4 @@
-name: build and deploy VuePress to GitHub Pages automatically
+name: build-and-deploy
 
 on:
   push:
@@ -7,39 +7,30 @@ on:
     branches: [ master ]
 
 jobs:
-  build-and-deploy-vuepress:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
+    env:
+      NODE_VERSION: '16'
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      # Setup Node.js
-      - name: Setup Node
-        uses: actions/setup-node@v2.1.2
+      - uses: actions/checkout@v3
         with:
-          node-version: '12'
+          fetch-depth: 0
 
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
 
-      # Build VuePress
-      - name: Build
-        run: |
-          yarn install --frozen-lockfile
-          yarn build
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
 
-      # Push it to gh-pahes
+      - name: Build site
+        run: yarn build
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

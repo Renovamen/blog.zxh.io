@@ -125,8 +125,7 @@ module.exports = {
       rss: {
         siteURL: "https://zxh.io",
         copyright: "Renovamen 2018-2022"
-      },
-      pwa: false
+      }
     },
 
     navbar: [

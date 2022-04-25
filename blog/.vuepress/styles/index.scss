@@ -5,3 +5,27 @@ p.desc {
   font-size: 14px;
   margin-top: -20px !important;
 }
+
+:not(pre) > code {
+  font-family: "ui-monospace", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation-Mono", "Courier-New", monospace;
+  font-size: 0.875em;
+  font-weight: 600;
+  color: var(--c-text);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+:not(pre) > code::before,
+:not(pre) > code::after {
+  content: "`";
+}
+
+p a code {
+  font-weight: 600;
+}
+
+p a code::before,
+p a code::after {
+  color: var(--c-text);
+}
