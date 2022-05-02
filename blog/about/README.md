@@ -32,7 +32,7 @@ Her current research interests lie primarily in topics related to exploring the 
 
   **Xiaohan Zou**, and Tong Lin
 
-  In submission, 2022
+  International Joint Conference on Neural Networks **(IJCNN)**, 2022
 
 - **To be an Artist: Automatic Generation on Food Image Aesthetic Captioning**
 
