@@ -7,9 +7,9 @@ subname: 邹笑寒
 cv: /files/cv/en/brief.pdf
 ---
 
-Xiaohan is currently a ~~dragon lost in human world~~ [Computer Science](https://www.bu.edu/cs/) master's student at [Boston University](https://www.bu.edu/) and a machine learning engineer intern at [Kuaishou](https://www.kuaishou.com/). Prior to that, she received her bachelor's degree in [Software Engineering](http://sse.tongji.edu.cn/) at [Tongji University](https://www.tongji.edu.cn/), where she worked with [Prof. Qinpei Zhao](http://sse.tongji.edu.cn/zhaoqinpei) for her undergraduate thesis. She has also luckily worked in [Peking University](https://english.pku.edu.cn/) as a research intern with [Prof. Tong Lin](http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm).
+Xiaohan is currently a ~~dragon lost in human world~~ [Computer Science](https://www.bu.edu/cs/) master's student at [Boston University](https://www.bu.edu/). Prior to that, she received her bachelor's degree in [Software Engineering](http://sse.tongji.edu.cn/) at [Tongji University](https://www.tongji.edu.cn/), where she worked with [Prof. Qinpei Zhao](http://sse.tongji.edu.cn/zhaoqinpei) for her undergraduate thesis. She has also luckily worked in [Peking University](https://english.pku.edu.cn/) as a research intern with [Prof. Tong Lin](http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm).
 
-Her current research interests lie primarily in topics related to exploring the capability of machines to be continual, generalizable and data-efficient, like continual learning, meta-learning and few-shot learning. She is also working on vision-language learning and video understanding for her internship.
+Her current research interests lie primarily in topics related to exploring the capability of machines to be continual, generalizable and data-efficient, like continual learning, meta-learning and few-shot learning. She also has experience in vision-language learning and video understanding.
 
 
 ## Education
@@ -93,7 +93,7 @@ Her current research interests lie primarily in topics related to exploring the 
 
 - [oh-vue-icons](https://github.com/Renovamen/oh-vue-icons): A Vue component for importing inline SVG icons from different popular icon packs easily (100+ stars)
 
-- [oh-resume](https://github.com/Renovamen/oh-resume): Write your resume in Markdown online
+- [oh-cv](https://github.com/Renovamen/oh-cv): Write your curriculum vitae / resume in Markdown online
 
 - [midgard](https://github.com/Renovamen/midgard): Hey adventurer! Why not help me with retrieving my resume fragments back!
 
