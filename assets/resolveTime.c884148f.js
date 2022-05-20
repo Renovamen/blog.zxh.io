@@ -1,0 +1,1 @@
+const r=t=>{const e=new Date(t).toJSON();return new Date(+new Date(e)+8*3600*1e3).toISOString().replace(/T/g," ").replace(/\.[\d]{3}Z/,"").split(" ")[0]},s=(t,e)=>{const n=r(t).replace(/-/g,"/"),a=new Date(n);return{year:a.getFullYear(),month:a.getMonth()+1,day:a.getDate()}[e].toString()};export{r as f,s as r};
