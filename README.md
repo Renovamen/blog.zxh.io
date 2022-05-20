@@ -20,19 +20,19 @@ Any way, just have fun with this blog: https://zxh.io
 Clone the repo and install dependencies:
 
 ```bash
-yarn
+pnpm i
 ```
 
 Start developing the site:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Build for production with minification:
 
 ```bash
-yarn build
+pnpm build
 ```
 
 

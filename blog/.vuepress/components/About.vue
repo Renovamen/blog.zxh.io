@@ -3,11 +3,11 @@
     <template #page>
       <div class="about-profile">
         <div class="about-avatar">
-          <img :src="$withBase(pageData.frontmatter.avatar)" />
+          <img :src="$withBase(frontmatter.avatar)" />
         </div>
         <div class="about-info">
-          <h1 class="name">{{ pageData.frontmatter.name }}</h1>
-          <p class="subname">{{ pageData.frontmatter.subname }}</p>
+          <h1 class="name">{{ frontmatter.name }}</h1>
+          <p class="subname">{{ frontmatter.subname }}</p>
           <div class="sns">
             <div
               v-for="(link, platform) in LINKS"
@@ -18,8 +18,8 @@
                 <v-icon :name="snsIcon(platform)" scale="1.82" />
               </a>
             </div>
-            <div v-if="pageData.frontmatter.cv" class="sns-item">
-              <a :href="pageData.frontmatter.cv">
+            <div v-if="frontmatter.cv" class="sns-item">
+              <a :href="frontmatter.cv">
                 <v-icon name="ai-cv" scale="2" />
               </a>
             </div>
@@ -35,8 +35,10 @@
 </template>
 
 <script setup>
-import { pageData } from "@vuepress/client";
+import { usePageFrontmatter } from "@vuepress/client";
 import Common from "vuepress-theme-gungnir/lib/client/components/Common.vue";
+
+const frontmatter = usePageFrontmatter();
 
 const LINKS = {
   github: "https://github.com/Renovamen",

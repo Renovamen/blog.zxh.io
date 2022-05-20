@@ -1,3 +1,6 @@
+const { viteBundler } = require("@vuepress/bundler-vite");
+const { gungnirTheme } = require("vuepress-theme-gungnir");
+
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
@@ -37,11 +40,9 @@ module.exports = {
     ["meta", { name: "msapplication-TileColor", content: "#377bb5" }]
   ],
 
-  bundler: "@vuepress/vite",
+  bundler: viteBundler(),
 
-  theme: "vuepress-theme-gungnir",
-
-  themeConfig: {
+  theme: gungnirTheme({
     repo: "Renovamen/renovamen.github.io",
     docsDir: "blog",
     docsBranch: "master",
@@ -162,7 +163,7 @@ module.exports = {
       Powered by <a href="https://v2.vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
     `
-  },
+  }),
 
   markdown: {
     extractHeaders: {

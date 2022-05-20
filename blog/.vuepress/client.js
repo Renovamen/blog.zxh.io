@@ -1,4 +1,4 @@
-import { defineClientAppEnhance } from "@vuepress/client";
+import { defineClientConfig } from "@vuepress/client";
 import { addIcons } from "oh-vue-icons";
 import {
   FaFortAwesome,
@@ -35,6 +35,8 @@ addIcons(
   AiGoogleScholarSquare
 );
 
-export default defineClientAppEnhance(({ app }) => {
-  app.component("About", About);
+export default defineClientConfig({
+  enhance({ app }) {
+    app.component("About", About);
+  }
 });

@@ -30,7 +30,7 @@ links:
         desc: VuePress 1/2 主题
       - sitename: Oh, CV!
         url: https://ohcv.zxh.io
-        img: /img/links/resume.jpg
+        img: /img/links/ohcv.svg
         desc: 用 Markdown 写简历
       - sitename: Wordle Helper
         url: https://wordle.zxh.io
