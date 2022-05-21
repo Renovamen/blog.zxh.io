@@ -43,7 +43,7 @@ module.exports = {
   bundler: viteBundler(),
 
   theme: gungnirTheme({
-    repo: "Renovamen/renovamen.github.io",
+    repo: "Renovamen/blog.zxh.io",
     docsDir: "blog",
     docsBranch: "master",
 
@@ -116,7 +116,7 @@ module.exports = {
         repoId: "R_kgDOGl2SjQ",
         category: "Announcements",
         categoryId: "DIC_kwDOGl2Sjc4CAcxK",
-        darkTheme: "https://zxh.io/styles/giscus-dark.css"
+        darkTheme: "https://blog.zxh.io/styles/giscus-dark.css"
       },
       mdPlus: {
         all: true
@@ -124,7 +124,7 @@ module.exports = {
       ga: "G-HCQSX53XFG",
       ba: "75381d210789d3eaf855fa16246860cc",
       rss: {
-        siteURL: "https://zxh.io",
+        siteURL: "https://blog.zxh.io",
         copyright: "Renovamen 2018-2022"
       }
     },
@@ -137,7 +137,7 @@ module.exports = {
       },
       {
         text: "About",
-        link: "/about/",
+        link: "https://zxh.io",
         icon: "fa-paw"
       },
       {

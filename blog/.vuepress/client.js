@@ -16,7 +16,6 @@ import {
   AiCv,
   AiGoogleScholarSquare
 } from "oh-vue-icons/icons";
-import About from "./components/About.vue"
 
 addIcons(
   FaFortAwesome,
@@ -35,8 +34,4 @@ addIcons(
   AiGoogleScholarSquare
 );
 
-export default defineClientConfig({
-  enhance({ app }) {
-    app.component("About", About);
-  }
-});
+export default defineClientConfig({});
