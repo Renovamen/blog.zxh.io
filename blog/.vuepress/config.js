@@ -136,11 +136,6 @@ module.exports = {
         icon: "fa-fort-awesome"
       },
       {
-        text: "About",
-        link: "https://zxh.io",
-        icon: "fa-paw"
-      },
-      {
         text: "Tags",
         link: "/tags/",
         icon: "fa-tag"
@@ -149,6 +144,11 @@ module.exports = {
         text: "Links",
         link: "/links/",
         icon: "fa-satellite-dish"
+      },
+      {
+        text: "About",
+        link: "https://zxh.io",
+        icon: "fa-paw"
       },
       {
         text: "Portfolio",

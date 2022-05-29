@@ -1,26 +1,23 @@
 {
   "name": "renovamen-blog",
   "private": true,
-  "description": "Renovamen's blog, powered by VuePress 2, themed by Gungnir.",
-  "license": "Apache-2.0",
-  "author": "Renovamen <renovamenzxh@gmail.com>",
   "scripts": {
     "clean": "rimraf blog/.vuepress/.temp blog/.vuepress/.cache dist",
     "dev": "vuepress-cli dev blog --clean-cache",
     "build": "pnpm clean && vuepress-cli build blog --clean-cache",
-    "serve": "anywhere -s -h localhost -d blog/.vuepress/dist"
+    "serve": "serve blog/.vuepress/dist"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-beta.45",
-    "@vuepress/cli": "2.0.0-beta.45",
-    "@vuepress/client": "2.0.0-beta.45",
-    "anywhere": "^1.6.0",
+    "@vuepress/bundler-vite": "2.0.0-beta.46",
+    "@vuepress/cli": "2.0.0-beta.46",
+    "@vuepress/client": "2.0.0-beta.46",
     "oh-vue-icons": "^1.0.0-rc3",
-    "sass-loader": "^12.6.0",
+    "sass-loader": "^13.0.0",
+    "serve": "^13.0.2",
     "rimraf": "^3.0.2",
-    "vue": "^3.2.33",
-    "vuepress": "2.0.0-beta.45",
-    "vuepress-theme-gungnir": "2.0.0-alpha.23"
+    "vue": "^3.2.36",
+    "vuepress": "2.0.0-beta.46",
+    "vuepress-theme-gungnir": "2.0.0-alpha.24"
   },
   "engines": {
     "node": ">=14",
