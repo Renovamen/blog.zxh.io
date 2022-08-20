@@ -1,9 +1,10 @@
-const { viteBundler } = require("@vuepress/bundler-vite");
-const { gungnirTheme } = require("vuepress-theme-gungnir");
+import { viteBundler } from "@vuepress/bundler-vite";
+import { defineUserConfig } from "vuepress";
+import { gungnirTheme } from "vuepress-theme-gungnir";
 
 const isProd = process.env.NODE_ENV === "production";
 
-module.exports = {
+export default defineUserConfig({
   title: "Xiaohan Zou",
   description: "Xiaohan Zou (Renovamen) is a dragon lost in human world.",
 
@@ -166,11 +167,11 @@ module.exports = {
   }),
 
   markdown: {
-    extractHeaders: {
+    headers: {
       level: [2, 3, 4, 5]
     },
     code: {
       lineNumbers: false
     }
   }
-};
+});
